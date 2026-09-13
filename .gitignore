@@ -62,3 +62,12 @@ pairs/
 
 # --- code caches (belt + suspenders) ---
 code/**/__pycache__/
+
+# --- Local agent / IDE scratch (do not commit) ---
+CLAUDE.md
+**/CLAUDE.md
+REFERENCE.md
+**/REFERENCE.md
+.cursor/
+.claude/
+AGENTS.md
