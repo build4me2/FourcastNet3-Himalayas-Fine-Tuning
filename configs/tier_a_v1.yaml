@@ -1,0 +1,121 @@
+# Tier-A v1-reg — larger elev-conditioned residual on frozen FCN3 (RRCA-FD Plan A)
+# Leonard TIER_A_V1_SKETCH_CALL.md: implement v1-reg FIRST. NO diffusion in this cut.
+# FCN3 weights FROZEN. Do NOT overwrite v0/, v0_1/, G0 verifying, tier0_holdout.
+# provisional_years=true; claim_level=interim_era5; g1_claimable=false
+
+schema: tier_a_v1_results/v1
+method: RRCA-FD_Plan_A_frozen_fcn3_residual
+tier: A
+variant: v1_reg_elev_cond_residual
+cut: v1-reg
+diffusion: false
+artifact_stem: tier_a_v1
+
+locks:
+  geo_box_frozen: true
+  years_frozen: true          # PROVISIONAL — Manisha hard-lock TBD
+  provisional_years: true
+  year_split_frozen: true
+  precip_in_v1: false
+  target: ERA5_interim
+  claim_level: interim_era5
+  g1_claimable: false
+  fcn3_weights: FROZEN
+  freeze_tier_a_v0: true
+  freeze_tier_a_v0_1: true
+  no_diffusion: true
+  no_fcn3_weight_ft: true
+  overwrite_forbidden:
+    - runs/phase0/g0/g0_verifying_results.json
+    - runs/phase0/tier0_holdout/
+    - runs/phase0/tier_a/v0/
+    - runs/phase0/tier_a/v0_1/
+
+# Frozen beat-this + NEW hard +120h rule (echo verbatim in result JSON)
+beat_this:
+  val_t2m_pooled_rmse_lin_strict_lt: 1.948661
+  val_headline_lt: 1.949
+  test_t2m_pooled_rmse_lin_strict_lt: 1.850338
+  # exact raw val +120h from holdout/v0.1 JSON — do not beat a softer number
+  val_120h_t2m_rmse_raw_le: 2.219970831929039
+  val_120h_rule: "val +120h t2m RMSE <= raw (2.219971 K); hard gate for v1-reg; v0/v0.1 grandfathered"
+  source: runs/phase0/tier0_holdout/tier0_holdout_metrics.json
+  call: docs/research/TIER_A_V1_SKETCH_CALL.md
+  note: "val-only win = FAIL; +120h regress vs raw = FAIL v1-reg"
+  g0_adapter:
+    baseline: runs/phase0/g0/g0_verifying_results.json
+    rule: "≤~5% CRPS degrade midlat @ +15 d; PSD/SSR floors"
+    tier_a_status: not_applicable_fcn3_frozen
+
+year_split:
+  train: "2018-2021"
+  val: "2022"
+  test: "2023-2024"
+  train_ids: [ic01, ic02, ic03, ic04, ic05, ic06, ic07, ic08]
+  val_ids: [ic09, ic10, ic11, ic12]
+  test_ids: [ic13, ic14, ic15, ic16]
+
+region:
+  lat_lon_box: {lon_west: 80.0, lon_east: 89.0, lat_south: 26.0, lat_north: 31.0}
+
+data:
+  pairs_dir: ~/fourcastnet/runs/phase0/tier0_holdout/pairs
+  ic_manifest: ~/fourcastnet/data/tier0_ics/tier0_ic_manifest.json
+  elevation_mask: ~/fourcastnet/data/masks/w_R_elevation.nc
+  holdout_metrics: ~/fourcastnet/runs/phase0/tier0_holdout/tier0_holdout_metrics.json
+  g0_verifying: ~/fourcastnet/runs/phase0/g0/g0_verifying_results.json
+
+variables_in: [t2m, u10m, v10m]
+variables_out: [t2m, u10m, v10m]
+leads_h: [24, 72, 120]
+
+# Larger than v0/v0.1 TinyElevResidualUNet (base=16, depth=2, ~35k).
+# PhysicsNeMo stock UNet is 3D — not used. 2D ElevCondResidualUNet + FiLM.
+model:
+  name: ElevCondResidualUNet
+  in_channels: 5   # pred_t2m, pred_u10m, pred_v10m, elev_norm, lead_norm
+  out_channels: 3
+  base_channels: 32
+  depth: 3
+  cond_dim: 2      # FiLM from (lead_norm, mean elev_norm)
+  dropout: 0.10
+  approx_params: "≈0.6M (vs v0 ~35k)"
+
+train:
+  epochs_smoke: 30
+  epochs_full: 400
+  batch_size: 8
+  lr: 5.0e-4
+  weight_decay: 3.0e-4
+  seed: 42
+  loss: mse_residual_elev_weighted_lead_weighted
+  lead_balance: true
+  # w_120 >= 1 required (Leonard). Equal-or-higher than short leads.
+  w_120: 3.0
+  lead_weights:
+    24: 1.0
+    72: 1.0
+    120: 3.0
+  channel_weights: [2.0, 0.5, 0.5]   # t2m-upweight (gates are t2m)
+  ckpt_select: composite
+  composite:
+    primary: lead_mean
+    constraint: val_120h_le_raw
+    reject_if_constraint_fails: true
+    also_track_pooled: true
+  raw_val_120h_t2m_rmse: 2.219970831929039
+  early_stop_patience: 80
+  elev_weight_boost: 1.5
+  device_smoke: cpu
+  device_full: cpu          # leave GPU / ERA5 PID 611595 alone
+
+output_dir: ~/fourcastnet/runs/phase0/tier_a/v1
+
+notes:
+  parent_call: docs/research/TIER_A_V1_SKETCH_CALL.md
+  honesty: >
+    Tier-A v1-reg = larger elev-conditioned residual UNet on frozen FCN3 crop
+    → ERA5_interim. Multi-lead loss with documented w_120=3.0 (>=1). Composite
+    ckpt rejects any epoch that regresses val +120h vs raw (2.219971 K).
+    NOT v1-diff / NOT CorrDiff; NOT FCN3 weight FT; NOT G1/IMDAA.
+    v0 and v0.1 artifacts remain frozen.

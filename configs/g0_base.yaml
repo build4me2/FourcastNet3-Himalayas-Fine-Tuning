@@ -1,0 +1,65 @@
+# G0 base integrity probe — Path A (Leonard GATE_RECIPE_TIER0_G0.md §1)
+# Global ERA5 IC → global FCN3 rollout → global metrics stubs.
+# Manisha GPU greenlit 2026-09-11 — use --smoke/--full with --allow-gpu.
+
+locks:
+  gpu_approved: true    # Manisha greenlit GPU 2026-09-11
+  path: A               # Path A required for G0 pass/fail; B optional side table
+
+model:
+  name: fourcastnet3
+  checkpoint: ~/fourcastnet/models/fourcastnet3/training_checkpoints/best_ckpt_mp0.tar
+  package_root: ~/fourcastnet/models/fourcastnet3
+  precision: bf16
+  frozen: true
+
+ics:
+  manifest: ~/fourcastnet/data/g0_ics/g0_ic_manifest.json
+  min_staged_for_full: 8
+  # Region labels in manifest are selection rationale ONLY — every IC is full globe.
+  forbid_nepal_crop_ic: true
+  forbid_random_ic: true
+
+g0_base:
+  # Full protocol (GATE_RECIPE §1.2): +15 d = 60 × 6 h steps
+  # MEMORY: keep preview_variables only on CPU (NOT full 72-ch frames).
+  #   Full (S,V,H,W) × M caused OOM: 61×72×721×1440×f32 ≈ 18 GB/member × 4 ≈ 73 GB
+  #   on top of ~53–69 GB model on 128 GB Spark UMA (PID 650049 died ~ic01 start).
+  #   Preview-only: 61×6×721×1440×f32 ≈ 1.5 GB/member × 4 ≈ 6 GB — M=4 OK.
+  #   If full-field storage is ever reintroduced, default M=2 for Spark safety.
+  ensemble_members: 4
+  steps: 60                 # +15 d
+  seed0: 333                # member m → seed0 + m (matches inference_smoke)
+  # Metrics: CRPS/SSR/PSD are STUBS until verification ERA5 at leads is wired
+  metrics: [finite_fields, crps_stub, ssr_stub, psd_stub]
+  preview_variables: [t2m, u10m, v10m, tcwv, z500, t850]
+  output_dir: ~/fourcastnet/runs/phase0/g0
+  results_json: ~/fourcastnet/runs/phase0/g0/g0_base_results.json
+  # Wall-time basis from measured inference_smoke (disco CUDA True, 2026-09-11):
+  #   ~5 s/step; member ~84 s for 16 steps; peak CUDA alloc ~53 GB
+  wall_estimate_s_per_step: 5.0
+  wall_estimate_load_s: 30.0
+
+smoke:
+  # Optional tiny GPU check — ONLY with --smoke --allow-gpu
+  ensemble_members: 1
+  steps: 2
+  max_ics: 1
+
+notes:
+  path_a_required: true
+  nepal_crop_forbidden_as_ic: true
+  random_ic_forbidden_for_gate: true
+  full_requires_allow_gpu: true
+  smoke_requires_allow_gpu: true
+  memory: |
+    Do NOT store full (S, V=72, H, W) tensors for all steps/members.
+    Stream: each step keep preview_variables only on CPU; discard full field.
+    metrics_stubs_global operates on preview ensemble (M, S, Vp, H, W).
+    OOM root cause 2026-09-11: full frames ≈ 18 GB/member × 4 + model ≈ OOM on 128 GB.
+    M=4 safe with preview-only; use M=2 only if full fields return.
+
+# Hook (Leonard G0_BASE_CALL 2026-09-11): finite PASS; claimable G0 NOT YET.
+# After Tier-0, wire real CRPS/SSR/PSD vs verifying ERA5 at +5–15 d.
+# See code/phase0/g0_verifying_era5.py (plan + optional ARCO fetch).
+# Do not treat stub CRPS as G0 PASS. Preview tensors from this run were discarded.

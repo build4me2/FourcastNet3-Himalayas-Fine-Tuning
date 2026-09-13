@@ -1,0 +1,49 @@
+# Tier-0 elevation-aware bias baseline
+# GATE_RECIPE_TIER0_G0.md §2 + G0_VERIFYING_CALL.md (Leonard 2026-09-11)
+# Geo locked; years PROVISIONAL frozen (Manisha hard-lock TBD; provisional_years=true)
+locks:
+  geo_box_frozen: true
+  years_frozen: true    # PROVISIONAL lock only — Manisha has not hard-locked
+  provisional_years: true
+  year_split: {train: [2018, 2019, 2020, 2021], val: [2022], test: [2023, 2024]}
+  precip_in_v1: false   # Manisha: t2m/winds-first
+  target: ERA5_interim
+  claim_level: interim_era5
+  g1_claimable: false
+
+region:
+  lat_lon_box: {lon_west: 80.0, lon_east: 89.0, lat_south: 26.0, lat_north: 31.0}
+
+data:
+  orography: ~/fourcastnet/models/fourcastnet3/orography.nc
+  land_mask: ~/fourcastnet/models/fourcastnet3/land_mask.nc
+  elevation_mask: ~/fourcastnet/data/masks/w_R_elevation.nc
+  infer_dir: ~/fourcastnet/data/cache/phase0_infer
+  forecast_zarr: ~/fourcastnet/data/cache/phase0_infer/forecast.zarr
+  target_zarr: ~/fourcastnet/data/era5/target_crop.zarr
+  pairs_dir: ~/fourcastnet/runs/phase0/tier0/pairs
+  era5_raw_dir: ~/fourcastnet/data/era5/raw
+  output_dir: ~/fourcastnet/runs/phase0/tier0
+
+variables: [t2m, u10m, v10m, tcwv]   # t2m/winds-first; tcwv easy extra; precip not in v1
+method: elevation_binned_linear
+elevation_bins_m: [0, 1500, 3000, 4500, 9000]
+
+leads_h: [24, 72, 120]   # GATE_RECIPE §2.4 protocol min
+
+rollout:
+  ensemble_members: 2    # few members; sequential; seed0+m
+  seed0: 333             # matches inference_smoke / G0
+  ic_source: global_era5_staged
+  nepal_crop_forbidden_as_ic: true
+  random_ic_forbidden: true
+
+notes:
+  path_a_g0_done: true
+  g0_claimable: true     # Leonard G0_VERIFYING_CALL.md — PASS claimable YES
+  random_ic_smoke_not_skill: true
+  nepal_crop_forbidden_as_ic: true
+  year_split_frozen: true   # provisional; provisional_years=true
+  provisional_years: true
+  holdout_output_dir: ~/fourcastnet/runs/phase0/tier0_holdout
+  holdout_ic_manifest: ~/fourcastnet/data/tier0_ics/tier0_ic_manifest.json

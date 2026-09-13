@@ -1,0 +1,97 @@
+# ERA5 regional crop for FCN3 Nepal/HKH fine-tune
+# Locked 2026-09-10: Manisha via Sheldon; pull owner Howard
+
+project: fourcastnet3_nepal_hkh
+owner: Howard
+
+# CDS area: North / West / South / East
+area:
+  north: 31.0
+  west: 80.0
+  south: 26.0
+  east: 89.0
+  # degrees: 26–31°N, 80–89°E
+
+time:
+  start_year: 1980
+  # end_year: null means pull through latest CDS-available (ERA5T tip ~2026-09)
+  end_year: null
+  hours: ["00:00", "06:00", "12:00", "18:00"]
+  # 6-hourly synoptic
+
+paths:
+  root: /home/chandmanisha00/fourcastnet
+  raw_dir: /home/chandmanisha00/fourcastnet/data/era5/raw
+  monthly_dir: /home/chandmanisha00/fourcastnet/data/era5/monthly
+  log_dir: /home/chandmanisha00/fourcastnet/logs
+  state_file: /home/chandmanisha00/fourcastnet/data/era5/download_state.json
+
+cds:
+  dataset_single: reanalysis-era5-single-levels
+  dataset_pressure: reanalysis-era5-pressure-levels
+  product_type: reanalysis
+  format: netcdf
+  # Monthly chunking keeps request size reasonable
+  chunk: month
+  max_retries: 8
+  retry_base_sec: 60
+  retry_max_sec: 1800
+
+# FCN3 72 predicted channels (channel_names from models/fourcastnet3/config.json)
+# Surface (single-levels) → FCN3 names
+surface_variables:
+  - name_cds: 10m_u_component_of_wind
+    fcn3: u10m
+  - name_cds: 10m_v_component_of_wind
+    fcn3: v10m
+  - name_cds: 100m_u_component_of_wind
+    fcn3: u100m
+  - name_cds: 100m_v_component_of_wind
+    fcn3: v100m
+  - name_cds: 2m_temperature
+    fcn3: t2m
+  - name_cds: mean_sea_level_pressure
+    fcn3: msl
+  - name_cds: total_column_water_vapour
+    fcn3: tcwv
+
+# Pressure-level vars × levels
+pressure_variables:
+  - name_cds: u_component_of_wind
+    fcn3_prefix: u
+  - name_cds: v_component_of_wind
+    fcn3_prefix: v
+  - name_cds: geopotential
+    fcn3_prefix: z
+  - name_cds: temperature
+    fcn3_prefix: t
+  - name_cds: specific_humidity
+    fcn3_prefix: q
+
+pressure_levels_hpa:
+  - "50"
+  - "100"
+  - "150"
+  - "200"
+  - "250"
+  - "300"
+  - "400"
+  - "500"
+  - "600"
+  - "700"
+  - "850"
+  - "925"
+  - "1000"
+
+# Split policy (stub later; pull first)
+split:
+  method: random_block
+  train_frac: 0.80
+  test_frac: 0.20
+  test_min_frac: 0.15
+  test_max_frac: 0.20
+  note: "80/20 random block-level; implement after full pull"
+
+smoke:
+  year: 2020
+  month: 1
