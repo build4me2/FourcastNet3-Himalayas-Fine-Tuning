@@ -1,0 +1,94 @@
+# Tier-A v0.1 — Lead-balanced / multi-lead residual on frozen FCN3 (RRCA-FD Plan A)
+# Leonard TIER_A_V0_CALL.md: v0 INTERIM PASS YES — FREEZE v0; iterate v0.1 for +120h WARN.
+# Same splits/bars as v0. FCN3 weights FROZEN. Do NOT overwrite runs/phase0/tier_a/v0/.
+# provisional_years=true; claim_level=interim_era5; g1_claimable=false
+
+schema: tier_a_v0_1_results/v1
+method: RRCA-FD_Plan_A_frozen_fcn3_residual
+tier: A
+variant: v0_1_lead_balanced_residual
+artifact_stem: tier_a_v0_1
+
+locks:
+  geo_box_frozen: true
+  years_frozen: true          # PROVISIONAL — Manisha hard-lock TBD
+  provisional_years: true
+  year_split_frozen: true
+  precip_in_v1: false
+  target: ERA5_interim
+  claim_level: interim_era5
+  g1_claimable: false
+  fcn3_weights: FROZEN
+  freeze_tier_a_v0: true      # refuse writing into runs/phase0/tier_a/v0/
+  overwrite_forbidden:
+    - runs/phase0/g0/g0_verifying_results.json
+    - runs/phase0/tier0_holdout/
+    - runs/phase0/tier_a/v0/
+
+# Frozen beat-this (echo verbatim — unchanged from v0 / Tier-0 holdout call)
+beat_this:
+  val_t2m_pooled_rmse_lin_strict_lt: 1.948661
+  val_headline_lt: 1.949
+  test_t2m_pooled_rmse_lin_strict_lt: 1.850338
+  source: runs/phase0/tier0_holdout/tier0_holdout_metrics.json
+  call: docs/research/TIER0_HOLDOUT_CALL.md
+  note: "val-only win = FAIL; must also beat test bar"
+  g0_adapter:
+    baseline: runs/phase0/g0/g0_verifying_results.json
+    rule: "≤~5% CRPS degrade midlat @ +15 d; PSD/SSR floors"
+    tier_a_status: not_applicable_fcn3_frozen
+    tier_a_v0_status: not_applicable_fcn3_frozen
+
+year_split:
+  train: "2018-2021"
+  val: "2022"
+  test: "2023-2024"
+  train_ids: [ic01, ic02, ic03, ic04, ic05, ic06, ic07, ic08]
+  val_ids: [ic09, ic10, ic11, ic12]
+  test_ids: [ic13, ic14, ic15, ic16]
+
+region:
+  lat_lon_box: {lon_west: 80.0, lon_east: 89.0, lat_south: 26.0, lat_north: 31.0}
+
+data:
+  pairs_dir: ~/fourcastnet/runs/phase0/tier0_holdout/pairs
+  ic_manifest: ~/fourcastnet/data/tier0_ics/tier0_ic_manifest.json
+  elevation_mask: ~/fourcastnet/data/masks/w_R_elevation.nc
+  holdout_metrics: ~/fourcastnet/runs/phase0/tier0_holdout/tier0_holdout_metrics.json
+  g0_verifying: ~/fourcastnet/runs/phase0/g0/g0_verifying_results.json
+
+variables_in: [t2m, u10m, v10m]
+variables_out: [t2m, u10m, v10m]
+leads_h: [24, 72, 120]
+
+model:
+  name: TinyElevResidualUNet
+  in_channels: 5
+  out_channels: 3
+  base_channels: 16
+  depth: 2
+
+train:
+  epochs_smoke: 30
+  epochs_full: 300
+  batch_size: 8
+  lr: 1.0e-3
+  weight_decay: 1.0e-4
+  seed: 42
+  # v0.1: equal-weight multi-lead loss (+24/+72/+120h each 1/3 of batch loss)
+  loss: mse_residual_elev_weighted_lead_balanced
+  lead_balance: true
+  ckpt_select: lead_mean   # early-stop on mean(per-lead val RMSE), not pooled
+  elev_weight_boost: 1.5
+  device_smoke: cpu
+  device_full: cuda
+
+output_dir: ~/fourcastnet/runs/phase0/tier_a/v0_1
+
+notes:
+  parent_call: docs/research/TIER_A_V0_CALL.md
+  honesty: >
+    Tier-A v0.1 = same frozen FCN3 + tiny residual UNet as v0, but with
+    equal-weight multi-lead elev-weighted MSE so +120h cannot be sacrificed
+    for short-lead pooled wins. Same IC splits and beat-this bars. Not CorrDiff;
+    not FCN3 weight FT; not G1/IMDAA. v0 artifacts frozen under runs/phase0/tier_a/v0/.

@@ -11,8 +11,11 @@ Private: `build4me2/fourcastnet3-finetune` · default branch **`main`**
 | `code/` | phase0 + tier_a (v0 → v1.1) | spark-61dd |
 | `configs/` | run / data configs | spark-61dd |
 | `docs/00-pathway/` … `docs/04-gates/` | Canon research pack (Sheldon) | manii Research + GitHub |
-| `docs/research/` | Spark operational docs (REFERENCE/CLAUDE/PROGRESS, Leonard calls) | spark-61dd |
-| `runs/phase0/` | Small metrics/gate JSON (+ tiny csv/md) only | spark-61dd |
+| `docs/research/` | Spark operational docs (REFERENCE/CLAUDE/PROGRESS, gate reports) | spark-61dd |
+| `docs/05-eng/` | Eng README + Spark-era snapshots of colliding canon filenames | spark-61dd |
+| `docs/06-calls/` | Leonard/Howard call notes | spark-61dd |
+| `docs/06-metrics/` | Small gate JSON summaries | spark-61dd |
+| `runs/phase0/` | Same small metrics/gate JSON (no pair tensors) | spark-61dd |
 | `data/`, `models/`, `logs/`, `venv*` | **Not in git** | local Spark only |
 
 ## Start here (research)
@@ -27,17 +30,14 @@ No ERA5 crops, G0/Tier-0 `.npy` ICs, pretrained weights, training checkpoints, p
 
 ## Spark sync (Howard)
 
-Primary host: **spark-61dd** (`100.121.160.49`), tree `/home/chandmanisha00/fourcastnet/`.
+Primary host: **spark-61dd** (`100.121.160.49`).
 
-```bash
-# On Spark (once gh/SSH auth ready):
-cd ~/fourcastnet
-git init -b main   # if needed
-git remote add origin https://github.com/build4me2/fourcastnet3-finetune.git
-git fetch origin
-git checkout -B main origin/main   # pull Sheldon docs first
-# then add code/ configs/ docs/ runs/phase0/*.json and push
-```
+| Tree | Role |
+|------|------|
+| `~/fourcastnet` | Live eng + ERA5/ICs + runs + models. **Not a git repo.** Do not `git init` / `git clean`. |
+| `~/fourcastnet-git-sync` | Git checkout of this repo. Commit here; rsync code/configs/docs to/from the live tree. |
+
+See [`docs/05-eng/README.md`](docs/05-eng/README.md). Push via `eng/spark-sync` PRs. Do not delete ERA5/ICs.
 
 Science freeze (as of sync): thick-set **v1.1 INTERIM PASS**; no new Tier-A/diffusion until Manisha orders.
 

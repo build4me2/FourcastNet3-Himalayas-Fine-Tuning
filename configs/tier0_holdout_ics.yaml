@@ -1,0 +1,265 @@
+# Tier-0 holdout IC split (provisional years — Manisha has not hard-locked)
+# provisional_years=true; year_split_frozen=true (provisional label only)
+# Global ERA5 ICs only (721×1440×72). Nepal crop ≠ IC.
+# Train: reuse existing G0 ICs 2018–2021. Val 2022. Test 2023–2024.
+# holdout_expand: v1 (2026-09-12 Leonard HOLDOUT_IC_EXPAND_RECIPE.md)
+# Expand: keep train 8; thicken val 4→12 and test 4→12 (ic17–ic32). Seasons DJF+MAM+JJA+SON.
+# Manisha: expand holdout first; no year hard-lock; no diffusion. 1980→latest ERA5 crop untouched.
+
+out_dir: ~/fourcastnet/data/tier0_ics
+source: arco
+init_hour_utc: 0
+provisional_years: true
+year_split_frozen: true  # provisional lock only; Manisha hard-lock TBD
+holdout_expand: v1  # Leonard HOLDOUT_IC_EXPAND_RECIPE.md 2026-09-12
+year_split:
+  train: [2018, 2019, 2020, 2021]
+  val: [2022]
+  test: [2023, 2024]
+grid:
+  nlat: 721
+  nlon: 1440
+  channels: 72
+
+ics:
+  # ---- TRAIN 2018–2021 (reuse G0 staged files) ----
+  - id: ic01
+    time: "2018-01-15T00:00:00"
+    season: DJF
+    region_class: non_asia
+    region_label: N_Atlantic
+    split: train
+    reuse_from: ~/fourcastnet/data/g0_ics/ic_20180115T0000_global.npy
+    rationale: "DJF N Atlantic midlat winter storm regime (global IC; not a regional crop)"
+  - id: ic02
+    time: "2019-07-12T00:00:00"
+    season: JJA
+    region_class: non_asia
+    region_label: N_Pacific
+    split: train
+    reuse_from: ~/fourcastnet/data/g0_ics/ic_20190712T0000_global.npy
+    rationale: "JJA N Pacific midlat summer regime"
+  - id: ic03
+    time: "2020-01-20T00:00:00"
+    season: DJF
+    region_class: non_asia
+    region_label: SH_midlat
+    split: train
+    reuse_from: ~/fourcastnet/data/g0_ics/ic_20200120T0000_global.npy
+    rationale: "DJF SH midlat (SH summer) extratropical regime"
+  - id: ic04
+    time: "2018-08-15T00:00:00"
+    season: JJA
+    region_class: non_asia
+    region_label: tropics_Atlantic_Africa
+    split: train
+    reuse_from: ~/fourcastnet/data/g0_ics/ic_20180815T0000_global.npy
+    rationale: "JJA W African / tropical Atlantic monsoon peak"
+  - id: ic05
+    time: "2021-01-10T00:00:00"
+    season: DJF
+    region_class: asia_ex_nepal
+    region_label: East_Asia
+    split: train
+    reuse_from: ~/fourcastnet/data/g0_ics/ic_20210110T0000_global.npy
+    rationale: "DJF East Asia cold-surge / extratropical; interest east of locked Nepal box"
+  - id: ic06
+    time: "2019-08-20T00:00:00"
+    season: JJA
+    region_class: asia_ex_nepal
+    region_label: West_Pacific_typhoon
+    split: train
+    reuse_from: ~/fourcastnet/data/g0_ics/ic_20190820T0000_global.npy
+    rationale: "JJA W Pacific / E China typhoon-season regime; Asia-ex-Nepal"
+  - id: ic07
+    time: "2020-06-15T00:00:00"
+    season: JJA
+    region_class: monsoon_adjacent
+    region_label: Bay_of_Bengal_monsoon
+    split: train
+    reuse_from: ~/fourcastnet/data/g0_ics/ic_20200615T0000_global.npy
+    rationale: "JJA Indian / BoB monsoon onset-adjacent; global IC — NOT Nepal 21x37 crop"
+  - id: ic08
+    time: "2021-12-05T00:00:00"
+    season: DJF
+    region_class: monsoon_adjacent
+    region_label: NE_India_Myanmar_fringe
+    split: train
+    reuse_from: ~/fourcastnet/data/g0_ics/ic_20211205T0000_global.npy
+    rationale: "DJF monsoon-adjacent winter outside Nepal box"
+
+  # ---- VAL 2022 ----
+  - id: ic09
+    time: "2022-01-15T00:00:00"
+    season: DJF
+    region_class: non_asia
+    region_label: N_Atlantic
+    split: val
+    rationale: "Val 2022 DJF N Atlantic (mirror ic01; provisional year)"
+  - id: ic10
+    time: "2022-07-12T00:00:00"
+    season: JJA
+    region_class: non_asia
+    region_label: N_Pacific
+    split: val
+    rationale: "Val 2022 JJA N Pacific (mirror ic02)"
+  - id: ic11
+    time: "2022-06-15T00:00:00"
+    season: JJA
+    region_class: monsoon_adjacent
+    region_label: Bay_of_Bengal_monsoon
+    split: val
+    rationale: "Val 2022 JJA BoB monsoon-adjacent (mirror ic07)"
+  - id: ic12
+    time: "2022-12-05T00:00:00"
+    season: DJF
+    region_class: monsoon_adjacent
+    region_label: NE_India_Myanmar_fringe
+    split: val
+    rationale: "Val 2022 DJF monsoon fringe (mirror ic08)"
+
+  # ---- TEST 2023–2024 ----
+  - id: ic13
+    time: "2023-01-20T00:00:00"
+    season: DJF
+    region_class: non_asia
+    region_label: SH_midlat
+    split: test
+    rationale: "Test 2023 DJF SH midlat (mirror ic03)"
+  - id: ic14
+    time: "2023-08-20T00:00:00"
+    season: JJA
+    region_class: asia_ex_nepal
+    region_label: West_Pacific_typhoon
+    split: test
+    rationale: "Test 2023 JJA W Pacific typhoon (mirror ic06)"
+  - id: ic15
+    time: "2024-01-10T00:00:00"
+    season: DJF
+    region_class: asia_ex_nepal
+    region_label: East_Asia
+    split: test
+    rationale: "Test 2024 DJF East Asia (mirror ic05)"
+  - id: ic16
+    time: "2024-06-15T00:00:00"
+    season: JJA
+    region_class: monsoon_adjacent
+    region_label: Bay_of_Bengal_monsoon
+    split: test
+    rationale: "Test 2024 JJA BoB monsoon-adjacent (mirror ic07)"
+
+  # ---- VAL 2022 expand (holdout_expand:v1) — ic17–ic24 → val total 12 ----
+  - id: ic17
+    time: "2022-02-15T00:00:00"
+    season: DJF
+    region_class: non_asia
+    region_label: N_Atlantic
+    split: val
+    rationale: "Val 2022 DJF N Atlantic (expand v1; thicken DJF)"
+  - id: ic18
+    time: "2022-03-15T00:00:00"
+    season: MAM
+    region_class: asia_ex_nepal
+    region_label: East_Asia
+    split: val
+    rationale: "Val 2022 MAM East Asia (expand v1; add MAM)"
+  - id: ic19
+    time: "2022-04-15T00:00:00"
+    season: MAM
+    region_class: non_asia
+    region_label: SH_midlat
+    split: val
+    rationale: "Val 2022 MAM SH midlat (expand v1)"
+  - id: ic20
+    time: "2022-05-15T00:00:00"
+    season: MAM
+    region_class: monsoon_adjacent
+    region_label: Bay_of_Bengal_premonsoon
+    split: val
+    rationale: "Val 2022 MAM BoB premonsoon (expand v1; regime tag only — global IC)"
+  - id: ic21
+    time: "2022-08-15T00:00:00"
+    season: JJA
+    region_class: asia_ex_nepal
+    region_label: West_Pacific_typhoon
+    split: val
+    rationale: "Val 2022 JJA W Pacific typhoon (expand v1; thicken JJA)"
+  - id: ic22
+    time: "2022-09-15T00:00:00"
+    season: SON
+    region_class: monsoon_adjacent
+    region_label: Bay_of_Bengal_retreat
+    split: val
+    rationale: "Val 2022 SON BoB retreat (expand v1; add SON)"
+  - id: ic23
+    time: "2022-10-15T00:00:00"
+    season: SON
+    region_class: non_asia
+    region_label: N_Pacific
+    split: val
+    rationale: "Val 2022 SON N Pacific (expand v1)"
+  - id: ic24
+    time: "2022-11-15T00:00:00"
+    season: SON
+    region_class: asia_ex_nepal
+    region_label: East_Asia
+    split: val
+    rationale: "Val 2022 SON East Asia (expand v1)"
+
+  # ---- TEST 2023–2024 expand (holdout_expand:v1) — ic25–ic32 → test total 12 ----
+  - id: ic25
+    time: "2023-03-15T00:00:00"
+    season: MAM
+    region_class: non_asia
+    region_label: N_Atlantic
+    split: test
+    rationale: "Test 2023 MAM N Atlantic (expand v1; add MAM)"
+  - id: ic26
+    time: "2023-05-15T00:00:00"
+    season: MAM
+    region_class: monsoon_adjacent
+    region_label: Bay_of_Bengal_premonsoon
+    split: test
+    rationale: "Test 2023 MAM BoB premonsoon (expand v1; regime tag only — global IC)"
+  - id: ic27
+    time: "2023-09-15T00:00:00"
+    season: SON
+    region_class: asia_ex_nepal
+    region_label: West_Pacific
+    split: test
+    rationale: "Test 2023 SON West Pacific (expand v1; add SON)"
+  - id: ic28
+    time: "2023-11-15T00:00:00"
+    season: SON
+    region_class: monsoon_adjacent
+    region_label: NE_India_Myanmar_fringe
+    split: test
+    rationale: "Test 2023 SON NE India/Myanmar fringe (expand v1)"
+  - id: ic29
+    time: "2024-02-15T00:00:00"
+    season: DJF
+    region_class: non_asia
+    region_label: SH_midlat
+    split: test
+    rationale: "Test 2024 DJF SH midlat (expand v1; thicken DJF)"
+  - id: ic30
+    time: "2024-04-15T00:00:00"
+    season: MAM
+    region_class: asia_ex_nepal
+    region_label: East_Asia
+    split: test
+    rationale: "Test 2024 MAM East Asia (expand v1)"
+  - id: ic31
+    time: "2024-07-12T00:00:00"
+    season: JJA
+    region_class: non_asia
+    region_label: N_Pacific
+    split: test
+    rationale: "Test 2024 JJA N Pacific (expand v1; thicken JJA)"
+  - id: ic32
+    time: "2024-10-15T00:00:00"
+    season: SON
+    region_class: monsoon_adjacent
+    region_label: Bay_of_Bengal_retreat
+    split: test
+    rationale: "Test 2024 SON BoB retreat (expand v1)"

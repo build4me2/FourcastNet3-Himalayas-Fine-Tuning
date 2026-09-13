@@ -1,0 +1,63 @@
+# G0 global ERA5 IC manifest seed (Leonard GATE_RECIPE_TIER0_G0.md §1.2 / §3 step 1)
+# Full-globe ICs only — region_* fields are selection rationale, NOT crops.
+# Nepal box (26–31N, 80–89E) must never be used as FCN3 IC.
+
+out_dir: ~/fourcastnet/data/g0_ics
+source: arco  # earth2studio.data.ARCO → gs://gcp-public-data-arco-era5 (ERA5 final)
+init_hour_utc: 0
+grid:
+  nlat: 721
+  nlon: 1440
+  channels: 72  # FCN3 VARIABLES order from earth2studio.models.px.fcn3
+
+# N=8: ≥4 non-Asia + ≥2 Asia-ex-Nepal + ≥2 monsoon-adjacent outside Nepal box
+# Season mix: ≥2 DJF + ≥2 JJA (here 4/4). All 00 UTC.
+ics:
+  - id: ic01
+    time: "2018-01-15T00:00:00"
+    season: DJF
+    region_class: non_asia
+    region_label: N_Atlantic
+    rationale: "DJF N Atlantic midlat winter storm regime (global IC; not a regional crop)"
+  - id: ic02
+    time: "2019-07-12T00:00:00"
+    season: JJA
+    region_class: non_asia
+    region_label: N_Pacific
+    rationale: "JJA N Pacific midlat summer regime"
+  - id: ic03
+    time: "2020-01-20T00:00:00"
+    season: DJF
+    region_class: non_asia
+    region_label: SH_midlat
+    rationale: "DJF SH midlat (SH summer) extratropical regime"
+  - id: ic04
+    time: "2018-08-15T00:00:00"
+    season: JJA
+    region_class: non_asia
+    region_label: tropics_Atlantic_Africa
+    rationale: "JJA W African / tropical Atlantic monsoon peak"
+  - id: ic05
+    time: "2021-01-10T00:00:00"
+    season: DJF
+    region_class: asia_ex_nepal
+    region_label: East_Asia
+    rationale: "DJF East Asia cold-surge / extratropical; interest east of locked Nepal box"
+  - id: ic06
+    time: "2019-08-20T00:00:00"
+    season: JJA
+    region_class: asia_ex_nepal
+    region_label: West_Pacific_typhoon
+    rationale: "JJA W Pacific / E China typhoon-season regime; Asia-ex-Nepal"
+  - id: ic07
+    time: "2020-06-15T00:00:00"
+    season: JJA
+    region_class: monsoon_adjacent
+    region_label: Bay_of_Bengal_monsoon
+    rationale: "JJA Indian / BoB monsoon onset-adjacent; global IC — NOT Nepal 21x37 crop"
+  - id: ic08
+    time: "2021-12-05T00:00:00"
+    season: DJF
+    region_class: monsoon_adjacent
+    region_label: NE_India_Myanmar_fringe
+    rationale: "DJF monsoon-adjacent winter outside Nepal box (fringe SE of 80–89E / N of box)"

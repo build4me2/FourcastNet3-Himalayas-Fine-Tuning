@@ -49,3 +49,16 @@ logs/
 .DS_Store
 .idea/
 .vscode/
+
+# --- Backups / scratch (never commit) ---
+*.bak
+*.bak*
+*.bak_*
+*~
+
+# --- Pair dumps anywhere ---
+pairs/
+**/pairs/
+
+# --- code caches (belt + suspenders) ---
+code/**/__pycache__/

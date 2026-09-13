@@ -1,0 +1,44 @@
+# Phase 0 / data crop config
+# Locks from Manisha via Sheldon 2026-09-10 (see docs/CLAUDE.md)
+
+locks:
+  geo_box_frozen: true
+  years_frozen: true
+  precip_in_v1: null   # still open: precip in v1 vs t2m/winds-first
+
+model:
+  name: fourcastnet3
+  checkpoint: ~/fourcastnet/models/fourcastnet3/training_checkpoints/best_ckpt_mp0.tar
+  package_root: ~/fourcastnet/models/fourcastnet3
+  precision: bf16
+
+region:
+  name: nepal_hkh_locked_2026-09-10
+  lat_lon_box:
+    lon_west: 80.0
+    lon_east: 89.0
+    lat_south: 26.0
+    lat_north: 31.0
+  cds_area: "31/80/26/89"   # N/W/S/E
+  notes: "Locked Manisha/Sheldon 2026-09-10"
+
+splits:
+  era5_start_year: 1980
+  era5_end: latest_cds   # do not truncate; ERA5T tip ~2026-09
+  scheme: random_block_80_20
+  test_fraction_min: 0.15
+  test_fraction_target: 0.20
+  monsoon_focus: true
+  notes: "80/20 random block-level; not adjacent-frame shuffle"
+
+inference_smoke:
+  ensemble_members: 4
+  steps: 16
+  output_dir: ~/fourcastnet/data/cache/phase0_infer
+  variables_preview: [t2m, u10m, v10m, tcwv, z500, t850]
+
+data:
+  era5_dir: ~/fourcastnet/data/era5
+  cache_dir: ~/fourcastnet/data/cache
+  imerg_through: "2025-09-30"
+  imdaa_through: 2020
