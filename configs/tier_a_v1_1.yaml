@@ -34,7 +34,7 @@ locks:
     - runs/phase0/tier_a/v1/
 
 # Thin-set beat-this (historical). Living expand bars: configs/tier_a_v1_1_expand.yaml +
-# docs/research/HOLDOUT_EXPAND_CALL.md (val < 1.987014 / test < 1.897298 / +120h <= 2.131516).
+# docs/calls/HOLDOUT_EXPAND_CALL.md (val < 1.987014 / test < 1.897298 / +120h <= 2.131516).
 # When holdout_expand=v1 or variant=*expand*, train.py defaults to expand bars.
 # Same three gates as v1-reg (echo verbatim in result JSON)
 beat_this:
@@ -44,7 +44,7 @@ beat_this:
   val_120h_t2m_rmse_raw_le: 2.219970831929039
   val_120h_rule: "val +120h t2m RMSE <= raw (2.219971 K); hard gate for v1.1; v0/v0.1 grandfathered; v1 FAIL frozen"
   source: runs/phase0/tier0_holdout/tier0_holdout_metrics.json
-  call: docs/research/TIER_A_V1_CALL.md
+  call: docs/calls/TIER_A_V1_CALL.md
   note: "val-only win = FAIL; +120h regress vs raw = FAIL v1.1; v1 FAIL frozen"
   g0_adapter:
     baseline: runs/phase0/g0/g0_verifying_results.json
@@ -117,7 +117,7 @@ train:
 output_dir: ~/fourcastnet/runs/phase0/tier_a/v1_1
 
 notes:
-  parent_call: docs/research/TIER_A_V1_CALL.md
+  parent_call: docs/calls/TIER_A_V1_CALL.md
   honesty: >
     Tier-A v1.1 = smaller/regularized elev-conditioned residual UNet on frozen
     FCN3 crop → ERA5_interim. base_channels=16 (Leonard 16 or 24), dropout=0.20,

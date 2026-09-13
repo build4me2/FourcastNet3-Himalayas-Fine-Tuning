@@ -81,7 +81,7 @@ THIN_BEAT_THIS = {
         "v0/v0.1 grandfathered; v1 FAIL frozen"
     ),
     "source": "runs/phase0/tier0_holdout/tier0_holdout_metrics.json",
-    "call": "docs/research/TIER_A_V1_CALL.md",
+    "call": "docs/calls/TIER_A_V1_CALL.md",
     "note": "thin historical only; living expand bars in HOLDOUT_EXPAND_CALL.md",
     "frozen_exact": {
         "val_rmse_after_lin": 1.9486610005712885,
@@ -90,7 +90,7 @@ THIN_BEAT_THIS = {
     },
 }
 
-# Expand bars FROZEN (Leonard docs/research/HOLDOUT_EXPAND_CALL.md) — supersede thin for Tier-A.
+# Expand bars FROZEN (Leonard docs/calls/HOLDOUT_EXPAND_CALL.md) — supersede thin for Tier-A.
 EXPAND_BEAT_THIS = {
     "val_t2m_pooled_rmse_lin_strict_lt": 1.987014,
     "val_headline_lt": 1.987,
@@ -101,7 +101,7 @@ EXPAND_BEAT_THIS = {
         "thin 2.220 historical only"
     ),
     "source": "runs/phase0/tier0_holdout_expand/tier0_holdout_expand_metrics.json",
-    "call": "docs/research/HOLDOUT_EXPAND_CALL.md",
+    "call": "docs/calls/HOLDOUT_EXPAND_CALL.md",
     "note": (
         "primary=val strict < 1.987014; secondary=test strict < 1.897298; "
         "+120h <= expand raw 2.131516; thin bars historical only; val-only win = FAIL"
@@ -380,7 +380,7 @@ def gate_pass_v1(
             f"({raw_120:.6f} K). claim_level remains interim_era5; "
             "g1_claimable=false. Pooled-only win with +120h regress = FAIL. "
             "v1/ is frozen FAIL (do not overwrite). "
-            "Expand bars: docs/research/HOLDOUT_EXPAND_CALL.md."
+            "Expand bars: docs/calls/HOLDOUT_EXPAND_CALL.md."
         ),
     }
 

@@ -40,7 +40,7 @@ beat_this:
   val_120h_t2m_rmse_raw_le: 2.219970831929039
   val_120h_rule: "val +120h t2m RMSE <= raw (2.219971 K); hard gate for v1-reg; v0/v0.1 grandfathered"
   source: runs/phase0/tier0_holdout/tier0_holdout_metrics.json
-  call: docs/research/TIER_A_V1_SKETCH_CALL.md
+  call: docs/calls/TIER_A_V1_SKETCH_CALL.md
   note: "val-only win = FAIL; +120h regress vs raw = FAIL v1-reg"
   g0_adapter:
     baseline: runs/phase0/g0/g0_verifying_results.json
@@ -112,7 +112,7 @@ train:
 output_dir: ~/fourcastnet/runs/phase0/tier_a/v1
 
 notes:
-  parent_call: docs/research/TIER_A_V1_SKETCH_CALL.md
+  parent_call: docs/calls/TIER_A_V1_SKETCH_CALL.md
   honesty: >
     Tier-A v1-reg = larger elev-conditioned residual UNet on frozen FCN3 crop
     → ERA5_interim. Multi-lead loss with documented w_120=3.0 (>=1). Composite

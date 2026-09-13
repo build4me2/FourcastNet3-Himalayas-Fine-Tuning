@@ -1,6 +1,6 @@
 # Tier-A v1.2b — iterate FAIL v1.2 (NO diffusion)
 
-**Status:** TRAIN (Manisha greenlit). Parent FAIL: `docs/research/TIER_A_V1_2_CALL.md`.
+**Status:** TRAIN (Manisha greenlit). Parent FAIL: `docs/calls/TIER_A_V1_2_CALL.md`.
 **Arch:** same ElevCondResidualUNet as v1.1/v1.2 (`base=16`, `dropout=0.20`).
 **Knobs:** `w_120=2.0` (was 1.5), `early_stop_patience=80` (was 50).
 **PASS lock:** `n_eligible_saves >= 1` with `composite_eligible` reload; unconstrained fallback ⇒ auto FAIL.

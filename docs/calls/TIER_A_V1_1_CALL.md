@@ -2,8 +2,8 @@
 
 **Artifacts**
 - `~/fourcastnet/runs/phase0/tier_a/v1_1/tier_a_v1_1_results.json`
-- Note: `docs/research/TIER_A_V1_1_NOTE.md`
-- Parent FAIL: `docs/research/TIER_A_V1_CALL.md`
+- Note: `docs/calls/TIER_A_V1_1_NOTE.md`
+- Parent FAIL: `docs/calls/TIER_A_V1_CALL.md`
 
 **Spec:** ElevCondResidualUNet base=16, dropout=0.20, w_120=1.5, weight_decay=1e-3, ~168k params, composite +120 h reject, FCN3 frozen, no diffusion.
 

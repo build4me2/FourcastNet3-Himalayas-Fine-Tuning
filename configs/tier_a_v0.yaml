@@ -28,7 +28,7 @@ beat_this:
   val_headline_lt: 1.949
   test_t2m_pooled_rmse_lin_strict_lt: 1.850338
   source: runs/phase0/tier0_holdout/tier0_holdout_metrics.json
-  call: docs/research/TIER0_HOLDOUT_CALL.md
+  call: docs/calls/TIER0_HOLDOUT_CALL.md
   note: "val-only win = FAIL; must also beat test bar"
   g0_adapter:
     baseline: runs/phase0/g0/g0_verifying_results.json

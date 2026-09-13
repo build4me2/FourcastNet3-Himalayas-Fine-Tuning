@@ -3,8 +3,8 @@
 **Artifacts**
 - `~/fourcastnet/runs/phase0/tier_a/v0/tier_a_v0_results.json`
 - `~/fourcastnet/runs/phase0/tier_a/v0/best_residual.pt`
-- Smoke note: `docs/research/TIER_A_V0_SMOKE_NOTE.md`
-- Bars from: `docs/research/TIER0_HOLDOUT_CALL.md`
+- Smoke note: `docs/calls/TIER_A_V0_SMOKE_NOTE.md`
+- Bars from: `docs/calls/TIER0_HOLDOUT_CALL.md`
 
 **Method:** RRCA-FD Plan A — TinyElevResidualUNet on frozen FCN3 crop → ERA5 interim (300-ep best ckpt, ~35k params).  
 **Labels:** `claim_level=interim_era5` · `g1_claimable=false` · `provisional_years=true` · `fcn3_weights=FROZEN`

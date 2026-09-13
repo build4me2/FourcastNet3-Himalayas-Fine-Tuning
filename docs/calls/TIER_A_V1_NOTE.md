@@ -1,6 +1,6 @@
 # Tier-A v1-reg note — elev-conditioned residual (2026-09-11 PT)
 
-**Parent call:** `docs/research/TIER_A_V1_SKETCH_CALL.md` (implement **v1-reg first; NO diffusion**).  
+**Parent call:** `docs/calls/TIER_A_V1_SKETCH_CALL.md` (implement **v1-reg first; NO diffusion**).  
 **Method:** RRCA-FD Plan A — larger elev/lead-FiLM residual UNet on **frozen FCN3** crop → ERA5 interim.  
 **Not this cut:** v1-diff / CorrDiff; FCN3 weight FT; G1/IMDAA.
 

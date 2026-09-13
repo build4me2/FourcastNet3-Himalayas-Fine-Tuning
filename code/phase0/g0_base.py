@@ -772,7 +772,7 @@ def main() -> int:
         "allow_gpu": bool(args.allow_gpu),
         "ok": False,
         "path": "A",
-        "recipe": "docs/research/GATE_RECIPE_TIER0_G0.md §1 path A",
+        "recipe": "docs/04-gates/GATE_RECIPE_TIER0_G0.md §1 path A",
         "storage_mode": "preview_only",
     }
 

@@ -1,6 +1,6 @@
 # Tier-A v0.1 note — lead-balanced residual (2026-09-11 PT)
 
-**Parent call:** `docs/research/TIER_A_V0_CALL.md` (v0 INTERIM PASS YES — FREEZE v0).  
+**Parent call:** `docs/calls/TIER_A_V0_CALL.md` (v0 INTERIM PASS YES — FREEZE v0).  
 **Method:** RRCA-FD Plan A — same TinyElevResidualUNet (~35k), same IC splits/bars, **FCN3 frozen**.  
 **Change:** equal-weight multi-lead elev-weighted MSE + early-stop on lead-mean val RMSE.
 

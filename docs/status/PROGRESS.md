@@ -130,11 +130,11 @@ Measured command: `~/fcn3-venv/bin/python code/phase0/inference_smoke.py` from `
 
 ## Append — 2026-09-11 ~08:42 PT (Howard — Tier-0 CPU scaffolding)
 
-Aligned to Leonard freeze `docs/research/GATE_RECIPE_TIER0_G0.md` (mirrored from manii).
+Aligned to Leonard freeze `docs/04-gates/GATE_RECIPE_TIER0_G0.md` (mirrored from manii).
 
 | Check | Result | Date | Notes |
 |-------|--------|------|-------|
-| Gate recipe mirrored | OK | 2026-09-11 | `docs/research/GATE_RECIPE_TIER0_G0.md` |
+| Gate recipe mirrored | OK | 2026-09-11 | `docs/04-gates/GATE_RECIPE_TIER0_G0.md` |
 | `tier0_bias.py --help` | OK | 2026-09-11 | exit 0 |
 | `tier0_bias.py --dry-run` | OK | 2026-09-11 | ok=true; oro crop 21×37; elev 25–5632 m; bins n=[322,61,64,330] |
 | `tier0_bias.py --smoke` | OK | 2026-09-11 | CPU-only; synthetic residual; not_skill=true; wall 0.117 s |
@@ -429,7 +429,7 @@ Same splits/bars; FCN3 frozen; outputs only under `runs/phase0/tier_a/v0_1/`.
 
 **Artifacts**
 - `configs/tier_a_v0_1.yaml`
-- `docs/research/TIER_A_V0_1_NOTE.md`
+- `docs/calls/TIER_A_V0_1_NOTE.md`
 - `runs/phase0/tier_a/v0_1/tier_a_v0_1_results.json` (+ ckpt, csv)
 - Log: `logs/tier_a_v0_1_train300.nohup.out`
 
@@ -456,7 +456,7 @@ Leonard `TIER_A_V1_SKETCH_CALL.md`: **v1-reg first, NO diffusion**. FCN3 frozen.
 **Artifacts**
 - `configs/tier_a_v1.yaml`
 - `code/tier_a/v1/{model,dataset,train}.py`
-- `docs/research/TIER_A_V1_NOTE.md`
+- `docs/calls/TIER_A_V1_NOTE.md`
 - `runs/phase0/tier_a/v1/tier_a_v1_results.json` (+ ckpt, csv)
 - Log: `logs/tier_a_v1_train400.nohup.out`
 
@@ -482,13 +482,13 @@ Leonard `TIER_A_V1_CALL.md`: v1-reg **FAIL** (test 1.950). Freeze `v1/`. Iterate
 **Artifacts**
 - `configs/tier_a_v1_1.yaml`
 - `code/tier_a/v1_1/{model,dataset,train}.py`
-- `docs/research/TIER_A_V1_1_NOTE.md`
+- `docs/calls/TIER_A_V1_1_NOTE.md`
 - `runs/phase0/tier_a/v1_1/tier_a_v1_1_results.json` (+ ckpt, csv)
 - Log: `logs/tier_a_v1_1_train400.nohup.out`
 
 ## Append — 2026-09-12 ~11:05 PT (Holdout IC expand v1)
 
-**Manisha chose expand holdout** (thicken val/test). Leonard froze recipe: `docs/research/HOLDOUT_IC_EXPAND_RECIPE.md`.
+**Manisha chose expand holdout** (thicken val/test). Leonard froze recipe: `docs/calls/HOLDOUT_IC_EXPAND_RECIPE.md`.
 
 | Check | Result | Notes |
 |-------|--------|-------|
@@ -567,7 +567,7 @@ Test 24/72/120h: 1.657 / 1.987 / 1.819
 
 ## Append — 2026-09-12 ~14:00 PT (Leonard HOLDOUT_EXPAND_CALL — beat-this FROZEN)
 
-**Call doc:** `docs/research/HOLDOUT_EXPAND_CALL.md` (authoritative).
+**Call doc:** `docs/calls/HOLDOUT_EXPAND_CALL.md` (authoritative).
 
 | Layer | Result |
 |-------|--------|
