@@ -1,14 +1,51 @@
-# Data / checkpoints (never commit)
-data/
-*.nc
-*.grib
-*.zarr/
-*.npy
-*.pt
-*.ckpt
-*.h5
-.env
-.cdsapirc
+# --- Heavy data / ICs (never commit) ---
+data/era5/
+data/g0_ics/
+data/tier0_ics/**/*.npy
+data/cache/
+data/imerg/
+data/imdaa/
+data/**
+
+# --- Models / checkpoints ---
+models/
+models/fourcastnet3/
+**/*.pt
+**/*.pth
+**/*.ckpt
+**/*.safetensors
+
+# --- Arrays / netCDF / pairs ---
+**/*.npy
+**/*.npz
+**/*.nc
+**/*.grib
+**/*.zarr/
+runs/**/pairs/
+
+# --- Envs / caches ---
+venv/
+venv-*/
+fcn3-venv/
 __pycache__/
-.venv/
+*.pyc
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# --- Logs (keep tiny summary md/json if force-added) ---
+logs/
 *.log
+
+# --- Secrets ---
+.env
+.env.*
+.cdsapirc
+**/credentials*
+**/*secret*
+**/*token*
+
+# --- OS / editor ---
+.DS_Store
+.idea/
+.vscode/

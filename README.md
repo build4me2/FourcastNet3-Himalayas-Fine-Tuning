@@ -1,60 +1,52 @@
 # FourCastNet3 — Nepal / South Asian mountain fine-tune
 
-Research + method docs for adapting **FourCastNet 3 (FCN3)** toward Nepal / HKH / South Asian orography skill on **2× DGX Spark** (128 GB unified each), using **RRCA-FD** (Regionally Reweighted CRPS Adapter + Frozen Diagnostic).
+**Full project repo** for FCN3 regional adaptation (RRCA-FD) on **2× DGX Spark**: eng code + configs + docs + selected gate metrics.
 
-**Not** a replay of NVIDIA’s Stage1→2→FT curriculum. Goal: preserve FCN3’s probabilistic spherical / dual-CRPS picture while gaining regional skill.
+Private: `build4me2/fourcastnet3-finetune` · default branch **`main`**
 
-## Start here
+## Layout (matches Spark `~/fourcastnet`)
 
-| Order | Doc | What it is |
-|------:|-----|------------|
-| 1 | [`docs/00-pathway/FINETUNE_PATHWAY.md`](docs/00-pathway/FINETUNE_PATHWAY.md) | Complete pathway + status tracking |
-| 2 | [`docs/01-method/FINETUNE_METHOD_DESIGN.md`](docs/01-method/FINETUNE_METHOD_DESIGN.md) | RRCA-FD technique (canonical method) |
-| 3 | [`docs/04-gates/GATE_RECIPE_TIER0_G0.md`](docs/04-gates/GATE_RECIPE_TIER0_G0.md) | Tier-0 / G0 IC + gate recipe |
-| 4 | [`docs/03-compute/SPARK_FINETUNE_PLAN.md`](docs/03-compute/SPARK_FINETUNE_PLAN.md) | What 2 Sparks can / can’t do |
-| 5 | [`docs/02-background/`](docs/02-background/) | Training data, FCN3 method, regional gap, prior FTs |
+| Path | What | Source |
+|------|------|--------|
+| `code/` | phase0 + tier_a (v0 → v1.1) | spark-61dd |
+| `configs/` | run / data configs | spark-61dd |
+| `docs/00-pathway/` … `docs/04-gates/` | Canon research pack (Sheldon) | manii Research + GitHub |
+| `docs/research/` | Spark operational docs (REFERENCE/CLAUDE/PROGRESS, Leonard calls) | spark-61dd |
+| `runs/phase0/` | Small metrics/gate JSON (+ tiny csv/md) only | spark-61dd |
+| `data/`, `models/`, `logs/`, `venv*` | **Not in git** | local Spark only |
 
-## Background pack (`docs/02-background/`)
+## Start here (research)
 
-- `TRAINING_METHOD.md` — Lead’s picture of how FCN3 was built  
-- `TRAINING_DATA.md` — ERA5 / channels / years  
-- `REGIONAL_FINETUNE_GAP.md` — why Nepal/HKH adaptation is open  
-- `FCN_REGIONAL_FINETUNES.md` — survey of FCN-family regional fine-tunes  
+1. [`docs/00-pathway/FINETUNE_PATHWAY.md`](docs/00-pathway/FINETUNE_PATHWAY.md) — pathway + status  
+2. [`docs/01-method/FINETUNE_METHOD_DESIGN.md`](docs/01-method/FINETUNE_METHOD_DESIGN.md) — RRCA-FD  
+3. [`docs/04-gates/GATE_RECIPE_TIER0_G0.md`](docs/04-gates/GATE_RECIPE_TIER0_G0.md) — G0 / Tier-0  
 
-## Locked decisions (snapshot)
+## Gitignore policy
 
-| Item | Lock |
-|------|------|
-| Box | 26–31°N, 80–89°E |
-| v1 success | t2m / winds first (precip later) |
-| Split policy | ~80/20 random **block-level**; test ≥15–20% |
-| Data intent | Max ERA5 through latest (Howard owns pull) |
-| Method | RRCA-FD Plan A primary; Plan B gated |
-| Base model | `nvidia/fourcastnet3` (Apache-2.0) |
+No ERA5 crops, G0/Tier-0 `.npy` ICs, pretrained weights, training checkpoints, pair tensors, venvs, `.cdsapirc` / `.env`. See `.gitignore`.
 
-## Status (as of docs sync)
+## Spark sync (Howard)
 
-Tier-A v1.1 interim PASS frozen; G0 verifying PASS; Tier-0 beat-this frozen. **Next unlock:** year hard-lock / more ICs before diffusion. Engineering on Sparks is owned by Howard; Sheldon = docs unless asked.
+Primary host: **spark-61dd** (`100.121.160.49`), tree `/home/chandmanisha00/fourcastnet/`.
 
-## Layout
-
-```
-docs/
-  00-pathway/     # tracking + lifecycle
-  01-method/      # RRCA-FD
-  02-background/  # lit + FCN3 internals
-  03-compute/     # Spark feasibility
-  04-gates/       # G0 / Tier-0 recipes
+```bash
+# On Spark (once gh/SSH auth ready):
+cd ~/fourcastnet
+git init -b main   # if needed
+git remote add origin https://github.com/build4me2/fourcastnet3-finetune.git
+git fetch origin
+git checkout -B main origin/main   # pull Sheldon docs first
+# then add code/ configs/ docs/ runs/phase0/*.json and push
 ```
 
-Code, training scripts, and data paths will land in later commits (Howard/Leonard). Do **not** commit ERA5 crops, tokens, or checkpoints.
+Science freeze (as of sync): thick-set **v1.1 INTERIM PASS**; no new Tier-A/diffusion until Manisha orders.
 
 ## Owners
 
 | Role | Who |
 |------|-----|
-| Research / docs | Sheldon |
-| Eng / data pull | Howard |
-| Experiments | Leonard |
+| Eng / Spark push | Howard |
 | Spark ops | Raj |
+| Research docs | Sheldon |
+| Experiments | Leonard |
 | Decisions | Manisha |
