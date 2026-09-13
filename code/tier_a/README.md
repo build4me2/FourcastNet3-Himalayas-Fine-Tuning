@@ -45,11 +45,11 @@ cd ~/fourcastnet
 
 ## v1-reg (2026-09-11)
 
-See `code/tier_a/v1/README.md` and `docs/research/TIER_A_V1_NOTE.md`. **Do not overwrite** `v0/` or `v0_1/`. No `v1-diff`.
+See `code/tier_a/v1/README.md` and `docs/calls/TIER_A_V1_NOTE.md`. **Do not overwrite** `v0/` or `v0_1/`. No `v1-diff`.
 
 ## v1.1 (2026-09-11)
 
-See `code/tier_a/v1_1/README.md` and `docs/research/TIER_A_V1_1_NOTE.md`.
+See `code/tier_a/v1_1/README.md` and `docs/calls/TIER_A_V1_1_NOTE.md`.
 **Do not overwrite** `v0/`, `v0_1/`, or **`v1/`**. No `v1-diff`.
 
 ```bash

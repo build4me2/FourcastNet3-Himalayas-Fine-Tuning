@@ -31,7 +31,7 @@ beat_this:
   val_headline_lt: 1.949
   test_t2m_pooled_rmse_lin_strict_lt: 1.850338
   source: runs/phase0/tier0_holdout/tier0_holdout_metrics.json
-  call: docs/research/TIER0_HOLDOUT_CALL.md
+  call: docs/calls/TIER0_HOLDOUT_CALL.md
   note: "val-only win = FAIL; must also beat test bar"
   g0_adapter:
     baseline: runs/phase0/g0/g0_verifying_results.json
@@ -86,7 +86,7 @@ train:
 output_dir: ~/fourcastnet/runs/phase0/tier_a/v0_1
 
 notes:
-  parent_call: docs/research/TIER_A_V0_CALL.md
+  parent_call: docs/calls/TIER_A_V0_CALL.md
   honesty: >
     Tier-A v0.1 = same frozen FCN3 + tiny residual UNet as v0, but with
     equal-weight multi-lead elev-weighted MSE so +120h cannot be sacrificed

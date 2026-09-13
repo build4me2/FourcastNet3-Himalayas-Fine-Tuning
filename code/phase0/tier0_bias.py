@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Tier-0 elevation-aware bias baseline (CPU-only plumbing).
 
-Aligned to docs/research/GATE_RECIPE_TIER0_G0.md (Leonard freeze 2026-09-11).
+Aligned to docs/04-gates/GATE_RECIPE_TIER0_G0.md (Leonard freeze 2026-09-11).
 
 What this does
 --------------
@@ -739,7 +739,7 @@ def main() -> int:
     report: dict[str, Any] = {
         "tier": "0",
         "script": "code/phase0/tier0_bias.py",
-        "recipe": "docs/research/GATE_RECIPE_TIER0_G0.md",
+        "recipe": "docs/04-gates/GATE_RECIPE_TIER0_G0.md",
         "cpu_only": True,
         "gpu_used": False,
         "fcn3_inference": False,
@@ -958,7 +958,7 @@ def main() -> int:
         "pair_mode": pair["mode"],
         "disclaimer": pair["disclaimer"],
         "recipe": "GATE_RECIPE_TIER0_G0.md",
-        "g0_base_call": "docs/research/G0_BASE_CALL.md (finite PASS; claimable G0 NOT YET)",
+        "g0_base_call": "docs/calls/G0_BASE_CALL.md (finite PASS; claimable G0 NOT YET)",
         "box": report["box"],
         "elevation_bins_m": edges,
         "bin_labels": bins["labels"],

@@ -97,7 +97,7 @@ def beat_this_echo(cfg: dict) -> dict:
             "val +120h t2m RMSE <= raw (~2.219971 K); hard gate for v1-reg; v0/v0.1 grandfathered",
         ),
         "source": bt.get("source", "runs/phase0/tier0_holdout/tier0_holdout_metrics.json"),
-        "call": bt.get("call", "docs/research/TIER_A_V1_SKETCH_CALL.md"),
+        "call": bt.get("call", "docs/calls/TIER_A_V1_SKETCH_CALL.md"),
         "note": bt.get("note", "val-only win = FAIL; +120h regress vs raw = FAIL v1-reg"),
         "g0_adapter": g0,
         "frozen_exact": {

@@ -3,7 +3,7 @@
 **Host:** Spark (`spark-61dd`, ssh `chandmanisha00@100.121.160.49`)  
 **When:** 2026-09-11 ~09:20 PT  
 **Agent:** Howard executor  
-**Recipe:** Leonard `docs/research/GATE_RECIPE_TIER0_G0.md` §1.2 / §3 step 1  
+**Recipe:** Leonard `docs/04-gates/GATE_RECIPE_TIER0_G0.md` §1.2 / §3 step 1  
 
 ## Success criteria
 

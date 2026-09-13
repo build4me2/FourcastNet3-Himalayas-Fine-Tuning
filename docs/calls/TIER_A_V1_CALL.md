@@ -3,8 +3,8 @@
 **Artifacts**
 - `~/fourcastnet/runs/phase0/tier_a/v1/tier_a_v1_results.json`
 - `best_residual.pt` + metrics CSV same dir
-- Note: `docs/research/TIER_A_V1_NOTE.md`
-- Sketch freeze: `docs/research/TIER_A_V1_SKETCH_CALL.md`
+- Note: `docs/calls/TIER_A_V1_NOTE.md`
+- Sketch freeze: `docs/calls/TIER_A_V1_SKETCH_CALL.md`
 
 **Method:** ElevCondResidualUNet (~665k), w_120=3.0, composite ckpt (reject +120 h regress), FCN3 frozen, no diffusion.
 

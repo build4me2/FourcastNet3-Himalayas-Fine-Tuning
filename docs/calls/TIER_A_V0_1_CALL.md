@@ -3,8 +3,8 @@
 **Artifacts**
 - `~/fourcastnet/runs/phase0/tier_a/v0_1/tier_a_v0_1_results.json`
 - Compare: `~/fourcastnet/runs/phase0/tier_a/v0/tier_a_v0_results.json` (**still frozen**)
-- Note: `docs/research/TIER_A_V0_1_NOTE.md`
-- Parent: `docs/research/TIER_A_V0_CALL.md`
+- Note: `docs/calls/TIER_A_V0_1_NOTE.md`
+- Parent: `docs/calls/TIER_A_V0_CALL.md`
 
 **Change vs v0:** equal-weight multi-lead elev-weighted MSE + `ckpt_select=lead_mean`. Same tiny UNet (~35k), same splits/bars, FCN3 frozen.
 

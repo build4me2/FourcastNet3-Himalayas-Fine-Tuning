@@ -3,7 +3,7 @@
 **Artifacts**
 - Tier-0: `~/fourcastnet/runs/phase0/tier0_holdout_expand/tier0_holdout_expand_metrics.json`
 - v1.1 zero-shot: `~/fourcastnet/runs/phase0/tier_a/v1_1_expand/tier_a_v1_1_expand_results.json`
-- Recipe: `docs/research/HOLDOUT_IC_EXPAND_RECIPE.md`
+- Recipe: `docs/calls/HOLDOUT_IC_EXPAND_RECIPE.md`
 - Thin set remains frozen under `runs/phase0/tier0_holdout/` and `tier_a/v1_1/`
 
 **Set:** train 8 / val **12** / test **12** · `holdout_expand=v1` · provisional years unchanged · no retrain of v1.1

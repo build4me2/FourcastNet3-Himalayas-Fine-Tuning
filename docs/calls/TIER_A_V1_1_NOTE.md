@@ -1,6 +1,6 @@
 # Tier-A v1.1 note — smaller/regularized residual (2026-09-11 PT)
 
-**Parent call:** `docs/research/TIER_A_V1_CALL.md` (v1-reg **FAIL** on test; iterate v1.1; **NO diffusion**).  
+**Parent call:** `docs/calls/TIER_A_V1_CALL.md` (v1-reg **FAIL** on test; iterate v1.1; **NO diffusion**).  
 **Method:** RRCA-FD Plan A — smaller/regularized elev/lead-FiLM residual UNet on **frozen FCN3** crop → ERA5 interim.  
 **Not this cut:** v1-diff / CorrDiff; FCN3 weight FT; G1/IMDAA.
 

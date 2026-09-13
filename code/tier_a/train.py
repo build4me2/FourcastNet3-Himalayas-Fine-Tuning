@@ -85,7 +85,7 @@ def beat_this_echo(cfg: dict) -> dict:
         "val_headline_lt": float(bt.get("val_headline_lt", 1.949)),
         "test_t2m_pooled_rmse_lin_strict_lt": float(bt.get("test_t2m_pooled_rmse_lin_strict_lt", 1.850338)),
         "source": bt.get("source", "runs/phase0/tier0_holdout/tier0_holdout_metrics.json"),
-        "call": bt.get("call", "docs/research/TIER0_HOLDOUT_CALL.md"),
+        "call": bt.get("call", "docs/calls/TIER0_HOLDOUT_CALL.md"),
         "note": bt.get("note", "val-only win = FAIL"),
         "g0_adapter": g0,
         "frozen_exact": {
