@@ -1,0 +1,134 @@
+# Tier-A v1.2 — expand-pairs train scaffold from v1.1 (same arch)
+# Manisha has NOT confirmed train. Leonard: CPU scaffold / --dry-run only.
+# FCN3 weights FROZEN. Do NOT overwrite v0/, v0_1/, v1/, v1_1/, v1_1_expand/.
+# provisional_years=true; claim_level=interim_era5; g1_claimable=false
+# Beat-this FROZEN expand bars: docs/research/HOLDOUT_EXPAND_CALL.md
+
+schema: tier_a_v1_2_results/v1
+method: RRCA-FD_Plan_A_frozen_fcn3_residual
+tier: A
+variant: v1_2
+cut: v1.2-reg
+diffusion: false
+artifact_stem: tier_a_v1_2
+holdout_expand: v1
+
+locks:
+  geo_box_frozen: true
+  years_frozen: true          # PROVISIONAL — Manisha hard-lock TBD
+  provisional_years: true
+  year_split_frozen: true
+  precip_in_v1: false
+  target: ERA5_interim
+  claim_level: interim_era5
+  g1_claimable: false
+  fcn3_weights: FROZEN
+  freeze_tier_a_v0: true
+  freeze_tier_a_v0_1: true
+  freeze_tier_a_v1: true
+  freeze_tier_a_v1_1: true
+  freeze_tier_a_v1_1_expand: true
+  no_diffusion: true
+  no_fcn3_weight_ft: true
+  train_pending_manisha_confirm: false
+  overwrite_forbidden:
+    - runs/phase0/g0/g0_verifying_results.json
+    - runs/phase0/tier0_holdout/
+    - runs/phase0/tier0_holdout_expand/
+    - runs/phase0/tier_a/v0/
+    - runs/phase0/tier_a/v0_1/
+    - runs/phase0/tier_a/v1/
+    - runs/phase0/tier_a/v1_1/
+    - runs/phase0/tier_a/v1_1_expand/
+
+# Expand beat-this FROZEN (Leonard HOLDOUT_EXPAND_CALL.md).
+beat_this:
+  val_t2m_pooled_rmse_lin_strict_lt: 1.987014
+  val_headline_lt: 1.987
+  test_t2m_pooled_rmse_lin_strict_lt: 1.897298
+  val_120h_t2m_rmse_raw_le: 2.131515989123864
+  val_120h_rule: "val +120h t2m RMSE <= expand-val raw (2.131516 K); hard gate for v1.x; thin 2.220 historical only"
+  source: runs/phase0/tier0_holdout_expand/tier0_holdout_expand_metrics.json
+  call: docs/research/HOLDOUT_EXPAND_CALL.md
+  note: "primary=val strict < 1.987014; secondary=test strict < 1.897298; +120h <= expand raw 2.131516; thin bars historical only; val-only win = FAIL"
+  thin_historical:
+    val_t2m_pooled_rmse_lin_strict_lt: 1.948661
+    test_t2m_pooled_rmse_lin_strict_lt: 1.850338
+    val_120h_t2m_rmse_raw_le: 2.219970831929039
+    note: historical v0/v0.1/v1/v1.1 thin calls only
+  g0_adapter:
+    baseline: runs/phase0/g0/g0_verifying_results.json
+    rule: "≤~5% CRPS degrade midlat @ +15 d; PSD/SSR floors"
+    tier_a_status: not_applicable_fcn3_frozen
+
+year_split:
+  train: "2018-2021"
+  val: "2022"
+  test: "2023-2024"
+  train_ids: [ic01, ic02, ic03, ic04, ic05, ic06, ic07, ic08]
+  val_ids: [ic09, ic10, ic11, ic12, ic17, ic18, ic19, ic20, ic21, ic22, ic23, ic24]
+  test_ids: [ic13, ic14, ic15, ic16, ic25, ic26, ic27, ic28, ic29, ic30, ic31, ic32]
+
+region:
+  lat_lon_box: {lon_west: 80.0, lon_east: 89.0, lat_south: 26.0, lat_north: 31.0}
+
+data:
+  pairs_dir: ~/fourcastnet/runs/phase0/tier0_holdout_expand/pairs
+  ic_manifest: ~/fourcastnet/data/tier0_ics/tier0_ic_manifest.json
+  elevation_mask: ~/fourcastnet/data/masks/w_R_elevation.nc
+  holdout_metrics: ~/fourcastnet/runs/phase0/tier0_holdout_expand/tier0_holdout_expand_metrics.json
+  g0_verifying: ~/fourcastnet/runs/phase0/g0/g0_verifying_results.json
+
+variables_in: [t2m, u10m, v10m]
+variables_out: [t2m, u10m, v10m]
+leads_h: [24, 72, 120]
+
+# Same arch as v1.1-reg (base=16, dropout=0.20, w_120=1.5, composite).
+model:
+  name: ElevCondResidualUNet
+  in_channels: 5   # pred_t2m, pred_u10m, pred_v10m, elev_norm, lead_norm
+  out_channels: 3
+  base_channels: 16
+  depth: 3
+  cond_dim: 2      # FiLM from (lead_norm, mean elev_norm)
+  dropout: 0.20
+  approx_params: "≈0.17M (same as v1.1; vs v1 ~0.67M; v0 ~35k)"
+
+train:
+  epochs_smoke: 30
+  epochs_full: 400
+  batch_size: 8
+  lr: 5.0e-4
+  weight_decay: 1.0e-3
+  seed: 42
+  loss: mse_residual_elev_weighted_lead_weighted
+  lead_balance: true
+  w_120: 1.5
+  lead_weights:
+    24: 1.0
+    72: 1.0
+    120: 1.5
+  channel_weights: [2.0, 0.5, 0.5]   # t2m-upweight (gates are t2m)
+  ckpt_select: composite
+  composite:
+    primary: lead_mean
+    constraint: val_120h_le_raw
+    reject_if_constraint_fails: true
+    also_track_pooled: true
+  raw_val_120h_t2m_rmse: 2.131515989123864  # expand-val raw +120h
+  early_stop_patience: 50
+  elev_weight_boost: 1.5
+  device_smoke: cpu
+  device_full: cpu          # leave GPU / ERA5 PID 611595 alone
+
+output_dir: ~/fourcastnet/runs/phase0/tier_a/v1_2
+
+notes:
+  parent_call: docs/research/HOLDOUT_EXPAND_CALL.md
+  status: manisha_greenlit_train_running
+  honesty: >
+    Tier-A v1.2 = same smaller/regularized elev-conditioned residual UNet as v1.1
+    (base_channels=16, dropout=0.20, w_120=1.5, weight_decay=1e-3) trained on
+    holdout_expand:v1 pairs when Manisha confirms. Composite ckpt rejects any epoch
+    that regresses val +120h vs expand raw (2.131516 K). NOT diffusion; NOT FCN3
+    weight FT; NOT G1/IMDAA. v0, v0.1, v1, v1.1, v1.1_expand artifacts remain frozen.
