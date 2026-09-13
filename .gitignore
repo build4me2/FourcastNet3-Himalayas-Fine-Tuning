@@ -1,0 +1,14 @@
+# Data / checkpoints (never commit)
+data/
+*.nc
+*.grib
+*.zarr/
+*.npy
+*.pt
+*.ckpt
+*.h5
+.env
+.cdsapirc
+__pycache__/
+.venv/
+*.log
