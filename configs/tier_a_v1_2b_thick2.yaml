@@ -1,18 +1,17 @@
-# Tier-A v1.2b — iterate from FAIL v1.2 (same arch; stronger +120h weight)
+# Tier-A v1.2b thick-2 ZERO-SHOT — unlock A 12/16/16 (no retrain; frozen best_residual.pt)
 # Leonard TIER_A_V1_2_CALL.md: w_120=2.0, patience=80, n_eligible_saves>=1 required.
 # FCN3 weights FROZEN. Do NOT overwrite v0/, v0_1/, v1/, v1_1/, v1_1_expand/, v1_2/.
 # provisional_years=false; year_split_frozen=true (HARD); claim_level=interim_era5; g1_claimable=false
 # Beat-this FROZEN thick-2 bars: docs/research/HOLDOUT_THICK2_CALL.md (expand-v1 historical)
-# Idle: no new GPU train / diffusion until Manisha assigns (Leonard thick-2 FREEZE 2026-09-13).
 
-schema: tier_a_v1_2b_results/v1
+schema: tier_a_v1_2b_thick2_results/v1
 method: RRCA-FD_Plan_A_frozen_fcn3_residual
 tier: A
-variant: v1_2b
+variant: v1_2b_thick2_zero_shot
 cut: v1.2b-reg
 diffusion: false
-artifact_stem: tier_a_v1_2b
-holdout_expand: v1
+artifact_stem: tier_a_v1_2b_thick2
+holdout_expand: v2
 
 locks:
   geo_box_frozen: true
@@ -30,6 +29,7 @@ locks:
   freeze_tier_a_v1_1: true
   freeze_tier_a_v1_1_expand: true
   freeze_tier_a_v1_2: true
+  freeze_tier_a_v1_2b: true  # frozen weights; thick-2 is zero-shot only
   no_diffusion: true
   no_fcn3_weight_ft: true
   train_pending_manisha_confirm: false
@@ -43,13 +43,14 @@ locks:
     - runs/phase0/tier_a/v1_1/
     - runs/phase0/tier_a/v1_1_expand/
     - runs/phase0/tier_a/v1_2/
+    - runs/phase0/tier_a/v1_2b/
 
 # Thick-2 beat-this FROZEN (Leonard HOLDOUT_THICK2_CALL.md). Expand-v1 bars historical only.
 beat_this:
   val_t2m_pooled_rmse_lin_strict_lt: 1.988588
   val_headline_lt: 1.989
   test_t2m_pooled_rmse_lin_strict_lt: 1.918383
-  val_120h_t2m_rmse_raw_le: 2.178841818082155
+  val_120h_t2m_rmse_raw_le: 2.178841818082155  # thick-2 val raw +120h (Tier-0 expand_v2); old expand 2.131516 historical
   val_120h_rule: "val +120h t2m RMSE <= thick-2-val raw (2.178842 K); hard gate for living Tier-A; expand-v1 2.131516 historical only"
   source: runs/phase0/tier0_holdout_expand_v2/tier0_holdout_expand_v2_metrics.json
   call: docs/research/HOLDOUT_THICK2_CALL.md
@@ -73,18 +74,18 @@ year_split:
   train: "2018-2021"
   val: "2022"
   test: "2023-2024"
-  train_ids: [ic01, ic02, ic03, ic04, ic05, ic06, ic07, ic08]
-  val_ids: [ic09, ic10, ic11, ic12, ic17, ic18, ic19, ic20, ic21, ic22, ic23, ic24]
-  test_ids: [ic13, ic14, ic15, ic16, ic25, ic26, ic27, ic28, ic29, ic30, ic31, ic32]
+  train_ids: [ic01, ic02, ic03, ic04, ic05, ic06, ic07, ic08, ic33, ic34, ic35, ic36]
+  val_ids: [ic09, ic10, ic11, ic12, ic17, ic18, ic19, ic20, ic21, ic22, ic23, ic24, ic37, ic38, ic39, ic40]
+  test_ids: [ic13, ic14, ic15, ic16, ic25, ic26, ic27, ic28, ic29, ic30, ic31, ic32, ic41, ic42, ic43, ic44]
 
 region:
   lat_lon_box: {lon_west: 80.0, lon_east: 89.0, lat_south: 26.0, lat_north: 31.0}
 
 data:
-  pairs_dir: ~/fourcastnet/runs/phase0/tier0_holdout_expand/pairs
+  pairs_dir: ~/fourcastnet/runs/phase0/tier0_holdout_expand_v2/pairs
   ic_manifest: ~/fourcastnet/data/tier0_ics/tier0_ic_manifest.json
   elevation_mask: ~/fourcastnet/data/masks/w_R_elevation.nc
-  holdout_metrics: ~/fourcastnet/runs/phase0/tier0_holdout_expand/tier0_holdout_expand_metrics.json
+  holdout_metrics: ~/fourcastnet/runs/phase0/tier0_holdout_expand_v2/tier0_holdout_expand_v2_metrics.json
   g0_verifying: ~/fourcastnet/runs/phase0/g0/g0_verifying_results.json
 
 variables_in: [t2m, u10m, v10m]
@@ -129,11 +130,11 @@ train:
   device_smoke: cpu
   device_full: cuda         # Manisha greenlit GPU train; leave ERA5 PID 611595 alone
 
-output_dir: ~/fourcastnet/runs/phase0/tier_a/v1_2b
+output_dir: ~/fourcastnet/runs/phase0/tier_a/v1_2b_thick2
 
 notes:
   parent_call: docs/research/HOLDOUT_THICK2_CALL.md
-  status: historical_living_moved_to_v1_2b_thick2_train_interim_pass_confirm
+  status: zs_historical_living_is_v1_2b_thick2_train
   parent_fail: docs/research/TIER_A_V1_2_CALL.md
   honesty: >
     Tier-A v1.2b = same ElevCondResidualUNet as v1.1/v1.2

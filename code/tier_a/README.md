@@ -10,7 +10,7 @@
 | val 2022 t2m pooled RMSE | strictly **< 1.948661 K** (headline < 1.949) |
 | test 2023–24 | strictly **< 1.850338 K** (val-only = FAIL) |
 | G0 adapter | N/A while FCN3 frozen |
-| Labels | `provisional_years=true`; `claim_level=interim_era5`; `g1_claimable=false` |
+| Labels | `provisional_years=false`; `year_split_frozen=true` (HARD); `claim_level=interim_era5`; `g1_claimable=false` |
 
 **Do not overwrite:** `runs/phase0/g0/g0_verifying_results.json`, `runs/phase0/tier0_holdout/`, **`runs/phase0/tier_a/v0/`** (frozen after Leonard PASS).
 
@@ -45,11 +45,11 @@ cd ~/fourcastnet
 
 ## v1-reg (2026-09-11)
 
-See `code/tier_a/v1/README.md` and `docs/calls/TIER_A_V1_NOTE.md`. **Do not overwrite** `v0/` or `v0_1/`. No `v1-diff`.
+See `code/tier_a/v1/README.md` and `docs/research/TIER_A_V1_NOTE.md`. **Do not overwrite** `v0/` or `v0_1/`. No `v1-diff`.
 
 ## v1.1 (2026-09-11)
 
-See `code/tier_a/v1_1/README.md` and `docs/calls/TIER_A_V1_1_NOTE.md`.
+See `code/tier_a/v1_1/README.md` and `docs/research/TIER_A_V1_1_NOTE.md`.
 **Do not overwrite** `v0/`, `v0_1/`, or **`v1/`**. No `v1-diff`.
 
 ```bash

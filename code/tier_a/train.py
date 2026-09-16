@@ -85,7 +85,7 @@ def beat_this_echo(cfg: dict) -> dict:
         "val_headline_lt": float(bt.get("val_headline_lt", 1.949)),
         "test_t2m_pooled_rmse_lin_strict_lt": float(bt.get("test_t2m_pooled_rmse_lin_strict_lt", 1.850338)),
         "source": bt.get("source", "runs/phase0/tier0_holdout/tier0_holdout_metrics.json"),
-        "call": bt.get("call", "docs/calls/TIER0_HOLDOUT_CALL.md"),
+        "call": bt.get("call", "docs/research/TIER0_HOLDOUT_CALL.md"),
         "note": bt.get("note", "val-only win = FAIL"),
         "g0_adapter": g0,
         "frozen_exact": {
@@ -459,8 +459,8 @@ def main() -> int:
         "claim_level": cfg["locks"]["claim_level"],
         "target": cfg["locks"]["target"],
         "g1_claimable": False,
-        "provisional_years": True,
-        "year_split_frozen": True,
+        "provisional_years": bool(cfg["locks"].get("provisional_years", False)),
+        "year_split_frozen": bool(cfg["locks"].get("year_split_frozen", True)),
         "year_split": {
             "train": splits_cfg["train"],
             "val": splits_cfg["val"],
@@ -629,7 +629,7 @@ def main() -> int:
                 "not G1 / not IMDAA",
                 "not FCN3 weight FT",
                 "not CorrDiff (tiny UNet residual only)",
-                "provisional_years=true",
+                "provisional_years=false",
                 "not lead-uniform unless lead_balance documented + measured",
             ],
         }

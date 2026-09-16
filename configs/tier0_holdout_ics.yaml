@@ -1,17 +1,19 @@
-# Tier-0 holdout IC split (provisional years — Manisha has not hard-locked)
-# provisional_years=true; year_split_frozen=true (provisional label only)
+# Tier-0 holdout IC split (YEAR HARD-LOCK 2026-09-13 — see docs/research/YEAR_HARD_LOCK.md)
+# provisional_years=false; year_split_frozen=true (HARD)
 # Global ERA5 ICs only (721×1440×72). Nepal crop ≠ IC.
 # Train: reuse existing G0 ICs 2018–2021. Val 2022. Test 2023–2024.
 # holdout_expand: v1 (2026-09-12 Leonard HOLDOUT_IC_EXPAND_RECIPE.md)
-# Expand: keep train 8; thicken val 4→12 and test 4→12 (ic17–ic32). Seasons DJF+MAM+JJA+SON.
+# Expand v1: train 8 / val 12 / test 12 (ic17–ic32).
+# Thick-2 v2: train 12 / val 16 / test 16 (add ic33–ic44). Seasons ≥4 in val/test; train ≥2/season.
 # Manisha: expand holdout first; no year hard-lock; no diffusion. 1980→latest ERA5 crop untouched.
 
 out_dir: ~/fourcastnet/data/tier0_ics
 source: arco
 init_hour_utc: 0
-provisional_years: true
-year_split_frozen: true  # provisional lock only; Manisha hard-lock TBD
-holdout_expand: v1  # Leonard HOLDOUT_IC_EXPAND_RECIPE.md 2026-09-12
+provisional_years: false
+year_split_frozen: true  # HARD — Manisha year hard-lock 2026-09-13
+holdout_expand: v2  # Leonard FCN_NEXT_UNLOCK.md unlock A thick-2 (12/16/16) 2026-09-13
+# Prior expand v1 kept (ic17–ic32). Thick-2 adds ic33–ic44.
 year_split:
   train: [2018, 2019, 2020, 2021]
   val: [2022]
@@ -95,7 +97,7 @@ ics:
     region_class: non_asia
     region_label: N_Atlantic
     split: val
-    rationale: "Val 2022 DJF N Atlantic (mirror ic01; provisional year)"
+    rationale: "Val 2022 DJF N Atlantic (mirror ic01; year hard-lock)"
   - id: ic10
     time: "2022-07-12T00:00:00"
     season: JJA
@@ -263,3 +265,103 @@ ics:
     region_label: Bay_of_Bengal_retreat
     split: test
     rationale: "Test 2024 SON BoB retreat (expand v1)"
+
+  # ---- TRAIN 2018–2021 thick-2 (holdout_expand:v2) — ic33–ic36 → train total 12 ----
+  - id: ic33
+    time: "2018-04-15T00:00:00"
+    season: MAM
+    region_class: non_asia
+    region_label: N_Atlantic
+    split: train
+    rationale: "Train 2018 MAM N Atlantic (thick-2 unlock A; add MAM to train)"
+  - id: ic34
+    time: "2019-10-15T00:00:00"
+    season: SON
+    region_class: asia_ex_nepal
+    region_label: East_Asia
+    split: train
+    rationale: "Train 2019 SON East Asia (thick-2 unlock A; add SON to train)"
+  - id: ic35
+    time: "2020-03-15T00:00:00"
+    season: MAM
+    region_class: monsoon_adjacent
+    region_label: Bay_of_Bengal_premonsoon
+    split: train
+    rationale: "Train 2020 MAM BoB premonsoon (thick-2; regime tag only — global IC)"
+  - id: ic36
+    time: "2021-09-15T00:00:00"
+    season: SON
+    region_class: non_asia
+    region_label: N_Pacific
+    split: train
+    rationale: "Train 2021 SON N Pacific (thick-2 unlock A)"
+
+  # ---- VAL 2022 thick-2 (holdout_expand:v2) — ic37–ic40 → val total 16 ----
+  - id: ic37
+    time: "2022-01-05T00:00:00"
+    season: DJF
+    region_class: asia_ex_nepal
+    region_label: East_Asia
+    split: val
+    rationale: "Val 2022 DJF East Asia (thick-2; early-Jan cadence vs ic09 mid-Jan)"
+  - id: ic38
+    time: "2022-04-05T00:00:00"
+    season: MAM
+    region_class: monsoon_adjacent
+    region_label: Bay_of_Bengal_premonsoon
+    split: val
+    rationale: "Val 2022 MAM BoB premonsoon (thick-2; early-Apr vs ic19 mid-Apr)"
+  - id: ic39
+    time: "2022-07-05T00:00:00"
+    season: JJA
+    region_class: non_asia
+    region_label: tropics_Atlantic_Africa
+    split: val
+    rationale: "Val 2022 JJA tropics Atlantic/Africa (thick-2; early-Jul vs ic10 mid-Jul)"
+  - id: ic40
+    time: "2022-10-05T00:00:00"
+    season: SON
+    region_class: asia_ex_nepal
+    region_label: West_Pacific
+    split: val
+    rationale: "Val 2022 SON West Pacific (thick-2; early-Oct vs ic23 mid-Oct)"
+
+  # ---- TEST 2023–2024 thick-2 (holdout_expand:v2) — ic41–ic44 → test total 16 ----
+  - id: ic41
+    time: "2023-02-15T00:00:00"
+    season: DJF
+    region_class: monsoon_adjacent
+    region_label: NE_India_Myanmar_fringe
+    split: test
+    rationale: "Test 2023 DJF NE India/Myanmar fringe (thick-2 unlock A)"
+  - id: ic42
+    time: "2023-06-15T00:00:00"
+    season: JJA
+    region_class: non_asia
+    region_label: SH_midlat
+    split: test
+    rationale: "Test 2023 JJA SH midlat (thick-2 unlock A)"
+  - id: ic43
+    time: "2024-03-15T00:00:00"
+    season: MAM
+    region_class: non_asia
+    region_label: N_Atlantic
+    split: test
+    rationale: "Test 2024 MAM N Atlantic (thick-2 unlock A)"
+  - id: ic44
+    time: "2024-08-15T00:00:00"
+    season: JJA
+    region_class: asia_ex_nepal
+    region_label: West_Pacific_typhoon
+    split: test
+    rationale: "Test 2024 JJA W Pacific typhoon (thick-2 unlock A)"
+
+
+  # ---- TEST optional SON balance (ic45) — soft miss fix: test SON 3→4; no architecture reopen ----
+  - id: ic45
+    time: "2023-10-15T00:00:00"
+    season: SON
+    region_class: asia_ex_nepal
+    region_label: East_Asia
+    split: test
+    rationale: "Test 2023-10-15 SON East Asia (optional ic45; balances test SON to ≥4; Oct 2023 free; asia_ex_nepal per unlock balance — 2024-10-15 already ic32 monsoon_adjacent)"

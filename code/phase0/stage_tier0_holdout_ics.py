@@ -4,7 +4,7 @@
 - Train ICs: hardlink/reuse existing data/g0_ics/*.npy (2018–2021)
 - Val/test: fetch via ARCO (same path as stage_g0_ics.py)
 - Writes data/tier0_ics/tier0_ic_manifest.json with split labels
-- provisional_years=true; year_split_frozen=true (provisional only)
+- provisional_years=false; year_split_frozen=true (HARD — YEAR_HARD_LOCK.md)
 
 Never uses Nepal crop as IC. Leaves CDS ERA5 regional PID alone.
 """
@@ -72,6 +72,7 @@ def main() -> int:
         default=str(Path("~/fourcastnet/configs/tier0_holdout_ics.yaml").expanduser()),
     )
     ap.add_argument("--splits", default="train,val,test", help="Comma splits to stage")
+    ap.add_argument("--ids", default=None, help="Comma-separated IC ids to stage (incremental)")
     ap.add_argument("--force", action="store_true")
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--quiet", action="store_true")
@@ -89,17 +90,23 @@ def main() -> int:
         channels = json.loads(g0_man.read_text()).get("channels") or channels
 
     ics_cfg = [ic for ic in cfg.get("ics", []) if ic.get("split") in want_splits]
+    if args.ids:
+        want_ids = {x.strip() for x in args.ids.split(",") if x.strip()}
+        ics_cfg = [ic for ic in ics_cfg if ic.get("id") in want_ids]
+        missing = want_ids - {ic.get("id") for ic in ics_cfg}
+        if missing:
+            raise SystemExit(f"unknown/filtered ids: {sorted(missing)}")
     man_path = out_dir / "tier0_ic_manifest.json"
     if man_path.is_file():
         man = json.loads(man_path.read_text())
         man["channels"] = channels or man.get("channels")
-        man["provisional_years"] = bool(cfg.get("provisional_years", True))
+        man["provisional_years"] = bool(cfg.get("provisional_years", False))
         man["year_split_frozen"] = bool(cfg.get("year_split_frozen", True))
         man["year_split"] = cfg.get("year_split") or man.get("year_split")
         man["year_split_note"] = (
-            "PROVISIONAL year split (Manisha has not hard-locked). "
+            "HARD year split (Manisha locked 2026-09-13; docs/research/YEAR_HARD_LOCK.md). "
             "train 2018-2021 / val 2022 / test 2023-2024. "
-            "provisional_years=true; claim_level stays interim_era5; g1_claimable=false."
+            "provisional_years=false; year_split_frozen=true; claim_level stays interim_era5; g1_claimable=false."
         )
         man.setdefault("ics", [])
         man["config_path"] = str(expand(args.config))
@@ -110,12 +117,12 @@ def main() -> int:
             "schema": "tier0_ic_manifest/v1",
             "created_utc": datetime.now(timezone.utc).isoformat(),
             "config_path": str(expand(args.config)),
-            "provisional_years": bool(cfg.get("provisional_years", True)),
+            "provisional_years": bool(cfg.get("provisional_years", False)),
             "year_split_frozen": bool(cfg.get("year_split_frozen", True)),
             "year_split_note": (
-                "PROVISIONAL year split (Manisha has not hard-locked). "
+                "HARD year split (Manisha locked 2026-09-13; docs/research/YEAR_HARD_LOCK.md). "
                 "train 2018-2021 / val 2022 / test 2023-2024. "
-                "provisional_years=true; claim_level stays interim_era5; g1_claimable=false."
+                "provisional_years=false; claim_level stays interim_era5; g1_claimable=false."
             ),
             "year_split": cfg.get("year_split"),
             "spec": {

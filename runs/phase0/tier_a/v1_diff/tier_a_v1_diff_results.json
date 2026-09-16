@@ -1,0 +1,532 @@
+{
+  "schema": "tier_a_v1_diff_results/v1",
+  "created_utc": "2026-09-14T19:30:53.801086+00:00",
+  "script": "code/tier_a/v1_diff/train.py",
+  "config": "/home/chandmanisha00/fourcastnet/configs/tier_a_v1_diff.yaml",
+  "method": "RRCA-FD_Plan_A_frozen_fcn3_corrdiff_lite",
+  "tier": "A",
+  "variant": "v1_diff",
+  "cut": "v1-diff-edm",
+  "diffusion": true,
+  "diffusion_kind": "edm_custom_2d",
+  "arch_choice": {
+    "backend": "edm",
+    "implementation": "custom_2d_ResidualEDM2D",
+    "physicsnemo": false,
+    "reason": "PhysicsNeMo stock UNet is 3D; Nepal 21x37 uses custom 2D EDM"
+  },
+  "fcn3_weights": "FROZEN",
+  "living_residual_weights": "FROZEN",
+  "living_residual_ckpt": "/home/chandmanisha00/fourcastnet/runs/phase0/tier_a/v1_2b_thick2_train/best_residual.pt",
+  "target_mode": "leftover_vs_fcn3_plus_residual",
+  "claim_level": "interim_era5",
+  "g1_claimable": false,
+  "provisional_years": false,
+  "year_split_frozen": true,
+  "year_split": {
+    "train": "2018-2021",
+    "val": "2022",
+    "test": "2023-2024"
+  },
+  "train_ids": [
+    "ic01",
+    "ic02",
+    "ic03",
+    "ic04",
+    "ic05",
+    "ic06",
+    "ic07",
+    "ic08",
+    "ic33",
+    "ic34",
+    "ic35",
+    "ic36"
+  ],
+  "val_ids": [
+    "ic09",
+    "ic10",
+    "ic11",
+    "ic12",
+    "ic17",
+    "ic18",
+    "ic19",
+    "ic20",
+    "ic21",
+    "ic22",
+    "ic23",
+    "ic24",
+    "ic37",
+    "ic38",
+    "ic39",
+    "ic40"
+  ],
+  "test_ids": [
+    "ic13",
+    "ic14",
+    "ic15",
+    "ic16",
+    "ic25",
+    "ic26",
+    "ic27",
+    "ic28",
+    "ic29",
+    "ic30",
+    "ic31",
+    "ic32",
+    "ic41",
+    "ic42",
+    "ic43",
+    "ic44"
+  ],
+  "box": {
+    "lon_west": 80.0,
+    "lon_east": 89.0,
+    "lat_south": 26.0,
+    "lat_north": 31.0
+  },
+  "beat_this": {
+    "val_t2m_pooled_rmse_lin_strict_lt": 1.988588,
+    "test_t2m_pooled_rmse_lin_strict_lt": 1.918383,
+    "val_120h_t2m_rmse_raw_le": 2.178841818082155,
+    "bars_set": "thick2",
+    "living_residual": {
+      "path": "runs/phase0/tier_a/v1_2b_thick2_train/",
+      "ckpt": "runs/phase0/tier_a/v1_2b_thick2_train/best_residual.pt",
+      "best_val_pooled": 1.759883,
+      "best_test_pooled": 1.7797,
+      "vs_living_val_strict_lt": 1.759883,
+      "vs_living_test_le": 1.7897,
+      "prefer_test_strict_lt": 1.7797
+    },
+    "recipe": "docs/research/TIER_A_V1_DIFF_RECIPE.md",
+    "note": "primary thick-2: val < 1.988588 / test < 1.918383 / +120h <= 2.178842; vs living: val strictly < 1.759883 AND test <= 1.7797+0.01 (prefer < 1.7797); fail vs living => diff_improves_residual=false (do not promote)\n"
+  },
+  "model_spec": {
+    "name": "ResidualEDM2D",
+    "arch_choice": "custom_2d_edm",
+    "diffusion_backend": "edm",
+    "physicsnemo": false,
+    "in_channels_target": 3,
+    "cond_channels": 8,
+    "base_channels": 24,
+    "depth": 2,
+    "dropout": 0.1,
+    "sigma_data": 1.0,
+    "sigma_min": 0.002,
+    "sigma_max": 80.0,
+    "rho": 7.0,
+    "approx_params": "\u2264~1\u20132M (start ~0.5\u20131M; shrink on OOM)"
+  },
+  "decode": {
+    "formula": "FCN3 + frozen_residual_mean + diffusion_mean",
+    "primary": "one_step_zero_noise",
+    "K_secondary": 4,
+    "steps_secondary": 18,
+    "note": "Primary gates use 0-noise one-step denoise; ens-mean K=4 reported in decode_compare"
+  },
+  "overwrite_forbidden_ok": true,
+  "era5_pid_611595": {
+    "pid": 611595,
+    "alive": true,
+    "cmd": "/home/chandmanisha00/fourcastnet/venv-data/bin/python code/data/era5_crop_download.py --config configs/era5_nepal_crop.yaml --log logs/era5_pull.log",
+    "policy": "DO_NOT_KILL"
+  },
+  "freeze_before": {
+    "living_best_residual": {
+      "path": "/home/chandmanisha00/fourcastnet/runs/phase0/tier_a/v1_2b_thick2_train/best_residual.pt",
+      "md5": "aa0ed74a9307f5a284cadc65e3671be4",
+      "mtime": 1789406435.0254145
+    },
+    "living_results": {
+      "path": "/home/chandmanisha00/fourcastnet/runs/phase0/tier_a/v1_2b_thick2_train/tier_a_v1_2b_thick2_train_results.json",
+      "md5": "6a1a7060f0b1886f0d73092e80cb2133",
+      "mtime": 1789406435.838085
+    },
+    "v1_2b_best": {
+      "path": "/home/chandmanisha00/fourcastnet/runs/phase0/tier_a/v1_2b/best_residual.pt",
+      "md5": "ae8687a813374358da0e884ba0596bf7",
+      "mtime": 1789274569.094574
+    },
+    "v1_2b_thick2_results": {
+      "path": "/home/chandmanisha00/fourcastnet/runs/phase0/tier_a/v1_2b_thick2/tier_a_v1_2b_thick2_results.json",
+      "md5": "2941142833ec92ef4eeb7828fd8b6d50",
+      "mtime": 1789333991.7277427
+    },
+    "g0_verifying": {
+      "path": "/home/chandmanisha00/fourcastnet/runs/phase0/g0/g0_verifying_results.json",
+      "md5": "806263fd3683eb1b209d0cadf5f5b5a2",
+      "mtime": 1789178236.342168
+    },
+    "tier0_holdout_expand_v2": {
+      "path": "/home/chandmanisha00/fourcastnet/runs/phase0/tier0_holdout_expand_v2/tier0_holdout_expand_v2_metrics.json",
+      "md5": "98469faab2f47c81b3c044aed96a10c0",
+      "mtime": 1789333877.07624
+    }
+  },
+  "honesty": "Tier-A v1-diff = custom 2D EDM residual diffuser on holdout_expand=v2 (12/16/16). Mean path = FCN3 + frozen living residual; diffusion models leftover only. Decode = mean path + ens-mean K=4. NOT NVIDIA CorrDiff parity; NOT FCN3 weight FT; NOT G1/IMDAA. Fail vs living => do not promote.\n",
+  "mode": "train",
+  "status": "train_ok",
+  "device": "cuda",
+  "epochs": 200,
+  "seed": 42,
+  "n_params": 111187,
+  "n_samples": {
+    "train": 36,
+    "val": 48,
+    "test": 48
+  },
+  "train_info": {
+    "best_val_t2m_rmse": 1.7598335459052994,
+    "best_select_score": 1.7454494352468934,
+    "best_eligible_epoch": 64,
+    "n_eligible_saves": 8,
+    "reload_kind": "composite_eligible",
+    "stopped_epoch": 124,
+    "early_stop_patience": 60,
+    "best_ckpt": "/home/chandmanisha00/fourcastnet/runs/phase0/tier_a/v1_diff/best_diffusion.pt",
+    "history_tail": [
+      {
+        "epoch": 117,
+        "train_loss": 3.223282860385047,
+        "val_t2m_rmse": 1.7598448011722065,
+        "val_t2m_rmse_lead_mean": 1.7454637411627714,
+        "val_120h": 1.9623987273297667,
+        "constraint_ok": true,
+        "select_score": 1.7454637411627714,
+        "saved_eligible": false
+      },
+      {
+        "epoch": 118,
+        "train_loss": 3.7363069272703595,
+        "val_t2m_rmse": 1.7598565231816077,
+        "val_t2m_rmse_lead_mean": 1.7454722882284306,
+        "val_120h": 1.9624205178475247,
+        "constraint_ok": true,
+        "select_score": 1.7454722882284306,
+        "saved_eligible": false
+      },
+      {
+        "epoch": 119,
+        "train_loss": 3.2524787419372134,
+        "val_t2m_rmse": 1.7598655163104582,
+        "val_t2m_rmse_lead_mean": 1.7454826482740236,
+        "val_120h": 1.9624201976212314,
+        "constraint_ok": true,
+        "select_score": 1.7454826482740236,
+        "saved_eligible": false
+      },
+      {
+        "epoch": 120,
+        "train_loss": 4.1384144723415375,
+        "val_t2m_rmse": 1.759862068221404,
+        "val_t2m_rmse_lead_mean": 1.7454810278670052,
+        "val_120h": 1.9624130525584704,
+        "constraint_ok": true,
+        "select_score": 1.7454810278670052,
+        "saved_eligible": false
+      },
+      {
+        "epoch": 121,
+        "train_loss": 3.634394986761941,
+        "val_t2m_rmse": 1.7598543290594935,
+        "val_t2m_rmse_lead_mean": 1.745467782735788,
+        "val_120h": 1.9624413574619204,
+        "constraint_ok": true,
+        "select_score": 1.745467782735788,
+        "saved_eligible": false
+      },
+      {
+        "epoch": 122,
+        "train_loss": 3.7906753387716083,
+        "val_t2m_rmse": 1.7598643051095038,
+        "val_t2m_rmse_lead_mean": 1.745477470135439,
+        "val_120h": 1.9624370869851377,
+        "constraint_ok": true,
+        "select_score": 1.745477470135439,
+        "saved_eligible": false
+      },
+      {
+        "epoch": 123,
+        "train_loss": 3.2836348116397858,
+        "val_t2m_rmse": 1.759862803777106,
+        "val_t2m_rmse_lead_mean": 1.7454786760023726,
+        "val_120h": 1.9624167001462816,
+        "constraint_ok": true,
+        "select_score": 1.7454786760023726,
+        "saved_eligible": false
+      },
+      {
+        "epoch": 124,
+        "train_loss": 3.894731322924296,
+        "val_t2m_rmse": 1.7598805727938462,
+        "val_t2m_rmse_lead_mean": 1.7454981678224115,
+        "val_120h": 1.962448294777856,
+        "constraint_ok": true,
+        "select_score": 1.7454981678224115,
+        "saved_eligible": false
+      }
+    ]
+  },
+  "metrics": {
+    "val": {
+      "variable": "t2m",
+      "n": 37296,
+      "decode_k": 4,
+      "decode_steps": 18,
+      "rmse_raw": 2.0166297922453746,
+      "rmse_living_residual": 1.7598573600996845,
+      "rmse_tier_a": 1.7598404617166918,
+      "per_lead": {
+        "24": {
+          "rmse_raw": 1.6969951939932033,
+          "rmse_living_residual": 1.436166281737471,
+          "rmse_tier_a": 1.4361145351198008,
+          "n": 12432
+        },
+        "72": {
+          "rmse_raw": 2.1385141963788143,
+          "rmse_living_residual": 1.8378208565228882,
+          "rmse_tier_a": 1.8378280425245679,
+          "n": 12432
+        },
+        "120": {
+          "rmse_raw": 2.1788417795620476,
+          "rmse_living_residual": 1.96243081259466,
+          "rmse_tier_a": 1.9624164899973737,
+          "n": 12432
+        }
+      },
+      "per_elev_bin": {
+        "0": {
+          "rmse_raw": 1.399551560794559,
+          "rmse_living_residual": 1.2526578932027743,
+          "rmse_tier_a": 1.2526404059552956,
+          "n": 15456
+        },
+        "1": {
+          "rmse_raw": 1.8220123271725,
+          "rmse_living_residual": 1.6638801850833842,
+          "rmse_tier_a": 1.6638597648568738,
+          "n": 2928
+        },
+        "2": {
+          "rmse_raw": 2.309076966626814,
+          "rmse_living_residual": 2.065874885032299,
+          "rmse_tier_a": 2.065842166592807,
+          "n": 3072
+        },
+        "3": {
+          "rmse_raw": 2.45285458242846,
+          "rmse_living_residual": 2.102781804770393,
+          "rmse_tier_a": 2.1027679028892603,
+          "n": 15840
+        }
+      },
+      "rmse_tier_a_lead_mean": 1.7454530225472473
+    },
+    "test": {
+      "variable": "t2m",
+      "n": 37296,
+      "decode_k": 4,
+      "decode_steps": 18,
+      "rmse_raw": 2.014340537495806,
+      "rmse_living_residual": 1.7798244559428174,
+      "rmse_tier_a": 1.779868313741952,
+      "per_lead": {
+        "24": {
+          "rmse_raw": 1.945683216506152,
+          "rmse_living_residual": 1.610214136465754,
+          "rmse_tier_a": 1.6102518512181185,
+          "n": 12432
+        },
+        "72": {
+          "rmse_raw": 2.2425904968762773,
+          "rmse_living_residual": 1.8788997201837705,
+          "rmse_tier_a": 1.8789433994930553,
+          "n": 12432
+        },
+        "120": {
+          "rmse_raw": 1.8324322872409673,
+          "rmse_living_residual": 1.8385514836782877,
+          "rmse_tier_a": 1.838601185667507,
+          "n": 12432
+        }
+      },
+      "per_elev_bin": {
+        "0": {
+          "rmse_raw": 1.3007579002067977,
+          "rmse_living_residual": 1.1901971283408053,
+          "rmse_tier_a": 1.1902226209897515,
+          "n": 15456
+        },
+        "1": {
+          "rmse_raw": 1.6723108204291903,
+          "rmse_living_residual": 1.6054094355427295,
+          "rmse_tier_a": 1.60542074109419,
+          "n": 2928
+        },
+        "2": {
+          "rmse_raw": 2.1707083812945394,
+          "rmse_living_residual": 2.0680924325279744,
+          "rmse_tier_a": 2.0681565084381583,
+          "n": 3072
+        },
+        "3": {
+          "rmse_raw": 2.544009627658922,
+          "rmse_living_residual": 2.184157725346926,
+          "rmse_tier_a": 2.18421501651721,
+          "n": 15840
+        }
+      },
+      "rmse_tier_a_lead_mean": 1.7759321454595602
+    }
+  },
+  "lead_120h": {
+    "val": {
+      "rmse_tier_a": 1.9624164899973737,
+      "le_raw": true
+    },
+    "test": {
+      "rmse_tier_a": 1.838601185667507
+    },
+    "raw_val_reference": 2.178841818082155
+  },
+  "gates": {
+    "val_pass": true,
+    "test_pass": true,
+    "val_120h_le_raw": true,
+    "n_eligible_saves": 1,
+    "eligible_ckpt_ok": true,
+    "reload_kind": "composite_eligible",
+    "thick2_bars_pass": true,
+    "vs_living_val_strict_lt": true,
+    "vs_living_test_le": true,
+    "vs_living_test_prefer_strict": false,
+    "diff_improves_residual": false,
+    "tier_a_interim_pass": false,
+    "val_t2m_rmse": 1.7598404617166918,
+    "test_t2m_rmse": 1.779868313741952,
+    "val_120h_t2m_rmse": 1.9624164899973737,
+    "living_val_bar": 1.759883,
+    "living_test_bar_le": 1.7897,
+    "note": "Thick-2 bars clear on one_step decode. one_step leftover \u2248 0 (near living residual); delta_val_vs_living_recompute=-1.689838299268054e-05; delta_test_vs_living_recompute=4.385779913462784e-05. ens_mean K=4 degrades (val=None / test=None). diff_improves_residual=false \u2014 living residual stays canonical; do not promote; stop scaling.",
+    "mechanical_vs_living_published_bar": true,
+    "material_lift_vs_living": false,
+    "prefer_test_strict_lt_1_7797": false,
+    "delta_val_vs_living_recompute": -1.689838299268054e-05,
+    "delta_test_vs_living_recompute": 4.385779913462784e-05,
+    "product_call": "NULL_NO_MATERIAL_LIFT"
+  },
+  "diff_improves_residual": false,
+  "elapsed_s": 46.45867872238159,
+  "freeze_after": {
+    "living_best_residual": {
+      "path": "/home/chandmanisha00/fourcastnet/runs/phase0/tier_a/v1_2b_thick2_train/best_residual.pt",
+      "md5": "aa0ed74a9307f5a284cadc65e3671be4",
+      "mtime": 1789406435.0254145
+    },
+    "living_results": {
+      "path": "/home/chandmanisha00/fourcastnet/runs/phase0/tier_a/v1_2b_thick2_train/tier_a_v1_2b_thick2_train_results.json",
+      "md5": "6a1a7060f0b1886f0d73092e80cb2133",
+      "mtime": 1789406435.838085
+    },
+    "v1_2b_best": {
+      "path": "/home/chandmanisha00/fourcastnet/runs/phase0/tier_a/v1_2b/best_residual.pt",
+      "md5": "ae8687a813374358da0e884ba0596bf7",
+      "mtime": 1789274569.094574
+    },
+    "v1_2b_thick2_results": {
+      "path": "/home/chandmanisha00/fourcastnet/runs/phase0/tier_a/v1_2b_thick2/tier_a_v1_2b_thick2_results.json",
+      "md5": "2941142833ec92ef4eeb7828fd8b6d50",
+      "mtime": 1789333991.7277427
+    },
+    "g0_verifying": {
+      "path": "/home/chandmanisha00/fourcastnet/runs/phase0/g0/g0_verifying_results.json",
+      "md5": "806263fd3683eb1b209d0cadf5f5b5a2",
+      "mtime": 1789178236.342168
+    },
+    "tier0_holdout_expand_v2": {
+      "path": "/home/chandmanisha00/fourcastnet/runs/phase0/tier0_holdout_expand_v2/tier0_holdout_expand_v2_metrics.json",
+      "md5": "98469faab2f47c81b3c044aed96a10c0",
+      "mtime": 1789333877.07624
+    }
+  },
+  "freeze_md5_unchanged": true,
+  "era5_pid_611595_after": {
+    "pid": 611595,
+    "alive": true,
+    "cmd": "/home/chandmanisha00/fourcastnet/venv-data/bin/python code/data/era5_crop_download.py --config configs/era5_nepal_crop.yaml --log logs/era5_pull.log",
+    "policy": "DO_NOT_KILL"
+  },
+  "artifacts": {
+    "results_json": "/home/chandmanisha00/fourcastnet/runs/phase0/tier_a/v1_diff/tier_a_v1_diff_results.json",
+    "best_ckpt": "/home/chandmanisha00/fourcastnet/runs/phase0/tier_a/v1_diff/best_diffusion.pt",
+    "metrics_csv": "/home/chandmanisha00/fourcastnet/runs/phase0/tier_a/v1_diff/tier_a_v1_diff_metrics.csv"
+  },
+  "not_skill_claims": [
+    "not G1 / not IMDAA",
+    "not FCN3 weight FT",
+    "not NVIDIA CorrDiff parity",
+    "claim_level=interim_era5",
+    "living residual stays canonical if diff_improves_residual=false"
+  ],
+  "decode_compare": {
+    "one_step": {
+      "val": 1.7598404617166918,
+      "test": 1.779868313741952,
+      "val_120h": 1.9624164899973737,
+      "val_living": 1.7598573600996845,
+      "test_living": 1.7798244559428174,
+      "gates": {
+        "val_pass": true,
+        "test_pass": true,
+        "val_120h_le_raw": true,
+        "n_eligible_saves": 1,
+        "eligible_ckpt_ok": true,
+        "reload_kind": "composite_eligible",
+        "thick2_bars_pass": true,
+        "vs_living_val_strict_lt": true,
+        "vs_living_test_le": true,
+        "vs_living_test_prefer_strict": false,
+        "diff_improves_residual": true,
+        "tier_a_interim_pass": true,
+        "val_t2m_rmse": 1.7598404617166918,
+        "test_t2m_rmse": 1.779868313741952,
+        "val_120h_t2m_rmse": 1.9624164899973737,
+        "living_val_bar": 1.759883,
+        "living_test_bar_le": 1.7897,
+        "note": "If thick2 bars pass but fail vs living => FAIL as product upgrade; diff_improves_residual=false; living residual stays canonical."
+      }
+    },
+    "ens_mean_K4": {
+      "val": 1.9365874674267545,
+      "test": 1.9646947762455855,
+      "val_120h": 2.1304904239019895,
+      "val_living": 1.7598573600996845,
+      "test_living": 1.7798244559428174,
+      "gates": {
+        "val_pass": true,
+        "test_pass": false,
+        "val_120h_le_raw": true,
+        "n_eligible_saves": 1,
+        "eligible_ckpt_ok": true,
+        "reload_kind": "composite_eligible",
+        "thick2_bars_pass": false,
+        "vs_living_val_strict_lt": false,
+        "vs_living_test_le": false,
+        "vs_living_test_prefer_strict": false,
+        "diff_improves_residual": false,
+        "tier_a_interim_pass": false,
+        "val_t2m_rmse": 1.9365874674267545,
+        "test_t2m_rmse": 1.9646947762455855,
+        "val_120h_t2m_rmse": 2.1304904239019895,
+        "living_val_bar": 1.759883,
+        "living_test_bar_le": 1.7897,
+        "note": "If thick2 bars pass but fail vs living => FAIL as product upgrade; diff_improves_residual=false; living residual stays canonical."
+      }
+    }
+  },
+  "ckpt": "/home/chandmanisha00/fourcastnet/runs/phase0/tier_a/v1_diff/best_diffusion.pt",
+  "product_call": "NULL_NO_MATERIAL_LIFT",
+  "updated_utc": "2026-09-14T19:32:42.427012+00:00"
+}

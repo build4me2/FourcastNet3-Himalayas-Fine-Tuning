@@ -3,7 +3,7 @@
 
 Provisional years (Manisha not hard-locked):
   train 2018–2021 / val 2022 / test 2023–2024
-  provisional_years=true; year_split_frozen=true (provisional label)
+  provisional_years=false; year_split_frozen=true (HARD)
   claim_level=interim_era5; g1_claimable=false
 
 Reuses fit_binned_linear / load helpers from tier0_bias.py.
@@ -261,11 +261,11 @@ def main() -> int:
         "claim_level": "interim_era5",
         "target": "ERA5_interim",
         "g1_claimable": False,
-        "provisional_years": True,
+        "provisional_years": False,
         "year_split_frozen": True,
         "year_split_note": (
-            "PROVISIONAL (Manisha has not hard-locked). "
-            "train 2018–2021 / val 2022 / test 2023–2024. provisional_years=true."
+            "HARD year lock (Manisha 2026-09-13; YEAR_HARD_LOCK.md). "
+            "train 2018–2021 / val 2022 / test 2023–2024. provisional_years=false."
         ),
         "year_split": {"train": "2018-2021", "val": "2022", "test": "2023-2024"},
         "n_ids": {"train": len(train_ids), "val": len(val_ids), "test": len(test_ids)},
@@ -396,7 +396,7 @@ def main() -> int:
     report["disclaimer"] = (
         "Train-only elevation-binned linear bias on global-ERA5-IC → FCN3 Nepal crop "
         "vs ARCO ERA5. Val/test scored with frozen train coefficients. "
-        "target=ERA5_interim; provisional_years=true; g1_claimable=false."
+        "target=ERA5_interim; provisional_years=false; year_split_frozen=true; g1_claimable=false."
     )
 
     # JSON-serialize: strip non-serializable if any
