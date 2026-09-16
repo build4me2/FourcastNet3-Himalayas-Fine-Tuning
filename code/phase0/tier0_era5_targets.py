@@ -256,9 +256,9 @@ def main() -> int:
         "wall_s": round((datetime.now(timezone.utc) - t0).total_seconds(), 2),
         "claim_level": "interim_era5",
         "year_split_frozen": True,
-        "provisional_years": True,
+        "provisional_years": False,
         "year_split_note": (
-            "PROVISIONAL year split (Manisha not hard-locked): "
+            "HARD year lock (Manisha 2026-09-13; YEAR_HARD_LOCK.md): "
             "train 2018-2021 / val 2022 / test 2023-2024."
         ),
     }

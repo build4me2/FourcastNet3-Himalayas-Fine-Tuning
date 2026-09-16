@@ -1,0 +1,64 @@
+{
+  "schema": "ic45_son_test_zs_eval/v1",
+  "created_utc": "2026-09-16T04:52:15.303544+00:00",
+  "choice": {
+    "id": "ic45",
+    "time": "2023-10-15T00:00:00",
+    "season": "SON",
+    "region_class": "asia_ex_nepal",
+    "region_label": "East_Asia",
+    "split": "test",
+    "why": "Test SON was soft-miss at 3 (wanted \u22654). 2024-10-15 already used as ic32 (monsoon_adjacent). Oct 2023 free. asia_ex_nepal East_Asia balances region_class."
+  },
+  "protocol": {
+    "arco_global_npy": "data/tier0_ics/ic_20231015T0000_global.npy",
+    "pairs_dir": "runs/phase0/tier0_holdout_expand_v2/pairs",
+    "forecast": "forecast/ic45_20231015T0000_crop.npz",
+    "targets": "targets/ic45_20231015T0000_era5.npz",
+    "eval": "zero-shot eval_only on living residual ckpt; NO retrain",
+    "out_dir": "runs/phase0/tier_a/v1_2b_thick2_train/ic45_zs_eval/",
+    "living_dir_untouched": true,
+    "cds_pid_611595_untouched": true
+  },
+  "living_baseline_test16": {
+    "val": 1.7598830997857373,
+    "test": 1.7796603703260503,
+    "val_120h": 1.9624873314204445,
+    "n_test_ics": 16
+  },
+  "ic45_zs_test17": {
+    "val": 1.7598830997857373,
+    "test": 1.7788751245004284,
+    "val_120h": 1.9624873314204445,
+    "test_120h": 1.8371041122793008,
+    "n_test_samples": 39627,
+    "test_ids": [
+      "ic13",
+      "ic14",
+      "ic15",
+      "ic16",
+      "ic25",
+      "ic26",
+      "ic27",
+      "ic28",
+      "ic29",
+      "ic30",
+      "ic31",
+      "ic32",
+      "ic41",
+      "ic42",
+      "ic43",
+      "ic44",
+      "ic45"
+    ]
+  },
+  "delta_test_vs_living": -0.0007852458256218942,
+  "gates_still_pass": {
+    "val_lt_1.988588": true,
+    "test_lt_1.918383": true,
+    "val_120h_le_2.178842": true
+  },
+  "claim_level": "interim_era5",
+  "g1_claimable": false,
+  "note": "Living residual weights/results JSON unchanged (md5 verified). ic45 is optional test-SON balance only."
+}

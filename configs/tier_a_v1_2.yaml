@@ -1,8 +1,8 @@
-# Tier-A v1.2 — expand-pairs train from v1.1 (same arch); TRAINED INTERIM FAIL — freeze v1_2/
-# TRAINED INTERIM FAIL (0 eligible; +120h hard gate). Frozen FAIL ref; see docs/calls/TIER_A_V1_2_CALL.md.
+# Tier-A v1.2 — expand-pairs train scaffold from v1.1 (same arch)
+# Manisha has NOT confirmed train. Leonard: CPU scaffold / --dry-run only.
 # FCN3 weights FROZEN. Do NOT overwrite v0/, v0_1/, v1/, v1_1/, v1_1_expand/.
-# provisional_years=true; claim_level=interim_era5; g1_claimable=false
-# Beat-this FROZEN expand bars: docs/calls/HOLDOUT_EXPAND_CALL.md
+# provisional_years=false; year_split_frozen=true (HARD); claim_level=interim_era5; g1_claimable=false
+# Beat-this FROZEN expand bars: docs/research/HOLDOUT_EXPAND_CALL.md
 
 schema: tier_a_v1_2_results/v1
 method: RRCA-FD_Plan_A_frozen_fcn3_residual
@@ -15,9 +15,9 @@ holdout_expand: v1
 
 locks:
   geo_box_frozen: true
-  years_frozen: true          # PROVISIONAL — Manisha hard-lock TBD
-  provisional_years: true
-  year_split_frozen: true
+  years_frozen: true          # HARD — Manisha year hard-lock 2026-09-13
+  provisional_years: false
+  year_split_frozen: true     # HARD lock
   precip_in_v1: false
   target: ERA5_interim
   claim_level: interim_era5
@@ -49,7 +49,7 @@ beat_this:
   val_120h_t2m_rmse_raw_le: 2.131515989123864
   val_120h_rule: "val +120h t2m RMSE <= expand-val raw (2.131516 K); hard gate for v1.x; thin 2.220 historical only"
   source: runs/phase0/tier0_holdout_expand/tier0_holdout_expand_metrics.json
-  call: docs/calls/HOLDOUT_EXPAND_CALL.md
+  call: docs/research/HOLDOUT_EXPAND_CALL.md
   note: "primary=val strict < 1.987014; secondary=test strict < 1.897298; +120h <= expand raw 2.131516; thin bars historical only; val-only win = FAIL"
   thin_historical:
     val_t2m_pooled_rmse_lin_strict_lt: 1.948661
@@ -124,7 +124,7 @@ train:
 output_dir: ~/fourcastnet/runs/phase0/tier_a/v1_2
 
 notes:
-  parent_call: docs/calls/HOLDOUT_EXPAND_CALL.md
+  parent_call: docs/research/HOLDOUT_EXPAND_CALL.md
   status: manisha_greenlit_train_running
   honesty: >
     Tier-A v1.2 = same smaller/regularized elev-conditioned residual UNet as v1.1

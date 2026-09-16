@@ -1,0 +1,653 @@
+{
+  "schema": "tier_a_v1_2b_thick2_train_results/v1",
+  "created_utc": "2026-09-16T04:51:48.466455+00:00",
+  "script": "code/tier_a/v1_2b_thick2_train/train.py",
+  "config": "/home/chandmanisha00/fourcastnet/configs/tier_a_v1_2b_thick2_train.yaml",
+  "method": "RRCA-FD_Plan_A_frozen_fcn3_residual",
+  "tier": "A",
+  "variant": "v1_2b_thick2_train",
+  "cut": "v1.2b-reg",
+  "diffusion": false,
+  "fcn3_weights": "FROZEN",
+  "claim_level": "interim_era5",
+  "target": "ERA5_interim",
+  "g1_claimable": false,
+  "provisional_years": false,
+  "year_split_frozen": true,
+  "year_split": {
+    "train": "2018-2021",
+    "val": "2022",
+    "test": "2023-2024"
+  },
+  "train_ids": [
+    "ic01",
+    "ic02",
+    "ic03",
+    "ic04",
+    "ic05",
+    "ic06",
+    "ic07",
+    "ic08",
+    "ic33",
+    "ic34",
+    "ic35",
+    "ic36"
+  ],
+  "val_ids": [
+    "ic09",
+    "ic10",
+    "ic11",
+    "ic12",
+    "ic17",
+    "ic18",
+    "ic19",
+    "ic20",
+    "ic21",
+    "ic22",
+    "ic23",
+    "ic24",
+    "ic37",
+    "ic38",
+    "ic39",
+    "ic40"
+  ],
+  "test_ids": [
+    "ic13",
+    "ic14",
+    "ic15",
+    "ic16",
+    "ic25",
+    "ic26",
+    "ic27",
+    "ic28",
+    "ic29",
+    "ic30",
+    "ic31",
+    "ic32",
+    "ic41",
+    "ic42",
+    "ic43",
+    "ic44",
+    "ic45"
+  ],
+  "box": {
+    "lon_west": 80.0,
+    "lon_east": 89.0,
+    "lat_south": 26.0,
+    "lat_north": 31.0
+  },
+  "beat_this": {
+    "val_t2m_pooled_rmse_lin_strict_lt": 1.988588,
+    "val_headline_lt": 1.989,
+    "test_t2m_pooled_rmse_lin_strict_lt": 1.918383,
+    "val_120h_t2m_rmse_raw_le": 2.178841818082155,
+    "val_120h_rule": "val +120h t2m RMSE <= thick-2-val raw (2.178842 K); hard gate; expand-v1 2.131516 historical only",
+    "source": "runs/phase0/tier0_holdout_expand_v2/tier0_holdout_expand_v2_metrics.json",
+    "call": "docs/research/HOLDOUT_THICK2_CALL.md",
+    "note": "primary=val strict < 1.988588; secondary=test strict < 1.918383; +120h <= thick-2 raw 2.178842; n_eligible_saves>=1 required; unconstrained fallback=auto FAIL; expand-v1/thin bars historical only",
+    "g0_adapter": {
+      "baseline": "runs/phase0/g0/g0_verifying_results.json",
+      "rule": "\u2264~5% CRPS degrade midlat @ +15 d; PSD/SSR floors",
+      "tier_a_status": "not_applicable_fcn3_frozen"
+    },
+    "frozen_exact": {
+      "val_rmse_after_lin": 1.987014136483935,
+      "test_rmse_after_lin": 1.8972984228975271,
+      "val_120h_t2m_rmse_raw": 2.131515989123864
+    },
+    "bars_set": "thick2"
+  },
+  "loss": {
+    "name": "mse_residual_elev_weighted_lead_weighted",
+    "lead_balance": true,
+    "w_120": 2.0,
+    "lead_weights": {
+      "24": 1.0,
+      "72": 1.0,
+      "120": 2.0
+    },
+    "description": "Multi-lead elev-weighted residual MSE with explicit per-lead weights w_24=1.0, w_72=1.0, w_120=2.0 (w_120 >= 1 required). Missing leads in a batch skipped / renormalized. Composite ckpt: REJECT if val +120h t2m RMSE > raw; else save best lead-mean (pooled tracked).",
+    "leads_h": [
+      24,
+      72,
+      120
+    ],
+    "elev_weight_boost": 1.5,
+    "channel_weights": [
+      2.0,
+      0.5,
+      0.5
+    ],
+    "ckpt_select": "composite",
+    "composite": {
+      "primary": "lead_mean",
+      "constraint": "val_120h_t2m_rmse <= raw",
+      "raw_val_120h_t2m_rmse": 2.178841818082155,
+      "reject_if_constraint_fails": true
+    }
+  },
+  "model_spec": {
+    "name": "ElevCondResidualUNet",
+    "in_channels": 5,
+    "out_channels": 3,
+    "base_channels": 16,
+    "depth": 3,
+    "cond_dim": 2,
+    "dropout": 0.2,
+    "approx_params": "\u22480.17M (same as v1.2b; ~168k)"
+  },
+  "overwrite_forbidden_ok": true,
+  "era5_pid_611595": "untouched",
+  "freeze_before": {
+    "tier_a_v0_results": {
+      "path": "/home/chandmanisha00/fourcastnet/runs/phase0/tier_a/v0/tier_a_v0_results.json",
+      "md5": "bdbde3ce587e31b586886c40747e42a8",
+      "mtime": 1789183455.1516254
+    },
+    "tier_a_v0_1_results": {
+      "path": "/home/chandmanisha00/fourcastnet/runs/phase0/tier_a/v0_1/tier_a_v0_1_results.json",
+      "md5": "65f1ec785abd648ade4cfb0017c2c98f",
+      "mtime": 1789183999.3784077
+    },
+    "tier_a_v1_results": {
+      "path": "/home/chandmanisha00/fourcastnet/runs/phase0/tier_a/v1/tier_a_v1_results.json",
+      "md5": "4ea36cde63cce49b4ed0d4a320ea1cc4",
+      "mtime": 1789184769.660936
+    },
+    "tier_a_v1_1_results": {
+      "path": "/home/chandmanisha00/fourcastnet/runs/phase0/tier_a/v1_1/tier_a_v1_1_results.json",
+      "md5": "0dd15c485a5ba0fd461adea603518185",
+      "mtime": 1789185427.3240714
+    },
+    "tier_a_v1_2_results": {
+      "path": "/home/chandmanisha00/fourcastnet/runs/phase0/tier_a/v1_2/tier_a_v1_2_results.json",
+      "md5": "0324480597af101da8cc4d8368947853",
+      "mtime": 1789274337.4975355
+    },
+    "g0_verifying": {
+      "path": "/home/chandmanisha00/fourcastnet/runs/phase0/g0/g0_verifying_results.json",
+      "md5": "806263fd3683eb1b209d0cadf5f5b5a2",
+      "mtime": 1789178236.342168
+    },
+    "tier0_holdout": {
+      "path": "/home/chandmanisha00/fourcastnet/runs/phase0/tier0_holdout/tier0_holdout_metrics.json",
+      "md5": "f85b7e808dc8bb039c575ac1a9fb14d0",
+      "mtime": 1789182928.7915883
+    }
+  },
+  "honesty": "Tier-A v1.2b thick-2 retrain = same ElevCondResidualUNet as v1.2b (base_channels=16, dropout=0.20) on holdout_expand=v2 pairs (train 12 / val 16 / test 16) with w_120=2.0 and early_stop_patience=80. PASS LOCKED: n_eligible_saves >= 1 required; unconstrained +120h fallback => automatic FAIL even if pooled numbers clear. NOT diffusion; NOT FCN3 weight FT; NOT G1/IMDAA. v1_2b/ and v1_2b_thick2/ remain frozen.\n",
+  "mode": "eval_only",
+  "status": "eval_only_ok",
+  "zero_shot": true,
+  "holdout_expand": "v2",
+  "ckpt": "/home/chandmanisha00/fourcastnet/runs/phase0/tier_a/v1_2b_thick2_train/best_residual.pt",
+  "device": "cuda",
+  "epochs": 0,
+  "seed": 42,
+  "n_params": 167843,
+  "n_samples": {
+    "train": 36,
+    "val": 48,
+    "test": 51
+  },
+  "train_info": {
+    "best_val_t2m_rmse": null,
+    "best_select_score": null,
+    "best_eligible_epoch": null,
+    "n_eligible_saves": 0,
+    "select_by": "frozen_ckpt_zero_shot",
+    "lead_weights": {
+      "24": 1.0,
+      "72": 1.0,
+      "120": 2.0
+    },
+    "w_120": 2.0,
+    "reload_kind": "eval_only_frozen",
+    "stopped_epoch": null,
+    "early_stop_patience": null,
+    "best_ckpt": "/home/chandmanisha00/fourcastnet/runs/phase0/tier_a/v1_2b_thick2_train/best_residual.pt",
+    "history_tail": []
+  },
+  "metrics": {
+    "train_self": {
+      "variable": "t2m",
+      "n": 27972,
+      "rmse_raw": 2.023812806331381,
+      "rmse_tier_a": 1.7219252337750688,
+      "per_lead": {
+        "24": {
+          "rmse_raw": 1.7103940582971047,
+          "rmse_tier_a": 1.396158260619388,
+          "n": 9324
+        },
+        "72": {
+          "rmse_raw": 2.0534996477964658,
+          "rmse_tier_a": 1.6863670619703808,
+          "n": 9324
+        },
+        "120": {
+          "rmse_raw": 2.268291468717028,
+          "rmse_tier_a": 2.0253364598850254,
+          "n": 9324
+        }
+      },
+      "per_elev_bin": {
+        "0": {
+          "rmse_raw": 1.2756533531203151,
+          "rmse_tier_a": 1.1106873434391273,
+          "n": 11592
+        },
+        "1": {
+          "rmse_raw": 1.866995389229865,
+          "rmse_tier_a": 1.5849787330957525,
+          "n": 2196
+        },
+        "2": {
+          "rmse_raw": 2.1010026046089174,
+          "rmse_tier_a": 1.865761678257041,
+          "n": 2304
+        },
+        "3": {
+          "rmse_raw": 2.5603784259903555,
+          "rmse_tier_a": 2.1536213311641315,
+          "n": 11880
+        }
+      },
+      "rmse_tier_a_lead_mean": 1.7026205941582646
+    },
+    "val": {
+      "variable": "t2m",
+      "n": 37296,
+      "rmse_raw": 2.0166297922453746,
+      "rmse_tier_a": 1.7598830997857373,
+      "per_lead": {
+        "24": {
+          "rmse_raw": 1.6969951939932033,
+          "rmse_tier_a": 1.436098915390562,
+          "n": 12432
+        },
+        "72": {
+          "rmse_raw": 2.1385141963788143,
+          "rmse_tier_a": 1.837887089557648,
+          "n": 12432
+        },
+        "120": {
+          "rmse_raw": 2.1788417795620476,
+          "rmse_tier_a": 1.9624873314204445,
+          "n": 12432
+        }
+      },
+      "per_elev_bin": {
+        "0": {
+          "rmse_raw": 1.399551560794559,
+          "rmse_tier_a": 1.2526477899011392,
+          "n": 15456
+        },
+        "1": {
+          "rmse_raw": 1.8220123271725,
+          "rmse_tier_a": 1.6637676824095895,
+          "n": 2928
+        },
+        "2": {
+          "rmse_raw": 2.309076966626814,
+          "rmse_tier_a": 2.0659481410930254,
+          "n": 3072
+        },
+        "3": {
+          "rmse_raw": 2.45285458242846,
+          "rmse_tier_a": 2.1028409084995463,
+          "n": 15840
+        }
+      },
+      "rmse_tier_a_lead_mean": 1.7454911121228847
+    },
+    "test": {
+      "variable": "t2m",
+      "n": 39627,
+      "rmse_raw": 2.023074485547478,
+      "rmse_tier_a": 1.7788751245004284,
+      "per_lead": {
+        "24": {
+          "rmse_raw": 1.9599522821239628,
+          "rmse_tier_a": 1.6076399373174055,
+          "n": 13209
+        },
+        "72": {
+          "rmse_raw": 2.2469352921689123,
+          "rmse_tier_a": 1.8798224486072654,
+          "n": 13209
+        },
+        "120": {
+          "rmse_raw": 1.840749838197047,
+          "rmse_tier_a": 1.8371041122793008,
+          "n": 13209
+        }
+      },
+      "per_elev_bin": {
+        "0": {
+          "rmse_raw": 1.3216983373010438,
+          "rmse_tier_a": 1.1933052915650986,
+          "n": 16422
+        },
+        "1": {
+          "rmse_raw": 1.6948197647519812,
+          "rmse_tier_a": 1.6069226216095174,
+          "n": 3111
+        },
+        "2": {
+          "rmse_raw": 2.1932489354915554,
+          "rmse_tier_a": 2.080393554178399,
+          "n": 3264
+        },
+        "3": {
+          "rmse_raw": 2.5432934104827245,
+          "rmse_tier_a": 2.178202524405023,
+          "n": 16830
+        }
+      },
+      "rmse_tier_a_lead_mean": 1.7748554994013237
+    }
+  },
+  "lead_120h": {
+    "val": {
+      "rmse_raw": 2.1788417795620476,
+      "rmse_tier_a": 1.9624873314204445,
+      "delta_vs_raw": -0.2163544481416031,
+      "le_raw": true
+    },
+    "test": {
+      "rmse_raw": 1.840749838197047,
+      "rmse_tier_a": 1.8371041122793008,
+      "delta_vs_raw": -0.0036457259177462564,
+      "le_raw": true
+    },
+    "raw_val_reference": 2.178841818082155,
+    "rule": "val +120h t2m RMSE <= raw (hard); v0/v0.1 grandfathered"
+  },
+  "compare_v0": {
+    "path": "/home/chandmanisha00/fourcastnet/runs/phase0/tier_a/v0/tier_a_v0_results.json",
+    "variant": "v0_tiny_unet_residual",
+    "gates": {
+      "val_pass": true,
+      "test_pass": true,
+      "tier_a_interim_pass": true,
+      "val_only_win_is_fail": true,
+      "note": "interim PASS requires val AND test strict beat-this; claim_level remains interim_era5; g1_claimable=false"
+    },
+    "val": {
+      "rmse_tier_a": 1.891587054528876,
+      "per_lead": {
+        "24": {
+          "rmse_tier_a": 1.561079794659485,
+          "rmse_raw": 1.6905876448061352
+        },
+        "72": {
+          "rmse_tier_a": 1.6200541000900928,
+          "rmse_raw": 1.900914868225402
+        },
+        "120": {
+          "rmse_tier_a": 2.3817555168553435,
+          "rmse_raw": 2.219970831929039
+        }
+      }
+    },
+    "test": {
+      "rmse_tier_a": 1.7325306543627894,
+      "per_lead": {
+        "24": {
+          "rmse_tier_a": 1.5705653977988536,
+          "rmse_raw": 1.7836103254200089
+        },
+        "72": {
+          "rmse_tier_a": 1.8221627459976193,
+          "rmse_raw": 2.041038475254726
+        },
+        "120": {
+          "rmse_tier_a": 1.7938881412327834,
+          "rmse_raw": 1.8438590540293545
+        }
+      }
+    }
+  },
+  "compare_v0_1": {
+    "path": "/home/chandmanisha00/fourcastnet/runs/phase0/tier_a/v0_1/tier_a_v0_1_results.json",
+    "variant": "v0_1_lead_balanced_residual",
+    "gates": {
+      "val_pass": true,
+      "test_pass": true,
+      "tier_a_interim_pass": true,
+      "val_only_win_is_fail": true,
+      "note": "interim PASS requires val AND test strict beat-this; claim_level remains interim_era5; g1_claimable=false"
+    },
+    "val": {
+      "rmse_tier_a": 1.8893887924968267,
+      "per_lead": {
+        "24": {
+          "rmse_tier_a": 1.5543482685258763,
+          "rmse_raw": 1.6905876448061352
+        },
+        "72": {
+          "rmse_tier_a": 1.6584162717773536,
+          "rmse_raw": 1.900914868225402
+        },
+        "120": {
+          "rmse_tier_a": 2.35436338683572,
+          "rmse_raw": 2.219970831929039
+        }
+      }
+    },
+    "test": {
+      "rmse_tier_a": 1.7854553558613342,
+      "per_lead": {
+        "24": {
+          "rmse_tier_a": 1.6243221575073243,
+          "rmse_raw": 1.7836103254200089
+        },
+        "72": {
+          "rmse_tier_a": 1.889053809610937,
+          "rmse_raw": 2.041038475254726
+        },
+        "120": {
+          "rmse_tier_a": 1.832104177263653,
+          "rmse_raw": 1.8438590540293545
+        }
+      }
+    }
+  },
+  "compare_v1": {
+    "path": "/home/chandmanisha00/fourcastnet/runs/phase0/tier_a/v1/tier_a_v1_results.json",
+    "variant": "v1_reg_elev_cond_residual",
+    "gates": {
+      "val_pass": true,
+      "test_pass": false,
+      "val_120h_le_raw": true,
+      "val_120h_rule": "val +120h t2m RMSE <= raw (2.219971 K); hard gate for v1-reg; v0/v0.1 grandfathered",
+      "raw_val_120h_t2m_rmse": 2.219970831929039,
+      "val_120h_t2m_rmse": 2.017977089387068,
+      "val_120h_delta_vs_raw": -0.2019937425419709,
+      "tier_a_interim_pass": false,
+      "val_only_win_is_fail": true,
+      "plus120h_regress_is_fail": true,
+      "note": "v1-reg INTERIM PASS requires (1) val pooled < 1.948661 AND (2) test pooled < 1.850338 AND (3) val +120h t2m RMSE <= raw (2.219971 K). claim_level remains interim_era5; g1_claimable=false. Pooled-only win with +120h regress = FAIL."
+    },
+    "val": {
+      "rmse_tier_a": 1.7962539422371064,
+      "per_lead": {
+        "24": {
+          "rmse_tier_a": 1.4938825699321698,
+          "rmse_raw": 1.6905876448061352
+        },
+        "72": {
+          "rmse_tier_a": 1.8372991071049891,
+          "rmse_raw": 1.900914868225402
+        },
+        "120": {
+          "rmse_tier_a": 2.017977089387068,
+          "rmse_raw": 2.219970831929039
+        }
+      }
+    },
+    "test": {
+      "rmse_tier_a": 1.9503800910161917,
+      "per_lead": {
+        "24": {
+          "rmse_tier_a": 1.7064574203147493,
+          "rmse_raw": 1.7836103254200089
+        },
+        "72": {
+          "rmse_tier_a": 2.1333079033395186,
+          "rmse_raw": 2.041038475254726
+        },
+        "120": {
+          "rmse_tier_a": 1.987196004549844,
+          "rmse_raw": 1.8438590540293545
+        }
+      }
+    }
+  },
+  "compare_v1_2": {
+    "path": "/home/chandmanisha00/fourcastnet/runs/phase0/tier_a/v1_2/tier_a_v1_2_results.json",
+    "variant": "v1_2",
+    "gates": {
+      "val_pass": true,
+      "test_pass": true,
+      "val_120h_le_raw": false,
+      "val_120h_rule": "val +120h t2m RMSE <= expand-val raw (2.131516 K); hard gate for v1.x; thin 2.220 historical only",
+      "raw_val_120h_t2m_rmse": 2.131515989123864,
+      "val_120h_t2m_rmse": 2.1320139074490814,
+      "val_120h_delta_vs_raw": 0.0004979183252173947,
+      "tier_a_interim_pass": false,
+      "val_only_win_is_fail": true,
+      "plus120h_regress_is_fail": true,
+      "note": "v1.2 INTERIM PASS requires (1) val pooled < 1.987014 AND (2) test pooled < 1.897298 AND (3) val +120h t2m RMSE <= raw (2.131516 K). claim_level remains interim_era5; g1_claimable=false. Pooled-only win with +120h regress = FAIL. v1/ is frozen FAIL (do not overwrite). Expand bars: docs/research/HOLDOUT_EXPAND_CALL.md."
+    },
+    "val": {
+      "rmse_tier_a": 1.9049399598311194,
+      "per_lead": {
+        "24": {
+          "rmse_tier_a": 1.624180212500309,
+          "rmse_raw": 1.7689221386451555
+        },
+        "72": {
+          "rmse_tier_a": 1.9243035330867928,
+          "rmse_raw": 2.0780478826298405
+        },
+        "120": {
+          "rmse_tier_a": 2.1320139074490814,
+          "rmse_raw": 2.1315159369157355
+        }
+      }
+    },
+    "test": {
+      "rmse_tier_a": 1.8866585214697194,
+      "per_lead": {
+        "24": {
+          "rmse_tier_a": 1.794620778202241,
+          "rmse_raw": 1.9595501887249187
+        },
+        "72": {
+          "rmse_tier_a": 2.119311772285963,
+          "rmse_raw": 2.2561967454504224
+        },
+        "120": {
+          "rmse_tier_a": 1.722293530208436,
+          "rmse_raw": 1.732723646925465
+        }
+      }
+    }
+  },
+  "gates": {
+    "val_pass": true,
+    "test_pass": true,
+    "val_120h_le_raw": true,
+    "n_eligible_saves": 0,
+    "eligible_ckpt_required": true,
+    "eligible_ckpt_ok": true,
+    "reload_kind": "eval_only_frozen",
+    "val_120h_rule": "val +120h t2m RMSE <= thick-2-val raw (2.178842 K); hard gate; expand-v1 2.131516 historical only",
+    "raw_val_120h_t2m_rmse": 2.178841818082155,
+    "val_120h_t2m_rmse": 1.9624873314204445,
+    "val_120h_delta_vs_raw": -0.21635448666171064,
+    "tier_a_interim_pass": true,
+    "val_only_win_is_fail": true,
+    "plus120h_regress_is_fail": true,
+    "unconstrained_fallback_is_auto_fail": true,
+    "note": "v1.2b INTERIM PASS requires (1) val pooled < 1.988588 AND (2) test pooled < 1.918383 AND (3) val +120h t2m RMSE <= raw (2.178842 K) AND (4) n_eligible_saves >= 1 with composite_eligible reload. Unconstrained +120h fallback => automatic FAIL (Leonard TIER_A_V1_2_CALL.md). claim_level remains interim_era5; g1_claimable=false. v1_2/ is frozen FAIL (do not overwrite). Expand bars: docs/research/HOLDOUT_EXPAND_CALL.md."
+  },
+  "thin_beat_this_bars": {
+    "val_t2m_pooled_rmse_lin_strict_lt": 1.948661,
+    "val_headline_lt": 1.949,
+    "test_t2m_pooled_rmse_lin_strict_lt": 1.850338,
+    "val_120h_t2m_rmse_raw_le": 2.219970831929039,
+    "val_120h_rule": "val +120h t2m RMSE <= raw (2.219971 K); hard gate historical thin; v0/v0.1 grandfathered; v1 FAIL frozen",
+    "source": "runs/phase0/tier0_holdout/tier0_holdout_metrics.json",
+    "call": "docs/research/TIER_A_V1_CALL.md",
+    "note": "thin historical only; living expand bars in HOLDOUT_EXPAND_CALL.md",
+    "frozen_exact": {
+      "val_rmse_after_lin": 1.9486610005712885,
+      "test_rmse_after_lin": 1.8503382009036373,
+      "val_120h_t2m_rmse_raw": 2.219970831929039
+    },
+    "g0_adapter": {
+      "baseline": "runs/phase0/g0/g0_verifying_results.json",
+      "rule": "\u2264~5% CRPS degrade midlat @ +15 d; PSD/SSR floors",
+      "tier_a_status": "not_applicable_fcn3_frozen"
+    }
+  },
+  "expand_tier0_bars": {
+    "path": "/home/chandmanisha00/fourcastnet/runs/phase0/tier0_holdout_expand_v2/tier0_holdout_expand_v2_metrics.json",
+    "summary": {}
+  },
+  "elapsed_s": 0.7370433807373047,
+  "freeze_after": {
+    "tier_a_v0_results": {
+      "path": "/home/chandmanisha00/fourcastnet/runs/phase0/tier_a/v0/tier_a_v0_results.json",
+      "md5": "bdbde3ce587e31b586886c40747e42a8",
+      "mtime": 1789183455.1516254
+    },
+    "tier_a_v0_1_results": {
+      "path": "/home/chandmanisha00/fourcastnet/runs/phase0/tier_a/v0_1/tier_a_v0_1_results.json",
+      "md5": "65f1ec785abd648ade4cfb0017c2c98f",
+      "mtime": 1789183999.3784077
+    },
+    "tier_a_v1_results": {
+      "path": "/home/chandmanisha00/fourcastnet/runs/phase0/tier_a/v1/tier_a_v1_results.json",
+      "md5": "4ea36cde63cce49b4ed0d4a320ea1cc4",
+      "mtime": 1789184769.660936
+    },
+    "tier_a_v1_1_results": {
+      "path": "/home/chandmanisha00/fourcastnet/runs/phase0/tier_a/v1_1/tier_a_v1_1_results.json",
+      "md5": "0dd15c485a5ba0fd461adea603518185",
+      "mtime": 1789185427.3240714
+    },
+    "tier_a_v1_2_results": {
+      "path": "/home/chandmanisha00/fourcastnet/runs/phase0/tier_a/v1_2/tier_a_v1_2_results.json",
+      "md5": "0324480597af101da8cc4d8368947853",
+      "mtime": 1789274337.4975355
+    },
+    "g0_verifying": {
+      "path": "/home/chandmanisha00/fourcastnet/runs/phase0/g0/g0_verifying_results.json",
+      "md5": "806263fd3683eb1b209d0cadf5f5b5a2",
+      "mtime": 1789178236.342168
+    },
+    "tier0_holdout": {
+      "path": "/home/chandmanisha00/fourcastnet/runs/phase0/tier0_holdout/tier0_holdout_metrics.json",
+      "md5": "f85b7e808dc8bb039c575ac1a9fb14d0",
+      "mtime": 1789182928.7915883
+    }
+  },
+  "freeze_md5_unchanged": true,
+  "artifacts": {
+    "results_json": "/home/chandmanisha00/fourcastnet/runs/phase0/tier_a/v1_2b_thick2_train/ic45_zs_eval/tier_a_v1_2b_thick2_train_results.json",
+    "best_ckpt": "/home/chandmanisha00/fourcastnet/runs/phase0/tier_a/v1_2b_thick2_train/best_residual.pt",
+    "metrics_csv": "/home/chandmanisha00/fourcastnet/runs/phase0/tier_a/v1_2b_thick2_train/ic45_zs_eval/tier_a_v1_2b_thick2_train_metrics.csv"
+  },
+  "not_skill_claims": [
+    "not G1 / not IMDAA",
+    "not FCN3 weight FT",
+    "not v1-diff / not CorrDiff",
+    "provisional_years=false",
+    "claim_level=interim_era5",
+    "g1_claimable=false"
+  ]
+}

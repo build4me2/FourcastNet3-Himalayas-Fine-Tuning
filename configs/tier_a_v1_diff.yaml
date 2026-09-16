@@ -1,0 +1,165 @@
+# SCAFFOLD / Leonard FREEZE 2026-09-14 / Manisha greenlit GPU after dry-run
+# Tier-A v1-diff CorrDiff-lite — docs/research/TIER_A_V1_DIFF_RECIPE.md
+# Custom 2D EDM residual diffuser on Nepal 21×37. PhysicsNeMo NOT used (3D pain).
+# FCN3 FROZEN. Living residual v1_2b_thick2_train/best_residual.pt FROZEN as mean path/conditioner (ON).
+# Target default: ERA5 − (FCN3 + frozen residual mean) — diffusion learns leftover only.
+# Decode: FCN3 + frozen residual mean + diffusion ens-mean (K=4).
+# Do NOT overwrite v1_2b_thick2_train/ or any frozen Tier-A/G0/tier0 dirs.
+# Leave CDS/ERA5 PID 611595 alone.
+
+schema: tier_a_v1_diff_results/v1
+method: RRCA-FD_Plan_A_frozen_fcn3_corrdiff_lite
+tier: A
+variant: v1_diff
+cut: v1-diff-edm
+diffusion: true
+diffusion_kind: edm_custom_2d
+artifact_stem: tier_a_v1_diff
+holdout_expand: v2
+bars_set: thick2
+
+locks:
+  geo_box_frozen: true
+  years_frozen: true
+  provisional_years: false
+  year_split_frozen: true
+  precip_in_v1: false
+  target: ERA5_minus_FCN3_plus_frozen_residual_mean
+  claim_level: interim_era5
+  g1_claimable: false
+  fcn3_weights: FROZEN
+  living_residual_weights: FROZEN
+  freeze_living_residual_dir: true
+  freeze_tier_a_v0: true
+  freeze_tier_a_v0_1: true
+  freeze_tier_a_v1: true
+  freeze_tier_a_v1_1: true
+  freeze_tier_a_v1_1_expand: true
+  freeze_tier_a_v1_2: true
+  freeze_tier_a_v1_2b: true
+  freeze_tier_a_v1_2b_thick2: true
+  freeze_tier_a_v1_2b_thick2_train: true
+  no_fcn3_weight_ft: true
+  train_pending_manisha_confirm: false
+  overwrite_forbidden:
+    - runs/phase0/g0/g0_verifying_results.json
+    - runs/phase0/tier0_holdout/
+    - runs/phase0/tier0_holdout_expand/
+    - runs/phase0/tier0_holdout_expand_v2/
+    - runs/phase0/tier_a/v0/
+    - runs/phase0/tier_a/v0_1/
+    - runs/phase0/tier_a/v1/
+    - runs/phase0/tier_a/v1_1/
+    - runs/phase0/tier_a/v1_1_expand/
+    - runs/phase0/tier_a/v1_2/
+    - runs/phase0/tier_a/v1_2b/
+    - runs/phase0/tier_a/v1_2b_thick2/
+    - runs/phase0/tier_a/v1_2b_thick2_train/
+
+# Thick-2 bars + living residual beat-this
+beat_this:
+  val_t2m_pooled_rmse_lin_strict_lt: 1.988588
+  val_headline_lt: 1.989
+  test_t2m_pooled_rmse_lin_strict_lt: 1.918383
+  val_120h_t2m_rmse_raw_le: 2.178841818082155
+  val_120h_rule: "val +120h t2m RMSE <= thick-2-val raw (2.178842 K); hard gate"
+  source: runs/phase0/tier0_holdout_expand_v2/tier0_holdout_expand_v2_metrics.json
+  call: docs/research/HOLDOUT_THICK2_CALL.md
+  recipe: docs/research/TIER_A_V1_DIFF_RECIPE.md
+  bars_set: thick2
+  living_residual:
+    path: runs/phase0/tier_a/v1_2b_thick2_train/
+    ckpt: runs/phase0/tier_a/v1_2b_thick2_train/best_residual.pt
+    best_val_pooled: 1.759883
+    best_test_pooled: 1.7797
+    vs_living_val_strict_lt: 1.759883
+    vs_living_test_le: 1.7897   # 1.7797 + 0.01; prefer strict < 1.7797
+    prefer_test_strict_lt: 1.7797
+  note: >
+    primary thick-2: val < 1.988588 / test < 1.918383 / +120h <= 2.178842;
+    vs living: val strictly < 1.759883 AND test <= 1.7797+0.01 (prefer < 1.7797);
+    fail vs living => diff_improves_residual=false (do not promote)
+
+year_split:
+  train: "2018-2021"
+  val: "2022"
+  test: "2023-2024"
+  train_ids: [ic01, ic02, ic03, ic04, ic05, ic06, ic07, ic08, ic33, ic34, ic35, ic36]
+  val_ids: [ic09, ic10, ic11, ic12, ic17, ic18, ic19, ic20, ic21, ic22, ic23, ic24, ic37, ic38, ic39, ic40]
+  test_ids: [ic13, ic14, ic15, ic16, ic25, ic26, ic27, ic28, ic29, ic30, ic31, ic32, ic41, ic42, ic43, ic44]
+
+region:
+  lat_lon_box: {lon_west: 80.0, lon_east: 89.0, lat_south: 26.0, lat_north: 31.0}
+
+data:
+  pairs_dir: ~/fourcastnet/runs/phase0/tier0_holdout_expand_v2/pairs
+  ic_manifest: ~/fourcastnet/data/tier0_ics/tier0_ic_manifest.json
+  elevation_mask: ~/fourcastnet/data/masks/w_R_elevation.nc
+  holdout_metrics: ~/fourcastnet/runs/phase0/tier0_holdout_expand_v2/tier0_holdout_expand_v2_metrics.json
+  g0_verifying: ~/fourcastnet/runs/phase0/g0/g0_verifying_results.json
+  living_residual_ckpt: ~/fourcastnet/runs/phase0/tier_a/v1_2b_thick2_train/best_residual.pt
+  living_residual_config: ~/fourcastnet/configs/tier_a_v1_2b_thick2_train.yaml
+
+variables_in: [t2m, u10m, v10m]
+variables_out: [t2m, u10m, v10m]
+leads_h: [24, 72, 120]
+
+model:
+  name: ResidualEDM2D
+  arch_choice: custom_2d_edm   # NOT PhysicsNeMo (3D MaxPool); NOT DDPM
+  diffusion_backend: edm
+  physicsnemo: false
+  in_channels_target: 3       # leftover (t2m,u,v)
+  cond_channels: 8            # pred(3)+elev+lead+residual_mean(3)
+  base_channels: 24
+  depth: 2
+  dropout: 0.10
+  sigma_data: 1.0
+  sigma_min: 0.002
+  sigma_max: 80.0
+  rho: 7.0
+  approx_params: "≤~1–2M (start ~0.5–1M; shrink on OOM)"
+
+train:
+  epochs_smoke: 5
+  epochs_full: 200
+  batch_size: 1
+  grad_accum: 8
+  lr: 2.0e-4
+  weight_decay: 1.0e-4
+  seed: 42
+  loss: edm_weighted_mse
+  bf16: true
+  channel_weights: [2.0, 0.5, 0.5]
+  elev_weight_boost: 1.5
+  lead_weights:
+    24: 1.0
+    72: 1.0
+    120: 2.0
+  w_120: 2.0
+  ckpt_select: composite
+  composite:
+    primary: lead_mean
+    constraint: val_120h_le_raw
+    reject_if_constraint_fails: true
+  raw_val_120h_t2m_rmse: 2.178841818082155
+  early_stop_patience: 60
+  device_smoke: cpu
+  device_full: cuda
+  decode_mode: ens_mean        # final gates: ens_mean K; train select uses one_step
+  decode_k: 4                 # ens-mean of K diffusion samples (default)
+  decode_steps: 18            # EDM Heun steps per sample
+  use_frozen_residual_cond: true
+  target_mode: leftover_vs_fcn3_plus_residual   # ERA5 − (FCN3 + frozen residual mean)
+
+output_dir: ~/fourcastnet/runs/phase0/tier_a/v1_diff
+
+notes:
+  parent_call: docs/research/TIER_A_V1_DIFF_RECIPE.md
+  living_residual: runs/phase0/tier_a/v1_2b_thick2_train/
+  status: scaffold_manisha_greenlit_gpu_after_dry_run
+  honesty: >
+    Tier-A v1-diff = custom 2D EDM residual diffuser on holdout_expand=v2
+    (12/16/16). Mean path = FCN3 + frozen living residual; diffusion models
+    leftover only. Decode = mean path + ens-mean K=4. NOT NVIDIA CorrDiff
+    parity; NOT FCN3 weight FT; NOT G1/IMDAA. Fail vs living => do not promote.
