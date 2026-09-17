@@ -44,6 +44,83 @@ GATE_LEADS_DEFAULT = (24, 72, 120)
 REPORT_LEADS_DEFAULT = (24, 48, 72, 96, 120)
 
 
+def wind_vector_grid_pool(u_err, v_err, mask=None) -> float:
+    """Locked per-lead wind-vector RMSE on a flat/2d error field.
+
+    Definition (FINAL_EVAL_SUITE_RECIPE / living score_living_wind_baseline):
+      sqrt( mean_over_valid_grid( (u_err^2 + v_err^2) / 2 ) )
+
+    Pure numpy/list-friendly: no GPU, no CDS, no ICs. Used by unit tests and
+    as the formula reference when real accumulate is wired.
+    """
+    try:
+        import numpy as np
+    except ImportError as e:  # pragma: no cover
+        raise SystemExit("numpy required for wind_vector_grid_pool") from e
+
+    u = np.asarray(u_err, dtype=np.float64).ravel()
+    v = np.asarray(v_err, dtype=np.float64).ravel()
+    if u.shape != v.shape:
+        raise ValueError(f"u_err/v_err shape mismatch: {u.shape} vs {v.shape}")
+    if mask is None:
+        m = np.ones(u.shape, dtype=bool)
+    else:
+        m = np.asarray(mask, dtype=bool).ravel()
+        if m.shape != u.shape:
+            raise ValueError(f"mask shape mismatch: {m.shape} vs {u.shape}")
+    if not np.any(m):
+        raise ValueError("no valid grid points under mask")
+    wvec = ((u[m] ** 2) + (v[m] ** 2)) / 2.0
+    return float(np.sqrt(np.mean(wvec)))
+
+
+def lead_mean(values_by_lead: dict, leads=None) -> float:
+    """Mean of per-lead scalars over gate (default) or caller-supplied leads.
+
+    Missing leads are skipped; requires at least one present value.
+    """
+    want = list(leads) if leads is not None else list(GATE_LEADS_DEFAULT)
+    vals = []
+    for lh in want:
+        if lh in values_by_lead:
+            vals.append(float(values_by_lead[lh]))
+        elif str(lh) in values_by_lead:
+            vals.append(float(values_by_lead[str(lh)]))
+    if not vals:
+        raise ValueError(f"no per-lead values for leads={want}")
+    return float(sum(vals) / len(vals))
+
+
+def wind_vector_lead_mean_from_errors(
+    errors_by_lead: dict,
+    leads=None,
+    mask=None,
+) -> dict:
+    """Grid-pool each lead then lead-mean over gate/report leads.
+
+    errors_by_lead: {lead_h: (u_err, v_err[, mask])} with optional shared mask.
+    Returns per_lead wind_vector_rmse + headline lead_mean.
+    """
+    want = list(leads) if leads is not None else list(GATE_LEADS_DEFAULT)
+    per_lead = {}
+    for lh in want:
+        if lh not in errors_by_lead and str(lh) not in errors_by_lead:
+            continue
+        pair = errors_by_lead.get(lh, errors_by_lead.get(str(lh)))
+        u_err, v_err = pair[0], pair[1]
+        m = pair[2] if len(pair) > 2 else mask
+        per_lead[int(lh)] = wind_vector_grid_pool(u_err, v_err, mask=m)
+    return {
+        "per_lead": {str(k): v for k, v in per_lead.items()},
+        "lead_mean": lead_mean(per_lead, leads=want) if per_lead else None,
+        "leads_h": [int(k) for k in per_lead.keys()],
+        "definition": (
+            "sqrt(mean((u_err^2+v_err^2)/2)) grid-pooled then lead-mean"
+        ),
+    }
+
+
+
 def expand(p: str | Path) -> Path:
     return Path(str(p)).expanduser().resolve()
 

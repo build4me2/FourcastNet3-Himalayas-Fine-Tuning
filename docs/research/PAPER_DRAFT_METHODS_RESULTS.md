@@ -137,6 +137,24 @@ Wind-vector definition (recipe §5 / JSON): per-lead `sqrt(mean((u_err²+v_err²
 
 ---
 
+
+## 4.0 Related work (cousins — no invented metrics)
+
+We situate this interim residual work against three public cousins; citations and
+non-claims follow `EVAL_BENCHMARKS_AND_FINAL_SUITE.md` (not a leaderboard entry).
+
+| Cousin | What we borrow | What we do **not** claim |
+| --- | --- | --- |
+| **WeatherBench 2** (Rasp et al., arXiv:2308.15560) | Year-holdout discipline; lead-time honesty; one-year / extremes caveats | Global WB2 SOTA; medium-range leaderboard parity; “better than IFS” from a Nepal-box ERA5 RMSE |
+| **FourCastNet 3 / FCN3** | Frozen global backbone; ens-mean crops as prior | FCN3 weight fine-tune; global FCN3 scorecard replacement |
+| **CorrDiff** (NVIDIA; UNet mean + diffusion residual on RCM) | Residual-corrector framing (coarse prior + local Δ) | Km-scale CorrDiff / RCM downscaling parity; precip / CRPS calibration claims |
+
+Methodologically the closest cousin is CorrDiff’s residual-corrector idea, but the
+problem differs: we correct a frozen global FCN3 prior toward **ERA5 interim** on
+the Nepal box at FCN3 resolution — not generative km-scale downscaling. WB2 supplies
+the honesty template (year splits, lead curves, extremes thinness), not a score we
+report. Full lit tables and gap list: `docs/research/EVAL_BENCHMARKS_AND_FINAL_SUITE.md`.
+
 ## 4. Contrasts
 
 ### 4.1 Prior living — `v1_2b_thick2_train` (historical)
@@ -169,14 +187,15 @@ Leftover-target EDM on ERA5−(FCN3+living residual): one-step decode ≈ prior 
 ## 5. Honesty / non-claims
 
 - Label stays **`interim_era5`**. **`g1_claimable=false`** — no G1 / IMDAA / Canvas / published skill claim.
+- **Interim thick-2 ≠ FINAL G1.** Living headlines above are the thick-2 promote record only; the FINAL suite is a **new protocol** (denser ICs, post-archive years) — do not relabel these floats as FINAL or G1.
+- **ERA5-as-truth caveats.** Verification is against ERA5 reanalysis, not stations or IMDAA. Himalayan t2m / 10 m winds have representativeness limits; short year splits are honest for interim but thin for ENSO / extreme-monsoon claims (`EVAL_BENCHMARKS_AND_FINAL_SUITE.md` § gaps).
 - Not FCN3 weight fine-tune; not CorrDiff NVIDIA parity; not precip; not leftover-target diffusion success.
 - Wind lift is **modest** — joint-balance success, **not** a winds breakthrough.
 - Main `tier_a_v1_3_joint_results.json` historically echoed **17** test ICs (`ic45`); protocol claims use **16-IC** sidecar / wind_score only.
 - CDS Nepal crop is an **archive for later**, still filling — leave PID **611595** alone.
-- **FINAL suite frozen as protocol+hardness only** (`FINAL_EVAL_SUITE_CALL.md`): living interim ≠ G1; denser ICs; measure `final_baselines.json` before any bars.
+- **FINAL suite frozen as protocol+hardness only** (`FINAL_EVAL_SUITE_CALL.md`): measure `final_baselines.json` before any bars.
 - Do **not** overwrite living weights `runs/phase0/tier_a/v1_3_joint/best_residual.pt` or prior living `v1_2b_thick2_train/`.
 
----
 
 
 ---
@@ -185,7 +204,9 @@ Leftover-target EDM on ERA5−(FCN3+living residual): one-step decode ≈ prior 
 
 **Citation:** `FINAL_EVAL_SUITE_CALL.md` · `FINAL_EVAL_SUITE_RECIPE.md` · lit base `EVAL_BENCHMARKS_AND_FINAL_SUITE.md`.
 
-Living `v1_3_joint/` headlines above remain the **interim** promote record (`interim_era5`, thick-2 12/16/16). They are **not** FINAL G1. The FINAL suite is a **new protocol** after full CDS ERA5 crop + archive audit — denser ICs (val/test ≥64; ≥8/season incl. SON), gate leads +24/+72/+120, report leads through +120, locked wind-vector def.
+Living `v1_3_joint/` headlines above remain the **interim** promote record (`interim_era5`, thick-2 12/16/16). They are **not** FINAL G1 — interim thick-2 skill does not transfer by renaming. The FINAL suite is a **new protocol** after full CDS ERA5 crop + archive audit — denser ICs (val/test ≥64; ≥8/season incl. SON), gate leads +24/+72/+120, report leads through +120, locked wind-vector def. Until that protocol lands, treat living 1.770 / 1.775 / 1.982 (and WV 0.69560 / 0.73877) as **continuity reference only**.
+
+**ERA5-as-truth (again):** FINAL gates, when frozen, will still be ERA5-verified regional RMSE — not station/ops replacement. Extremes and one-year caveats from WB2 apply by analogy; we do not invent absolute K bars here.
 
 | Rule | Status |
 | --- | --- |
@@ -197,7 +218,8 @@ Living `v1_3_joint/` headlines above remain the **interim** promote record (`int
 
 Scaffold (CPU, no train): `code/final_eval/` + `configs/final_eval_baselines.yaml`. Thick-2 legacy bridge re-score is report/honesty only.
 
-**Non-claims (FINAL call):** not global WB2/FCN3 SOTA · not ops NWP replacement · not CorrDiff parity · not precip · not stations · interim ≠ FINAL.
+**Non-claims (FINAL call):** not global WB2/FCN3 SOTA · not ops NWP replacement · not CorrDiff parity · not precip · not stations · interim thick-2 ≠ FINAL/G1 · not IMDAA-verified.
+
 
 ## 6. Artifact index
 
