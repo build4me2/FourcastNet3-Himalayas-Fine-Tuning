@@ -1,0 +1,148 @@
+# SCAFFOLD / Leonard FREEZE 2026-09-15 / Manisha assign via Howard
+# Tier-A v1.3 joint (winds+t2m residual) — docs/research/TIER_A_V1_3_JOINT_RECIPE.md
+# Same ElevCondResidualUNet as living v1.2b thick-2; channel_weights=[1.5,1.5,1.5].
+# FCN3 weights FROZEN. Living residual = v1_3_joint/ (PROMOTE 2026-09-15). Do NOT overwrite v1_3_joint/ or prior v1_2b_thick2_train/.
+# provisional_years=false; year_split_frozen=true (HARD); claim_level=interim_era5; g1_claimable=false
+# Beat-this FROZEN thick-2: val < 1.988588 / test < 1.918383 / +120h <= 2.178842
+# Leave CDS/ERA5 PID 611595 alone. NO --train until Leonard ACK on living_wind_baseline.json.
+# Parallel residual retrain (not leftover-of-living / not diffusion).
+
+schema: tier_a_v1_3_joint_results/v1
+method: RRCA-FD_Plan_A_frozen_fcn3_residual
+tier: A
+variant: v1_3_joint
+cut: v1.3-joint
+diffusion: false
+artifact_stem: tier_a_v1_3_joint
+holdout_expand: v2
+bars_set: thick2
+
+locks:
+  geo_box_frozen: true
+  years_frozen: true
+  provisional_years: false
+  year_split_frozen: true
+  precip_in_v1: false
+  target: ERA5_interim
+  claim_level: interim_era5
+  g1_claimable: false
+  fcn3_weights: FROZEN
+  freeze_living_residual_v1_3_joint: true
+  freeze_prior_living_residual_v1_2b_thick2_train: true
+  freeze_tier_a_v1_2b: true
+  freeze_tier_a_v1_2b_thick2: true
+  freeze_tier_a_v1_diff: true
+  no_diffusion: true
+  no_fcn3_weight_ft: true
+  train_pending_leonard_baseline_ack: false  # ACK'd + trained + PROMOTE 2026-09-15
+  overwrite_forbidden:
+    - runs/phase0/g0/g0_verifying_results.json
+    - runs/phase0/tier0_holdout/
+    - runs/phase0/tier0_holdout_expand/
+    - runs/phase0/tier0_holdout_expand_v2/
+    - runs/phase0/tier_a/v0/
+    - runs/phase0/tier_a/v0_1/
+    - runs/phase0/tier_a/v1/
+    - runs/phase0/tier_a/v1_1/
+    - runs/phase0/tier_a/v1_1_expand/
+    - runs/phase0/tier_a/v1_2/
+    - runs/phase0/tier_a/v1_2b/
+    - runs/phase0/tier_a/v1_2b_thick2/
+    - runs/phase0/tier_a/v1_2b_thick2_train/
+    - runs/phase0/tier_a/v1_3_joint/
+    - runs/phase0/tier_a/v1_diff/
+
+beat_this:
+  val_t2m_pooled_rmse_lin_strict_lt: 1.988588
+  val_headline_lt: 1.989
+  test_t2m_pooled_rmse_lin_strict_lt: 1.918383
+  val_120h_t2m_rmse_raw_le: 2.178841818082155
+  val_120h_rule: "val +120h t2m RMSE <= thick-2-val raw (2.178842 K); hard gate"
+  source: runs/phase0/tier0_holdout_expand_v2/tier0_holdout_expand_v2_metrics.json
+  call: docs/research/HOLDOUT_THICK2_CALL.md
+  recipe: docs/research/TIER_A_V1_3_JOINT_RECIPE.md
+  bars_set: thick2
+  note: "A floors = thick-2 t2m bars + eligible ckpt; B protect living t2m within +0.02 K; C promote on wind-vector lead-mean vs living_wind_baseline.json"
+  living_t2m_protect:
+    val_t2m_le: 1.779883   # 1.759883 + 0.020
+    test_t2m_le: 1.7997    # 1.7797 + 0.020
+    living_val: 1.759883
+    living_test: 1.7797
+  wind_promote:
+    baseline: runs/phase0/tier_a/v1_3_joint/living_wind_baseline.json
+    rule: "val/test wind_vector lead_mean strictly < living AND strictly < raw FCN3"
+
+year_split:
+  train: "2018-2021"
+  val: "2022"
+  test: "2023-2024"
+  train_ids: [ic01, ic02, ic03, ic04, ic05, ic06, ic07, ic08, ic33, ic34, ic35, ic36]
+  val_ids: [ic09, ic10, ic11, ic12, ic17, ic18, ic19, ic20, ic21, ic22, ic23, ic24, ic37, ic38, ic39, ic40]
+  test_ids: [ic13, ic14, ic15, ic16, ic25, ic26, ic27, ic28, ic29, ic30, ic31, ic32, ic41, ic42, ic43, ic44]  # LOCKED 16 thick-2 — NO ic45 (optional SON stays catalog-only)
+
+region:
+  lat_lon_box: {lon_west: 80.0, lon_east: 89.0, lat_south: 26.0, lat_north: 31.0}
+
+data:
+  pairs_dir: ~/fourcastnet/runs/phase0/tier0_holdout_expand_v2/pairs
+  ic_manifest: ~/fourcastnet/data/tier0_ics/tier0_ic_manifest.json
+  elevation_mask: ~/fourcastnet/data/masks/w_R_elevation.nc
+  holdout_metrics: ~/fourcastnet/runs/phase0/tier0_holdout_expand_v2/tier0_holdout_expand_v2_metrics.json
+  g0_verifying: ~/fourcastnet/runs/phase0/g0/g0_verifying_results.json
+  living_residual_ckpt: ~/fourcastnet/runs/phase0/tier_a/v1_2b_thick2_train/best_residual.pt
+  living_wind_baseline: ~/fourcastnet/runs/phase0/tier_a/v1_3_joint/living_wind_baseline.json
+
+variables_in: [t2m, u10m, v10m]
+variables_out: [t2m, u10m, v10m]
+leads_h: [24, 72, 120]
+
+model:
+  name: ElevCondResidualUNet
+  in_channels: 5
+  out_channels: 3
+  base_channels: 16
+  depth: 3
+  cond_dim: 2
+  dropout: 0.20
+  approx_params: "≈0.17M (same as v1.2b; ~168k)"
+
+train:
+  epochs_smoke: 30
+  epochs_full: 400
+  batch_size: 8
+  lr: 5.0e-4
+  weight_decay: 1.0e-3
+  seed: 42
+  loss: mse_residual_elev_weighted_lead_weighted
+  lead_balance: true
+  w_120: 2.0
+  lead_weights:
+    24: 1.0
+    72: 1.0
+    120: 2.0
+  channel_weights: [1.5, 1.5, 1.5]   # joint t2m+u+v (was [2.0,0.5,0.5] living)
+  ckpt_select: composite
+  composite:
+    primary: lead_mean
+    constraint: val_120h_le_raw
+    reject_if_constraint_fails: true
+    also_track_pooled: true
+  raw_val_120h_t2m_rmse: 2.178841818082155
+  early_stop_patience: 80
+  elev_weight_boost: 1.5
+  device_smoke: cpu
+  device_full: cuda
+
+output_dir: ~/fourcastnet/runs/phase0/tier_a/v1_3_joint
+
+notes:
+  parent_call: docs/research/TIER_A_V1_3_JOINT_CALL.md
+  recipe: docs/research/TIER_A_V1_3_JOINT_RECIPE.md
+  living: runs/phase0/tier_a/v1_3_joint/
+  prior_living: runs/phase0/tier_a/v1_2b_thick2_train/
+  status: living_residual_interim_pass_confirm_promote_yes_idle
+  honesty: >
+    v1.3 joint = parallel ElevCondResidualUNet residual retrain with equal
+    channel weights [1.5,1.5,1.5]. PROMOTED living residual 2026-09-15 (A+B+C PASS).
+    NOT leftover-target diffusion; NOT FCN3 FT; NOT G1/IMDAA. Protocol claims use
+    locked 16 thick-2 test ICs (no ic45). Prior living v1_2b_thick2_train stays frozen.

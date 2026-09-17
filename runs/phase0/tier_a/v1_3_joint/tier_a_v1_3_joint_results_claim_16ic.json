@@ -1,0 +1,59 @@
+{
+  "schema": "tier_a_v1_3_joint_results_claim_16ic/v1",
+  "created_utc": "2026-09-16T05:14:03.954133+00:00",
+  "source_call": "docs/research/TIER_A_V1_3_JOINT_CALL.md",
+  "source_wind_score": "runs/phase0/tier_a/v1_3_joint/v1_3_joint_wind_score.json",
+  "source_results_main": "runs/phase0/tier_a/v1_3_joint/tier_a_v1_3_joint_results.json",
+  "note": "Claim echo only. 16 thick-2 test ICs. Does not recompute metrics.test from main JSON (17-IC). wind_score + call headlines are authoritative for promote.",
+  "test_ids": [
+    "ic13",
+    "ic14",
+    "ic15",
+    "ic16",
+    "ic25",
+    "ic26",
+    "ic27",
+    "ic28",
+    "ic29",
+    "ic30",
+    "ic31",
+    "ic32",
+    "ic41",
+    "ic42",
+    "ic43",
+    "ic44"
+  ],
+  "n_test_ics": 16,
+  "ic45_excluded": true,
+  "headlines_16ic": {
+    "val_t2m_pooled": 1.77,
+    "test_t2m_pooled": 1.775,
+    "val_t2m_pooled_exact": 1.7700772180681488,
+    "test_t2m_pooled_exact": 1.7748637532133977,
+    "val_t2m_n": 37296,
+    "test_t2m_n": 37296,
+    "val_120h_t2m": 1.982,
+    "val_120h_t2m_exact": 1.9824010435879695,
+    "val_wind_vector_lead_mean": 0.6956,
+    "test_wind_vector_lead_mean": 0.73877,
+    "val_wind_vector_lead_mean_exact": 0.6956016827760106,
+    "test_wind_vector_lead_mean_exact": 0.7387656354882131,
+    "n_eligible_saves": 46,
+    "reload_kind": "composite_eligible"
+  },
+  "abc_gates_echo": {
+    "A_pass": true,
+    "B_pass": true,
+    "C_pass": true,
+    "interim_pass_confirm": true,
+    "promote_living_residual": true
+  },
+  "living_path": "runs/phase0/tier_a/v1_3_joint/",
+  "prior_living_path": "runs/phase0/tier_a/v1_2b_thick2_train/",
+  "metrics_test_main_json_honesty": {
+    "main_metrics_test_n": 39627,
+    "main_metrics_test_rmse_tier_a": 1.7713647774302388,
+    "includes_ic45": true,
+    "do_not_use_for_protocol_claims": true
+  }
+}
