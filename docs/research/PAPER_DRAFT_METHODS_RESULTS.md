@@ -1,10 +1,10 @@
 # Regional FCN3 residual fine-tune over Nepal — Methods & Results (draft)
 
 **Authors:** Manisha Chand (lead) · eng notes from Spark FCN runs (Howard)  
-**Date:** 2026-09-16 PT · **Claim level:** `interim_era5` · **`g1_claimable=false`**  
+**Date:** 2026-09-17 PT · **Claim level:** `interim_era5` · **`g1_claimable=false`**  
 **Living residual (LOCKED):** `runs/phase0/tier_a/v1_3_joint/best_residual.pt`  
 (promoted 2026-09-15; prior `v1_2b_thick2_train/` historical / frozen)  
-**Sources:** `TIER_A_V1_3_JOINT_CALL.md`, `TIER_A_V1_3_JOINT_RECIPE.md`, `tier_a_v1_3_joint_results.json`, `tier_a_v1_3_joint_results_claim_16ic.json`, `living_wind_baseline.json`, `v1_3_joint_wind_score.json`, `LIVING_RESIDUAL_WINDS_ELEV_TABLE.md`, `TIER_A_V1_2B_THICK2_TRAIN_CALL.md`, `TIER_A_V1_DIFF_CALL.md`, `HOLDOUT_THICK2_CALL.md`, `YEAR_HARD_LOCK.md`.
+**Sources:** `FINAL_EVAL_SUITE_CALL.md`, `FINAL_EVAL_SUITE_RECIPE.md`, `EVAL_BENCHMARKS_AND_FINAL_SUITE.md`, `TIER_A_V1_3_JOINT_CALL.md`, `TIER_A_V1_3_JOINT_RECIPE.md`, `tier_a_v1_3_joint_results.json`, `tier_a_v1_3_joint_results_claim_16ic.json`, `living_wind_baseline.json`, `v1_3_joint_wind_score.json`, `LIVING_RESIDUAL_WINDS_ELEV_TABLE.md`, `TIER_A_V1_2B_THICK2_TRAIN_CALL.md`, `TIER_A_V1_DIFF_CALL.md`, `HOLDOUT_THICK2_CALL.md`, `YEAR_HARD_LOCK.md`.
 
 > Stanford-plain draft for **methods + results** only. Not a full paper.  
 > All numeric claims are measured from existing artifacts — **no invented metrics**.  
@@ -173,9 +173,31 @@ Leftover-target EDM on ERA5−(FCN3+living residual): one-step decode ≈ prior 
 - Wind lift is **modest** — joint-balance success, **not** a winds breakthrough.
 - Main `tier_a_v1_3_joint_results.json` historically echoed **17** test ICs (`ic45`); protocol claims use **16-IC** sidecar / wind_score only.
 - CDS Nepal crop is an **archive for later**, still filling — leave PID **611595** alone.
+- **FINAL suite frozen as protocol+hardness only** (`FINAL_EVAL_SUITE_CALL.md`): living interim ≠ G1; denser ICs; measure `final_baselines.json` before any bars.
 - Do **not** overwrite living weights `runs/phase0/tier_a/v1_3_joint/best_residual.pt` or prior living `v1_2b_thick2_train/`.
 
 ---
+
+
+---
+
+## 5b. FINAL gate / non-claims (protocol freeze — no new bars)
+
+**Citation:** `FINAL_EVAL_SUITE_CALL.md` · `FINAL_EVAL_SUITE_RECIPE.md` · lit base `EVAL_BENCHMARKS_AND_FINAL_SUITE.md`.
+
+Living `v1_3_joint/` headlines above remain the **interim** promote record (`interim_era5`, thick-2 12/16/16). They are **not** FINAL G1. The FINAL suite is a **new protocol** after full CDS ERA5 crop + archive audit — denser ICs (val/test ≥64; ≥8/season incl. SON), gate leads +24/+72/+120, report leads through +120, locked wind-vector def.
+
+| Rule | Status |
+| --- | --- |
+| Measure baselines before bars | **required** — score `runs/phase0/final_eval/final_baselines.json` (raw FCN3 / Tier-0 / living) on FINAL ICs **before** any beat-this floats |
+| Invent absolute K bars now | **forbidden** |
+| Relabel living interim as FINAL / G1 | **forbidden** |
+| FINAL / G1 train | **NO-GO** until audit + `FINAL_EVAL_PROTOCOL.md` + baselines JSON + `FINAL_EVAL_BARS_CALL.md` + Manisha |
+| `g1_claimable` | **false** until explicit later call |
+
+Scaffold (CPU, no train): `code/final_eval/` + `configs/final_eval_baselines.yaml`. Thick-2 legacy bridge re-score is report/honesty only.
+
+**Non-claims (FINAL call):** not global WB2/FCN3 SOTA · not ops NWP replacement · not CorrDiff parity · not precip · not stations · interim ≠ FINAL.
 
 ## 6. Artifact index
 
@@ -194,3 +216,6 @@ Leftover-target EDM on ERA5−(FCN3+living residual): one-step decode ≈ prior 
 | Status | `docs/research/FCN_STATUS_AND_NEXT.md` |
 | v1-diff null | `docs/research/TIER_A_V1_DIFF_CALL.md` |
 | Thick-2 bars | `docs/research/HOLDOUT_THICK2_CALL.md` |
+| FINAL recipe / call | `docs/research/FINAL_EVAL_SUITE_RECIPE.md` · `FINAL_EVAL_SUITE_CALL.md` |
+| FINAL baselines scaffold | `code/final_eval/` · `runs/phase0/final_eval/final_baselines.json` |
+| ERA5 coverage audit | `data/era5/coverage_audit.json` · `docs/research/ERA5_COVERAGE_AUDIT.md` |

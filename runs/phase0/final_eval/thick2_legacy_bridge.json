@@ -1,0 +1,36 @@
+{
+  "schema": "thick2_legacy_bridge/v1",
+  "created_utc": "2026-09-17T08:25:00.053764+00:00",
+  "status": "STUB",
+  "scored": false,
+  "protocol": "thick2_12_16_16",
+  "role": "continuity_table_only",
+  "not_promote_path": true,
+  "ckpt": "/home/chandmanisha00/fourcastnet/runs/phase0/tier_a/v1_3_joint/best_residual.pt",
+  "ckpt_present": true,
+  "config": "/home/chandmanisha00/fourcastnet/configs/tier_a_v1_3_joint.yaml",
+  "living_continuity_reference": {
+    "source": "docs/research/TIER_A_V1_3_JOINT_CALL.md + claim_16ic",
+    "val_t2m_pooled": 1.770077,
+    "test_t2m_pooled_16ic": 1.774864,
+    "val_t2m_plus_120h": 1.982401,
+    "val_wind_vector_lead_mean": 0.69560168,
+    "test_wind_vector_lead_mean": 0.73876564,
+    "protocol": "thick2_12_16_16",
+    "holdout_expand": "v2",
+    "bars_set": "thick2"
+  },
+  "scores": {
+    "val": {
+      "t2m_pooled": null,
+      "t2m_plus_120h": null,
+      "wind_vector_lead_mean": null
+    },
+    "test": {
+      "t2m_pooled": null,
+      "wind_vector_lead_mean": null
+    }
+  },
+  "note": "Stub only. When a FINAL ckpt exists, re-score on thick-2 interim ICs via score_living_wind_baseline helpers and fill scores.*. Compare to living_continuity_reference for honesty table.",
+  "wind_vector_definition": "sqrt(mean((u_err^2+v_err^2)/2)) grid-pooled then lead-mean over {24,72,120}"
+}
