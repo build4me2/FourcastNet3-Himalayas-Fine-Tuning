@@ -1,0 +1,226 @@
+{
+  "schema": "living_wind_baseline/v1",
+  "created_utc": "2026-09-16T05:04:32.784696+00:00",
+  "recipe": "docs/research/TIER_A_V1_3_JOINT_RECIPE.md",
+  "living_ckpt": "/home/chandmanisha00/fourcastnet/runs/phase0/tier_a/v1_2b_thick2_train/best_residual.pt",
+  "living_ckpt_md5": "aa0ed74a9307f5a284cadc65e3671be4",
+  "config_used": "/home/chandmanisha00/fourcastnet/configs/tier_a_v1_3_joint.yaml",
+  "device": "cpu",
+  "holdout_expand": "v2",
+  "bars_set": "thick2",
+  "year_split": {
+    "train": "2018-2021",
+    "val": "2022",
+    "test": "2023-2024",
+    "n_train": 12,
+    "n_val": 16,
+    "n_test": 16
+  },
+  "wind_vector_definition": {
+    "formula": "sqrt(mean_over_valid_grid((u_err^2 + v_err^2)/2))",
+    "headline": "lead_mean over leads [24,72,120]",
+    "also_reported": "grid_pooled_all_leads (single pool across leads)",
+    "channels": [
+      "u10m",
+      "v10m"
+    ],
+    "valid_mask": "elev_bin_id >= 0"
+  },
+  "promote_gate_uses": "lead_mean.wind_vector_rmse",
+  "splits": {
+    "val": {
+      "raw_fcn3": {
+        "per_lead": {
+          "24": {
+            "n": 12432,
+            "t2m_rmse": 1.6969952026724033,
+            "u10m_rmse": 0.6637791530668742,
+            "v10m_rmse": 0.7497664038313658,
+            "wind_vector_rmse": 0.708079241455501
+          },
+          "72": {
+            "n": 12432,
+            "t2m_rmse": 2.1385142044139824,
+            "u10m_rmse": 0.6442839641191469,
+            "v10m_rmse": 0.6747117961087225,
+            "wind_vector_rmse": 0.6596733395907062
+          },
+          "120": {
+            "n": 12432,
+            "t2m_rmse": 2.1788418404003553,
+            "u10m_rmse": 0.8797768077296636,
+            "v10m_rmse": 0.6602141735233696,
+            "wind_vector_rmse": 0.7777821086347529
+          }
+        },
+        "grid_pooled_all_leads": {
+          "n": 37296,
+          "t2m_rmse": 2.0166298194308183,
+          "u10m_rmse": 0.737046317379095,
+          "v10m_rmse": 0.6960048905583981,
+          "wind_vector_rmse": 0.7168193951196902
+        },
+        "lead_mean": {
+          "t2m_rmse": 2.004783749162247,
+          "u10m_rmse": 0.7292799749718949,
+          "v10m_rmse": 0.6948974578211526,
+          "wind_vector_rmse": 0.7151782298936533,
+          "leads_h": [
+            24,
+            72,
+            120
+          ],
+          "definition": "mean over leads of per-lead grid-pooled RMSE; wind_vector per-lead = sqrt(mean((u_err^2+v_err^2)/2))"
+        }
+      },
+      "living_residual": {
+        "per_lead": {
+          "24": {
+            "n": 12432,
+            "t2m_rmse": 1.4361137385826743,
+            "u10m_rmse": 0.6736927026668631,
+            "v10m_rmse": 0.7285750746801211,
+            "wind_vector_rmse": 0.7016706960670256
+          },
+          "72": {
+            "n": 12432,
+            "t2m_rmse": 1.837887311274293,
+            "u10m_rmse": 0.6175713245273303,
+            "v10m_rmse": 0.6683052376120787,
+            "wind_vector_rmse": 0.6434385120720855
+          },
+          "120": {
+            "n": 12432,
+            "t2m_rmse": 1.9624966426607662,
+            "u10m_rmse": 0.8499607299193828,
+            "v10m_rmse": 0.6396148301337364,
+            "wind_vector_rmse": 0.7521769588738402
+          }
+        },
+        "grid_pooled_all_leads": {
+          "n": 37296,
+          "t2m_rmse": 1.7598906700458918,
+          "u10m_rmse": 0.7205760290466957,
+          "v10m_rmse": 0.67984328120332,
+          "wind_vector_rmse": 0.7005057844151901
+        },
+        "lead_mean": {
+          "t2m_rmse": 1.7454992308392445,
+          "u10m_rmse": 0.7137415857045254,
+          "v10m_rmse": 0.6788317141419787,
+          "wind_vector_rmse": 0.6990953890043171,
+          "leads_h": [
+            24,
+            72,
+            120
+          ],
+          "definition": "mean over leads of per-lead grid-pooled RMSE; wind_vector per-lead = sqrt(mean((u_err^2+v_err^2)/2))"
+        }
+      }
+    },
+    "test": {
+      "raw_fcn3": {
+        "per_lead": {
+          "24": {
+            "n": 12432,
+            "t2m_rmse": 1.9456832001047761,
+            "u10m_rmse": 0.6161445286993534,
+            "v10m_rmse": 0.6274628002374646,
+            "wind_vector_rmse": 0.6218294108623393
+          },
+          "72": {
+            "n": 12432,
+            "t2m_rmse": 2.2425904968762773,
+            "u10m_rmse": 0.8950624970117974,
+            "v10m_rmse": 0.6891390453272374,
+            "wind_vector_rmse": 0.7987645254306591
+          },
+          "120": {
+            "n": 12432,
+            "t2m_rmse": 1.832432280542875,
+            "u10m_rmse": 0.9516431889578358,
+            "v10m_rmse": 0.7747056120746557,
+            "wind_vector_rmse": 0.8676962424526529
+          }
+        },
+        "grid_pooled_all_leads": {
+          "n": 37296,
+          "t2m_rmse": 2.0143405301839534,
+          "u10m_rmse": 0.83394558433449,
+          "v10m_rmse": 0.6997120776567896,
+          "wind_vector_rmse": 0.7697604286326846
+        },
+        "lead_mean": {
+          "t2m_rmse": 2.006901992507976,
+          "u10m_rmse": 0.8209500715563288,
+          "v10m_rmse": 0.6971024858797858,
+          "wind_vector_rmse": 0.762763392915217,
+          "leads_h": [
+            24,
+            72,
+            120
+          ],
+          "definition": "mean over leads of per-lead grid-pooled RMSE; wind_vector per-lead = sqrt(mean((u_err^2+v_err^2)/2))"
+        }
+      },
+      "living_residual": {
+        "per_lead": {
+          "24": {
+            "n": 12432,
+            "t2m_rmse": 1.6100423169399705,
+            "u10m_rmse": 0.6238269475698804,
+            "v10m_rmse": 0.608284751703641,
+            "wind_vector_rmse": 0.6161048700352708
+          },
+          "72": {
+            "n": 12432,
+            "t2m_rmse": 1.8787963061909152,
+            "u10m_rmse": 0.8767987506710035,
+            "v10m_rmse": 0.6821525318160614,
+            "wind_vector_rmse": 0.7855278880604097
+          },
+          "120": {
+            "n": 12432,
+            "t2m_rmse": 1.838292358954364,
+            "u10m_rmse": 0.8964587470661229,
+            "v10m_rmse": 0.764621366866453,
+            "wind_vector_rmse": 0.8331518773457168
+          }
+        },
+        "grid_pooled_all_leads": {
+          "n": 37296,
+          "t2m_rmse": 1.7796470267522204,
+          "u10m_rmse": 0.8086149464534917,
+          "v10m_rmse": 0.6879894016836174,
+          "wind_vector_rmse": 0.7507288291002102
+        },
+        "lead_mean": {
+          "t2m_rmse": 1.77571032736175,
+          "u10m_rmse": 0.7990281484356689,
+          "v10m_rmse": 0.6850195501287185,
+          "wind_vector_rmse": 0.7449282118137992,
+          "leads_h": [
+            24,
+            72,
+            120
+          ],
+          "definition": "mean over leads of per-lead grid-pooled RMSE; wind_vector per-lead = sqrt(mean((u_err^2+v_err^2)/2))"
+        }
+      }
+    }
+  },
+  "published_living_t2m": {
+    "source": "runs/phase0/tier_a/v1_2b_thick2_train/tier_a_v1_2b_thick2_train_results.json",
+    "val_pooled": 1.759883,
+    "test_pooled": 1.77966,
+    "val_120h": 1.962487,
+    "note": "canonical living bars; baseline recompute should match val/test pooled t2m"
+  },
+  "honesty": "Living residual trained with channel_weights [2.0,0.5,0.5]; eval historically t2m-only. This baseline scores raw FCN3 and living residual on u/v/wind-vector without retraining. No overwrite of living weights.",
+  "vs_living_wind_bars": {
+    "val_wind_vector_lead_mean_strict_lt": 0.6990953890043171,
+    "test_wind_vector_lead_mean_strict_lt": 0.7449282118137992,
+    "val_raw_wind_vector_lead_mean": 0.7151782298936533,
+    "test_raw_wind_vector_lead_mean": 0.762763392915217
+  }
+}
