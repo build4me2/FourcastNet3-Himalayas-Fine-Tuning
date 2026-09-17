@@ -1,0 +1,95 @@
+# FINAL eval baselines config — Leonard FINAL_EVAL_SUITE_RECIPE.md (2026-09-16)
+# CPU scoring scaffold only. No train. No invented beat-this floats.
+# IC lists / year integers land after archive audit + FINAL_EVAL_PROTOCOL.md.
+
+schema: final_eval_baselines/v1
+recipe: docs/research/FINAL_EVAL_SUITE_RECIPE.md
+call: docs/research/FINAL_EVAL_SUITE_CALL.md
+claim_level: pending_final_protocol   # not interim_era5; not G1
+g1_claimable: false
+
+region:
+  # Locked Nepal box 26–31N / 80–89E
+  lat_south: 26.0
+  lat_north: 31.0
+  lon_west: 80.0
+  lon_east: 89.0
+
+# Wind-vector definition LOCKED (same as living v1_3_joint):
+#   per-lead: sqrt( mean_over_valid_grid( (u_err^2 + v_err^2) / 2 ) )
+#   headline: lead-mean over gate leads
+wind_vector:
+  formula: "sqrt(mean((u_err^2 + v_err^2)/2))"
+  pool: grid_then_lead_mean
+  channels: [u10m, v10m]
+  valid_mask: "elev_bin_id >= 0"
+
+leads:
+  gate_h: [24, 72, 120]
+  report_h: [24, 48, 72, 96, 120]
+
+variables_out: [t2m, u10m, v10m]
+
+# Year slots TBD after CDS archive audit — DO NOT invent years here
+year_split:
+  status: TODO_PENDING_ARCHIVE_AUDIT
+  train: []          # longest contiguous verified CDS years before val
+  val: []            # >= 1 full held-out calendar year
+  test: []           # >= 2 held-out years
+  interim_legacy_bridge:   # thick-2 continuity only (not FINAL claim)
+    train: [2018, 2019, 2020, 2021]
+    val: [2022]
+    test: [2023, 2024]
+
+# PLACEHOLDER IC lists — empty until FINAL_EVAL_PROTOCOL.md lands
+# When filled: hash sha256 of sorted IC IDs into protocol file before scoring
+ics:
+  status: TODO_PENDING_FINAL_EVAL_PROTOCOL
+  train_ids: []
+  val_ids: []
+  test_ids: []
+  floors:
+    train_min: 48
+    val_min: 64
+    test_min: 64
+    season_min_per_split: 8   # DJF/MAM/JJA/SON each
+  spacing_days_min: 5
+  prefer_inits_utc: ["00", "12"]
+
+baselines:
+  raw_fcn3:
+    role: absolute_floor
+    residual: false
+    ckpt: null
+  tier0:
+    role: lightweight_adapter_reference
+    # Reuse Tier-0 elev-binned bias maps when present; path TBD on FINAL ICs
+    adapter_maps: ~/fourcastnet/runs/phase0/tier0/tier0_bias_maps.nc
+    residual: false
+  living_v1_3_joint:
+    role: continuity_promote_bar
+    residual: true
+    ckpt: ~/fourcastnet/runs/phase0/tier_a/v1_3_joint/best_residual.pt
+    # DO NOT overwrite; read-only for FINAL re-score
+
+# Thick-2 legacy bridge: re-score every FINAL ckpt on interim 12/16/16 for continuity table
+legacy_bridge:
+  enabled: true
+  protocol: thick2_12_16_16
+  holdout_expand: v2
+  bars_set: thick2
+  config_ref: ~/fourcastnet/configs/tier_a_v1_3_joint.yaml
+  note: "report + honesty only; not a second promote path"
+
+paths:
+  project: ~/fourcastnet
+  out_json: ~/fourcastnet/runs/phase0/final_eval/final_baselines.json
+  protocol_doc: ~/fourcastnet/docs/research/FINAL_EVAL_PROTOCOL.md   # not yet written
+  coverage_audit: ~/fourcastnet/data/era5/coverage_audit.json
+  living_results: ~/fourcastnet/runs/phase0/tier_a/v1_3_joint/tier_a_v1_3_joint_results_claim_16ic.json
+
+honesty:
+  - "No FINAL train until archive audit + protocol ICs + final_baselines.json + FINAL_EVAL_BARS_CALL + Manisha."
+  - "Do not invent beat-this K bars; measure then freeze."
+  - "Living v1_3_joint remains interim_era5; do not relabel as FINAL/G1."
+  - "Leave CDS download PID alone."

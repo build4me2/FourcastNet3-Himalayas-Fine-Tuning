@@ -1,0 +1,679 @@
+{
+  "schema": "final_baselines/v1",
+  "created_utc": "2026-09-17T08:24:59.988383+00:00",
+  "status": "SCHEMA_PLACEHOLDER",
+  "scored": false,
+  "recipe": "docs/research/FINAL_EVAL_SUITE_RECIPE.md",
+  "call": "docs/research/FINAL_EVAL_SUITE_CALL.md",
+  "claim_level": "pending_final_protocol",
+  "g1_claimable": false,
+  "box": {
+    "lat_south": 26.0,
+    "lat_north": 31.0,
+    "lon_west": 80.0,
+    "lon_east": 89.0
+  },
+  "wind_vector_definition": {
+    "formula": "sqrt(mean((u_err^2 + v_err^2)/2))",
+    "pool": "grid_then_lead_mean",
+    "channels": [
+      "u10m",
+      "v10m"
+    ],
+    "valid_mask": "elev_bin_id >= 0",
+    "gate_leads_h": [
+      24,
+      72,
+      120
+    ],
+    "headline": "lead_mean over gate leads [24, 72, 120]",
+    "locked_with": "code/tier_a/v1_3_joint/score_living_wind_baseline.py"
+  },
+  "leads": {
+    "gate_h": [
+      24,
+      72,
+      120
+    ],
+    "report_h": [
+      24,
+      48,
+      72,
+      96,
+      120
+    ]
+  },
+  "variables_out": [
+    "t2m",
+    "u10m",
+    "v10m"
+  ],
+  "year_split": {
+    "status": "TODO_PENDING_ARCHIVE_AUDIT",
+    "train": [],
+    "val": [],
+    "test": [],
+    "interim_legacy_bridge": {
+      "train": [
+        2018,
+        2019,
+        2020,
+        2021
+      ],
+      "val": [
+        2022
+      ],
+      "test": [
+        2023,
+        2024
+      ]
+    }
+  },
+  "ics": {
+    "status": "TODO_PENDING_FINAL_EVAL_PROTOCOL",
+    "n_train": 0,
+    "n_val": 0,
+    "n_test": 0,
+    "train_ids_sha256": null,
+    "val_ids_sha256": null,
+    "test_ids_sha256": null,
+    "floors": {
+      "train_min": 48,
+      "val_min": 64,
+      "test_min": 64,
+      "season_min_per_split": 8
+    },
+    "note": "IC lists empty until FINAL_EVAL_PROTOCOL.md; do not invent ICs."
+  },
+  "baselines": {
+    "raw_fcn3": {
+      "role": "absolute_floor",
+      "residual": false,
+      "ckpt": null
+    },
+    "tier0": {
+      "role": "lightweight_adapter_reference",
+      "adapter_maps": "~/fourcastnet/runs/phase0/tier0/tier0_bias_maps.nc",
+      "residual": false
+    },
+    "living_v1_3_joint": {
+      "role": "continuity_promote_bar",
+      "residual": true,
+      "ckpt": "/home/chandmanisha00/fourcastnet/runs/phase0/tier_a/v1_3_joint/best_residual.pt",
+      "ckpt_md5": "c81a5a4c4f07ca0a52bb0bffee0045fa",
+      "ckpt_present": true,
+      "note": "read-only; do not overwrite living weights"
+    }
+  },
+  "splits": {
+    "val": {
+      "raw_fcn3": {
+        "per_lead": {
+          "24": {
+            "n": null,
+            "t2m_rmse": null,
+            "u10m_rmse": null,
+            "v10m_rmse": null,
+            "wind_vector_rmse": null
+          },
+          "72": {
+            "n": null,
+            "t2m_rmse": null,
+            "u10m_rmse": null,
+            "v10m_rmse": null,
+            "wind_vector_rmse": null
+          },
+          "120": {
+            "n": null,
+            "t2m_rmse": null,
+            "u10m_rmse": null,
+            "v10m_rmse": null,
+            "wind_vector_rmse": null
+          }
+        },
+        "grid_pooled_gate_leads": {
+          "n": null,
+          "t2m_rmse": null,
+          "u10m_rmse": null,
+          "v10m_rmse": null,
+          "wind_vector_rmse": null
+        },
+        "lead_mean": {
+          "t2m_rmse": null,
+          "u10m_rmse": null,
+          "v10m_rmse": null,
+          "wind_vector_rmse": null,
+          "leads_h": [
+            24,
+            72,
+            120
+          ],
+          "definition": "mean over leads of per-lead grid-pooled RMSE; wind_vector per-lead = sqrt(mean((u_err^2+v_err^2)/2))"
+        },
+        "t2m_val_plus_120h": null,
+        "status": "PENDING_PROTOCOL_ICS"
+      },
+      "tier0": {
+        "per_lead": {
+          "24": {
+            "n": null,
+            "t2m_rmse": null,
+            "u10m_rmse": null,
+            "v10m_rmse": null,
+            "wind_vector_rmse": null
+          },
+          "72": {
+            "n": null,
+            "t2m_rmse": null,
+            "u10m_rmse": null,
+            "v10m_rmse": null,
+            "wind_vector_rmse": null
+          },
+          "120": {
+            "n": null,
+            "t2m_rmse": null,
+            "u10m_rmse": null,
+            "v10m_rmse": null,
+            "wind_vector_rmse": null
+          }
+        },
+        "grid_pooled_gate_leads": {
+          "n": null,
+          "t2m_rmse": null,
+          "u10m_rmse": null,
+          "v10m_rmse": null,
+          "wind_vector_rmse": null
+        },
+        "lead_mean": {
+          "t2m_rmse": null,
+          "u10m_rmse": null,
+          "v10m_rmse": null,
+          "wind_vector_rmse": null,
+          "leads_h": [
+            24,
+            72,
+            120
+          ],
+          "definition": "mean over leads of per-lead grid-pooled RMSE; wind_vector per-lead = sqrt(mean((u_err^2+v_err^2)/2))"
+        },
+        "t2m_val_plus_120h": null,
+        "status": "PENDING_PROTOCOL_ICS"
+      },
+      "living_v1_3_joint": {
+        "per_lead": {
+          "24": {
+            "n": null,
+            "t2m_rmse": null,
+            "u10m_rmse": null,
+            "v10m_rmse": null,
+            "wind_vector_rmse": null
+          },
+          "72": {
+            "n": null,
+            "t2m_rmse": null,
+            "u10m_rmse": null,
+            "v10m_rmse": null,
+            "wind_vector_rmse": null
+          },
+          "120": {
+            "n": null,
+            "t2m_rmse": null,
+            "u10m_rmse": null,
+            "v10m_rmse": null,
+            "wind_vector_rmse": null
+          }
+        },
+        "grid_pooled_gate_leads": {
+          "n": null,
+          "t2m_rmse": null,
+          "u10m_rmse": null,
+          "v10m_rmse": null,
+          "wind_vector_rmse": null
+        },
+        "lead_mean": {
+          "t2m_rmse": null,
+          "u10m_rmse": null,
+          "v10m_rmse": null,
+          "wind_vector_rmse": null,
+          "leads_h": [
+            24,
+            72,
+            120
+          ],
+          "definition": "mean over leads of per-lead grid-pooled RMSE; wind_vector per-lead = sqrt(mean((u_err^2+v_err^2)/2))"
+        },
+        "t2m_val_plus_120h": null,
+        "status": "PENDING_PROTOCOL_ICS"
+      }
+    },
+    "test": {
+      "raw_fcn3": {
+        "per_lead": {
+          "24": {
+            "n": null,
+            "t2m_rmse": null,
+            "u10m_rmse": null,
+            "v10m_rmse": null,
+            "wind_vector_rmse": null
+          },
+          "72": {
+            "n": null,
+            "t2m_rmse": null,
+            "u10m_rmse": null,
+            "v10m_rmse": null,
+            "wind_vector_rmse": null
+          },
+          "120": {
+            "n": null,
+            "t2m_rmse": null,
+            "u10m_rmse": null,
+            "v10m_rmse": null,
+            "wind_vector_rmse": null
+          }
+        },
+        "grid_pooled_gate_leads": {
+          "n": null,
+          "t2m_rmse": null,
+          "u10m_rmse": null,
+          "v10m_rmse": null,
+          "wind_vector_rmse": null
+        },
+        "lead_mean": {
+          "t2m_rmse": null,
+          "u10m_rmse": null,
+          "v10m_rmse": null,
+          "wind_vector_rmse": null,
+          "leads_h": [
+            24,
+            72,
+            120
+          ],
+          "definition": "mean over leads of per-lead grid-pooled RMSE; wind_vector per-lead = sqrt(mean((u_err^2+v_err^2)/2))"
+        },
+        "t2m_val_plus_120h": null,
+        "status": "PENDING_PROTOCOL_ICS"
+      },
+      "tier0": {
+        "per_lead": {
+          "24": {
+            "n": null,
+            "t2m_rmse": null,
+            "u10m_rmse": null,
+            "v10m_rmse": null,
+            "wind_vector_rmse": null
+          },
+          "72": {
+            "n": null,
+            "t2m_rmse": null,
+            "u10m_rmse": null,
+            "v10m_rmse": null,
+            "wind_vector_rmse": null
+          },
+          "120": {
+            "n": null,
+            "t2m_rmse": null,
+            "u10m_rmse": null,
+            "v10m_rmse": null,
+            "wind_vector_rmse": null
+          }
+        },
+        "grid_pooled_gate_leads": {
+          "n": null,
+          "t2m_rmse": null,
+          "u10m_rmse": null,
+          "v10m_rmse": null,
+          "wind_vector_rmse": null
+        },
+        "lead_mean": {
+          "t2m_rmse": null,
+          "u10m_rmse": null,
+          "v10m_rmse": null,
+          "wind_vector_rmse": null,
+          "leads_h": [
+            24,
+            72,
+            120
+          ],
+          "definition": "mean over leads of per-lead grid-pooled RMSE; wind_vector per-lead = sqrt(mean((u_err^2+v_err^2)/2))"
+        },
+        "t2m_val_plus_120h": null,
+        "status": "PENDING_PROTOCOL_ICS"
+      },
+      "living_v1_3_joint": {
+        "per_lead": {
+          "24": {
+            "n": null,
+            "t2m_rmse": null,
+            "u10m_rmse": null,
+            "v10m_rmse": null,
+            "wind_vector_rmse": null
+          },
+          "72": {
+            "n": null,
+            "t2m_rmse": null,
+            "u10m_rmse": null,
+            "v10m_rmse": null,
+            "wind_vector_rmse": null
+          },
+          "120": {
+            "n": null,
+            "t2m_rmse": null,
+            "u10m_rmse": null,
+            "v10m_rmse": null,
+            "wind_vector_rmse": null
+          }
+        },
+        "grid_pooled_gate_leads": {
+          "n": null,
+          "t2m_rmse": null,
+          "u10m_rmse": null,
+          "v10m_rmse": null,
+          "wind_vector_rmse": null
+        },
+        "lead_mean": {
+          "t2m_rmse": null,
+          "u10m_rmse": null,
+          "v10m_rmse": null,
+          "wind_vector_rmse": null,
+          "leads_h": [
+            24,
+            72,
+            120
+          ],
+          "definition": "mean over leads of per-lead grid-pooled RMSE; wind_vector per-lead = sqrt(mean((u_err^2+v_err^2)/2))"
+        },
+        "t2m_val_plus_120h": null,
+        "status": "PENDING_PROTOCOL_ICS"
+      }
+    }
+  },
+  "report_leads": {
+    "val": {
+      "raw_fcn3": {
+        "per_lead": {
+          "24": {
+            "n": null,
+            "t2m_rmse": null,
+            "u10m_rmse": null,
+            "v10m_rmse": null,
+            "wind_vector_rmse": null
+          },
+          "48": {
+            "n": null,
+            "t2m_rmse": null,
+            "u10m_rmse": null,
+            "v10m_rmse": null,
+            "wind_vector_rmse": null
+          },
+          "72": {
+            "n": null,
+            "t2m_rmse": null,
+            "u10m_rmse": null,
+            "v10m_rmse": null,
+            "wind_vector_rmse": null
+          },
+          "96": {
+            "n": null,
+            "t2m_rmse": null,
+            "u10m_rmse": null,
+            "v10m_rmse": null,
+            "wind_vector_rmse": null
+          },
+          "120": {
+            "n": null,
+            "t2m_rmse": null,
+            "u10m_rmse": null,
+            "v10m_rmse": null,
+            "wind_vector_rmse": null
+          }
+        },
+        "status": "PENDING_PROTOCOL_ICS"
+      },
+      "tier0": {
+        "per_lead": {
+          "24": {
+            "n": null,
+            "t2m_rmse": null,
+            "u10m_rmse": null,
+            "v10m_rmse": null,
+            "wind_vector_rmse": null
+          },
+          "48": {
+            "n": null,
+            "t2m_rmse": null,
+            "u10m_rmse": null,
+            "v10m_rmse": null,
+            "wind_vector_rmse": null
+          },
+          "72": {
+            "n": null,
+            "t2m_rmse": null,
+            "u10m_rmse": null,
+            "v10m_rmse": null,
+            "wind_vector_rmse": null
+          },
+          "96": {
+            "n": null,
+            "t2m_rmse": null,
+            "u10m_rmse": null,
+            "v10m_rmse": null,
+            "wind_vector_rmse": null
+          },
+          "120": {
+            "n": null,
+            "t2m_rmse": null,
+            "u10m_rmse": null,
+            "v10m_rmse": null,
+            "wind_vector_rmse": null
+          }
+        },
+        "status": "PENDING_PROTOCOL_ICS"
+      },
+      "living_v1_3_joint": {
+        "per_lead": {
+          "24": {
+            "n": null,
+            "t2m_rmse": null,
+            "u10m_rmse": null,
+            "v10m_rmse": null,
+            "wind_vector_rmse": null
+          },
+          "48": {
+            "n": null,
+            "t2m_rmse": null,
+            "u10m_rmse": null,
+            "v10m_rmse": null,
+            "wind_vector_rmse": null
+          },
+          "72": {
+            "n": null,
+            "t2m_rmse": null,
+            "u10m_rmse": null,
+            "v10m_rmse": null,
+            "wind_vector_rmse": null
+          },
+          "96": {
+            "n": null,
+            "t2m_rmse": null,
+            "u10m_rmse": null,
+            "v10m_rmse": null,
+            "wind_vector_rmse": null
+          },
+          "120": {
+            "n": null,
+            "t2m_rmse": null,
+            "u10m_rmse": null,
+            "v10m_rmse": null,
+            "wind_vector_rmse": null
+          }
+        },
+        "status": "PENDING_PROTOCOL_ICS"
+      }
+    },
+    "test": {
+      "raw_fcn3": {
+        "per_lead": {
+          "24": {
+            "n": null,
+            "t2m_rmse": null,
+            "u10m_rmse": null,
+            "v10m_rmse": null,
+            "wind_vector_rmse": null
+          },
+          "48": {
+            "n": null,
+            "t2m_rmse": null,
+            "u10m_rmse": null,
+            "v10m_rmse": null,
+            "wind_vector_rmse": null
+          },
+          "72": {
+            "n": null,
+            "t2m_rmse": null,
+            "u10m_rmse": null,
+            "v10m_rmse": null,
+            "wind_vector_rmse": null
+          },
+          "96": {
+            "n": null,
+            "t2m_rmse": null,
+            "u10m_rmse": null,
+            "v10m_rmse": null,
+            "wind_vector_rmse": null
+          },
+          "120": {
+            "n": null,
+            "t2m_rmse": null,
+            "u10m_rmse": null,
+            "v10m_rmse": null,
+            "wind_vector_rmse": null
+          }
+        },
+        "status": "PENDING_PROTOCOL_ICS"
+      },
+      "tier0": {
+        "per_lead": {
+          "24": {
+            "n": null,
+            "t2m_rmse": null,
+            "u10m_rmse": null,
+            "v10m_rmse": null,
+            "wind_vector_rmse": null
+          },
+          "48": {
+            "n": null,
+            "t2m_rmse": null,
+            "u10m_rmse": null,
+            "v10m_rmse": null,
+            "wind_vector_rmse": null
+          },
+          "72": {
+            "n": null,
+            "t2m_rmse": null,
+            "u10m_rmse": null,
+            "v10m_rmse": null,
+            "wind_vector_rmse": null
+          },
+          "96": {
+            "n": null,
+            "t2m_rmse": null,
+            "u10m_rmse": null,
+            "v10m_rmse": null,
+            "wind_vector_rmse": null
+          },
+          "120": {
+            "n": null,
+            "t2m_rmse": null,
+            "u10m_rmse": null,
+            "v10m_rmse": null,
+            "wind_vector_rmse": null
+          }
+        },
+        "status": "PENDING_PROTOCOL_ICS"
+      },
+      "living_v1_3_joint": {
+        "per_lead": {
+          "24": {
+            "n": null,
+            "t2m_rmse": null,
+            "u10m_rmse": null,
+            "v10m_rmse": null,
+            "wind_vector_rmse": null
+          },
+          "48": {
+            "n": null,
+            "t2m_rmse": null,
+            "u10m_rmse": null,
+            "v10m_rmse": null,
+            "wind_vector_rmse": null
+          },
+          "72": {
+            "n": null,
+            "t2m_rmse": null,
+            "u10m_rmse": null,
+            "v10m_rmse": null,
+            "wind_vector_rmse": null
+          },
+          "96": {
+            "n": null,
+            "t2m_rmse": null,
+            "u10m_rmse": null,
+            "v10m_rmse": null,
+            "wind_vector_rmse": null
+          },
+          "120": {
+            "n": null,
+            "t2m_rmse": null,
+            "u10m_rmse": null,
+            "v10m_rmse": null,
+            "wind_vector_rmse": null
+          }
+        },
+        "status": "PENDING_PROTOCOL_ICS"
+      }
+    }
+  },
+  "legacy_bridge": {
+    "enabled": true,
+    "protocol": "thick2_12_16_16",
+    "status": "STUB",
+    "scorer": "code/final_eval/thick2_legacy_bridge.py",
+    "note": "Re-score FINAL ckpt on thick-2 12/16/16 interim protocol for continuity vs living 1.770/1.775/1.982 and WV 0.69560/0.73877. Report + honesty only \u2014 not a second promote path.",
+    "scores": null
+  },
+  "pass_fail_schema": {
+    "note": "Numeric bars TBD from this JSON after real score; Leonard FINAL_EVAL_BARS_CALL.md",
+    "A_vs_raw": [
+      "val t2m pooled strictly < measured raw val t2m",
+      "test t2m pooled strictly < measured raw test t2m",
+      "val +120h t2m <= measured raw val +120h",
+      "val & test wind-vector strictly < measured raw WV",
+      "n_eligible_saves >= 1; reload=composite_eligible"
+    ],
+    "B_vs_tier0": [
+      "val t2m strictly < measured Tier-0 val t2m",
+      "test t2m strictly < measured Tier-0 test t2m"
+    ],
+    "C_vs_living_on_FINAL": [
+      "val t2m strictly < living re-score val t2m",
+      "test t2m strictly < living re-score test t2m",
+      "val & test wind-vector strictly < living re-score WV"
+    ],
+    "final_g1_candidate_pass": "A \u2227 B \u2227 C (floats not frozen yet)"
+  },
+  "honesty": [
+    "No FINAL train until archive audit + protocol ICs + final_baselines.json + FINAL_EVAL_BARS_CALL + Manisha.",
+    "Do not invent beat-this K bars; measure then freeze.",
+    "Living v1_3_joint remains interim_era5; do not relabel as FINAL/G1.",
+    "Leave CDS download PID alone."
+  ],
+  "non_claims": [
+    "Not global WeatherBench 2 / FCN3 leaderboard SOTA",
+    "Not operational NWP replacement over Nepal",
+    "Not km-scale CorrDiff / RCM downscaling",
+    "Not precip skill",
+    "Not IMDAA / station-verified",
+    "Not calibrated probabilistic ensembles",
+    "Interim thick-2 / v1_3_joint remain interim_era5 \u2014 do not relabel as FINAL"
+  ]
+}
