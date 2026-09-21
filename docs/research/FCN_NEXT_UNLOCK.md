@@ -2,7 +2,7 @@
 
 **Manisha override (via Howard):** before any more FCN models / **no diffusion** / **no new Tier-A train** — unlock is either thicken ICs beyond 8/12/12 **or** hard-lock years.
 
-**Living residual:** v1.2b INTERIM PASS · v1.2 FAIL frozen · expand bars live · ERA5 Nepal CDS PID 611595 still running (~1995).
+**Living residual:** v1.2b INTERIM PASS · v1.2 FAIL frozen · expand bars live · Nepal ERA5 CDS crop still filling — leave download alone (check `ps` / `logs/era5_pull.log` for live PID).
 
 ## Freeze — order
 
@@ -91,13 +91,13 @@
 
 ---
 
-## While ERA5 Nepal CDS archive runs (PID 611595)
+## While ERA5 Nepal CDS archive runs
 
 | Do | Don’t |
 | --- | --- |
 | Finish **B** (labels/docs) | New Tier-A train / diffusion |
 | Stage **A** ARCO ICs + pairs when ready (independent of Nepal CDS crop) | Block A on CDS reaching present |
-| Watch/log CDS progress; don’t kill PID 611595 | Use Nepal crop files as FCN3 ICs |
+| Watch/log CDS progress; don’t kill the download process | Use Nepal crop files as FCN3 ICs |
 | GitHub sync / docs | Overwrite frozen v0…v1_2b / G0 verifying |
 
 Nepal CDS backfill is **regional archive** for later IMDAA/G1 — **not** a blocker for ARCO global IC thicken.

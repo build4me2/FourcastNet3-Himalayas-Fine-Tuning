@@ -51,7 +51,7 @@ Howard: patch results JSON echo to match config `test_ids` (16 only) — **no re
 2. Echo **new living** = `v1_3_joint/` in status docs; keep prior living frozen.
 3. Fix results `test_ids` / optional 16-IC test re-score headline only.
 4. Idle on next model unless Manisha assigns (deferred: parallel-mean diff / multi-seed / write-up).
-5. CDS 611595 leave alone.
+5. Nepal ERA5 CDS crop still filling — leave download alone (check `ps` / `logs/era5_pull.log` for live PID).
 
 ## Non-claims
 - Not G1 / IMDAA / CorrDiff / FCN3 FT  

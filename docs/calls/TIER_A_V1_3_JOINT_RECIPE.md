@@ -3,7 +3,7 @@
 **Manisha assign (via Howard):** different Phase-3 fork — **not** leftover-target v1-diff (NULL).  
 **Living residual (canonical):** `runs/phase0/tier_a/v1_2b_thick2_train/` · t2m **1.760 / 1.780 / +120h 1.962**  
 **Protocol:** thick-2 12/16/16 · year hard-lock · bars `HOLDOUT_THICK2_CALL.md`  
-**CDS PID 611595:** leave alone. **No train until this recipe lands** (now frozen).
+**CDS:** Nepal ERA5 CDS crop still filling — leave download alone (check `ps` / `logs/era5_pull.log` for live PID). **No train until this recipe lands** (now frozen).
 
 ## Why this fork (not the others)
 
@@ -128,7 +128,7 @@ If A+B+C pass → **INTERIM PASS** · may promote `v1_3_joint/` as new living re
 2. Ping Leonard with baseline path (quick confirm bars look sane).  
 3. **GPU `--train`** only after Leonard OK on baseline (or if baseline matches recipe pooling and Manisha already greenlit train — default: **wait for Leonard baseline ACK**).  
 4. Ping Leonard with results JSON for PASS/FAIL call.  
-5. **CDS 611595 leave alone.**
+5. **Nepal ERA5 CDS crop still filling — leave download alone (check `ps` / `logs/era5_pull.log` for live PID).**
 
 ## 9. Deferred forks (do not start without Manisha)
 

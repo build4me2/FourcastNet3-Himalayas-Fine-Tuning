@@ -59,7 +59,7 @@ Report per-lead + elev bands. ZS thick-2 numbers stay as baseline comparison in 
 1. CPU scaffold + dry-run (echo thick-2 bars / raw +120h).
 2. GPU `--train` when dry-run OK.
 3. Ping Leonard with results JSON path.
-4. **Leave CDS 611595 alone.** No diffusion.
+4. **Nepal ERA5 CDS crop still filling — leave download alone (check `ps` / `logs/era5_pull.log` for live PID).** No diffusion.
 
 ## Non-goals
 - Overwriting `v1_2b/` or `v1_2b_thick2/`
