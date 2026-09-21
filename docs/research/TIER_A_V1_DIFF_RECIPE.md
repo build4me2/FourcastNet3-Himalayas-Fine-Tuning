@@ -3,7 +3,7 @@
 **Manisha greenlight (via Howard):** do **not** block on CDS — open next model now = **v1-diff / CorrDiff-lite**.  
 **Living residual:** `runs/phase0/tier_a/v1_2b_thick2_train/` (INTERIM PASS CONFIRM).  
 **Protocol:** thick-2 12/16/16 · year hard-lock · bars `HOLDOUT_THICK2_CALL.md`.  
-**CDS PID 611595:** leave alone.
+**CDS:** Nepal ERA5 CDS crop still filling — leave download alone (check `ps` / `logs/era5_pull.log` for live PID).
 
 Pathway alignment: `FINETUNE_METHOD_DESIGN.md` Phase 3 / `TIER_A_V1_SKETCH_CALL.md` deferred v1-diff.
 
@@ -87,7 +87,7 @@ If primary bars pass but **fail vs living residual** → **FAIL as product upgra
 2. Ping Leonard if architecture choice (EDM vs DDPM / NeMo vs custom) is ambiguous; else proceed.
 3. **GPU train** only after dry-run OK.
 4. Ping Leonard with results JSON for PASS/FAIL call.
-5. **CDS 611595 leave alone.**
+5. **Nepal ERA5 CDS crop still filling — leave download alone (check `ps` / `logs/era5_pull.log` for live PID).**
 
 ## 8. Non-goals
 - Waiting on full Nepal CDS archive  

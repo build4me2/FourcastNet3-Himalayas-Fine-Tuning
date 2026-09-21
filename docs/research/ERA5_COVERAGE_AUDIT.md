@@ -1,21 +1,21 @@
 # ERA5 Nepal crop — coverage audit
 
-**Generated (UTC):** 2026-09-17T16:49:13.434666+00:00  
+**Generated (UTC):** 2026-09-21T15:51:50.764546+00:00  
 **Raw dir:** `/home/chandmanisha00/fourcastnet/data/era5/raw`  
-**Window:** 1980-01 → 2020-01  
+**Window:** 1980-01 → 2022-07  
 **Schema:** `era5_coverage_audit/v1`
 
 ## Summary
 
 | Metric | Value |
 | --- | ---: |
-| Months scanned | 481 |
-| Present | 350 |
-| Missing | 130 |
+| Months scanned | 511 |
+| Present | 510 |
+| Missing | 0 |
 | Partial | 1 |
-| Holes (non-present) | 131 |
-| Frontier contiguous from start | 2009-01 |
-| Last present month (any) | 2020-01 |
+| Holes (non-present) | 1 |
+| Frontier contiguous from start | 2022-06 |
+| Last present month (any) | 2022-06 |
 
 ## Variable map (surface diagnostics)
 
@@ -58,26 +58,26 @@
 | 2006 | 12 | 0 | 0 |
 | 2007 | 12 | 0 | 0 |
 | 2008 | 12 | 0 | 0 |
-| 2009 | 1 | 10 | 1 |
-| 2010 | 0 | 12 | 0 |
-| 2011 | 0 | 12 | 0 |
-| 2012 | 0 | 12 | 0 |
-| 2013 | 0 | 12 | 0 |
-| 2014 | 0 | 12 | 0 |
-| 2015 | 0 | 12 | 0 |
-| 2016 | 0 | 12 | 0 |
-| 2017 | 0 | 12 | 0 |
-| 2018 | 0 | 12 | 0 |
-| 2019 | 0 | 12 | 0 |
-| 2020 | 1 | 0 | 0 |
+| 2009 | 12 | 0 | 0 |
+| 2010 | 12 | 0 | 0 |
+| 2011 | 12 | 0 | 0 |
+| 2012 | 12 | 0 | 0 |
+| 2013 | 12 | 0 | 0 |
+| 2014 | 12 | 0 | 0 |
+| 2015 | 12 | 0 | 0 |
+| 2016 | 12 | 0 | 0 |
+| 2017 | 12 | 0 | 0 |
+| 2018 | 12 | 0 | 0 |
+| 2019 | 12 | 0 | 0 |
+| 2020 | 12 | 0 | 0 |
+| 2021 | 12 | 0 | 0 |
+| 2022 | 6 | 0 | 1 |
 
 ## Holes (missing or partial months)
 
-Count: **131**. First 40: 
+Count: **1**. First 40: 
 
-`2009-02`, `2009-03`, `2009-04`, `2009-05`, `2009-06`, `2009-07`, `2009-08`, `2009-09`, `2009-10`, `2009-11`, `2009-12`, `2010-01`, `2010-02`, `2010-03`, `2010-04`, `2010-05`, `2010-06`, `2010-07`, `2010-08`, `2010-09`, `2010-10`, `2010-11`, `2010-12`, `2011-01`, `2011-02`, `2011-03`, `2011-04`, `2011-05`, `2011-06`, `2011-07`, `2011-08`, `2011-09`, `2011-10`, `2011-11`, `2011-12`, `2012-01`, `2012-02`, `2012-03`, `2012-04`, `2012-05`
-
-… +91 more (see JSON `holes`).
+`2022-07`
 
 ## Notes
 
@@ -88,6 +88,6 @@ Count: **131**. First 40:
 
 ## Next
 
-1. Leave CDS download PID alone until tip complete.
+1. Nepal ERA5 CDS crop still filling — leave download alone (check `ps` / `logs/era5_pull.log` for live PID).
 2. Re-run this audit when frontier advances.
 3. Archive audit PASS → Leonard `FINAL_EVAL_PROTOCOL.md` → score `final_baselines.json`.

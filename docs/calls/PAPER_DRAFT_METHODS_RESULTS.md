@@ -1,7 +1,7 @@
 # Regional FCN3 residual fine-tune over Nepal — Methods & Results (draft)
 
 **Authors:** Manisha Chand (lead) · eng notes from Spark FCN runs (Howard)  
-**Date:** 2026-09-17 PT · **Claim level:** `interim_era5` · **`g1_claimable=false`**  
+**Date:** 2026-09-21 PT · **Claim level:** `interim_era5` · **`g1_claimable=false`**  
 **Living residual (LOCKED):** `runs/phase0/tier_a/v1_3_joint/best_residual.pt`  
 (promoted 2026-09-15; prior `v1_2b_thick2_train/` historical / frozen)  
 **Sources:** `FINAL_EVAL_SUITE_CALL.md`, `FINAL_EVAL_SUITE_RECIPE.md`, `EVAL_BENCHMARKS_AND_FINAL_SUITE.md`, `TIER_A_V1_3_JOINT_CALL.md`, `TIER_A_V1_3_JOINT_RECIPE.md`, `tier_a_v1_3_joint_results.json`, `tier_a_v1_3_joint_results_claim_16ic.json`, `living_wind_baseline.json`, `v1_3_joint_wind_score.json`, `LIVING_RESIDUAL_WINDS_ELEV_TABLE.md`, `TIER_A_V1_2B_THICK2_TRAIN_CALL.md`, `TIER_A_V1_DIFF_CALL.md`, `HOLDOUT_THICK2_CALL.md`, `YEAR_HARD_LOCK.md`.
@@ -9,6 +9,21 @@
 > Stanford-plain draft for **methods + results** only. Not a full paper.  
 > All numeric claims are measured from existing artifacts — **no invented metrics**.  
 > Protocol claims use **16 thick-2 test ICs** (`claim_16ic` / wind_score); do not use main-JSON `metrics.test` when it includes `ic45`.
+
+---
+
+## 0. Intro
+
+Global ML weather models such as FourCastNet 3 (FCN3) are strong at planetary scale, but **regional** skill over complex terrain still needs a local correction that does not require full-weight fine-tuning. This draft records an **interim** Nepal-box residual program: freeze the FCN3 backbone (~711M), train a small elev-conditioned residual UNet on FCN3 ens-mean crops, and verify against **ERA5 interim** (`interim_era5`).
+
+| | |
+| --- | --- |
+| Domain | **26–31°N, 80–89°E** (Nepal / High Himalaya crop) |
+| Diagnostics | t2m, u10m, v10m at +24 / +72 / +120 h |
+| Living product | `runs/phase0/tier_a/v1_3_joint/` (promoted 2026-09-15) |
+| Claim level | `interim_era5` · **`g1_claimable=false`** |
+
+ICs remain **global ARCO** crops. The Nepal CDS ERA5 crop is an archive still filling for later FINAL work — not the IC source. Headlines below are thick-2 interim promote numbers only; they are **not** FINAL / G1.
 
 ---
 
@@ -24,7 +39,7 @@ FourCastNet 3 (FCN3) is a global probabilistic weather model. We target **region
 | Approach | Freeze FCN3; train a small elev-conditioned regional residual on FCN3 ens-mean crops |
 | Verification | **ERA5 interim** (`interim_era5`) |
 
-ICs are global ARCO crops. A Nepal CDS ERA5 crop archive is **still filling** (PID **611595**) and is **not** the IC source. This draft does **not** claim G1 / IMDAA / published operational skill.
+ICs are global ARCO crops. A Nepal CDS ERA5 crop archive is **still filling** — leave the CDS download process alone (check `ps` / `logs/era5_pull.log` for live PID; do not hardcode) — and is **not** the IC source. This draft does **not** claim G1 / IMDAA / published operational skill.
 
 ---
 
@@ -192,7 +207,7 @@ Leftover-target EDM on ERA5−(FCN3+living residual): one-step decode ≈ prior 
 - Not FCN3 weight fine-tune; not CorrDiff NVIDIA parity; not precip; not leftover-target diffusion success.
 - Wind lift is **modest** — joint-balance success, **not** a winds breakthrough.
 - Main `tier_a_v1_3_joint_results.json` historically echoed **17** test ICs (`ic45`); protocol claims use **16-IC** sidecar / wind_score only.
-- CDS Nepal crop is an **archive for later**, still filling — leave PID **611595** alone.
+- CDS Nepal crop is an **archive for later**, still filling — leave the CDS download process on Spark alone; check `ps` / `logs/era5_pull.log` for live PID.
 - **FINAL suite frozen as protocol+hardness only** (`FINAL_EVAL_SUITE_CALL.md`): measure `final_baselines.json` before any bars.
 - Do **not** overwrite living weights `runs/phase0/tier_a/v1_3_joint/best_residual.pt` or prior living `v1_2b_thick2_train/`.
 
@@ -220,6 +235,29 @@ Scaffold (CPU, no train): `code/final_eval/` + `configs/final_eval_baselines.yam
 
 **Non-claims (FINAL call):** not global WB2/FCN3 SOTA · not ops NWP replacement · not CorrDiff parity · not precip · not stations · interim thick-2 ≠ FINAL/G1 · not IMDAA-verified.
 
+
+
+## 7. Discussion (interim honesty)
+
+**What this interim proves.** Under a locked thick-2 protocol (12/16/16 ICs, year hard-lock 2018–21 / 2022 / 2023–24), a frozen-backbone elev-conditioned residual can clear absolute t2m floors, protect prior living t2m within ±0.02 K, and modestly improve wind-vector lead-mean vs prior living and raw FCN3. Living headlines: t2m **1.770 / 1.775 / +120h 1.982**; WV **0.69560 / 0.73877**. Leftover-target diffusion (`v1_diff`) did **not** lift the residual — product call NULL.
+
+**What it does not prove.** These bars are **not** FINAL G1, not IMDAA/station-verified, not precip, not CorrDiff/km-scale parity, and not an ops NWP replacement. ERA5-as-truth over the Himalaya has representativeness limits; short year splits are thin for ENSO / extreme-monsoon claims. Wind lift is joint-balance success, not a winds breakthrough.
+
+**FINAL gate ahead.** After the CDS Nepal crop completes and archive audit PASSes, Leonard freezes `FINAL_EVAL_PROTOCOL.md`, baselines are scored into `final_baselines.json` **before** any beat-this floats, then bars land only on Manisha call. Relabeling living interim as FINAL / G1 is forbidden. Until then: idle / writeup / doc hygiene; **no GPU train** unless assigned.
+
+
+## 8. Figures package stub
+
+Planned figures for a later methods/results writeup. **Paths TBD** under `docs/figures/` — placeholder only; **no plotted numbers invented here**.
+
+| ID | Figure | Intent | Path (TBD) |
+| --- | --- | --- | --- |
+| F1 | Lead curves (t2m) | Living vs prior living vs raw at +24/+72/+120 | `docs/figures/f1_t2m_lead_curves.(png|pdf)` |
+| F2 | Elev-band skill | Residual vs raw by elevation band (honesty) | `docs/figures/f2_elev_bands.(png|pdf)` |
+| F3 | Winds table graphic | Wind-vector lead-mean val/test (living vs prior vs raw) | `docs/figures/f3_winds_table.(png|pdf)` |
+| F4 | Protocol diagram | Frozen FCN3 → residual → thick-2 / year locks → FINAL gate | `docs/figures/f4_protocol_diagram.(png|pdf)` |
+
+See `docs/figures/README.md`. Source tables for real numbers: `tier_a_v1_3_joint_results_claim_16ic.json`, `v1_3_joint_wind_score.json`, `LIVING_RESIDUAL_WINDS_ELEV_TABLE.md`.
 
 ## 6. Artifact index
 

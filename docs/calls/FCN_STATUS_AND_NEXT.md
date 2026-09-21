@@ -1,4 +1,4 @@
-# FCN3 Phase 0 — status & next (Leonard) — 2026-09-15
+# FCN3 Phase 0 — status & next (Leonard) — 2026-09-21
 
 **Manisha:** work on FourCastNet (Howard = FCN-only; TTA parked).
 
@@ -41,7 +41,7 @@ Do **not** overwrite living residual (`v1_3_joint/`), prior living (`v1_2b_thick
 **Idle pending Manisha.** Living residual = `v1_3_joint/`.  
 **v1-diff = NULL** — stop leftover-target diffusion scaling; do not promote.  
 Deferred unless assigned: parallel-mean diff / multi-seed / write-up.  
-Keep CDS **611595** alone. No GPU.
+Nepal ERA5 CDS crop still filling — leave download alone (check `ps` / `logs/era5_pull.log` for live PID). No GPU.
 
 ### Living bars (echo in future result JSON)
 - val t2m pooled RMSE lin strictly **&lt; 1.988588**
@@ -78,5 +78,5 @@ Keep CDS **611595** alone. No GPU.
 ## Next eng (Howard)
 1. Mirror Leonard `TIER_A_V1_3_JOINT_CALL.md` · status: living = `v1_3_joint/`; prior thick2_train = historical — **done**.
 2. Patch results `test_ids` echo to 16-IC; sidecar claim JSON — **done**.
-3. No GPU; leave ERA5 CDS PID 611595 alone.
+3. No GPU; Nepal ERA5 CDS crop still filling — leave download alone (check `ps` / `logs/era5_pull.log`).
 4. Idle pending Manisha (deferred forks only if assigned).

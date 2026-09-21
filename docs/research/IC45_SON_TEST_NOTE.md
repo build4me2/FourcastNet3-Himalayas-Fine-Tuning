@@ -36,6 +36,6 @@
 
 - Does **not** replace living residual bars (canonical remain test16 living JSON).
 - `interim_era5` / `g1_claimable=false`.
-- CDS PID **611595** left alone.
+- CDS CDS download process on Spark (see `ps` / `logs/era5_pull.log` for live PID) left alone.
 
 Sidecar JSON: `runs/phase0/tier_a/v1_2b_thick2_train/ic45_zs_eval/ic45_son_note.json`

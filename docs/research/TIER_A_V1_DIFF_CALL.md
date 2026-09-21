@@ -41,7 +41,7 @@ Diffusion collapsed to near-identity leftover (expected when target is residual-
    - diffusion target = ERA5−FCN3 **without** residual mean in the target (parallel mean, not leftover), or
    - winds/CRPS-first probabilistic gate, or
    - pause Phase 3 and write up residual-only story.
-4. CDS 611595 leave alone.
+4. Nepal ERA5 CDS crop still filling — leave download alone (check `ps` / `logs/era5_pull.log` for live PID).
 
 ## Non-claims
 - Not CorrDiff NVIDIA parity  

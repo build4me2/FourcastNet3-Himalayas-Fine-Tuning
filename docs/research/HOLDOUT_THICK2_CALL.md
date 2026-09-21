@@ -50,7 +50,7 @@ Expand-v1 bars (val 1.987014 / test 1.897298 / +120h 2.131516) → **historical 
 
 1. Mirror this call to `~/fourcastnet/docs/research/HOLDOUT_THICK2_CALL.md`.
 2. Echo **thick-2** bars in future result JSON templates.
-3. Keep CDS 611595 alone; no new Tier-A train / diffusion until Manisha assigns.
+3. Nepal ERA5 CDS crop still filling — leave download alone (check `ps` / `logs/era5_pull.log` for live PID).; no new Tier-A train / diffusion until Manisha assigns.
 4. Optional (low priority): add one test SON IC to hit ≥4; re-score test only if she wants recipe-perfect seasons.
 
 ## Non-claims

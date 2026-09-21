@@ -1,10 +1,10 @@
 {
   "schema": "era5_coverage_audit/v1",
-  "created_utc": "2026-09-17T16:49:13.434666+00:00",
+  "created_utc": "2026-09-21T15:51:50.764546+00:00",
   "raw_dir": "/home/chandmanisha00/fourcastnet/data/era5/raw",
   "range": {
     "start": "1980-01",
-    "end": "2020-01",
+    "end": "2022-07",
     "note": "Audit window; CDS tip may extend further as download continues"
   },
   "var_map": {
@@ -30,146 +30,16 @@
     "v10"
   ],
   "summary": {
-    "n_months_scanned": 481,
-    "n_present": 350,
-    "n_missing": 130,
+    "n_months_scanned": 511,
+    "n_present": 510,
+    "n_missing": 0,
     "n_partial": 1,
-    "frontier_contiguous_from_start": "2009-01",
-    "last_present_any": "2020-01",
-    "n_holes": 131
+    "frontier_contiguous_from_start": "2022-06",
+    "last_present_any": "2022-06",
+    "n_holes": 1
   },
   "holes": [
-    "2009-02",
-    "2009-03",
-    "2009-04",
-    "2009-05",
-    "2009-06",
-    "2009-07",
-    "2009-08",
-    "2009-09",
-    "2009-10",
-    "2009-11",
-    "2009-12",
-    "2010-01",
-    "2010-02",
-    "2010-03",
-    "2010-04",
-    "2010-05",
-    "2010-06",
-    "2010-07",
-    "2010-08",
-    "2010-09",
-    "2010-10",
-    "2010-11",
-    "2010-12",
-    "2011-01",
-    "2011-02",
-    "2011-03",
-    "2011-04",
-    "2011-05",
-    "2011-06",
-    "2011-07",
-    "2011-08",
-    "2011-09",
-    "2011-10",
-    "2011-11",
-    "2011-12",
-    "2012-01",
-    "2012-02",
-    "2012-03",
-    "2012-04",
-    "2012-05",
-    "2012-06",
-    "2012-07",
-    "2012-08",
-    "2012-09",
-    "2012-10",
-    "2012-11",
-    "2012-12",
-    "2013-01",
-    "2013-02",
-    "2013-03",
-    "2013-04",
-    "2013-05",
-    "2013-06",
-    "2013-07",
-    "2013-08",
-    "2013-09",
-    "2013-10",
-    "2013-11",
-    "2013-12",
-    "2014-01",
-    "2014-02",
-    "2014-03",
-    "2014-04",
-    "2014-05",
-    "2014-06",
-    "2014-07",
-    "2014-08",
-    "2014-09",
-    "2014-10",
-    "2014-11",
-    "2014-12",
-    "2015-01",
-    "2015-02",
-    "2015-03",
-    "2015-04",
-    "2015-05",
-    "2015-06",
-    "2015-07",
-    "2015-08",
-    "2015-09",
-    "2015-10",
-    "2015-11",
-    "2015-12",
-    "2016-01",
-    "2016-02",
-    "2016-03",
-    "2016-04",
-    "2016-05",
-    "2016-06",
-    "2016-07",
-    "2016-08",
-    "2016-09",
-    "2016-10",
-    "2016-11",
-    "2016-12",
-    "2017-01",
-    "2017-02",
-    "2017-03",
-    "2017-04",
-    "2017-05",
-    "2017-06",
-    "2017-07",
-    "2017-08",
-    "2017-09",
-    "2017-10",
-    "2017-11",
-    "2017-12",
-    "2018-01",
-    "2018-02",
-    "2018-03",
-    "2018-04",
-    "2018-05",
-    "2018-06",
-    "2018-07",
-    "2018-08",
-    "2018-09",
-    "2018-10",
-    "2018-11",
-    "2018-12",
-    "2019-01",
-    "2019-02",
-    "2019-03",
-    "2019-04",
-    "2019-05",
-    "2019-06",
-    "2019-07",
-    "2019-08",
-    "2019-09",
-    "2019-10",
-    "2019-11",
-    "2019-12"
+    "2022-07"
   ],
   "by_year": {
     "1980": {
@@ -1768,8 +1638,723 @@
       ]
     },
     "2009": {
-      "present": 1,
-      "missing": 10,
+      "present": 12,
+      "missing": 0,
+      "partial": 0,
+      "months": [
+        {
+          "month": 1,
+          "status": "present"
+        },
+        {
+          "month": 2,
+          "status": "present"
+        },
+        {
+          "month": 3,
+          "status": "present"
+        },
+        {
+          "month": 4,
+          "status": "present"
+        },
+        {
+          "month": 5,
+          "status": "present"
+        },
+        {
+          "month": 6,
+          "status": "present"
+        },
+        {
+          "month": 7,
+          "status": "present"
+        },
+        {
+          "month": 8,
+          "status": "present"
+        },
+        {
+          "month": 9,
+          "status": "present"
+        },
+        {
+          "month": 10,
+          "status": "present"
+        },
+        {
+          "month": 11,
+          "status": "present"
+        },
+        {
+          "month": 12,
+          "status": "present"
+        }
+      ]
+    },
+    "2010": {
+      "present": 12,
+      "missing": 0,
+      "partial": 0,
+      "months": [
+        {
+          "month": 1,
+          "status": "present"
+        },
+        {
+          "month": 2,
+          "status": "present"
+        },
+        {
+          "month": 3,
+          "status": "present"
+        },
+        {
+          "month": 4,
+          "status": "present"
+        },
+        {
+          "month": 5,
+          "status": "present"
+        },
+        {
+          "month": 6,
+          "status": "present"
+        },
+        {
+          "month": 7,
+          "status": "present"
+        },
+        {
+          "month": 8,
+          "status": "present"
+        },
+        {
+          "month": 9,
+          "status": "present"
+        },
+        {
+          "month": 10,
+          "status": "present"
+        },
+        {
+          "month": 11,
+          "status": "present"
+        },
+        {
+          "month": 12,
+          "status": "present"
+        }
+      ]
+    },
+    "2011": {
+      "present": 12,
+      "missing": 0,
+      "partial": 0,
+      "months": [
+        {
+          "month": 1,
+          "status": "present"
+        },
+        {
+          "month": 2,
+          "status": "present"
+        },
+        {
+          "month": 3,
+          "status": "present"
+        },
+        {
+          "month": 4,
+          "status": "present"
+        },
+        {
+          "month": 5,
+          "status": "present"
+        },
+        {
+          "month": 6,
+          "status": "present"
+        },
+        {
+          "month": 7,
+          "status": "present"
+        },
+        {
+          "month": 8,
+          "status": "present"
+        },
+        {
+          "month": 9,
+          "status": "present"
+        },
+        {
+          "month": 10,
+          "status": "present"
+        },
+        {
+          "month": 11,
+          "status": "present"
+        },
+        {
+          "month": 12,
+          "status": "present"
+        }
+      ]
+    },
+    "2012": {
+      "present": 12,
+      "missing": 0,
+      "partial": 0,
+      "months": [
+        {
+          "month": 1,
+          "status": "present"
+        },
+        {
+          "month": 2,
+          "status": "present"
+        },
+        {
+          "month": 3,
+          "status": "present"
+        },
+        {
+          "month": 4,
+          "status": "present"
+        },
+        {
+          "month": 5,
+          "status": "present"
+        },
+        {
+          "month": 6,
+          "status": "present"
+        },
+        {
+          "month": 7,
+          "status": "present"
+        },
+        {
+          "month": 8,
+          "status": "present"
+        },
+        {
+          "month": 9,
+          "status": "present"
+        },
+        {
+          "month": 10,
+          "status": "present"
+        },
+        {
+          "month": 11,
+          "status": "present"
+        },
+        {
+          "month": 12,
+          "status": "present"
+        }
+      ]
+    },
+    "2013": {
+      "present": 12,
+      "missing": 0,
+      "partial": 0,
+      "months": [
+        {
+          "month": 1,
+          "status": "present"
+        },
+        {
+          "month": 2,
+          "status": "present"
+        },
+        {
+          "month": 3,
+          "status": "present"
+        },
+        {
+          "month": 4,
+          "status": "present"
+        },
+        {
+          "month": 5,
+          "status": "present"
+        },
+        {
+          "month": 6,
+          "status": "present"
+        },
+        {
+          "month": 7,
+          "status": "present"
+        },
+        {
+          "month": 8,
+          "status": "present"
+        },
+        {
+          "month": 9,
+          "status": "present"
+        },
+        {
+          "month": 10,
+          "status": "present"
+        },
+        {
+          "month": 11,
+          "status": "present"
+        },
+        {
+          "month": 12,
+          "status": "present"
+        }
+      ]
+    },
+    "2014": {
+      "present": 12,
+      "missing": 0,
+      "partial": 0,
+      "months": [
+        {
+          "month": 1,
+          "status": "present"
+        },
+        {
+          "month": 2,
+          "status": "present"
+        },
+        {
+          "month": 3,
+          "status": "present"
+        },
+        {
+          "month": 4,
+          "status": "present"
+        },
+        {
+          "month": 5,
+          "status": "present"
+        },
+        {
+          "month": 6,
+          "status": "present"
+        },
+        {
+          "month": 7,
+          "status": "present"
+        },
+        {
+          "month": 8,
+          "status": "present"
+        },
+        {
+          "month": 9,
+          "status": "present"
+        },
+        {
+          "month": 10,
+          "status": "present"
+        },
+        {
+          "month": 11,
+          "status": "present"
+        },
+        {
+          "month": 12,
+          "status": "present"
+        }
+      ]
+    },
+    "2015": {
+      "present": 12,
+      "missing": 0,
+      "partial": 0,
+      "months": [
+        {
+          "month": 1,
+          "status": "present"
+        },
+        {
+          "month": 2,
+          "status": "present"
+        },
+        {
+          "month": 3,
+          "status": "present"
+        },
+        {
+          "month": 4,
+          "status": "present"
+        },
+        {
+          "month": 5,
+          "status": "present"
+        },
+        {
+          "month": 6,
+          "status": "present"
+        },
+        {
+          "month": 7,
+          "status": "present"
+        },
+        {
+          "month": 8,
+          "status": "present"
+        },
+        {
+          "month": 9,
+          "status": "present"
+        },
+        {
+          "month": 10,
+          "status": "present"
+        },
+        {
+          "month": 11,
+          "status": "present"
+        },
+        {
+          "month": 12,
+          "status": "present"
+        }
+      ]
+    },
+    "2016": {
+      "present": 12,
+      "missing": 0,
+      "partial": 0,
+      "months": [
+        {
+          "month": 1,
+          "status": "present"
+        },
+        {
+          "month": 2,
+          "status": "present"
+        },
+        {
+          "month": 3,
+          "status": "present"
+        },
+        {
+          "month": 4,
+          "status": "present"
+        },
+        {
+          "month": 5,
+          "status": "present"
+        },
+        {
+          "month": 6,
+          "status": "present"
+        },
+        {
+          "month": 7,
+          "status": "present"
+        },
+        {
+          "month": 8,
+          "status": "present"
+        },
+        {
+          "month": 9,
+          "status": "present"
+        },
+        {
+          "month": 10,
+          "status": "present"
+        },
+        {
+          "month": 11,
+          "status": "present"
+        },
+        {
+          "month": 12,
+          "status": "present"
+        }
+      ]
+    },
+    "2017": {
+      "present": 12,
+      "missing": 0,
+      "partial": 0,
+      "months": [
+        {
+          "month": 1,
+          "status": "present"
+        },
+        {
+          "month": 2,
+          "status": "present"
+        },
+        {
+          "month": 3,
+          "status": "present"
+        },
+        {
+          "month": 4,
+          "status": "present"
+        },
+        {
+          "month": 5,
+          "status": "present"
+        },
+        {
+          "month": 6,
+          "status": "present"
+        },
+        {
+          "month": 7,
+          "status": "present"
+        },
+        {
+          "month": 8,
+          "status": "present"
+        },
+        {
+          "month": 9,
+          "status": "present"
+        },
+        {
+          "month": 10,
+          "status": "present"
+        },
+        {
+          "month": 11,
+          "status": "present"
+        },
+        {
+          "month": 12,
+          "status": "present"
+        }
+      ]
+    },
+    "2018": {
+      "present": 12,
+      "missing": 0,
+      "partial": 0,
+      "months": [
+        {
+          "month": 1,
+          "status": "present"
+        },
+        {
+          "month": 2,
+          "status": "present"
+        },
+        {
+          "month": 3,
+          "status": "present"
+        },
+        {
+          "month": 4,
+          "status": "present"
+        },
+        {
+          "month": 5,
+          "status": "present"
+        },
+        {
+          "month": 6,
+          "status": "present"
+        },
+        {
+          "month": 7,
+          "status": "present"
+        },
+        {
+          "month": 8,
+          "status": "present"
+        },
+        {
+          "month": 9,
+          "status": "present"
+        },
+        {
+          "month": 10,
+          "status": "present"
+        },
+        {
+          "month": 11,
+          "status": "present"
+        },
+        {
+          "month": 12,
+          "status": "present"
+        }
+      ]
+    },
+    "2019": {
+      "present": 12,
+      "missing": 0,
+      "partial": 0,
+      "months": [
+        {
+          "month": 1,
+          "status": "present"
+        },
+        {
+          "month": 2,
+          "status": "present"
+        },
+        {
+          "month": 3,
+          "status": "present"
+        },
+        {
+          "month": 4,
+          "status": "present"
+        },
+        {
+          "month": 5,
+          "status": "present"
+        },
+        {
+          "month": 6,
+          "status": "present"
+        },
+        {
+          "month": 7,
+          "status": "present"
+        },
+        {
+          "month": 8,
+          "status": "present"
+        },
+        {
+          "month": 9,
+          "status": "present"
+        },
+        {
+          "month": 10,
+          "status": "present"
+        },
+        {
+          "month": 11,
+          "status": "present"
+        },
+        {
+          "month": 12,
+          "status": "present"
+        }
+      ]
+    },
+    "2020": {
+      "present": 12,
+      "missing": 0,
+      "partial": 0,
+      "months": [
+        {
+          "month": 1,
+          "status": "present"
+        },
+        {
+          "month": 2,
+          "status": "present"
+        },
+        {
+          "month": 3,
+          "status": "present"
+        },
+        {
+          "month": 4,
+          "status": "present"
+        },
+        {
+          "month": 5,
+          "status": "present"
+        },
+        {
+          "month": 6,
+          "status": "present"
+        },
+        {
+          "month": 7,
+          "status": "present"
+        },
+        {
+          "month": 8,
+          "status": "present"
+        },
+        {
+          "month": 9,
+          "status": "present"
+        },
+        {
+          "month": 10,
+          "status": "present"
+        },
+        {
+          "month": 11,
+          "status": "present"
+        },
+        {
+          "month": 12,
+          "status": "present"
+        }
+      ]
+    },
+    "2021": {
+      "present": 12,
+      "missing": 0,
+      "partial": 0,
+      "months": [
+        {
+          "month": 1,
+          "status": "present"
+        },
+        {
+          "month": 2,
+          "status": "present"
+        },
+        {
+          "month": 3,
+          "status": "present"
+        },
+        {
+          "month": 4,
+          "status": "present"
+        },
+        {
+          "month": 5,
+          "status": "present"
+        },
+        {
+          "month": 6,
+          "status": "present"
+        },
+        {
+          "month": 7,
+          "status": "present"
+        },
+        {
+          "month": 8,
+          "status": "present"
+        },
+        {
+          "month": 9,
+          "status": "present"
+        },
+        {
+          "month": 10,
+          "status": "present"
+        },
+        {
+          "month": 11,
+          "status": "present"
+        },
+        {
+          "month": 12,
+          "status": "present"
+        }
+      ]
+    },
+    "2022": {
+      "present": 6,
+      "missing": 0,
       "partial": 1,
       "months": [
         {
@@ -1778,608 +2363,27 @@
         },
         {
           "month": 2,
-          "status": "partial"
-        },
-        {
-          "month": 3,
-          "status": "missing"
-        },
-        {
-          "month": 4,
-          "status": "missing"
-        },
-        {
-          "month": 5,
-          "status": "missing"
-        },
-        {
-          "month": 6,
-          "status": "missing"
-        },
-        {
-          "month": 7,
-          "status": "missing"
-        },
-        {
-          "month": 8,
-          "status": "missing"
-        },
-        {
-          "month": 9,
-          "status": "missing"
-        },
-        {
-          "month": 10,
-          "status": "missing"
-        },
-        {
-          "month": 11,
-          "status": "missing"
-        },
-        {
-          "month": 12,
-          "status": "missing"
-        }
-      ]
-    },
-    "2010": {
-      "present": 0,
-      "missing": 12,
-      "partial": 0,
-      "months": [
-        {
-          "month": 1,
-          "status": "missing"
-        },
-        {
-          "month": 2,
-          "status": "missing"
-        },
-        {
-          "month": 3,
-          "status": "missing"
-        },
-        {
-          "month": 4,
-          "status": "missing"
-        },
-        {
-          "month": 5,
-          "status": "missing"
-        },
-        {
-          "month": 6,
-          "status": "missing"
-        },
-        {
-          "month": 7,
-          "status": "missing"
-        },
-        {
-          "month": 8,
-          "status": "missing"
-        },
-        {
-          "month": 9,
-          "status": "missing"
-        },
-        {
-          "month": 10,
-          "status": "missing"
-        },
-        {
-          "month": 11,
-          "status": "missing"
-        },
-        {
-          "month": 12,
-          "status": "missing"
-        }
-      ]
-    },
-    "2011": {
-      "present": 0,
-      "missing": 12,
-      "partial": 0,
-      "months": [
-        {
-          "month": 1,
-          "status": "missing"
-        },
-        {
-          "month": 2,
-          "status": "missing"
-        },
-        {
-          "month": 3,
-          "status": "missing"
-        },
-        {
-          "month": 4,
-          "status": "missing"
-        },
-        {
-          "month": 5,
-          "status": "missing"
-        },
-        {
-          "month": 6,
-          "status": "missing"
-        },
-        {
-          "month": 7,
-          "status": "missing"
-        },
-        {
-          "month": 8,
-          "status": "missing"
-        },
-        {
-          "month": 9,
-          "status": "missing"
-        },
-        {
-          "month": 10,
-          "status": "missing"
-        },
-        {
-          "month": 11,
-          "status": "missing"
-        },
-        {
-          "month": 12,
-          "status": "missing"
-        }
-      ]
-    },
-    "2012": {
-      "present": 0,
-      "missing": 12,
-      "partial": 0,
-      "months": [
-        {
-          "month": 1,
-          "status": "missing"
-        },
-        {
-          "month": 2,
-          "status": "missing"
-        },
-        {
-          "month": 3,
-          "status": "missing"
-        },
-        {
-          "month": 4,
-          "status": "missing"
-        },
-        {
-          "month": 5,
-          "status": "missing"
-        },
-        {
-          "month": 6,
-          "status": "missing"
-        },
-        {
-          "month": 7,
-          "status": "missing"
-        },
-        {
-          "month": 8,
-          "status": "missing"
-        },
-        {
-          "month": 9,
-          "status": "missing"
-        },
-        {
-          "month": 10,
-          "status": "missing"
-        },
-        {
-          "month": 11,
-          "status": "missing"
-        },
-        {
-          "month": 12,
-          "status": "missing"
-        }
-      ]
-    },
-    "2013": {
-      "present": 0,
-      "missing": 12,
-      "partial": 0,
-      "months": [
-        {
-          "month": 1,
-          "status": "missing"
-        },
-        {
-          "month": 2,
-          "status": "missing"
-        },
-        {
-          "month": 3,
-          "status": "missing"
-        },
-        {
-          "month": 4,
-          "status": "missing"
-        },
-        {
-          "month": 5,
-          "status": "missing"
-        },
-        {
-          "month": 6,
-          "status": "missing"
-        },
-        {
-          "month": 7,
-          "status": "missing"
-        },
-        {
-          "month": 8,
-          "status": "missing"
-        },
-        {
-          "month": 9,
-          "status": "missing"
-        },
-        {
-          "month": 10,
-          "status": "missing"
-        },
-        {
-          "month": 11,
-          "status": "missing"
-        },
-        {
-          "month": 12,
-          "status": "missing"
-        }
-      ]
-    },
-    "2014": {
-      "present": 0,
-      "missing": 12,
-      "partial": 0,
-      "months": [
-        {
-          "month": 1,
-          "status": "missing"
-        },
-        {
-          "month": 2,
-          "status": "missing"
-        },
-        {
-          "month": 3,
-          "status": "missing"
-        },
-        {
-          "month": 4,
-          "status": "missing"
-        },
-        {
-          "month": 5,
-          "status": "missing"
-        },
-        {
-          "month": 6,
-          "status": "missing"
-        },
-        {
-          "month": 7,
-          "status": "missing"
-        },
-        {
-          "month": 8,
-          "status": "missing"
-        },
-        {
-          "month": 9,
-          "status": "missing"
-        },
-        {
-          "month": 10,
-          "status": "missing"
-        },
-        {
-          "month": 11,
-          "status": "missing"
-        },
-        {
-          "month": 12,
-          "status": "missing"
-        }
-      ]
-    },
-    "2015": {
-      "present": 0,
-      "missing": 12,
-      "partial": 0,
-      "months": [
-        {
-          "month": 1,
-          "status": "missing"
-        },
-        {
-          "month": 2,
-          "status": "missing"
-        },
-        {
-          "month": 3,
-          "status": "missing"
-        },
-        {
-          "month": 4,
-          "status": "missing"
-        },
-        {
-          "month": 5,
-          "status": "missing"
-        },
-        {
-          "month": 6,
-          "status": "missing"
-        },
-        {
-          "month": 7,
-          "status": "missing"
-        },
-        {
-          "month": 8,
-          "status": "missing"
-        },
-        {
-          "month": 9,
-          "status": "missing"
-        },
-        {
-          "month": 10,
-          "status": "missing"
-        },
-        {
-          "month": 11,
-          "status": "missing"
-        },
-        {
-          "month": 12,
-          "status": "missing"
-        }
-      ]
-    },
-    "2016": {
-      "present": 0,
-      "missing": 12,
-      "partial": 0,
-      "months": [
-        {
-          "month": 1,
-          "status": "missing"
-        },
-        {
-          "month": 2,
-          "status": "missing"
-        },
-        {
-          "month": 3,
-          "status": "missing"
-        },
-        {
-          "month": 4,
-          "status": "missing"
-        },
-        {
-          "month": 5,
-          "status": "missing"
-        },
-        {
-          "month": 6,
-          "status": "missing"
-        },
-        {
-          "month": 7,
-          "status": "missing"
-        },
-        {
-          "month": 8,
-          "status": "missing"
-        },
-        {
-          "month": 9,
-          "status": "missing"
-        },
-        {
-          "month": 10,
-          "status": "missing"
-        },
-        {
-          "month": 11,
-          "status": "missing"
-        },
-        {
-          "month": 12,
-          "status": "missing"
-        }
-      ]
-    },
-    "2017": {
-      "present": 0,
-      "missing": 12,
-      "partial": 0,
-      "months": [
-        {
-          "month": 1,
-          "status": "missing"
-        },
-        {
-          "month": 2,
-          "status": "missing"
-        },
-        {
-          "month": 3,
-          "status": "missing"
-        },
-        {
-          "month": 4,
-          "status": "missing"
-        },
-        {
-          "month": 5,
-          "status": "missing"
-        },
-        {
-          "month": 6,
-          "status": "missing"
-        },
-        {
-          "month": 7,
-          "status": "missing"
-        },
-        {
-          "month": 8,
-          "status": "missing"
-        },
-        {
-          "month": 9,
-          "status": "missing"
-        },
-        {
-          "month": 10,
-          "status": "missing"
-        },
-        {
-          "month": 11,
-          "status": "missing"
-        },
-        {
-          "month": 12,
-          "status": "missing"
-        }
-      ]
-    },
-    "2018": {
-      "present": 0,
-      "missing": 12,
-      "partial": 0,
-      "months": [
-        {
-          "month": 1,
-          "status": "missing"
-        },
-        {
-          "month": 2,
-          "status": "missing"
-        },
-        {
-          "month": 3,
-          "status": "missing"
-        },
-        {
-          "month": 4,
-          "status": "missing"
-        },
-        {
-          "month": 5,
-          "status": "missing"
-        },
-        {
-          "month": 6,
-          "status": "missing"
-        },
-        {
-          "month": 7,
-          "status": "missing"
-        },
-        {
-          "month": 8,
-          "status": "missing"
-        },
-        {
-          "month": 9,
-          "status": "missing"
-        },
-        {
-          "month": 10,
-          "status": "missing"
-        },
-        {
-          "month": 11,
-          "status": "missing"
-        },
-        {
-          "month": 12,
-          "status": "missing"
-        }
-      ]
-    },
-    "2019": {
-      "present": 0,
-      "missing": 12,
-      "partial": 0,
-      "months": [
-        {
-          "month": 1,
-          "status": "missing"
-        },
-        {
-          "month": 2,
-          "status": "missing"
-        },
-        {
-          "month": 3,
-          "status": "missing"
-        },
-        {
-          "month": 4,
-          "status": "missing"
-        },
-        {
-          "month": 5,
-          "status": "missing"
-        },
-        {
-          "month": 6,
-          "status": "missing"
-        },
-        {
-          "month": 7,
-          "status": "missing"
-        },
-        {
-          "month": 8,
-          "status": "missing"
-        },
-        {
-          "month": 9,
-          "status": "missing"
-        },
-        {
-          "month": 10,
-          "status": "missing"
-        },
-        {
-          "month": 11,
-          "status": "missing"
-        },
-        {
-          "month": 12,
-          "status": "missing"
-        }
-      ]
-    },
-    "2020": {
-      "present": 1,
-      "missing": 0,
-      "partial": 0,
-      "months": [
-        {
-          "month": 1,
           "status": "present"
+        },
+        {
+          "month": 3,
+          "status": "present"
+        },
+        {
+          "month": 4,
+          "status": "present"
+        },
+        {
+          "month": 5,
+          "status": "present"
+        },
+        {
+          "month": 6,
+          "status": "present"
+        },
+        {
+          "month": 7,
+          "status": "partial"
         }
       ]
     }
@@ -12858,7 +12862,7 @@
     "2009-02": {
       "year": 2009,
       "month": 2,
-      "status": "partial",
+      "status": "present",
       "expected_timesteps": 112,
       "single": {
         "status": "present",
@@ -12873,9 +12877,9 @@
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 10952393,
+        "n_time": 112,
         "error": null
       },
       "surface_diagnostics": {
@@ -12888,3900 +12892,3900 @@
     "2009-03": {
       "year": 2009,
       "month": 3,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 124,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1578457,
+        "n_time": 124,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 12274731,
+        "n_time": 124,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2009-04": {
       "year": 2009,
       "month": 4,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 120,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1544992,
+        "n_time": 120,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 11885353,
+        "n_time": 120,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2009-05": {
       "year": 2009,
       "month": 5,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 124,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1582621,
+        "n_time": 124,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 12264046,
+        "n_time": 124,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2009-06": {
       "year": 2009,
       "month": 6,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 120,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1536855,
+        "n_time": 120,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 11796185,
+        "n_time": 120,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2009-07": {
       "year": 2009,
       "month": 7,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 124,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1557599,
+        "n_time": 124,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 12080516,
+        "n_time": 124,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2009-08": {
       "year": 2009,
       "month": 8,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 124,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1552100,
+        "n_time": 124,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 12082867,
+        "n_time": 124,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2009-09": {
       "year": 2009,
       "month": 9,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 120,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1510013,
+        "n_time": 120,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 11580441,
+        "n_time": 120,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2009-10": {
       "year": 2009,
       "month": 10,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 124,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1562930,
+        "n_time": 124,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 11794379,
+        "n_time": 124,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2009-11": {
       "year": 2009,
       "month": 11,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 120,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1524384,
+        "n_time": 120,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 11626590,
+        "n_time": 120,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2009-12": {
       "year": 2009,
       "month": 12,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 124,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1570251,
+        "n_time": 124,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 12038630,
+        "n_time": 124,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2010-01": {
       "year": 2010,
       "month": 1,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 124,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1571656,
+        "n_time": 124,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 12000905,
+        "n_time": 124,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2010-02": {
       "year": 2010,
       "month": 2,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 112,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1435566,
+        "n_time": 112,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 10961897,
+        "n_time": 112,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2010-03": {
       "year": 2010,
       "month": 3,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 124,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1575706,
+        "n_time": 124,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 12131005,
+        "n_time": 124,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2010-04": {
       "year": 2010,
       "month": 4,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 120,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1543049,
+        "n_time": 120,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 11786301,
+        "n_time": 120,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2010-05": {
       "year": 2010,
       "month": 5,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 124,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1581834,
+        "n_time": 124,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 12216243,
+        "n_time": 124,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2010-06": {
       "year": 2010,
       "month": 6,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 120,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1527380,
+        "n_time": 120,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 11714455,
+        "n_time": 120,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2010-07": {
       "year": 2010,
       "month": 7,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 124,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1551656,
+        "n_time": 124,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 12060615,
+        "n_time": 124,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2010-08": {
       "year": 2010,
       "month": 8,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 124,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1528276,
+        "n_time": 124,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 11870102,
+        "n_time": 124,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2010-09": {
       "year": 2010,
       "month": 9,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 120,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1495728,
+        "n_time": 120,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 11557787,
+        "n_time": 120,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2010-10": {
       "year": 2010,
       "month": 10,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 124,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1560058,
+        "n_time": 124,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 11757990,
+        "n_time": 124,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2010-11": {
       "year": 2010,
       "month": 11,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 120,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1523300,
+        "n_time": 120,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 11552686,
+        "n_time": 120,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2010-12": {
       "year": 2010,
       "month": 12,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 124,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1570125,
+        "n_time": 124,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 11991873,
+        "n_time": 124,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2011-01": {
       "year": 2011,
       "month": 1,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 124,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1576650,
+        "n_time": 124,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 12035355,
+        "n_time": 124,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2011-02": {
       "year": 2011,
       "month": 2,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 112,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1434882,
+        "n_time": 112,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 10871945,
+        "n_time": 112,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2011-03": {
       "year": 2011,
       "month": 3,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 124,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1579634,
+        "n_time": 124,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 12061069,
+        "n_time": 124,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2011-04": {
       "year": 2011,
       "month": 4,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 120,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1539083,
+        "n_time": 120,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 11831033,
+        "n_time": 120,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2011-05": {
       "year": 2011,
       "month": 5,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 124,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1578182,
+        "n_time": 124,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 12156672,
+        "n_time": 124,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2011-06": {
       "year": 2011,
       "month": 6,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 120,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1522679,
+        "n_time": 120,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 11713660,
+        "n_time": 120,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2011-07": {
       "year": 2011,
       "month": 7,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 124,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1543260,
+        "n_time": 124,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 11999101,
+        "n_time": 124,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2011-08": {
       "year": 2011,
       "month": 8,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 124,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1539746,
+        "n_time": 124,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 11986524,
+        "n_time": 124,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2011-09": {
       "year": 2011,
       "month": 9,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 120,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1510504,
+        "n_time": 120,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 11530703,
+        "n_time": 120,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2011-10": {
       "year": 2011,
       "month": 10,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 124,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1562440,
+        "n_time": 124,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 11777705,
+        "n_time": 124,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2011-11": {
       "year": 2011,
       "month": 11,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 120,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1517928,
+        "n_time": 120,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 11593298,
+        "n_time": 120,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2011-12": {
       "year": 2011,
       "month": 12,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 124,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1565686,
+        "n_time": 124,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 11981490,
+        "n_time": 124,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2012-01": {
       "year": 2012,
       "month": 1,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 124,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1580483,
+        "n_time": 124,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 12029506,
+        "n_time": 124,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2012-02": {
       "year": 2012,
       "month": 2,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 116,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1495354,
+        "n_time": 116,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 11481976,
+        "n_time": 116,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2012-03": {
       "year": 2012,
       "month": 3,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 124,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1588177,
+        "n_time": 124,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 12177341,
+        "n_time": 124,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2012-04": {
       "year": 2012,
       "month": 4,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 120,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1531762,
+        "n_time": 120,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 11816557,
+        "n_time": 120,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2012-05": {
       "year": 2012,
       "month": 5,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 124,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1588203,
+        "n_time": 124,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 12131789,
+        "n_time": 124,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2012-06": {
       "year": 2012,
       "month": 6,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 120,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1532072,
+        "n_time": 120,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 11731943,
+        "n_time": 120,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2012-07": {
       "year": 2012,
       "month": 7,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 124,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1545165,
+        "n_time": 124,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 12069590,
+        "n_time": 124,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2012-08": {
       "year": 2012,
       "month": 8,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 124,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1533568,
+        "n_time": 124,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 11923037,
+        "n_time": 124,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2012-09": {
       "year": 2012,
       "month": 9,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 120,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1505472,
+        "n_time": 120,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 11497906,
+        "n_time": 120,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2012-10": {
       "year": 2012,
       "month": 10,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 124,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1555607,
+        "n_time": 124,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 11766104,
+        "n_time": 124,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2012-11": {
       "year": 2012,
       "month": 11,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 120,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1514973,
+        "n_time": 120,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 11554911,
+        "n_time": 120,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2012-12": {
       "year": 2012,
       "month": 12,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 124,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1567939,
+        "n_time": 124,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 12035093,
+        "n_time": 124,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2013-01": {
       "year": 2013,
       "month": 1,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 124,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1578879,
+        "n_time": 124,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 12082274,
+        "n_time": 124,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2013-02": {
       "year": 2013,
       "month": 2,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 112,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1442566,
+        "n_time": 112,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 11031353,
+        "n_time": 112,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2013-03": {
       "year": 2013,
       "month": 3,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 124,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1575719,
+        "n_time": 124,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 12142323,
+        "n_time": 124,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2013-04": {
       "year": 2013,
       "month": 4,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 120,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1531460,
+        "n_time": 120,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 11772736,
+        "n_time": 120,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2013-05": {
       "year": 2013,
       "month": 5,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 124,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1589921,
+        "n_time": 124,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 12135774,
+        "n_time": 124,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2013-06": {
       "year": 2013,
       "month": 6,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 120,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1517002,
+        "n_time": 120,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 11796114,
+        "n_time": 120,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2013-07": {
       "year": 2013,
       "month": 7,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 124,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1538253,
+        "n_time": 124,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 11980077,
+        "n_time": 124,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2013-08": {
       "year": 2013,
       "month": 8,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 124,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1538224,
+        "n_time": 124,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 11980357,
+        "n_time": 124,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2013-09": {
       "year": 2013,
       "month": 9,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 120,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1501622,
+        "n_time": 120,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 11491921,
+        "n_time": 120,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2013-10": {
       "year": 2013,
       "month": 10,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 124,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1558969,
+        "n_time": 124,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 11853984,
+        "n_time": 124,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2013-11": {
       "year": 2013,
       "month": 11,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 120,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1522588,
+        "n_time": 120,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 11546523,
+        "n_time": 120,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2013-12": {
       "year": 2013,
       "month": 12,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 124,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1566157,
+        "n_time": 124,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 12045425,
+        "n_time": 124,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2014-01": {
       "year": 2014,
       "month": 1,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 124,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1579087,
+        "n_time": 124,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 12040273,
+        "n_time": 124,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2014-02": {
       "year": 2014,
       "month": 2,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 112,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1444675,
+        "n_time": 112,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 10935186,
+        "n_time": 112,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2014-03": {
       "year": 2014,
       "month": 3,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 124,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1579823,
+        "n_time": 124,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 12034607,
+        "n_time": 124,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2014-04": {
       "year": 2014,
       "month": 4,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 120,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1537728,
+        "n_time": 120,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 11775494,
+        "n_time": 120,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2014-05": {
       "year": 2014,
       "month": 5,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 124,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1584184,
+        "n_time": 124,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 12092982,
+        "n_time": 124,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2014-06": {
       "year": 2014,
       "month": 6,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 120,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1538829,
+        "n_time": 120,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 11745687,
+        "n_time": 120,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2014-07": {
       "year": 2014,
       "month": 7,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 124,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1542649,
+        "n_time": 124,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 11999818,
+        "n_time": 124,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2014-08": {
       "year": 2014,
       "month": 8,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 124,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1543731,
+        "n_time": 124,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 11934479,
+        "n_time": 124,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2014-09": {
       "year": 2014,
       "month": 9,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 120,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1507136,
+        "n_time": 120,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 11527303,
+        "n_time": 120,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2014-10": {
       "year": 2014,
       "month": 10,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 124,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1562569,
+        "n_time": 124,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 11826459,
+        "n_time": 124,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2014-11": {
       "year": 2014,
       "month": 11,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 120,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1526169,
+        "n_time": 120,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 11576292,
+        "n_time": 120,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2014-12": {
       "year": 2014,
       "month": 12,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 124,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1579756,
+        "n_time": 124,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 12090537,
+        "n_time": 124,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2015-01": {
       "year": 2015,
       "month": 1,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 124,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1579216,
+        "n_time": 124,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 12110450,
+        "n_time": 124,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2015-02": {
       "year": 2015,
       "month": 2,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 112,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1438498,
+        "n_time": 112,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 10952040,
+        "n_time": 112,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2015-03": {
       "year": 2015,
       "month": 3,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 124,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1583126,
+        "n_time": 124,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 12047477,
+        "n_time": 124,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2015-04": {
       "year": 2015,
       "month": 4,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 120,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1534056,
+        "n_time": 120,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 11777080,
+        "n_time": 120,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2015-05": {
       "year": 2015,
       "month": 5,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 124,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1581944,
+        "n_time": 124,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 12151766,
+        "n_time": 124,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2015-06": {
       "year": 2015,
       "month": 6,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 120,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1527861,
+        "n_time": 120,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 11701508,
+        "n_time": 120,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2015-07": {
       "year": 2015,
       "month": 7,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 124,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1553298,
+        "n_time": 124,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 12119634,
+        "n_time": 124,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2015-08": {
       "year": 2015,
       "month": 8,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 124,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1540128,
+        "n_time": 124,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 11932160,
+        "n_time": 124,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2015-09": {
       "year": 2015,
       "month": 9,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 120,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1503944,
+        "n_time": 120,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 11518875,
+        "n_time": 120,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2015-10": {
       "year": 2015,
       "month": 10,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 124,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1552749,
+        "n_time": 124,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 11870355,
+        "n_time": 124,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2015-11": {
       "year": 2015,
       "month": 11,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 120,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1516994,
+        "n_time": 120,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 11550044,
+        "n_time": 120,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2015-12": {
       "year": 2015,
       "month": 12,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 124,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1571992,
+        "n_time": 124,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 11985628,
+        "n_time": 124,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2016-01": {
       "year": 2016,
       "month": 1,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 124,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1564377,
+        "n_time": 124,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 11923733,
+        "n_time": 124,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2016-02": {
       "year": 2016,
       "month": 2,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 116,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1484627,
+        "n_time": 116,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 11192365,
+        "n_time": 116,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2016-03": {
       "year": 2016,
       "month": 3,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 124,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1579295,
+        "n_time": 124,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 12088935,
+        "n_time": 124,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2016-04": {
       "year": 2016,
       "month": 4,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 120,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1540134,
+        "n_time": 120,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 11786738,
+        "n_time": 120,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2016-05": {
       "year": 2016,
       "month": 5,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 124,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1578932,
+        "n_time": 124,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 12219205,
+        "n_time": 124,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2016-06": {
       "year": 2016,
       "month": 6,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 120,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1511674,
+        "n_time": 120,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 11718596,
+        "n_time": 120,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2016-07": {
       "year": 2016,
       "month": 7,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 124,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1544947,
+        "n_time": 124,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 12070711,
+        "n_time": 124,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2016-08": {
       "year": 2016,
       "month": 8,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 124,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1535007,
+        "n_time": 124,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 11997607,
+        "n_time": 124,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2016-09": {
       "year": 2016,
       "month": 9,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 120,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1504131,
+        "n_time": 120,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 11493780,
+        "n_time": 120,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2016-10": {
       "year": 2016,
       "month": 10,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 124,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1559173,
+        "n_time": 124,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 11765377,
+        "n_time": 124,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2016-11": {
       "year": 2016,
       "month": 11,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 120,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1510122,
+        "n_time": 120,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 11554563,
+        "n_time": 120,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2016-12": {
       "year": 2016,
       "month": 12,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 124,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1556785,
+        "n_time": 124,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 12057982,
+        "n_time": 124,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2017-01": {
       "year": 2017,
       "month": 1,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 124,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1576591,
+        "n_time": 124,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 12052986,
+        "n_time": 124,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2017-02": {
       "year": 2017,
       "month": 2,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 112,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1436031,
+        "n_time": 112,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 10934927,
+        "n_time": 112,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2017-03": {
       "year": 2017,
       "month": 3,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 124,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1590704,
+        "n_time": 124,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 12186308,
+        "n_time": 124,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2017-04": {
       "year": 2017,
       "month": 4,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 120,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1542702,
+        "n_time": 120,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 11910890,
+        "n_time": 120,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2017-05": {
       "year": 2017,
       "month": 5,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 124,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1579593,
+        "n_time": 124,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 12203901,
+        "n_time": 124,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2017-06": {
       "year": 2017,
       "month": 6,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 120,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1528703,
+        "n_time": 120,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 11722583,
+        "n_time": 120,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2017-07": {
       "year": 2017,
       "month": 7,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 124,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1539513,
+        "n_time": 124,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 11986198,
+        "n_time": 124,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2017-08": {
       "year": 2017,
       "month": 8,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 124,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1536924,
+        "n_time": 124,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 11960519,
+        "n_time": 124,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2017-09": {
       "year": 2017,
       "month": 9,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 120,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1499944,
+        "n_time": 120,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 11434413,
+        "n_time": 120,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2017-10": {
       "year": 2017,
       "month": 10,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 124,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1563358,
+        "n_time": 124,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 11842655,
+        "n_time": 124,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2017-11": {
       "year": 2017,
       "month": 11,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 120,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1509914,
+        "n_time": 120,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 11542652,
+        "n_time": 120,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2017-12": {
       "year": 2017,
       "month": 12,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 124,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1569027,
+        "n_time": 124,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 12109117,
+        "n_time": 124,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2018-01": {
       "year": 2018,
       "month": 1,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 124,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1571579,
+        "n_time": 124,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 12008875,
+        "n_time": 124,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2018-02": {
       "year": 2018,
       "month": 2,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 112,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1428110,
+        "n_time": 112,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 10912841,
+        "n_time": 112,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2018-03": {
       "year": 2018,
       "month": 3,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 124,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1581250,
+        "n_time": 124,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 12143218,
+        "n_time": 124,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2018-04": {
       "year": 2018,
       "month": 4,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 120,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1540185,
+        "n_time": 120,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 11916670,
+        "n_time": 120,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2018-05": {
       "year": 2018,
       "month": 5,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 124,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1584798,
+        "n_time": 124,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 12272303,
+        "n_time": 124,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2018-06": {
       "year": 2018,
       "month": 6,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 120,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1523230,
+        "n_time": 120,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 11760613,
+        "n_time": 120,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2018-07": {
       "year": 2018,
       "month": 7,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 124,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1540626,
+        "n_time": 124,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 12009070,
+        "n_time": 124,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2018-08": {
       "year": 2018,
       "month": 8,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 124,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1526200,
+        "n_time": 124,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 11969090,
+        "n_time": 124,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2018-09": {
       "year": 2018,
       "month": 9,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 120,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1500609,
+        "n_time": 120,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 11476537,
+        "n_time": 120,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2018-10": {
       "year": 2018,
       "month": 10,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 124,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1560996,
+        "n_time": 124,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 11775342,
+        "n_time": 124,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2018-11": {
       "year": 2018,
       "month": 11,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 120,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1518249,
+        "n_time": 120,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 11535695,
+        "n_time": 120,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2018-12": {
       "year": 2018,
       "month": 12,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 124,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1571262,
+        "n_time": 124,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 11992255,
+        "n_time": 124,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2019-01": {
       "year": 2019,
       "month": 1,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 124,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1577749,
+        "n_time": 124,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 12177510,
+        "n_time": 124,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2019-02": {
       "year": 2019,
       "month": 2,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 112,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1445219,
+        "n_time": 112,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 11026762,
+        "n_time": 112,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2019-03": {
       "year": 2019,
       "month": 3,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 124,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1590550,
+        "n_time": 124,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 12173055,
+        "n_time": 124,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2019-04": {
       "year": 2019,
       "month": 4,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 120,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1542118,
+        "n_time": 120,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 11921522,
+        "n_time": 120,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2019-05": {
       "year": 2019,
       "month": 5,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 124,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1584677,
+        "n_time": 124,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 12106655,
+        "n_time": 124,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2019-06": {
       "year": 2019,
       "month": 6,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 120,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1531094,
+        "n_time": 120,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 11731176,
+        "n_time": 120,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2019-07": {
       "year": 2019,
       "month": 7,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 124,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1554873,
+        "n_time": 124,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 12047542,
+        "n_time": 124,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2019-08": {
       "year": 2019,
       "month": 8,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 124,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1540336,
+        "n_time": 124,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 11968085,
+        "n_time": 124,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2019-09": {
       "year": 2019,
       "month": 9,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 120,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1492999,
+        "n_time": 120,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 11533912,
+        "n_time": 120,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2019-10": {
       "year": 2019,
       "month": 10,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 124,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1546888,
+        "n_time": 124,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 11791074,
+        "n_time": 124,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2019-11": {
       "year": 2019,
       "month": 11,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 120,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1520155,
+        "n_time": 120,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 11620680,
+        "n_time": 120,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
     "2019-12": {
       "year": 2019,
       "month": 12,
-      "status": "missing",
+      "status": "present",
       "expected_timesteps": 124,
       "single": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
-        "vars_found": [],
-        "vars_missing": [
+        "status": "present",
+        "size_bytes": 1582905,
+        "n_time": 124,
+        "vars_found": [
           "t2m",
           "u10",
           "v10"
         ],
+        "vars_missing": [],
         "error": null
       },
       "pressure": {
-        "status": "missing",
-        "size_bytes": 0,
-        "n_time": null,
+        "status": "present",
+        "size_bytes": 12070235,
+        "n_time": 124,
         "error": null
       },
       "surface_diagnostics": {
-        "t2m": false,
-        "u10m": false,
-        "v10m": false,
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
         "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
       }
     },
@@ -16806,6 +16810,906 @@
         "status": "present",
         "size_bytes": 12051547,
         "n_time": 124,
+        "error": null
+      },
+      "surface_diagnostics": {
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
+        "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
+      }
+    },
+    "2020-02": {
+      "year": 2020,
+      "month": 2,
+      "status": "present",
+      "expected_timesteps": 116,
+      "single": {
+        "status": "present",
+        "size_bytes": 1483733,
+        "n_time": 116,
+        "vars_found": [
+          "t2m",
+          "u10",
+          "v10"
+        ],
+        "vars_missing": [],
+        "error": null
+      },
+      "pressure": {
+        "status": "present",
+        "size_bytes": 11272945,
+        "n_time": 116,
+        "error": null
+      },
+      "surface_diagnostics": {
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
+        "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
+      }
+    },
+    "2020-03": {
+      "year": 2020,
+      "month": 3,
+      "status": "present",
+      "expected_timesteps": 124,
+      "single": {
+        "status": "present",
+        "size_bytes": 1583295,
+        "n_time": 124,
+        "vars_found": [
+          "t2m",
+          "u10",
+          "v10"
+        ],
+        "vars_missing": [],
+        "error": null
+      },
+      "pressure": {
+        "status": "present",
+        "size_bytes": 12013768,
+        "n_time": 124,
+        "error": null
+      },
+      "surface_diagnostics": {
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
+        "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
+      }
+    },
+    "2020-04": {
+      "year": 2020,
+      "month": 4,
+      "status": "present",
+      "expected_timesteps": 120,
+      "single": {
+        "status": "present",
+        "size_bytes": 1532092,
+        "n_time": 120,
+        "vars_found": [
+          "t2m",
+          "u10",
+          "v10"
+        ],
+        "vars_missing": [],
+        "error": null
+      },
+      "pressure": {
+        "status": "present",
+        "size_bytes": 11796135,
+        "n_time": 120,
+        "error": null
+      },
+      "surface_diagnostics": {
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
+        "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
+      }
+    },
+    "2020-05": {
+      "year": 2020,
+      "month": 5,
+      "status": "present",
+      "expected_timesteps": 124,
+      "single": {
+        "status": "present",
+        "size_bytes": 1582070,
+        "n_time": 124,
+        "vars_found": [
+          "t2m",
+          "u10",
+          "v10"
+        ],
+        "vars_missing": [],
+        "error": null
+      },
+      "pressure": {
+        "status": "present",
+        "size_bytes": 12182777,
+        "n_time": 124,
+        "error": null
+      },
+      "surface_diagnostics": {
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
+        "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
+      }
+    },
+    "2020-06": {
+      "year": 2020,
+      "month": 6,
+      "status": "present",
+      "expected_timesteps": 120,
+      "single": {
+        "status": "present",
+        "size_bytes": 1517067,
+        "n_time": 120,
+        "vars_found": [
+          "t2m",
+          "u10",
+          "v10"
+        ],
+        "vars_missing": [],
+        "error": null
+      },
+      "pressure": {
+        "status": "present",
+        "size_bytes": 11684995,
+        "n_time": 120,
+        "error": null
+      },
+      "surface_diagnostics": {
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
+        "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
+      }
+    },
+    "2020-07": {
+      "year": 2020,
+      "month": 7,
+      "status": "present",
+      "expected_timesteps": 124,
+      "single": {
+        "status": "present",
+        "size_bytes": 1549068,
+        "n_time": 124,
+        "vars_found": [
+          "t2m",
+          "u10",
+          "v10"
+        ],
+        "vars_missing": [],
+        "error": null
+      },
+      "pressure": {
+        "status": "present",
+        "size_bytes": 12080977,
+        "n_time": 124,
+        "error": null
+      },
+      "surface_diagnostics": {
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
+        "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
+      }
+    },
+    "2020-08": {
+      "year": 2020,
+      "month": 8,
+      "status": "present",
+      "expected_timesteps": 124,
+      "single": {
+        "status": "present",
+        "size_bytes": 1542657,
+        "n_time": 124,
+        "vars_found": [
+          "t2m",
+          "u10",
+          "v10"
+        ],
+        "vars_missing": [],
+        "error": null
+      },
+      "pressure": {
+        "status": "present",
+        "size_bytes": 11975518,
+        "n_time": 124,
+        "error": null
+      },
+      "surface_diagnostics": {
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
+        "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
+      }
+    },
+    "2020-09": {
+      "year": 2020,
+      "month": 9,
+      "status": "present",
+      "expected_timesteps": 120,
+      "single": {
+        "status": "present",
+        "size_bytes": 1502368,
+        "n_time": 120,
+        "vars_found": [
+          "t2m",
+          "u10",
+          "v10"
+        ],
+        "vars_missing": [],
+        "error": null
+      },
+      "pressure": {
+        "status": "present",
+        "size_bytes": 11599486,
+        "n_time": 120,
+        "error": null
+      },
+      "surface_diagnostics": {
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
+        "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
+      }
+    },
+    "2020-10": {
+      "year": 2020,
+      "month": 10,
+      "status": "present",
+      "expected_timesteps": 124,
+      "single": {
+        "status": "present",
+        "size_bytes": 1565909,
+        "n_time": 124,
+        "vars_found": [
+          "t2m",
+          "u10",
+          "v10"
+        ],
+        "vars_missing": [],
+        "error": null
+      },
+      "pressure": {
+        "status": "present",
+        "size_bytes": 11789600,
+        "n_time": 124,
+        "error": null
+      },
+      "surface_diagnostics": {
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
+        "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
+      }
+    },
+    "2020-11": {
+      "year": 2020,
+      "month": 11,
+      "status": "present",
+      "expected_timesteps": 120,
+      "single": {
+        "status": "present",
+        "size_bytes": 1523566,
+        "n_time": 120,
+        "vars_found": [
+          "t2m",
+          "u10",
+          "v10"
+        ],
+        "vars_missing": [],
+        "error": null
+      },
+      "pressure": {
+        "status": "present",
+        "size_bytes": 11473460,
+        "n_time": 120,
+        "error": null
+      },
+      "surface_diagnostics": {
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
+        "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
+      }
+    },
+    "2020-12": {
+      "year": 2020,
+      "month": 12,
+      "status": "present",
+      "expected_timesteps": 124,
+      "single": {
+        "status": "present",
+        "size_bytes": 1572691,
+        "n_time": 124,
+        "vars_found": [
+          "t2m",
+          "u10",
+          "v10"
+        ],
+        "vars_missing": [],
+        "error": null
+      },
+      "pressure": {
+        "status": "present",
+        "size_bytes": 11962802,
+        "n_time": 124,
+        "error": null
+      },
+      "surface_diagnostics": {
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
+        "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
+      }
+    },
+    "2021-01": {
+      "year": 2021,
+      "month": 1,
+      "status": "present",
+      "expected_timesteps": 124,
+      "single": {
+        "status": "present",
+        "size_bytes": 1579940,
+        "n_time": 124,
+        "vars_found": [
+          "t2m",
+          "u10",
+          "v10"
+        ],
+        "vars_missing": [],
+        "error": null
+      },
+      "pressure": {
+        "status": "present",
+        "size_bytes": 12063459,
+        "n_time": 124,
+        "error": null
+      },
+      "surface_diagnostics": {
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
+        "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
+      }
+    },
+    "2021-02": {
+      "year": 2021,
+      "month": 2,
+      "status": "present",
+      "expected_timesteps": 112,
+      "single": {
+        "status": "present",
+        "size_bytes": 1429850,
+        "n_time": 112,
+        "vars_found": [
+          "t2m",
+          "u10",
+          "v10"
+        ],
+        "vars_missing": [],
+        "error": null
+      },
+      "pressure": {
+        "status": "present",
+        "size_bytes": 10863681,
+        "n_time": 112,
+        "error": null
+      },
+      "surface_diagnostics": {
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
+        "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
+      }
+    },
+    "2021-03": {
+      "year": 2021,
+      "month": 3,
+      "status": "present",
+      "expected_timesteps": 124,
+      "single": {
+        "status": "present",
+        "size_bytes": 1575255,
+        "n_time": 124,
+        "vars_found": [
+          "t2m",
+          "u10",
+          "v10"
+        ],
+        "vars_missing": [],
+        "error": null
+      },
+      "pressure": {
+        "status": "present",
+        "size_bytes": 12111961,
+        "n_time": 124,
+        "error": null
+      },
+      "surface_diagnostics": {
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
+        "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
+      }
+    },
+    "2021-04": {
+      "year": 2021,
+      "month": 4,
+      "status": "present",
+      "expected_timesteps": 120,
+      "single": {
+        "status": "present",
+        "size_bytes": 1533715,
+        "n_time": 120,
+        "vars_found": [
+          "t2m",
+          "u10",
+          "v10"
+        ],
+        "vars_missing": [],
+        "error": null
+      },
+      "pressure": {
+        "status": "present",
+        "size_bytes": 11866229,
+        "n_time": 120,
+        "error": null
+      },
+      "surface_diagnostics": {
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
+        "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
+      }
+    },
+    "2021-05": {
+      "year": 2021,
+      "month": 5,
+      "status": "present",
+      "expected_timesteps": 124,
+      "single": {
+        "status": "present",
+        "size_bytes": 1578670,
+        "n_time": 124,
+        "vars_found": [
+          "t2m",
+          "u10",
+          "v10"
+        ],
+        "vars_missing": [],
+        "error": null
+      },
+      "pressure": {
+        "status": "present",
+        "size_bytes": 12136081,
+        "n_time": 124,
+        "error": null
+      },
+      "surface_diagnostics": {
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
+        "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
+      }
+    },
+    "2021-06": {
+      "year": 2021,
+      "month": 6,
+      "status": "present",
+      "expected_timesteps": 120,
+      "single": {
+        "status": "present",
+        "size_bytes": 1521152,
+        "n_time": 120,
+        "vars_found": [
+          "t2m",
+          "u10",
+          "v10"
+        ],
+        "vars_missing": [],
+        "error": null
+      },
+      "pressure": {
+        "status": "present",
+        "size_bytes": 11774414,
+        "n_time": 120,
+        "error": null
+      },
+      "surface_diagnostics": {
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
+        "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
+      }
+    },
+    "2021-07": {
+      "year": 2021,
+      "month": 7,
+      "status": "present",
+      "expected_timesteps": 124,
+      "single": {
+        "status": "present",
+        "size_bytes": 1550526,
+        "n_time": 124,
+        "vars_found": [
+          "t2m",
+          "u10",
+          "v10"
+        ],
+        "vars_missing": [],
+        "error": null
+      },
+      "pressure": {
+        "status": "present",
+        "size_bytes": 12049927,
+        "n_time": 124,
+        "error": null
+      },
+      "surface_diagnostics": {
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
+        "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
+      }
+    },
+    "2021-08": {
+      "year": 2021,
+      "month": 8,
+      "status": "present",
+      "expected_timesteps": 124,
+      "single": {
+        "status": "present",
+        "size_bytes": 1539891,
+        "n_time": 124,
+        "vars_found": [
+          "t2m",
+          "u10",
+          "v10"
+        ],
+        "vars_missing": [],
+        "error": null
+      },
+      "pressure": {
+        "status": "present",
+        "size_bytes": 11999067,
+        "n_time": 124,
+        "error": null
+      },
+      "surface_diagnostics": {
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
+        "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
+      }
+    },
+    "2021-09": {
+      "year": 2021,
+      "month": 9,
+      "status": "present",
+      "expected_timesteps": 120,
+      "single": {
+        "status": "present",
+        "size_bytes": 1499793,
+        "n_time": 120,
+        "vars_found": [
+          "t2m",
+          "u10",
+          "v10"
+        ],
+        "vars_missing": [],
+        "error": null
+      },
+      "pressure": {
+        "status": "present",
+        "size_bytes": 11530662,
+        "n_time": 120,
+        "error": null
+      },
+      "surface_diagnostics": {
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
+        "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
+      }
+    },
+    "2021-10": {
+      "year": 2021,
+      "month": 10,
+      "status": "present",
+      "expected_timesteps": 124,
+      "single": {
+        "status": "present",
+        "size_bytes": 1562986,
+        "n_time": 124,
+        "vars_found": [
+          "t2m",
+          "u10",
+          "v10"
+        ],
+        "vars_missing": [],
+        "error": null
+      },
+      "pressure": {
+        "status": "present",
+        "size_bytes": 11793853,
+        "n_time": 124,
+        "error": null
+      },
+      "surface_diagnostics": {
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
+        "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
+      }
+    },
+    "2021-11": {
+      "year": 2021,
+      "month": 11,
+      "status": "present",
+      "expected_timesteps": 120,
+      "single": {
+        "status": "present",
+        "size_bytes": 1522253,
+        "n_time": 120,
+        "vars_found": [
+          "t2m",
+          "u10",
+          "v10"
+        ],
+        "vars_missing": [],
+        "error": null
+      },
+      "pressure": {
+        "status": "present",
+        "size_bytes": 11500858,
+        "n_time": 120,
+        "error": null
+      },
+      "surface_diagnostics": {
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
+        "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
+      }
+    },
+    "2021-12": {
+      "year": 2021,
+      "month": 12,
+      "status": "present",
+      "expected_timesteps": 124,
+      "single": {
+        "status": "present",
+        "size_bytes": 1581423,
+        "n_time": 124,
+        "vars_found": [
+          "t2m",
+          "u10",
+          "v10"
+        ],
+        "vars_missing": [],
+        "error": null
+      },
+      "pressure": {
+        "status": "present",
+        "size_bytes": 12066643,
+        "n_time": 124,
+        "error": null
+      },
+      "surface_diagnostics": {
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
+        "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
+      }
+    },
+    "2022-01": {
+      "year": 2022,
+      "month": 1,
+      "status": "present",
+      "expected_timesteps": 124,
+      "single": {
+        "status": "present",
+        "size_bytes": 1579270,
+        "n_time": 124,
+        "vars_found": [
+          "t2m",
+          "u10",
+          "v10"
+        ],
+        "vars_missing": [],
+        "error": null
+      },
+      "pressure": {
+        "status": "present",
+        "size_bytes": 12037458,
+        "n_time": 124,
+        "error": null
+      },
+      "surface_diagnostics": {
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
+        "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
+      }
+    },
+    "2022-02": {
+      "year": 2022,
+      "month": 2,
+      "status": "present",
+      "expected_timesteps": 112,
+      "single": {
+        "status": "present",
+        "size_bytes": 1435387,
+        "n_time": 112,
+        "vars_found": [
+          "t2m",
+          "u10",
+          "v10"
+        ],
+        "vars_missing": [],
+        "error": null
+      },
+      "pressure": {
+        "status": "present",
+        "size_bytes": 10823641,
+        "n_time": 112,
+        "error": null
+      },
+      "surface_diagnostics": {
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
+        "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
+      }
+    },
+    "2022-03": {
+      "year": 2022,
+      "month": 3,
+      "status": "present",
+      "expected_timesteps": 124,
+      "single": {
+        "status": "present",
+        "size_bytes": 1578731,
+        "n_time": 124,
+        "vars_found": [
+          "t2m",
+          "u10",
+          "v10"
+        ],
+        "vars_missing": [],
+        "error": null
+      },
+      "pressure": {
+        "status": "present",
+        "size_bytes": 11986328,
+        "n_time": 124,
+        "error": null
+      },
+      "surface_diagnostics": {
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
+        "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
+      }
+    },
+    "2022-04": {
+      "year": 2022,
+      "month": 4,
+      "status": "present",
+      "expected_timesteps": 120,
+      "single": {
+        "status": "present",
+        "size_bytes": 1536090,
+        "n_time": 120,
+        "vars_found": [
+          "t2m",
+          "u10",
+          "v10"
+        ],
+        "vars_missing": [],
+        "error": null
+      },
+      "pressure": {
+        "status": "present",
+        "size_bytes": 11716055,
+        "n_time": 120,
+        "error": null
+      },
+      "surface_diagnostics": {
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
+        "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
+      }
+    },
+    "2022-05": {
+      "year": 2022,
+      "month": 5,
+      "status": "present",
+      "expected_timesteps": 124,
+      "single": {
+        "status": "present",
+        "size_bytes": 1577248,
+        "n_time": 124,
+        "vars_found": [
+          "t2m",
+          "u10",
+          "v10"
+        ],
+        "vars_missing": [],
+        "error": null
+      },
+      "pressure": {
+        "status": "present",
+        "size_bytes": 12116204,
+        "n_time": 124,
+        "error": null
+      },
+      "surface_diagnostics": {
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
+        "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
+      }
+    },
+    "2022-06": {
+      "year": 2022,
+      "month": 6,
+      "status": "present",
+      "expected_timesteps": 120,
+      "single": {
+        "status": "present",
+        "size_bytes": 1528596,
+        "n_time": 120,
+        "vars_found": [
+          "t2m",
+          "u10",
+          "v10"
+        ],
+        "vars_missing": [],
+        "error": null
+      },
+      "pressure": {
+        "status": "present",
+        "size_bytes": 11823460,
+        "n_time": 120,
+        "error": null
+      },
+      "surface_diagnostics": {
+        "t2m": true,
+        "u10m": true,
+        "v10m": true,
+        "note": "FCN3 names; CDS short names in file are t2m/u10/v10"
+      }
+    },
+    "2022-07": {
+      "year": 2022,
+      "month": 7,
+      "status": "partial",
+      "expected_timesteps": 124,
+      "single": {
+        "status": "present",
+        "size_bytes": 1539874,
+        "n_time": 124,
+        "vars_found": [
+          "t2m",
+          "u10",
+          "v10"
+        ],
+        "vars_missing": [],
+        "error": null
+      },
+      "pressure": {
+        "status": "missing",
+        "size_bytes": 0,
+        "n_time": null,
         "error": null
       },
       "surface_diagnostics": {
