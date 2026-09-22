@@ -237,6 +237,31 @@ Scaffold (CPU, no train): `code/final_eval/` + `configs/final_eval_baselines.yam
 
 
 
+## 5c. FINAL gate ready (bars frozen — still no FINAL train)
+
+**Status (2026-09-22):** Protocol + measured baselines + beat-this bars are **frozen**. This is a **gate-ready** documentation milestone only — **not** a science claim and **not** a train unlock. Living `v1_3_joint` interim headlines above are **unchanged**.
+
+**Citation:** `FINAL_EVAL_PROTOCOL.md` · `final_eval_protocol_ics.json` · `final_baselines.json` (`scored=true`) · `FINAL_EVAL_BARS_CALL.md` · `STATUS.md`.
+
+| Locked item | Value |
+| --- | --- |
+| Years | train **1980–2019** / val **2020–2021** / test **2022–2025** |
+| ICs | **320 / 64 / 64** (train/val/test; protocol hashes verified) |
+| `g1_claimable` | **false** |
+| FINAL residual train | **NO-GO** until Manisha unlock |
+| Interim living | `v1_3_joint` thick-2 — **unchanged** (`interim_era5`) |
+
+**Bars (from measured `final_baselines.json` only — no invented K):**
+
+- **C vs living (binding):** val/test t2m pooled **< 1.982226 / 1.987826**; val/test WV **< 0.845186 / 0.876129**
+- **A vs raw:** val/test t2m pooled strictly under measured raw; val +120 h t2m **≤ 2.248841**; val/test WV under measured raw; eligible ckpt rules per bars call
+- **B vs Tier-0:** val/test t2m pooled strictly under measured Tier-0
+
+G1-candidate path remains **A ∧ B ∧ C** after a future FINAL train + score. Do **not** relabel living interim floats as FINAL/G1.
+
+
+
+
 ## 7. Discussion (interim honesty)
 
 **What this interim proves.** Under a locked thick-2 protocol (12/16/16 ICs, year hard-lock 2018–21 / 2022 / 2023–24), a frozen-backbone elev-conditioned residual can clear absolute t2m floors, protect prior living t2m within ±0.02 K, and modestly improve wind-vector lead-mean vs prior living and raw FCN3. Living headlines: t2m **1.770 / 1.775 / +120h 1.982**; WV **0.69560 / 0.73877**. Leftover-target diffusion (`v1_diff`) did **not** lift the residual — product call NULL.
