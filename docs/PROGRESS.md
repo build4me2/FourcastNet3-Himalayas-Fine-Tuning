@@ -1,5 +1,11 @@
 # Fine-Tune Progress Log (paper trail)
 
+## 2026-09-27 15:00 PT — GitHub: merge PR #10 + HF docs on main
+- Merged PR #10 (squash) → `74d3971a59fb587d28bd9cd8a5dc28b6a3b43138`
+- Follow-up docs commit on main: `9ee744fdf3ba9d1d375fd450351603b07611160e` (HF URL cite)
+- Repo: https://github.com/build4me2/FourcastNet3-Himalayas-Fine-Tuning
+- No `.pt` uploaded to git; bars/protocol/weights unchanged.
+
 ## 2026-09-27 14:55 PT — HF publish living FINAL residual v0
 - Public model: https://huggingface.co/build4me2/fcn3-nepal-final-residual-v0
 - Files: `best_residual.pt` (md5 `586ab17b843757bb84e66e2e3af8dc01`), `final_residual_v0.yaml`, `final_residual_v0_results.json`, `thick2_bridge_results.json` (report-only), `README.md` model card.

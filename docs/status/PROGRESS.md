@@ -1,5 +1,9 @@
 # Status pointer
 
+## 2026-09-27 15:00 PT — GitHub: merge PR #10 + HF docs on main
+- Squash merge #10 → `74d3971…`; docs commit `9ee744f…` cites HF URL on main.
+- No `.pt` / bars / protocol / weights changes.
+
 ## 2026-09-27 14:55 PT — HF publish living FINAL residual v0
 - Public model: https://huggingface.co/build4me2/fcn3-nepal-final-residual-v0
 - Files: `best_residual.pt` (md5 `586ab17b843757bb84e66e2e3af8dc01`), yaml, results, thick2 bridge (report-only), model card.
