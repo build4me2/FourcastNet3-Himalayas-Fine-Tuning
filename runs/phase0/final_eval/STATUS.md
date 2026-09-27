@@ -1,3 +1,17 @@
+# FINAL eval status — living residual promote
+
+**Updated:** 2026-09-27 PT  
+**Living residual (FINAL protocol):** `runs/phase0/final_eval/final_residual_v0/`  
+**PASS:** A∧B∧C · headlines val/test t2m **1.8199/1.8564** · +120h **2.0104** · WV **0.8004/0.8250**  
+**best_residual.pt md5:** `586ab17b843757bb84e66e2e3af8dc01`  
+**Interim historical:** `runs/phase0/tier_a/v1_3_joint/` md5 `c81a5a4c4f07ca0a52bb0bffee0045fa` (do not overwrite)  
+**Thick-2 bridge (report-only):** val/test t2m **1.883/1.875** vs interim **1.770/1.775** — continuity, not FAIL  
+**`g1_claimable`:** false everywhere  
+
+Call: `docs/research/FINAL_RESIDUAL_V0_CALL.md` · living STATUS: `final_residual_v0/STATUS.md`
+
+---
+
 # FINAL baselines status — 2026-09-22 ~10:22 PT **COMPLETE**
 
 **Protocol:** FROZEN FINAL_EVAL_PROTOCOL (IC hashes verified).
