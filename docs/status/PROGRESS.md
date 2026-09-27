@@ -1,5 +1,11 @@
 # Status pointer
 
+## 2026-09-27 14:55 PT — HF publish living FINAL residual v0
+- Public model: https://huggingface.co/build4me2/fcn3-nepal-final-residual-v0
+- Files: `best_residual.pt` (md5 `586ab17b843757bb84e66e2e3af8dc01`), yaml, results, thick2 bridge (report-only), model card.
+- Claim language unchanged: regional FINAL G1 candidate (`g1_claimable=true`); no bars/protocol/ckpt edits.
+- Note: `docs/research/HF_RELEASE_FINAL_RESIDUAL_V0.md`
+
 ## 2026-09-27 13:45 PT — Leonard G1 claimable unlock (living FINAL residual v0)
 - Call: `docs/research/G1_CLAIMABLE_UNLOCK_CALL.md` (+ `docs/calls/` mirror).
 - Flipped **`g1_claimable=true`** for living `runs/phase0/final_eval/final_residual_v0/` only.

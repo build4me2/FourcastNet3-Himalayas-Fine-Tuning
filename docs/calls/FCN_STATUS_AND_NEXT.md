@@ -1,4 +1,4 @@
-# FCN3 Phase 0 — status & next (Leonard) — 2026-09-25 evening PT
+# FCN3 Phase 0 — status & next (Leonard) — 2026-09-27 afternoon PT
 
 **Manisha:** work on FourCastNet (Howard = FCN-only; TTA parked).
 
@@ -29,6 +29,7 @@ Calls: `FINAL_RESIDUAL_V0_CALL.md` (living promote), `TIER_A_V1_3_JOINT_CALL.md`
 | Role | Path |
 | --- | --- |
 | **Living (FINAL protocol / canonical)** | `runs/phase0/final_eval/final_residual_v0/` (`best_residual.pt` · md5 `586ab17b843757bb84e66e2e3af8dc01`) |
+| **HF model (public)** | https://huggingface.co/build4me2/fcn3-nepal-final-residual-v0 |
 | Prior interim living (historical) | `runs/phase0/tier_a/v1_3_joint/` · **still frozen** · md5 `c81a5a4c4f07ca0a52bb0bffee0045fa` |
 | Prior thick-2 living (historical) | `runs/phase0/tier_a/v1_2b_thick2_train/` · still frozen |
 | v1-diff (null artifact) | `runs/phase0/tier_a/v1_diff/` · **do not delete** · do not promote |
@@ -41,7 +42,7 @@ Do **not** overwrite living residual (`final_residual_v0/`), interim historical 
 ## Recommended next (default)
 
 **Idle pending Manisha.** Living residual = `final_residual_v0/`.  
-**`g1_claimable=true`** — Leonard unlock 2026-09-27 (`G1_CLAIMABLE_UNLOCK_CALL.md`). Allowed: regional FINAL G1 candidate clearing A∧B∧C. Hard non-claims: no global SOTA/ops/CorrDiff/precip/stations; thick-2 report-only; no HF.  
+**`g1_claimable=true`** — Leonard unlock 2026-09-27 (`G1_CLAIMABLE_UNLOCK_CALL.md`). Allowed: regional FINAL G1 candidate clearing A∧B∧C. Hard non-claims: no global SOTA/ops/CorrDiff/precip/stations; thick-2 report-only; HF: https://huggingface.co/build4me2/fcn3-nepal-final-residual-v0 .  
 Interim `v1_3_joint/` preserved as historical.  
 Optional non-blocking: thick-2 bridge score (WARN-missing from results).  
 No GPU / no next model unless assigned.
@@ -70,7 +71,7 @@ No GPU / no next model unless assigned.
 ## Non-goals until ordered
 - TTA harness (Howard not assigned)
 - FCN3 weight FT / Tier-B
-- IMDAA / global SOTA / ops / CorrDiff / precip / stations / HF (unlock is regional FINAL candidate only)
+- IMDAA / global SOTA / ops / CorrDiff / precip / stations (HF published for regional FINAL G1 candidate only — https://huggingface.co/build4me2/fcn3-nepal-final-residual-v0)
 - Scaling leftover-target diffusion further (STOP)
 - Overwriting frozen artifacts (incl. living `final_residual_v0/`, interim `v1_3_joint/`, prior `v1_2b_thick2_train/`, null `v1_diff/`)
 - Inventing new bars

@@ -1,15 +1,16 @@
 # Living index — FCN3 Nepal residual (Spark)
 
-**Updated:** 2026-09-27 13:45 PT · **Owner:** Manisha · **Eng:** Howard  
+**Updated:** 2026-09-27 14:55 PT · **Owner:** Manisha · **Eng:** Howard  
 **Living residual (FINAL protocol / LOCKED):** `runs/phase0/final_eval/final_residual_v0/`  
 **Headlines (FINAL 320/64/64 · gate leads 24/72/120):** t2m val **1.8199** / test **1.8564** / +120h **2.0104** · WV **0.8004 / 0.8250**  
-**Claim:** PASS A∧B∧C per `FINAL_RESIDUAL_V0_CALL.md` · **`g1_claimable=true`** (Leonard unlock 2026-09-27 · `G1_CLAIMABLE_UNLOCK_CALL.md`) — regional FINAL G1 candidate only. Hard non-claims: no global SOTA/ops/CorrDiff/precip/stations; thick-2 bridge report-only; no HF.  
+**Claim:** PASS A∧B∧C per `FINAL_RESIDUAL_V0_CALL.md` · **`g1_claimable=true`** (Leonard unlock 2026-09-27 · `G1_CLAIMABLE_UNLOCK_CALL.md`) — regional FINAL G1 candidate only. Hard non-claims: no global SOTA/ops/CorrDiff/precip/stations; thick-2 bridge report-only; HF published: https://huggingface.co/build4me2/fcn3-nepal-final-residual-v0 .  
 **Prior interim living (historical frozen):** `runs/phase0/tier_a/v1_3_joint/` — do not overwrite (md5 `c81a5a4c…`)  
 **Prior thick-2 living (historical frozen):** `runs/phase0/tier_a/v1_2b_thick2_train/`
 
 | Role | Path |
 | --- | --- |
 | **Living path (weights)** | `runs/phase0/final_eval/final_residual_v0/best_residual.pt` (md5 `586ab17b843757bb84e66e2e3af8dc01`) |
+| **HF model (public)** | https://huggingface.co/build4me2/fcn3-nepal-final-residual-v0 |
 | **Promote call** | `docs/research/FINAL_RESIDUAL_V0_CALL.md` (+ recipe / bars / protocol) |
 | **G1 unlock call** | `docs/research/G1_CLAIMABLE_UNLOCK_CALL.md` (+ calls mirror) |
 | **Interim historical** | `runs/phase0/tier_a/v1_3_joint/` · `TIER_A_V1_3_JOINT_CALL.md` |

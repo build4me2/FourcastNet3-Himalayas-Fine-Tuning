@@ -1,11 +1,11 @@
 # Regional FCN3 residual fine-tune over Nepal — Methods & Results (draft)
 
 **Authors:** Manisha Chand (lead) · eng notes from Spark FCN runs (Howard)  
-**Date:** 2026-09-27 13:45 PT · **Living claim:** regional FINAL G1 candidate · **`g1_claimable=true`** (unlock `G1_CLAIMABLE_UNLOCK_CALL.md`) · interim thick-2 record remains `interim_era5`  
+**Date:** 2026-09-27 14:55 PT · **Living claim:** regional FINAL G1 candidate · **`g1_claimable=true`** (unlock `G1_CLAIMABLE_UNLOCK_CALL.md`) · interim thick-2 record remains `interim_era5`  
 **Living residual (FINAL protocol / LOCKED):** `runs/phase0/final_eval/final_residual_v0/best_residual.pt` (md5 `586ab17b…`)  
 Headlines FINAL: t2m val **1.8199** / test **1.8564** / +120h **2.0104** · WV **0.8004 / 0.8250** · PASS A∧B∧C (`FINAL_RESIDUAL_V0_CALL.md`).  
 **Prior interim living (historical frozen):** `runs/phase0/tier_a/v1_3_joint/` (md5 `c81a5a4c…`; thick-2 16-IC record below unchanged).  
-**Sources:** `FINAL_RESIDUAL_V0_CALL.md`, `FINAL_EVAL_PROTOCOL.md`, `FINAL_EVAL_BARS_CALL.md`, `FINAL_TRAIN_RECIPE.md`, `FINAL_EVAL_SUITE_CALL.md`, `TIER_A_V1_3_JOINT_CALL.md`, `tier_a_v1_3_joint_results_claim_16ic.json`, `v1_3_joint_wind_score.json`, `LIVING_RESIDUAL_WINDS_ELEV_TABLE.md`, `HOLDOUT_THICK2_CALL.md`, `YEAR_HARD_LOCK.md`.
+**Sources:** `FINAL_RESIDUAL_V0_CALL.md`, `FINAL_EVAL_PROTOCOL.md`, `FINAL_EVAL_BARS_CALL.md`, `FINAL_TRAIN_RECIPE.md`, `FINAL_EVAL_SUITE_CALL.md`, `TIER_A_V1_3_JOINT_CALL.md`, `tier_a_v1_3_joint_results_claim_16ic.json`, `v1_3_joint_wind_score.json`, `LIVING_RESIDUAL_WINDS_ELEV_TABLE.md`, `HOLDOUT_THICK2_CALL.md`, `YEAR_HARD_LOCK.md`, `HF_RELEASE_FINAL_RESIDUAL_V0.md`.
 
 > Stanford-plain draft for **methods + results** only. Not a full paper.  
 > All numeric claims are measured from existing artifacts — **no invented metrics**.  
@@ -269,7 +269,7 @@ G1-candidate path remains **A ∧ B ∧ C** after a future FINAL train + score. 
 
 **What it does not prove.** These bars are **not** FINAL G1, not IMDAA/station-verified, not precip, not CorrDiff/km-scale parity, and not an ops NWP replacement. ERA5-as-truth over the Himalaya has representativeness limits; short year splits are thin for ENSO / extreme-monsoon claims. Wind lift is joint-balance success, not a winds breakthrough.
 
-**FINAL residual v0 living (2026-09-25; unlock 2026-09-27).** Protocol + bars landed; living = `final_residual_v0/` (PASS A∧B∧C). **`g1_claimable=true`** per `G1_CLAIMABLE_UNLOCK_CALL.md` — regional FINAL G1 candidate only. Relabeling interim thick-2 as G1 still forbidden. Hard non-claims: no global SOTA/ops/CorrDiff/precip/stations; thick-2 bridge report-only; no HF. Idle / writeup unless Manisha assigns.
+**FINAL residual v0 living (2026-09-25; unlock 2026-09-27).** Protocol + bars landed; living = `final_residual_v0/` (PASS A∧B∧C). **`g1_claimable=true`** per `G1_CLAIMABLE_UNLOCK_CALL.md` — regional FINAL G1 candidate only. Relabeling interim thick-2 as G1 still forbidden. Hard non-claims: no global SOTA/ops/CorrDiff/precip/stations; thick-2 bridge report-only. Weights published: https://huggingface.co/build4me2/fcn3-nepal-final-residual-v0 (md5 `586ab17b843757bb84e66e2e3af8dc01`). Idle / writeup unless Manisha assigns.
 
 
 
@@ -305,6 +305,7 @@ See `docs/figures/README.md`. Source tables for real numbers: `tier_a_v1_3_joint
 | Role | Path |
 | --- | --- |
 | Living weights (FINAL) | `runs/phase0/final_eval/final_residual_v0/best_residual.pt` (md5 `586ab17b…`) |
+| **HF model (public)** | https://huggingface.co/build4me2/fcn3-nepal-final-residual-v0 · note `docs/research/HF_RELEASE_FINAL_RESIDUAL_V0.md` |
 | Interim historical weights | `runs/phase0/tier_a/v1_3_joint/best_residual.pt` (md5 `c81a5a4c…`) |
 | Living results | `.../v1_3_joint/tier_a_v1_3_joint_results.json` |
 | 16-IC claim sidecar | `.../tier_a_v1_3_joint_results_claim_16ic.json` |
