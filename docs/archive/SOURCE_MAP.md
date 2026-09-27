@@ -62,3 +62,6 @@ This map: `docs/archive/SOURCE_MAP.md`
 ## GitHub numbered layout (repo PR)
 
 Pre-consolidation GitHub paths `docs/00-pathway/`, `01-method/`, `02-background/`, `03-compute/`, `04-gates/`, `eng/`, `metrics/`, `reports/`, duplicate untracked `05-eng/`, `06-calls/`, `06-metrics/`, `research/` mirrors are superseded by the six living docs. On the PR branch they are moved under `docs/archive/legacy_layout/` (git mv), not deleted.
+
+## Gitignore note (PR)
+`CLAUDE.md` / `REFERENCE.md` / `*.bak*` are ignored at repo root by policy; archived copies under `docs/archive/agent/` are force-tracked via `!docs/archive/agent/**` exception (2026-09-27 consolidation).
