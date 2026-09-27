@@ -136,7 +136,7 @@
     "val_wv_delta": 0.005468788600773711,
     "test_wv_delta": 0.0024416365406373375
   },
-  "note": "Re-scored FINAL residual v0 on thick-2 interim ICs (same harness as living v1_3_joint HOLDOUT_THICK2 bridge). Report + honesty only \u2014 not a G1/FINAL promote path. Did not flip g1_claimable; did not overwrite v1_3_joint or residual_v0 weights.",
+  "note": "Re-scored FINAL residual v0 on thick-2 interim ICs (same harness as living v1_3_joint HOLDOUT_THICK2 bridge). Report + honesty only \u2014 not a G1/FINAL promote path. Living FINAL residual v0 is g1_claimable=true per G1_CLAIMABLE_UNLOCK_CALL (2026-09-27); this thick-2 bridge remains report-only. Did not overwrite v1_3_joint or residual_v0 weights.",
   "wind_vector_definition": "sqrt(mean((u_err^2+v_err^2)/2)) grid-pooled then lead-mean over {24,72,120}",
   "g1_claimable": false,
   "scored_model": "final_residual_v0",
@@ -203,5 +203,6 @@
       "test_wv": 0.00244123797493212
     }
   },
-  "enriched_utc": "2026-09-27T20:17:55.037421+00:00"
+  "enriched_utc": "2026-09-27T20:17:55.037421+00:00",
+  "living_g1_claimable": true
 }

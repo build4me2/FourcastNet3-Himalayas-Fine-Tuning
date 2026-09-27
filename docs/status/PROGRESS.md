@@ -1,5 +1,14 @@
 # Status pointer
 
+## 2026-09-27 13:45 PT — Leonard G1 claimable unlock (living FINAL residual v0)
+- Call: `docs/research/G1_CLAIMABLE_UNLOCK_CALL.md` (+ `docs/calls/` mirror).
+- Flipped **`g1_claimable=true`** for living `runs/phase0/final_eval/final_residual_v0/` only.
+- Verified `best_residual.pt` md5 **586ab17b843757bb84e66e2e3af8dc01** (unchanged; not overwritten).
+- Allowed claim: regional FINAL G1 candidate clearing A∧B∧C (FINAL_RESIDUAL_V0_CALL headlines).
+- Hard non-claims: no global SOTA/ops/CorrDiff/precip/stations; thick-2 bridge report-only; no HF; no bars/protocol/ckpt edits.
+- Interim `v1_3_joint/` remains historical frozen (md5 `c81a5a4c…`).
+
+
 ## 2026-09-27 13:18 PT — FINAL residual v0 thick-2 bridge FILLED (report-only)
 - Scored `final_residual_v0/best_residual.pt` on HOLDOUT_THICK2 via `thick2_legacy_bridge.py`.
 - Wrote `runs/phase0/final_eval/final_residual_v0/thick2_bridge_results.json`.

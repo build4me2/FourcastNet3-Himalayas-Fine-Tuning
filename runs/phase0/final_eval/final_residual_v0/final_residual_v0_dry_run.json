@@ -11,7 +11,7 @@
   "fcn3_weights": "FROZEN",
   "claim_level": "final_candidate",
   "target": "ERA5_CDS_audited",
-  "g1_claimable": false,
+  "g1_claimable": true,
   "provisional_years": false,
   "year_split_frozen": true,
   "year_split": {
@@ -510,7 +510,7 @@
     "val_120h_rule": "val +120h t2m RMSE <= FINAL raw A3 (2.2488412332039327); composite reject if greater",
     "note": "PASS = A \u2227 B \u2227 C per FINAL_EVAL_BARS_CALL.md; no \u03b5_protect; Leonard owns official call",
     "final_g1_candidate_pass": "A \u2227 B \u2227 C",
-    "g1_claimable": false
+    "g1_claimable": true
   },
   "loss": {
     "name": "mse_residual_elev_weighted_lead_weighted",
@@ -590,7 +590,7 @@
       "mtime": 1789178236.342168
     }
   },
-  "honesty": "FINAL residual v0 = parallel ElevCondResidualUNet retrain on FINAL years/ICs with channel_weights [1.5,1.5,1.5], w_120=2.0, composite reject vs raw A3. NOT leftover-of-living; NOT diffusion; NOT FCN3 FT; g1_claimable=false until Leonard PASS + Manisha promote. Thick-2 bridge is report-only.\n",
+  "honesty": "FINAL residual v0 = parallel ElevCondResidualUNet retrain on FINAL years/ICs with channel_weights [1.5,1.5,1.5], w_120=2.0, composite reject vs raw A3. NOT leftover-of-living; NOT diffusion; NOT FCN3 FT. g1_claimable=true per Leonard unlock 2026-09-27 (G1_CLAIMABLE_UNLOCK_CALL). Allowed: regional FINAL G1 candidate clearing A\u2227B\u2227C (FINAL_RESIDUAL_V0_CALL headlines; unlocked by G1_CLAIMABLE_UNLOCK_CALL). Hard non-claims: no global SOTA / ops / CorrDiff / precip / stations; thick-2 bridge report-only; no HF; no ckpt overwrite. Thick-2 bridge is report-only.\n",
   "mode": "dry_run",
   "status": "dry_run_ok",
   "paths": {

@@ -1,8 +1,8 @@
 # FINAL residual v0 — STATUS
-**Updated:** 2026-09-27 13:18 PT
+**Updated:** 2026-09-27 13:45 PT
 **Recipe:** docs/research/FINAL_TRAIN_RECIPE.md (Leonard freeze; Manisha unlock GO)
 **Out dir:** runs/phase0/final_eval/final_residual_v0/
-**g1_claimable:** false
+**g1_claimable:** true (Leonard unlock 2026-09-27 · `G1_CLAIMABLE_UNLOCK_CALL.md`)
 **Living v1_3_joint MD5:** c81a5a4c4f07ca0a52bb0bffee0045fa (guarded)
 
 ## Locked knobs (= v1_3_joint)
@@ -11,7 +11,7 @@
 - patience 80; epochs 400; seed 42
 - composite reject if val +120h > raw A3 **2.2488412332039327**
 - PASS = A∧B∧C from FINAL_EVAL_BARS_CALL.md (Leonard owns official call)
-- Thick-2 bridge: **FILLED** (report-only; `thick2_bridge_results.json`; g1_claimable remains false)
+- Thick-2 bridge: **FILLED** (report-only; `thick2_bridge_results.json`; bridge itself not a G1 path; living `g1_claimable=true`)
 
 ## Status now
 | Step | State |
@@ -42,19 +42,19 @@
 
 ## Hard rules honored
 - No overwrite of tier_a/v1_3_joint/
-- g1_claimable stays false
+- g1_claimable=true for living FINAL (unlock call); no HF; no weight overwrite
 - No diffusion / multi-seed
 - Hash-verify FINAL ICs fail-hard on load
 
 
 ## Thick-2 legacy bridge (optional, report-only)
-**Updated:** 2026-09-27 13:18 PT
+**Updated:** 2026-09-27 13:45 PT
 - Status: **FILLED** (non-blocking continuity table)
 - Harness: `code/final_eval/thick2_legacy_bridge.py --score` on thick-2 12/16/16
 - Out: `runs/phase0/final_eval/final_residual_v0/thick2_bridge_results.json`
 - Ckpt MD5 (unchanged): `586ab17b843757bb84e66e2e3af8dc01`
 - Living v1_3_joint MD5 (unchanged): `c81a5a4c4f07ca0a52bb0bffee0045fa`
 - Device: cuda (NVIDIA GB10)
-- **g1_claimable:** false (not flipped)
+- **Bridge g1 path:** false (report-only) · living FINAL **g1_claimable=true**
 - Headline thick-2: val t2m_pooled **1.883181** / test **1.875323**; WV val **0.701070** / test **0.741207**
 - vs living thick-2: residual_v0 worse on t2m (~+0.11 val / +0.10 test); WV nearly flat

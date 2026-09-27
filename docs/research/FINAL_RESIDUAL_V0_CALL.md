@@ -19,7 +19,7 @@
 | **C** vs living on FINAL | **PASS** — val t2m **1.819863** < 1.982226 · test **1.856390** < 1.987826 · val WV **0.800354** < 0.845186 · test WV **0.825004** < 0.876129 |
 | **`final_g1_candidate_pass`** | **YES — CONFIRM** (A ∧ B ∧ C) |
 | **Promote living residual?** | **YES** |
-| **`g1_claimable`** | **false** (unchanged — needs Manisha + explicit flip; do not auto-set) |
+| **`g1_claimable`** | **true** (Leonard unlock 2026-09-27 · see `G1_CLAIMABLE_UNLOCK_CALL.md`; regional FINAL G1 candidate only; hard non-claims apply) |
 
 Independent verify used `metrics.*.rmse_tier_a` / `wind_vector.*.lead_mean` against `FINAL_EVAL_BARS_CALL.md` floats (not the JSON’s pre-echoed `pass` flags). IC id lists **byte-equal** to locked `final_eval_protocol_ics.json` (file MD5 `7de70ec8…`); living `v1_3_joint` MD5 **`c81a5a4c4f07ca0a52bb0bffee0045fa`** unchanged (`freeze_md5_unchanged=true`).
 
@@ -57,12 +57,12 @@ Sibling `runs/phase0/final_eval/final_residual_v0/thick2_bridge_results.json` (m
 ## Next eng (Howard)
 
 1. GitHub + paper sync of FINAL residual v0 PASS + living pointer (this package).
-2. Keep `v1_3_joint/` frozen historical; **`g1_claimable=false`** everywhere.
-3. Do **not** flip `g1_claimable` until Manisha + Leonard explicit unlock.
+2. Keep `v1_3_joint/` frozen historical.
+3. **`g1_claimable=true`** for living FINAL per `G1_CLAIMABLE_UNLOCK_CALL.md` (do not auto-flip elsewhere; no HF; thick-2 bridge report-only).
 4. Idle on next model / iterate unless Manisha assigns.
 
 ## Non-claims
 
 - Not global WB2 / FCN3 SOTA · not ops replacement · not CorrDiff parity · no precip · no stations  
-- `g1_claimable` still **false** until separate unlock  
+- `g1_claimable` **true** for living FINAL (unlock call 2026-09-27)  
 - Interim thick-2 / `interim_era5` bars unchanged  

@@ -11,7 +11,7 @@
   "fcn3_weights": "FROZEN",
   "claim_level": "final_candidate",
   "target": "ERA5_CDS_audited",
-  "g1_claimable": false,
+  "g1_claimable": true,
   "provisional_years": false,
   "year_split_frozen": true,
   "year_split": {
@@ -510,7 +510,7 @@
     "val_120h_rule": "val +120h t2m RMSE <= FINAL raw A3 (2.2488412332039327); composite reject if greater",
     "note": "PASS = A \u2227 B \u2227 C per FINAL_EVAL_BARS_CALL.md; no \u03b5_protect; Leonard owns official call",
     "final_g1_candidate_pass": "A \u2227 B \u2227 C",
-    "g1_claimable": false
+    "g1_claimable": true
   },
   "loss": {
     "name": "mse_residual_elev_weighted_lead_weighted",
@@ -590,7 +590,7 @@
       "mtime": 1789178236.342168
     }
   },
-  "honesty": "FINAL residual v0 = parallel ElevCondResidualUNet retrain on FINAL years/ICs with channel_weights [1.5,1.5,1.5], w_120=2.0, composite reject vs raw A3. NOT leftover-of-living; NOT diffusion; NOT FCN3 FT; g1_claimable=false until Leonard PASS + Manisha promote. Thick-2 bridge is report-only.\n",
+  "honesty": "FINAL residual v0 = parallel ElevCondResidualUNet retrain on FINAL years/ICs with channel_weights [1.5,1.5,1.5], w_120=2.0, composite reject vs raw A3. NOT leftover-of-living; NOT diffusion; NOT FCN3 FT. g1_claimable=true per Leonard unlock 2026-09-27 (G1_CLAIMABLE_UNLOCK_CALL). Allowed: regional FINAL G1 candidate clearing A\u2227B\u2227C (FINAL_RESIDUAL_V0_CALL headlines; unlocked by G1_CLAIMABLE_UNLOCK_CALL). Hard non-claims: no global SOTA / ops / CorrDiff / precip / stations; thick-2 bridge report-only; no HF; no ckpt overwrite. Thick-2 bridge is report-only.\n",
   "mode": "train",
   "status": "train_ok",
   "zero_shot": false,
@@ -1193,15 +1193,15 @@
     "B_pass": true,
     "C_pass": true,
     "final_g1_candidate_pass_looks_met": true,
-    "g1_claimable": false,
-    "note": "Mechanical A\u2227B\u2227C echo only; Leonard owns official PASS/FAIL call. g1_claimable stays false until promote."
+    "g1_claimable": true,
+    "note": "Mechanical A\u2227B\u2227C echo; Leonard PASS + Manisha unlock 2026-09-27. g1_claimable=true for living FINAL residual v0. Hard non-claims: no global SOTA / ops / CorrDiff / precip / stations; thick-2 bridge report-only; no HF; no ckpt overwrite."
   },
   "pass_fail_schema": {
     "A_vs_raw": "FINAL_EVAL_BARS_CALL \u00a72 A",
     "B_vs_tier0": "FINAL_EVAL_BARS_CALL \u00a72 B",
     "C_vs_living_on_FINAL": "FINAL_EVAL_BARS_CALL \u00a72 C",
     "final_g1_candidate_pass": "A \u2227 B \u2227 C",
-    "g1_claimable": false,
+    "g1_claimable": true,
     "leonard_owns_official_call": true
   },
   "thin_beat_this_bars": {
@@ -1273,11 +1273,13 @@
     "metrics_csv": "/home/chandmanisha00/fourcastnet/runs/phase0/final_eval/final_residual_v0/final_residual_v0_metrics.csv"
   },
   "not_skill_claims": [
-    "not G1 / not IMDAA",
     "not FCN3 weight FT",
     "not v1-diff / not CorrDiff",
     "provisional_years=false",
     "claim_level=final_candidate",
-    "g1_claimable=false until Leonard promote"
+    "g1_claimable=true (Leonard unlock 2026-09-27) \u2014 regional FINAL G1 candidate only",
+    "not global SOTA / not ops / not CorrDiff / no precip / no stations",
+    "thick-2 bridge report-only (not a second G1 path)",
+    "no HF / no weight overwrite"
   ]
 }

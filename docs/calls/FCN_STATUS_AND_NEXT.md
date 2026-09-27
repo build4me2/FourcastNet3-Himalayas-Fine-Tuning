@@ -20,7 +20,7 @@
 | Tier-A **v1-diff** | **NULL — do not promote** | `tier_a/v1_diff/` · keep as null artifact |
 | **FINAL residual v0** | **PASS A∧B∧C · PROMOTE · living residual (FINAL protocol)** | val t2m **1.8199** / test **1.8564** / +120h **2.0104** · WV **0.8004 / 0.8250** · `final_eval/final_residual_v0/` · md5 `586ab17b…` |
 | Years (FINAL) | 1980–2019 / 2020–2021 / 2022–2025 · ICs 320/64/64 | `FINAL_EVAL_PROTOCOL.md` |
-| Labels | `interim_era5`; **`g1_claimable=false`** | do not auto-flip |
+| Labels | living FINAL **`g1_claimable=true`** (unlock 2026-09-27); interim historical stays `interim_era5` | flip only via Leonard call |
 
 Calls: `FINAL_RESIDUAL_V0_CALL.md` (living promote), `TIER_A_V1_3_JOINT_CALL.md` (interim historical), `TIER_A_V1_DIFF_CALL.md` (NULL), `FINAL_EVAL_BARS_CALL.md`, `FINAL_EVAL_PROTOCOL.md`, `FINAL_TRAIN_RECIPE.md`.
 
@@ -41,7 +41,7 @@ Do **not** overwrite living residual (`final_residual_v0/`), interim historical 
 ## Recommended next (default)
 
 **Idle pending Manisha.** Living residual = `final_residual_v0/`.  
-**`g1_claimable=false`** — needs Manisha + Leonard explicit unlock; do not flip.  
+**`g1_claimable=true`** — Leonard unlock 2026-09-27 (`G1_CLAIMABLE_UNLOCK_CALL.md`). Allowed: regional FINAL G1 candidate clearing A∧B∧C. Hard non-claims: no global SOTA/ops/CorrDiff/precip/stations; thick-2 report-only; no HF.  
 Interim `v1_3_joint/` preserved as historical.  
 Optional non-blocking: thick-2 bridge score (WARN-missing from results).  
 No GPU / no next model unless assigned.
@@ -49,7 +49,7 @@ No GPU / no next model unless assigned.
 ### FINAL residual v0 promote (headline — FINAL protocol)
 - t2m: val **1.8199** / test **1.8564** / +120h **2.0104** · eligible **19** · `composite_eligible`
 - wind-vector lead-mean: val **0.8004** / test **0.8250**
-- Gates: **A∧B∧C PASS** per `FINAL_RESIDUAL_V0_CALL.md` · `final_g1_candidate_pass=YES` (candidate only) · **`g1_claimable=false`**
+- Gates: **A∧B∧C PASS** per `FINAL_RESIDUAL_V0_CALL.md` · `final_g1_candidate_pass=YES` · **`g1_claimable=true`** (unlock call)
 
 ### Interim v1.3 joint (historical — 16-IC locked claims)
 - t2m: val **1.770** / test **1.775** / +120h **1.982** · WV **0.69560 / 0.73877**
@@ -70,13 +70,13 @@ No GPU / no next model unless assigned.
 ## Non-goals until ordered
 - TTA harness (Howard not assigned)
 - FCN3 weight FT / Tier-B
-- IMDAA / G1 claims / flipping `g1_claimable`
+- IMDAA / global SOTA / ops / CorrDiff / precip / stations / HF (unlock is regional FINAL candidate only)
 - Scaling leftover-target diffusion further (STOP)
 - Overwriting frozen artifacts (incl. living `final_residual_v0/`, interim `v1_3_joint/`, prior `v1_2b_thick2_train/`, null `v1_diff/`)
 - Inventing new bars
 
 ## Next eng (Howard)
 1. Mirror Leonard `FINAL_RESIDUAL_V0_CALL.md` · echo living = `final_residual_v0/` in status docs — **this pass**.
-2. Keep `v1_3_joint/` frozen historical; **`g1_claimable=false`** everywhere.
+2. Keep `v1_3_joint/` frozen historical; living FINAL **`g1_claimable=true`** per unlock; interim configs stay false.
 3. Optional: thick-2 bridge when convenient.
 4. Idle pending Manisha.

@@ -1,9 +1,9 @@
 # Status — what works / what failed (Stanford-plain)
 
-**Date:** 2026-09-25 evening PT · **Eng:** Howard (FCN on Spark) · **Owner:** Manisha  
+**Date:** 2026-09-27 13:45 PT · **Eng:** Howard (FCN on Spark) · **Owner:** Manisha  
 **Living residual (FINAL protocol / LOCKED):** `runs/phase0/final_eval/final_residual_v0/` — **do not overwrite.**  
 **Prior interim living (historical frozen):** `runs/phase0/tier_a/v1_3_joint/` — **do not overwrite.**  
-**Claim:** PASS A∧B∧C per `FINAL_RESIDUAL_V0_CALL.md` · **`g1_claimable=false`** (unchanged — no G1 unlock).
+**Claim:** PASS A∧B∧C per `FINAL_RESIDUAL_V0_CALL.md` · **`g1_claimable=true`** (Leonard unlock 2026-09-27 · `G1_CLAIMABLE_UNLOCK_CALL.md`) — regional FINAL G1 candidate clearing A∧B∧C. Hard non-claims: no global SOTA/ops/CorrDiff/precip/stations; thick-2 bridge report-only; no HF.
 
 ## What works
 
@@ -34,9 +34,9 @@ Exact FINAL floats (from call): val t2m **1.819863** / test **1.856390** / val+1
 
 ## Non-claims (honesty)
 
-- Label stays **`interim_era5`** until separate unlock; **`g1_claimable=false`** — no G1 / IMDAA / Canvas claim from these bars.
-- FINAL promote ≠ global WB2 / FCN3 SOTA · not ops replacement · not CorrDiff parity · no precip · no stations.
-- Do **not** invent new bars or flip `g1_claimable`.
+- Living FINAL: **`g1_claimable=true`** (unlock call). Allowed: regional FINAL G1 candidate clearing A∧B∧C. Interim thick-2 `v1_3_joint/` stays historical `interim_era5` (not relabeled G1).
+- Hard non-claims: no global WB2 / FCN3 SOTA · not ops · not CorrDiff · no precip · no stations · no IMDAA/Canvas from interim bars · no HF.
+- Do **not** invent new bars; thick-2 bridge remains report-only.
 - Nepal CDS crop is **archive for later**, not IC source (ICs = global ARCO).
 
 ## Background
@@ -44,4 +44,4 @@ Exact FINAL floats (from call): val t2m **1.819863** / test **1.856390** / val+1
 - Status echo 2026-09-25 evening PT: new living = `final_residual_v0/`; interim `v1_3_joint/` preserved.
 - Idle on next model / iterate unless Manisha assigns. Optional later: thick-2 bridge score for continuity table.
 
-See also: `LIVING_INDEX.md`, `FCN_STATUS_AND_NEXT.md`, `FINAL_RESIDUAL_V0_CALL.md`, `TIER_A_V1_3_JOINT_CALL.md`, `TIER_A_V1_DIFF_CALL.md`, `YEAR_HARD_LOCK.md`, `ERA5_COVERAGE_AUDIT.md`.
+See also: `LIVING_INDEX.md`, `FCN_STATUS_AND_NEXT.md`, `FINAL_RESIDUAL_V0_CALL.md`, `G1_CLAIMABLE_UNLOCK_CALL.md`, `TIER_A_V1_3_JOINT_CALL.md`, `TIER_A_V1_DIFF_CALL.md`, `YEAR_HARD_LOCK.md`, `ERA5_COVERAGE_AUDIT.md`.

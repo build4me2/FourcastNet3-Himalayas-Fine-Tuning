@@ -1,7 +1,7 @@
 # Regional FCN3 residual fine-tune over Nepal — Methods & Results (draft)
 
 **Authors:** Manisha Chand (lead) · eng notes from Spark FCN runs (Howard)  
-**Date:** 2026-09-25 evening PT · **Claim level:** `interim_era5` · **`g1_claimable=false`**  
+**Date:** 2026-09-27 13:45 PT · **Living claim:** regional FINAL G1 candidate · **`g1_claimable=true`** (unlock `G1_CLAIMABLE_UNLOCK_CALL.md`) · interim thick-2 record remains `interim_era5`  
 **Living residual (FINAL protocol / LOCKED):** `runs/phase0/final_eval/final_residual_v0/best_residual.pt` (md5 `586ab17b…`)  
 Headlines FINAL: t2m val **1.8199** / test **1.8564** / +120h **2.0104** · WV **0.8004 / 0.8250** · PASS A∧B∧C (`FINAL_RESIDUAL_V0_CALL.md`).  
 **Prior interim living (historical frozen):** `runs/phase0/tier_a/v1_3_joint/` (md5 `c81a5a4c…`; thick-2 16-IC record below unchanged).  
@@ -22,7 +22,7 @@ Global ML weather models such as FourCastNet 3 (FCN3) are strong at planetary sc
 | Domain | **26–31°N, 80–89°E** (Nepal / High Himalaya crop) |
 | Diagnostics | t2m, u10m, v10m at +24 / +72 / +120 h |
 | Living product | `runs/phase0/final_eval/final_residual_v0/` (FINAL promote 2026-09-25) · interim `v1_3_joint/` historical |
-| Claim level | `interim_era5` · **`g1_claimable=false`** |
+| Claim level | living FINAL **`g1_claimable=true`** (regional G1 candidate) · interim historical `interim_era5` |
 
 ICs remain **global ARCO** crops. The Nepal CDS ERA5 crop is an archive still filling for later FINAL work — not the IC source. Headlines below are thick-2 interim promote numbers only; they are **not** FINAL / G1.
 
@@ -269,7 +269,7 @@ G1-candidate path remains **A ∧ B ∧ C** after a future FINAL train + score. 
 
 **What it does not prove.** These bars are **not** FINAL G1, not IMDAA/station-verified, not precip, not CorrDiff/km-scale parity, and not an ops NWP replacement. ERA5-as-truth over the Himalaya has representativeness limits; short year splits are thin for ENSO / extreme-monsoon claims. Wind lift is joint-balance success, not a winds breakthrough.
 
-**FINAL residual v0 living (2026-09-25).** Protocol + bars landed; living = `final_residual_v0/` (PASS A∧B∧C). Relabeling interim thick-2 as G1 still forbidden. **`g1_claimable=false`** until explicit unlock. Idle / writeup unless Manisha assigns.
+**FINAL residual v0 living (2026-09-25; unlock 2026-09-27).** Protocol + bars landed; living = `final_residual_v0/` (PASS A∧B∧C). **`g1_claimable=true`** per `G1_CLAIMABLE_UNLOCK_CALL.md` — regional FINAL G1 candidate only. Relabeling interim thick-2 as G1 still forbidden. Hard non-claims: no global SOTA/ops/CorrDiff/precip/stations; thick-2 bridge report-only; no HF. Idle / writeup unless Manisha assigns.
 
 
 
@@ -285,7 +285,7 @@ Leonard `FINAL_RESIDUAL_V0_CALL.md`: **PASS A∧B∧C · PROMOTE**. New living u
 | Val +120 h t2m | **2.0104** |
 | Val / test wind-vector lead-mean | **0.8004 / 0.8250** |
 
-**`g1_claimable=false`** unchanged (candidate pass ≠ claim unlock). Interim thick-2 `v1_3_joint/` headlines in §3 remain the **historical interim** record — do not relabel as FINAL/G1. Thick-2 bridge **FILLED** (report-only): final_residual_v0 on thick-2 val/test t2m **1.883/1.875** vs interim **1.770/1.775** — continuity, not FAIL; `g1_claimable=false`. No new bars invented here.
+**`g1_claimable=true`** for living FINAL residual v0 (Leonard unlock 2026-09-27). Interim thick-2 `v1_3_joint/` headlines in §3 remain the **historical interim** record — do not relabel as FINAL/G1. Thick-2 bridge **FILLED** (report-only): final_residual_v0 on thick-2 val/test t2m **1.883/1.875** vs interim **1.770/1.775** — continuity, not a second G1 path. No new bars invented here.
 
 ## 8. Figures package stub
 
