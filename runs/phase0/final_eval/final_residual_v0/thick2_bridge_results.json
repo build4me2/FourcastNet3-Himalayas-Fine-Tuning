@@ -1,0 +1,208 @@
+{
+  "schema": "thick2_legacy_bridge/v1",
+  "created_utc": "2026-09-27T20:17:20.155244+00:00",
+  "status": "SCORED",
+  "scored": true,
+  "protocol": "thick2_12_16_16",
+  "role": "continuity_table_only_final_residual_v0",
+  "not_promote_path": true,
+  "ckpt": "/home/chandmanisha00/fourcastnet/runs/phase0/final_eval/final_residual_v0/best_residual.pt",
+  "ckpt_md5": "586ab17b843757bb84e66e2e3af8dc01",
+  "ckpt_present": true,
+  "config": "/home/chandmanisha00/fourcastnet/configs/tier_a_v1_3_joint.yaml",
+  "device": "cuda",
+  "living_continuity_reference": {
+    "source": "docs/research/TIER_A_V1_3_JOINT_CALL.md + claim_16ic",
+    "val_t2m_pooled": 1.770077,
+    "test_t2m_pooled_16ic": 1.774864,
+    "val_t2m_plus_120h": 1.982401,
+    "val_wind_vector_lead_mean": 0.69560168,
+    "test_wind_vector_lead_mean": 0.73876564,
+    "protocol": "thick2_12_16_16",
+    "holdout_expand": "v2",
+    "bars_set": "thick2"
+  },
+  "scores": {
+    "val": {
+      "t2m_pooled": 1.8831807820336357,
+      "t2m_plus_120h": 1.9897216562898004,
+      "wind_vector_lead_mean": 0.7010704686007737
+    },
+    "test": {
+      "t2m_pooled": 1.8753234946431323,
+      "t2m_plus_120h": 1.8548655976678308,
+      "wind_vector_lead_mean": 0.7412072765406373
+    }
+  },
+  "scores_detail": {
+    "val": {
+      "living_residual": {
+        "t2m_pooled": 1.8831807820336357,
+        "t2m_plus_120h": 1.9897216562898004,
+        "wind_vector_lead_mean": 0.7010704686007737,
+        "per_lead": {
+          "24": {
+            "n": 12432,
+            "t2m_rmse": 1.7318543264174113,
+            "u10m_rmse": 0.6463189359257088,
+            "v10m_rmse": 0.7629655996665922,
+            "wind_vector_rmse": 0.7070518738073377
+          },
+          "72": {
+            "n": 12432,
+            "t2m_rmse": 1.9185405640807065,
+            "u10m_rmse": 0.6603391641921056,
+            "v10m_rmse": 0.6196847896544522,
+            "wind_vector_rmse": 0.6403347078169325
+          },
+          "120": {
+            "n": 12432,
+            "t2m_rmse": 1.9897216562898004,
+            "u10m_rmse": 0.8283600100302918,
+            "v10m_rmse": 0.6755457254341248,
+            "wind_vector_rmse": 0.7558248241780507
+          }
+        },
+        "lead_mean": {
+          "t2m_rmse": 1.880038848929306,
+          "u10m_rmse": 0.711672703382702,
+          "v10m_rmse": 0.6860653715850563,
+          "wind_vector_rmse": 0.7010704686007737,
+          "leads_h": [
+            24,
+            72,
+            120
+          ],
+          "definition": "mean over leads of per-lead grid-pooled RMSE; wind_vector per-lead = sqrt(mean((u_err^2+v_err^2)/2))"
+        }
+      },
+      "raw_fcn3": {
+        "t2m_pooled": 2.0166297922453746,
+        "t2m_plus_120h": 2.1788417795620476,
+        "wind_vector_lead_mean": 0.7151782265822084
+      }
+    },
+    "test": {
+      "living_residual": {
+        "t2m_pooled": 1.8753234946431323,
+        "t2m_plus_120h": 1.8548655976678308,
+        "wind_vector_lead_mean": 0.7412072765406373,
+        "per_lead": {
+          "24": {
+            "n": 12432,
+            "t2m_rmse": 1.7513558167377121,
+            "u10m_rmse": 0.5981337128618915,
+            "v10m_rmse": 0.64303620303674,
+            "wind_vector_rmse": 0.6209909456472212
+          },
+          "72": {
+            "n": 12432,
+            "t2m_rmse": 2.010656869395903,
+            "u10m_rmse": 0.9010829000179023,
+            "v10m_rmse": 0.6478335744357553,
+            "wind_vector_rmse": 0.7847415976148459
+          },
+          "120": {
+            "n": 12432,
+            "t2m_rmse": 1.8548655976678308,
+            "u10m_rmse": 0.8724773187714417,
+            "v10m_rmse": 0.7593873415689987,
+            "wind_vector_rmse": 0.8178892863598449
+          }
+        },
+        "lead_mean": {
+          "t2m_rmse": 1.8722927612671487,
+          "u10m_rmse": 0.7905646438837453,
+          "v10m_rmse": 0.6834190396804981,
+          "wind_vector_rmse": 0.7412072765406373,
+          "leads_h": [
+            24,
+            72,
+            120
+          ],
+          "definition": "mean over leads of per-lead grid-pooled RMSE; wind_vector per-lead = sqrt(mean((u_err^2+v_err^2)/2))"
+        }
+      },
+      "raw_fcn3": {
+        "t2m_pooled": 2.014340537495806,
+        "t2m_plus_120h": 1.8324322872409673,
+        "wind_vector_lead_mean": 0.7627633874791672
+      }
+    }
+  },
+  "vs_continuity_reference": {
+    "val_t2m_delta": 0.1131037820336358,
+    "test_t2m_delta": 0.10045949464313231,
+    "val_wv_delta": 0.005468788600773711,
+    "test_wv_delta": 0.0024416365406373375
+  },
+  "note": "Re-scored FINAL residual v0 on thick-2 interim ICs (same harness as living v1_3_joint HOLDOUT_THICK2 bridge). Report + honesty only \u2014 not a G1/FINAL promote path. Living FINAL residual v0 is g1_claimable=true per G1_CLAIMABLE_UNLOCK_CALL (2026-09-27); this thick-2 bridge remains report-only. Did not overwrite v1_3_joint or residual_v0 weights.",
+  "wind_vector_definition": "sqrt(mean((u_err^2+v_err^2)/2)) grid-pooled then lead-mean over {24,72,120}",
+  "g1_claimable": false,
+  "scored_model": "final_residual_v0",
+  "scored_model_ckpt": "/home/chandmanisha00/fourcastnet/runs/phase0/final_eval/final_residual_v0/best_residual.pt",
+  "scored_model_md5": "586ab17b843757bb84e66e2e3af8dc01",
+  "weights_unchanged": {
+    "final_residual_v0_best_residual_md5": "586ab17b843757bb84e66e2e3af8dc01",
+    "v1_3_joint_best_residual_md5": "c81a5a4c4f07ca0a52bb0bffee0045fa",
+    "verified_after_score": true
+  },
+  "comparison_thick2": {
+    "protocol": "thick2_12_16_16",
+    "pooling": "t2m gate leads grid-pooled all leads; +120h; wind-vector lead-mean {24,72,120}",
+    "val": {
+      "final_residual_v0": {
+        "t2m_pooled": 1.8831807820336357,
+        "t2m_plus_120h": 1.9897216562898004,
+        "wind_vector_lead_mean": 0.7010704686007737
+      },
+      "v1_3_joint": {
+        "t2m_pooled": 1.7700726365054469,
+        "t2m_plus_120h": 1.982381473773401,
+        "wind_vector_lead_mean": 0.6956010266800946
+      },
+      "raw_fcn3": {
+        "t2m_pooled": 2.0166297922453746,
+        "t2m_plus_120h": 2.1788417795620476,
+        "wind_vector_lead_mean": 0.7151782265822084
+      },
+      "tier0_elev_binned_linear": {
+        "t2m_pooled_n_weighted": 1.899145434283934,
+        "t2m_plus_120h": 2.045504895541009,
+        "wind_vector_lead_mean_approx_from_rmse": 0.6970003593214824,
+        "note": "n-weighted t2m from elev-binned linear Tier-0 on thick-2 ICs; WV approx from per-lead u/v RMSE (not identical to residual score harness WV)"
+      }
+    },
+    "test": {
+      "final_residual_v0": {
+        "t2m_pooled": 1.8753234946431323,
+        "t2m_plus_120h": 1.8548655976678308,
+        "wind_vector_lead_mean": 0.7412072765406373
+      },
+      "v1_3_joint": {
+        "t2m_pooled": 1.7748524977571027,
+        "t2m_plus_120h": 1.7741963579564808,
+        "wind_vector_lead_mean": 0.7387660385657052
+      },
+      "raw_fcn3": {
+        "t2m_pooled": 2.014340537495806,
+        "t2m_plus_120h": 1.8324322872409673,
+        "wind_vector_lead_mean": 0.7627633874791672
+      },
+      "tier0_elev_binned_linear": {
+        "t2m_pooled_n_weighted": 1.866534392891331,
+        "t2m_plus_120h": 1.8679079775714844,
+        "wind_vector_lead_mean_approx_from_rmse": 0.7578055093707299,
+        "note": "n-weighted t2m from elev-binned linear Tier-0 on thick-2 ICs; WV approx from per-lead u/v RMSE (not identical to residual score harness WV)"
+      }
+    },
+    "deltas_residual_v0_minus_v1_3_joint": {
+      "val_t2m_pooled": 0.11310814552818882,
+      "test_t2m_pooled": 0.10047099688602956,
+      "val_wv": 0.005469441920679108,
+      "test_wv": 0.00244123797493212
+    }
+  },
+  "enriched_utc": "2026-09-27T20:17:55.037421+00:00",
+  "living_g1_claimable": true
+}

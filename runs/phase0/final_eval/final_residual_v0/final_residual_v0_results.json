@@ -1,0 +1,1285 @@
+{
+  "schema": "final_residual_v0_results/v1",
+  "created_utc": "2026-09-25T23:25:15.550919+00:00",
+  "script": "code/final_eval/final_residual_v0/train.py",
+  "config": "/home/chandmanisha00/fourcastnet/configs/final_residual_v0.yaml",
+  "method": "RRCA-FD_Plan_A_frozen_fcn3_residual_FINAL",
+  "tier": "A",
+  "variant": "final_residual_v0",
+  "cut": "final-residual-v0",
+  "diffusion": false,
+  "fcn3_weights": "FROZEN",
+  "claim_level": "final_candidate",
+  "target": "ERA5_CDS_audited",
+  "g1_claimable": true,
+  "provisional_years": false,
+  "year_split_frozen": true,
+  "year_split": {
+    "train": "1980-2019",
+    "val": "2020-2021",
+    "test": "2022-2025"
+  },
+  "train_ids": [
+    "ic_19800130_00",
+    "ic_19800323_00",
+    "ic_19800508_12",
+    "ic_19800623_00",
+    "ic_19800808_12",
+    "ic_19800923_00",
+    "ic_19801107_12",
+    "ic_19801216_00",
+    "ic_19810130_00",
+    "ic_19810323_00",
+    "ic_19810508_12",
+    "ic_19810623_00",
+    "ic_19810808_12",
+    "ic_19810923_00",
+    "ic_19811107_12",
+    "ic_19811216_00",
+    "ic_19820130_00",
+    "ic_19820323_00",
+    "ic_19820508_12",
+    "ic_19820623_00",
+    "ic_19820808_12",
+    "ic_19820923_00",
+    "ic_19821107_12",
+    "ic_19821216_00",
+    "ic_19830130_00",
+    "ic_19830323_00",
+    "ic_19830508_12",
+    "ic_19830623_00",
+    "ic_19830808_12",
+    "ic_19830923_00",
+    "ic_19831107_12",
+    "ic_19831216_00",
+    "ic_19840130_00",
+    "ic_19840323_00",
+    "ic_19840508_12",
+    "ic_19840623_00",
+    "ic_19840808_12",
+    "ic_19840923_00",
+    "ic_19841107_12",
+    "ic_19841216_00",
+    "ic_19850130_00",
+    "ic_19850323_00",
+    "ic_19850508_12",
+    "ic_19850623_00",
+    "ic_19850808_12",
+    "ic_19850923_00",
+    "ic_19851107_12",
+    "ic_19851216_00",
+    "ic_19860130_00",
+    "ic_19860323_00",
+    "ic_19860508_12",
+    "ic_19860623_00",
+    "ic_19860808_12",
+    "ic_19860923_00",
+    "ic_19861107_12",
+    "ic_19861216_00",
+    "ic_19870130_00",
+    "ic_19870323_00",
+    "ic_19870508_12",
+    "ic_19870623_00",
+    "ic_19870808_12",
+    "ic_19870923_00",
+    "ic_19871107_12",
+    "ic_19871216_00",
+    "ic_19880130_00",
+    "ic_19880323_00",
+    "ic_19880508_12",
+    "ic_19880623_00",
+    "ic_19880808_12",
+    "ic_19880923_00",
+    "ic_19881107_12",
+    "ic_19881216_00",
+    "ic_19890130_00",
+    "ic_19890323_00",
+    "ic_19890508_12",
+    "ic_19890623_00",
+    "ic_19890808_12",
+    "ic_19890923_00",
+    "ic_19891107_12",
+    "ic_19891216_00",
+    "ic_19900130_00",
+    "ic_19900323_00",
+    "ic_19900508_12",
+    "ic_19900623_00",
+    "ic_19900808_12",
+    "ic_19900923_00",
+    "ic_19901107_12",
+    "ic_19901216_00",
+    "ic_19910130_00",
+    "ic_19910323_00",
+    "ic_19910508_12",
+    "ic_19910623_00",
+    "ic_19910808_12",
+    "ic_19910923_00",
+    "ic_19911107_12",
+    "ic_19911216_00",
+    "ic_19920130_00",
+    "ic_19920323_00",
+    "ic_19920508_12",
+    "ic_19920623_00",
+    "ic_19920808_12",
+    "ic_19920923_00",
+    "ic_19921107_12",
+    "ic_19921216_00",
+    "ic_19930130_00",
+    "ic_19930323_00",
+    "ic_19930508_12",
+    "ic_19930623_00",
+    "ic_19930808_12",
+    "ic_19930923_00",
+    "ic_19931107_12",
+    "ic_19931216_00",
+    "ic_19940130_00",
+    "ic_19940323_00",
+    "ic_19940508_12",
+    "ic_19940623_00",
+    "ic_19940808_12",
+    "ic_19940923_00",
+    "ic_19941107_12",
+    "ic_19941216_00",
+    "ic_19950130_00",
+    "ic_19950323_00",
+    "ic_19950508_12",
+    "ic_19950623_00",
+    "ic_19950808_12",
+    "ic_19950923_00",
+    "ic_19951107_12",
+    "ic_19951216_00",
+    "ic_19960130_00",
+    "ic_19960323_00",
+    "ic_19960508_12",
+    "ic_19960623_00",
+    "ic_19960808_12",
+    "ic_19960923_00",
+    "ic_19961107_12",
+    "ic_19961216_00",
+    "ic_19970130_00",
+    "ic_19970323_00",
+    "ic_19970508_12",
+    "ic_19970623_00",
+    "ic_19970808_12",
+    "ic_19970923_00",
+    "ic_19971107_12",
+    "ic_19971216_00",
+    "ic_19980130_00",
+    "ic_19980323_00",
+    "ic_19980508_12",
+    "ic_19980623_00",
+    "ic_19980808_12",
+    "ic_19980923_00",
+    "ic_19981107_12",
+    "ic_19981216_00",
+    "ic_19990130_00",
+    "ic_19990323_00",
+    "ic_19990508_12",
+    "ic_19990623_00",
+    "ic_19990808_12",
+    "ic_19990923_00",
+    "ic_19991107_12",
+    "ic_19991216_00",
+    "ic_20000130_00",
+    "ic_20000323_00",
+    "ic_20000508_12",
+    "ic_20000623_00",
+    "ic_20000808_12",
+    "ic_20000923_00",
+    "ic_20001107_12",
+    "ic_20001216_00",
+    "ic_20010130_00",
+    "ic_20010323_00",
+    "ic_20010508_12",
+    "ic_20010623_00",
+    "ic_20010808_12",
+    "ic_20010923_00",
+    "ic_20011107_12",
+    "ic_20011216_00",
+    "ic_20020130_00",
+    "ic_20020323_00",
+    "ic_20020508_12",
+    "ic_20020623_00",
+    "ic_20020808_12",
+    "ic_20020923_00",
+    "ic_20021107_12",
+    "ic_20021216_00",
+    "ic_20030130_00",
+    "ic_20030323_00",
+    "ic_20030508_12",
+    "ic_20030623_00",
+    "ic_20030808_12",
+    "ic_20030923_00",
+    "ic_20031107_12",
+    "ic_20031216_00",
+    "ic_20040130_00",
+    "ic_20040323_00",
+    "ic_20040508_12",
+    "ic_20040623_00",
+    "ic_20040808_12",
+    "ic_20040923_00",
+    "ic_20041107_12",
+    "ic_20041216_00",
+    "ic_20050130_00",
+    "ic_20050323_00",
+    "ic_20050508_12",
+    "ic_20050623_00",
+    "ic_20050808_12",
+    "ic_20050923_00",
+    "ic_20051107_12",
+    "ic_20051216_00",
+    "ic_20060130_00",
+    "ic_20060323_00",
+    "ic_20060508_12",
+    "ic_20060623_00",
+    "ic_20060808_12",
+    "ic_20060923_00",
+    "ic_20061107_12",
+    "ic_20061216_00",
+    "ic_20070130_00",
+    "ic_20070323_00",
+    "ic_20070508_12",
+    "ic_20070623_00",
+    "ic_20070808_12",
+    "ic_20070923_00",
+    "ic_20071107_12",
+    "ic_20071216_00",
+    "ic_20080130_00",
+    "ic_20080323_00",
+    "ic_20080508_12",
+    "ic_20080623_00",
+    "ic_20080808_12",
+    "ic_20080923_00",
+    "ic_20081107_12",
+    "ic_20081216_00",
+    "ic_20090130_00",
+    "ic_20090323_00",
+    "ic_20090508_12",
+    "ic_20090623_00",
+    "ic_20090808_12",
+    "ic_20090923_00",
+    "ic_20091107_12",
+    "ic_20091216_00",
+    "ic_20100130_00",
+    "ic_20100323_00",
+    "ic_20100508_12",
+    "ic_20100623_00",
+    "ic_20100808_12",
+    "ic_20100923_00",
+    "ic_20101107_12",
+    "ic_20101216_00",
+    "ic_20110130_00",
+    "ic_20110323_00",
+    "ic_20110508_12",
+    "ic_20110623_00",
+    "ic_20110808_12",
+    "ic_20110923_00",
+    "ic_20111107_12",
+    "ic_20111216_00",
+    "ic_20120130_00",
+    "ic_20120323_00",
+    "ic_20120508_12",
+    "ic_20120623_00",
+    "ic_20120808_12",
+    "ic_20120923_00",
+    "ic_20121107_12",
+    "ic_20121216_00",
+    "ic_20130130_00",
+    "ic_20130323_00",
+    "ic_20130508_12",
+    "ic_20130623_00",
+    "ic_20130808_12",
+    "ic_20130923_00",
+    "ic_20131107_12",
+    "ic_20131216_00",
+    "ic_20140130_00",
+    "ic_20140323_00",
+    "ic_20140508_12",
+    "ic_20140623_00",
+    "ic_20140808_12",
+    "ic_20140923_00",
+    "ic_20141107_12",
+    "ic_20141216_00",
+    "ic_20150130_00",
+    "ic_20150323_00",
+    "ic_20150508_12",
+    "ic_20150623_00",
+    "ic_20150808_12",
+    "ic_20150923_00",
+    "ic_20151107_12",
+    "ic_20151216_00",
+    "ic_20160130_00",
+    "ic_20160323_00",
+    "ic_20160508_12",
+    "ic_20160623_00",
+    "ic_20160808_12",
+    "ic_20160923_00",
+    "ic_20161107_12",
+    "ic_20161216_00",
+    "ic_20170130_00",
+    "ic_20170323_00",
+    "ic_20170508_12",
+    "ic_20170623_00",
+    "ic_20170808_12",
+    "ic_20170923_00",
+    "ic_20171107_12",
+    "ic_20171216_00",
+    "ic_20180130_00",
+    "ic_20180323_00",
+    "ic_20180508_12",
+    "ic_20180623_00",
+    "ic_20180808_12",
+    "ic_20180923_00",
+    "ic_20181107_12",
+    "ic_20181216_00",
+    "ic_20190130_00",
+    "ic_20190323_00",
+    "ic_20190508_12",
+    "ic_20190623_00",
+    "ic_20190808_12",
+    "ic_20190923_00",
+    "ic_20191107_12",
+    "ic_20191216_00"
+  ],
+  "val_ids": [
+    "ic_20200106_00",
+    "ic_20200118_12",
+    "ic_20200130_00",
+    "ic_20200211_12",
+    "ic_20200223_00",
+    "ic_20200306_00",
+    "ic_20200318_12",
+    "ic_20200329_00",
+    "ic_20200409_12",
+    "ic_20200421_00",
+    "ic_20200502_12",
+    "ic_20200513_00",
+    "ic_20200525_12",
+    "ic_20200606_00",
+    "ic_20200618_12",
+    "ic_20200629_00",
+    "ic_20200710_12",
+    "ic_20200722_00",
+    "ic_20200802_12",
+    "ic_20200813_00",
+    "ic_20200825_12",
+    "ic_20200906_00",
+    "ic_20200917_12",
+    "ic_20200929_00",
+    "ic_20201010_12",
+    "ic_20201021_00",
+    "ic_20201101_12",
+    "ic_20201113_00",
+    "ic_20201124_12",
+    "ic_20201206_00",
+    "ic_20201216_12",
+    "ic_20201226_00",
+    "ic_20210106_00",
+    "ic_20210118_12",
+    "ic_20210130_00",
+    "ic_20210210_12",
+    "ic_20210222_00",
+    "ic_20210306_00",
+    "ic_20210318_12",
+    "ic_20210329_00",
+    "ic_20210409_12",
+    "ic_20210421_00",
+    "ic_20210502_12",
+    "ic_20210513_00",
+    "ic_20210525_12",
+    "ic_20210606_00",
+    "ic_20210618_12",
+    "ic_20210629_00",
+    "ic_20210710_12",
+    "ic_20210722_00",
+    "ic_20210802_12",
+    "ic_20210813_00",
+    "ic_20210825_12",
+    "ic_20210906_00",
+    "ic_20210917_12",
+    "ic_20210929_00",
+    "ic_20211010_12",
+    "ic_20211021_00",
+    "ic_20211101_12",
+    "ic_20211113_00",
+    "ic_20211124_12",
+    "ic_20211206_00",
+    "ic_20211216_12",
+    "ic_20211226_00"
+  ],
+  "test_ids": [
+    "ic_20220110_00",
+    "ic_20220130_12",
+    "ic_20220218_00",
+    "ic_20220312_00",
+    "ic_20220404_12",
+    "ic_20220426_00",
+    "ic_20220519_12",
+    "ic_20220612_00",
+    "ic_20220705_12",
+    "ic_20220727_00",
+    "ic_20220819_12",
+    "ic_20220912_00",
+    "ic_20221004_12",
+    "ic_20221027_00",
+    "ic_20221118_12",
+    "ic_20221216_00",
+    "ic_20230110_00",
+    "ic_20230130_12",
+    "ic_20230218_00",
+    "ic_20230312_00",
+    "ic_20230404_12",
+    "ic_20230426_00",
+    "ic_20230519_12",
+    "ic_20230612_00",
+    "ic_20230705_12",
+    "ic_20230727_00",
+    "ic_20230819_12",
+    "ic_20230912_00",
+    "ic_20231004_12",
+    "ic_20231027_00",
+    "ic_20231118_12",
+    "ic_20231216_00",
+    "ic_20240110_00",
+    "ic_20240130_12",
+    "ic_20240219_00",
+    "ic_20240312_00",
+    "ic_20240404_12",
+    "ic_20240426_00",
+    "ic_20240519_12",
+    "ic_20240612_00",
+    "ic_20240705_12",
+    "ic_20240727_00",
+    "ic_20240819_12",
+    "ic_20240912_00",
+    "ic_20241004_12",
+    "ic_20241027_00",
+    "ic_20241118_12",
+    "ic_20241216_00",
+    "ic_20250110_00",
+    "ic_20250130_12",
+    "ic_20250218_00",
+    "ic_20250312_00",
+    "ic_20250404_12",
+    "ic_20250426_00",
+    "ic_20250519_12",
+    "ic_20250612_00",
+    "ic_20250705_12",
+    "ic_20250727_00",
+    "ic_20250819_12",
+    "ic_20250912_00",
+    "ic_20251004_12",
+    "ic_20251027_00",
+    "ic_20251118_12",
+    "ic_20251216_00"
+  ],
+  "box": {
+    "lon_west": 80.0,
+    "lon_east": 89.0,
+    "lat_south": 26.0,
+    "lat_north": 31.0
+  },
+  "beat_this": {
+    "bars_set": "final_eval",
+    "call": "docs/research/FINAL_EVAL_BARS_CALL.md",
+    "recipe": "docs/research/FINAL_TRAIN_RECIPE.md",
+    "source": "runs/phase0/final_eval/final_baselines.json",
+    "A": {
+      "val_t2m_pooled_strict_lt": 2.099228718846139,
+      "test_t2m_pooled_strict_lt": 2.182564808439163,
+      "val_120h_t2m_raw_le": 2.2488412332039327,
+      "val_wv_strict_lt": 0.8903072718010457,
+      "test_wv_strict_lt": 0.9163507760768065,
+      "n_eligible_saves_ge": 1,
+      "reload": "composite_eligible"
+    },
+    "B": {
+      "val_t2m_pooled_strict_lt": 2.0394764673534427,
+      "test_t2m_pooled_strict_lt": 2.104525111905597
+    },
+    "C": {
+      "val_t2m_pooled_strict_lt": 1.9822262881728796,
+      "test_t2m_pooled_strict_lt": 1.9878256451936507,
+      "val_wv_strict_lt": 0.8451857725124596,
+      "test_wv_strict_lt": 0.8761290512975345
+    },
+    "val_t2m_pooled_rmse_lin_strict_lt": 1.9822262881728796,
+    "val_headline_lt": 1.9822262881728796,
+    "test_t2m_pooled_rmse_lin_strict_lt": 1.9878256451936507,
+    "val_120h_t2m_rmse_raw_le": 2.2488412332039327,
+    "val_120h_rule": "val +120h t2m RMSE <= FINAL raw A3 (2.2488412332039327); composite reject if greater",
+    "note": "PASS = A \u2227 B \u2227 C per FINAL_EVAL_BARS_CALL.md; no \u03b5_protect; Leonard owns official call",
+    "final_g1_candidate_pass": "A \u2227 B \u2227 C",
+    "g1_claimable": true
+  },
+  "loss": {
+    "name": "mse_residual_elev_weighted_lead_weighted",
+    "lead_balance": true,
+    "w_120": 2.0,
+    "lead_weights": {
+      "24": 1.0,
+      "72": 1.0,
+      "120": 2.0
+    },
+    "description": "Multi-lead elev-weighted residual MSE with explicit per-lead weights w_24=1.0, w_72=1.0, w_120=2.0 (w_120 >= 1 required). Missing leads in a batch skipped / renormalized. Composite ckpt: REJECT if val +120h t2m RMSE > raw; else save best lead-mean (pooled tracked).",
+    "leads_h": [
+      24,
+      72,
+      120
+    ],
+    "elev_weight_boost": 1.5,
+    "channel_weights": [
+      1.5,
+      1.5,
+      1.5
+    ],
+    "ckpt_select": "composite",
+    "composite": {
+      "primary": "lead_mean",
+      "constraint": "val_120h_t2m_rmse <= raw",
+      "raw_val_120h_t2m_rmse": 2.2488412332039327,
+      "reject_if_constraint_fails": true
+    }
+  },
+  "model_spec": {
+    "name": "ElevCondResidualUNet",
+    "in_channels": 5,
+    "out_channels": 3,
+    "base_channels": 16,
+    "depth": 3,
+    "cond_dim": 2,
+    "dropout": 0.2,
+    "approx_params": "\u22480.17M (same as v1_3_joint)"
+  },
+  "overwrite_forbidden_ok": true,
+  "era5_pid_611595": "untouched",
+  "freeze_before": {
+    "living_v1_3_joint_best": {
+      "path": "/home/chandmanisha00/fourcastnet/runs/phase0/tier_a/v1_3_joint/best_residual.pt",
+      "md5": "c81a5a4c4f07ca0a52bb0bffee0045fa",
+      "mtime": 1789535331.1384394
+    },
+    "living_v1_3_joint_results": {
+      "path": "/home/chandmanisha00/fourcastnet/runs/phase0/tier_a/v1_3_joint/tier_a_v1_3_joint_results.json",
+      "md5": "819131b7a42dbb252219f4c7203b3e08",
+      "mtime": 1789535643.9540365
+    },
+    "final_baselines": {
+      "path": "/home/chandmanisha00/fourcastnet/runs/phase0/final_eval/final_baselines.json",
+      "md5": "344392077d61bdbb18ab880d019aed76",
+      "mtime": 1790097722.2666554
+    },
+    "final_protocol_ics": {
+      "path": "/home/chandmanisha00/fourcastnet/docs/research/final_eval_protocol_ics.json",
+      "md5": "7de70ec8a0b5b1e7f77ae21660751a51",
+      "mtime": 1790036087.5928102
+    },
+    "final_bars_call": {
+      "path": "/home/chandmanisha00/fourcastnet/docs/research/FINAL_EVAL_BARS_CALL.md",
+      "md5": "142501acdd3acd8d8f794ce2b2cdfb40",
+      "mtime": 1790097903.527102
+    },
+    "final_train_recipe": {
+      "path": "/home/chandmanisha00/fourcastnet/docs/research/FINAL_TRAIN_RECIPE.md",
+      "md5": "47cdeb97a97de50f87cef5b65bcd5dcb",
+      "mtime": 1790112344.0478432
+    },
+    "g0_verifying": {
+      "path": "/home/chandmanisha00/fourcastnet/runs/phase0/g0/g0_verifying_results.json",
+      "md5": "806263fd3683eb1b209d0cadf5f5b5a2",
+      "mtime": 1789178236.342168
+    }
+  },
+  "honesty": "FINAL residual v0 = parallel ElevCondResidualUNet retrain on FINAL years/ICs with channel_weights [1.5,1.5,1.5], w_120=2.0, composite reject vs raw A3. NOT leftover-of-living; NOT diffusion; NOT FCN3 FT. g1_claimable=true per Leonard unlock 2026-09-27 (G1_CLAIMABLE_UNLOCK_CALL). Allowed: regional FINAL G1 candidate clearing A\u2227B\u2227C (FINAL_RESIDUAL_V0_CALL headlines; unlocked by G1_CLAIMABLE_UNLOCK_CALL). Hard non-claims: no global SOTA / ops / CorrDiff / precip / stations; thick-2 bridge report-only; no HF; no ckpt overwrite. Thick-2 bridge is report-only.\n",
+  "mode": "train",
+  "status": "train_ok",
+  "zero_shot": false,
+  "holdout_expand": false,
+  "ckpt": "/home/chandmanisha00/fourcastnet/runs/phase0/final_eval/final_residual_v0/best_residual.pt",
+  "device": "cuda",
+  "epochs": 400,
+  "seed": 42,
+  "n_params": 167843,
+  "n_samples": {
+    "train": 1920,
+    "val": 192,
+    "test": 192
+  },
+  "train_info": {
+    "best_val_t2m_rmse": 1.8198625586531565,
+    "best_select_score": 1.810469796728017,
+    "best_eligible_epoch": 55,
+    "n_eligible_saves": 19,
+    "select_by": "composite",
+    "lead_weights": {
+      "24": 1.0,
+      "72": 1.0,
+      "120": 2.0
+    },
+    "w_120": 2.0,
+    "reload_kind": "composite_eligible",
+    "stopped_epoch": 135,
+    "early_stop_patience": 80,
+    "best_ckpt": "/home/chandmanisha00/fourcastnet/runs/phase0/final_eval/final_residual_v0/best_residual.pt",
+    "history_tail": [
+      {
+        "epoch": 128,
+        "train_loss": 1.6785597552855809,
+        "val_t2m_rmse": 1.9183275524700933,
+        "val_t2m_rmse_lead_mean": 1.9045677725337828,
+        "val_120h": 2.133507568052481,
+        "constraint_ok": true,
+        "select_score": 1.9045677725337828,
+        "saved_eligible": false
+      },
+      {
+        "epoch": 129,
+        "train_loss": 1.656062417725722,
+        "val_t2m_rmse": 1.877447496616023,
+        "val_t2m_rmse_lead_mean": 1.8653444814204,
+        "val_120h": 2.110178580792531,
+        "constraint_ok": true,
+        "select_score": 1.8653444814204,
+        "saved_eligible": false
+      },
+      {
+        "epoch": 130,
+        "train_loss": 1.6759676292538643,
+        "val_t2m_rmse": 1.8778099028359452,
+        "val_t2m_rmse_lead_mean": 1.8655452250546787,
+        "val_120h": 2.097305161503204,
+        "constraint_ok": true,
+        "select_score": 1.8655452250546787,
+        "saved_eligible": false
+      },
+      {
+        "epoch": 131,
+        "train_loss": 1.6528372965753078,
+        "val_t2m_rmse": 1.8814228763001315,
+        "val_t2m_rmse_lead_mean": 1.870901688648497,
+        "val_120h": 2.0702106708583674,
+        "constraint_ok": true,
+        "select_score": 1.870901688648497,
+        "saved_eligible": false
+      },
+      {
+        "epoch": 132,
+        "train_loss": 1.6526305710275968,
+        "val_t2m_rmse": 1.8834113004151212,
+        "val_t2m_rmse_lead_mean": 1.8705687027083873,
+        "val_120h": 2.1092041899277487,
+        "constraint_ok": true,
+        "select_score": 1.8705687027083873,
+        "saved_eligible": false
+      },
+      {
+        "epoch": 133,
+        "train_loss": 1.6653409550587337,
+        "val_t2m_rmse": 1.9122846263788895,
+        "val_t2m_rmse_lead_mean": 1.901049393615711,
+        "val_120h": 2.1403332112642226,
+        "constraint_ok": true,
+        "select_score": 1.901049393615711,
+        "saved_eligible": false
+      },
+      {
+        "epoch": 134,
+        "train_loss": 1.639569596449534,
+        "val_t2m_rmse": 1.888202949414859,
+        "val_t2m_rmse_lead_mean": 1.8773048985755583,
+        "val_120h": 2.089979784984389,
+        "constraint_ok": true,
+        "select_score": 1.8773048985755583,
+        "saved_eligible": false
+      },
+      {
+        "epoch": 135,
+        "train_loss": 1.6396136869986853,
+        "val_t2m_rmse": 2.016869627803095,
+        "val_t2m_rmse_lead_mean": 2.002529667667893,
+        "val_120h": 2.2343247843128755,
+        "constraint_ok": true,
+        "select_score": 2.002529667667893,
+        "saved_eligible": false
+      }
+    ]
+  },
+  "metrics": {
+    "train_self": {
+      "variable": "t2m",
+      "n": 1491840,
+      "rmse_raw": 2.105533209021749,
+      "rmse_tier_a": 1.6922442904991801,
+      "per_lead": {
+        "24": {
+          "rmse_raw": 1.944945660694089,
+          "rmse_tier_a": 1.487813156029405,
+          "n": 497280
+        },
+        "72": {
+          "rmse_raw": 2.1649420108374193,
+          "rmse_tier_a": 1.7333603224132144,
+          "n": 497280
+        },
+        "120": {
+          "rmse_raw": 2.197731273276772,
+          "rmse_tier_a": 1.8365582543471364,
+          "n": 497280
+        }
+      },
+      "per_elev_bin": {
+        "0": {
+          "rmse_raw": 1.5742858899681424,
+          "rmse_tier_a": 1.3543140896666952,
+          "n": 618240
+        },
+        "1": {
+          "rmse_raw": 1.9991492655248977,
+          "rmse_tier_a": 1.6102195987926964,
+          "n": 117120
+        },
+        "2": {
+          "rmse_raw": 2.327971527448958,
+          "rmse_tier_a": 1.8659259212531598,
+          "n": 122880
+        },
+        "3": {
+          "rmse_raw": 2.4960431817049984,
+          "rmse_tier_a": 1.9489681142387936,
+          "n": 633600
+        }
+      },
+      "rmse_tier_a_lead_mean": 1.6859105775965852
+    },
+    "val": {
+      "variable": "t2m",
+      "n": 149184,
+      "rmse_raw": 2.099228720307843,
+      "rmse_tier_a": 1.8198625586531565,
+      "per_lead": {
+        "24": {
+          "rmse_raw": 1.9128104608478116,
+          "rmse_tier_a": 1.5650156924864251,
+          "n": 49728
+        },
+        "72": {
+          "rmse_raw": 2.1222989638657386,
+          "rmse_tier_a": 1.8559797308110484,
+          "n": 49728
+        },
+        "120": {
+          "rmse_raw": 2.248841237024416,
+          "rmse_tier_a": 2.010413966886577,
+          "n": 49728
+        }
+      },
+      "per_elev_bin": {
+        "0": {
+          "rmse_raw": 1.5216224353557988,
+          "rmse_tier_a": 1.4131137965598881,
+          "n": 61824
+        },
+        "1": {
+          "rmse_raw": 1.8244668768589103,
+          "rmse_tier_a": 1.614699223667993,
+          "n": 11712
+        },
+        "2": {
+          "rmse_raw": 2.2142115624354233,
+          "rmse_tier_a": 2.0033955081954704,
+          "n": 12288
+        },
+        "3": {
+          "rmse_raw": 2.559410036089782,
+          "rmse_tier_a": 2.1422410077563097,
+          "n": 63360
+        }
+      },
+      "rmse_tier_a_lead_mean": 1.810469796728017
+    },
+    "test": {
+      "variable": "t2m",
+      "n": 149184,
+      "rmse_raw": 2.1825648026281432,
+      "rmse_tier_a": 1.8563898906179215,
+      "per_lead": {
+        "24": {
+          "rmse_raw": 1.936883448912963,
+          "rmse_tier_a": 1.5884923759923,
+          "n": 49728
+        },
+        "72": {
+          "rmse_raw": 2.2113053166175485,
+          "rmse_tier_a": 1.8893368834457382,
+          "n": 49728
+        },
+        "120": {
+          "rmse_raw": 2.3768421603126417,
+          "rmse_tier_a": 2.060497122111831,
+          "n": 49728
+        }
+      },
+      "per_elev_bin": {
+        "0": {
+          "rmse_raw": 1.5947226764651887,
+          "rmse_tier_a": 1.4581877852291079,
+          "n": 61824
+        },
+        "1": {
+          "rmse_raw": 1.8679248605385275,
+          "rmse_tier_a": 1.6345115736824667,
+          "n": 11712
+        },
+        "2": {
+          "rmse_raw": 2.304694085596665,
+          "rmse_tier_a": 2.0154491094535163,
+          "n": 12288
+        },
+        "3": {
+          "rmse_raw": 2.656972787111051,
+          "rmse_tier_a": 2.181237222609188,
+          "n": 63360
+        }
+      },
+      "rmse_tier_a_lead_mean": 1.8461087938499565
+    }
+  },
+  "lead_120h": {
+    "val": {
+      "rmse_raw": 2.248841237024416,
+      "rmse_tier_a": 2.010413966886577,
+      "delta_vs_raw": -0.23842727013783938,
+      "le_raw": true
+    },
+    "test": {
+      "rmse_raw": 2.3768421603126417,
+      "rmse_tier_a": 2.060497122111831,
+      "delta_vs_raw": -0.3163450382008106,
+      "le_raw": true
+    },
+    "raw_val_reference": 2.2488412332039327,
+    "rule": "val +120h t2m RMSE <= raw (hard); v0/v0.1 grandfathered"
+  },
+  "compare_v0": {
+    "path": "/home/chandmanisha00/fourcastnet/runs/phase0/tier_a/v0/tier_a_v0_results.json",
+    "variant": "v0_tiny_unet_residual",
+    "gates": {
+      "val_pass": true,
+      "test_pass": true,
+      "tier_a_interim_pass": true,
+      "val_only_win_is_fail": true,
+      "note": "interim PASS requires val AND test strict beat-this; claim_level remains interim_era5; g1_claimable=false"
+    },
+    "val": {
+      "rmse_tier_a": 1.891587054528876,
+      "per_lead": {
+        "24": {
+          "rmse_tier_a": 1.561079794659485,
+          "rmse_raw": 1.6905876448061352
+        },
+        "72": {
+          "rmse_tier_a": 1.6200541000900928,
+          "rmse_raw": 1.900914868225402
+        },
+        "120": {
+          "rmse_tier_a": 2.3817555168553435,
+          "rmse_raw": 2.219970831929039
+        }
+      }
+    },
+    "test": {
+      "rmse_tier_a": 1.7325306543627894,
+      "per_lead": {
+        "24": {
+          "rmse_tier_a": 1.5705653977988536,
+          "rmse_raw": 1.7836103254200089
+        },
+        "72": {
+          "rmse_tier_a": 1.8221627459976193,
+          "rmse_raw": 2.041038475254726
+        },
+        "120": {
+          "rmse_tier_a": 1.7938881412327834,
+          "rmse_raw": 1.8438590540293545
+        }
+      }
+    }
+  },
+  "compare_v0_1": {
+    "path": "/home/chandmanisha00/fourcastnet/runs/phase0/tier_a/v0_1/tier_a_v0_1_results.json",
+    "variant": "v0_1_lead_balanced_residual",
+    "gates": {
+      "val_pass": true,
+      "test_pass": true,
+      "tier_a_interim_pass": true,
+      "val_only_win_is_fail": true,
+      "note": "interim PASS requires val AND test strict beat-this; claim_level remains interim_era5; g1_claimable=false"
+    },
+    "val": {
+      "rmse_tier_a": 1.8893887924968267,
+      "per_lead": {
+        "24": {
+          "rmse_tier_a": 1.5543482685258763,
+          "rmse_raw": 1.6905876448061352
+        },
+        "72": {
+          "rmse_tier_a": 1.6584162717773536,
+          "rmse_raw": 1.900914868225402
+        },
+        "120": {
+          "rmse_tier_a": 2.35436338683572,
+          "rmse_raw": 2.219970831929039
+        }
+      }
+    },
+    "test": {
+      "rmse_tier_a": 1.7854553558613342,
+      "per_lead": {
+        "24": {
+          "rmse_tier_a": 1.6243221575073243,
+          "rmse_raw": 1.7836103254200089
+        },
+        "72": {
+          "rmse_tier_a": 1.889053809610937,
+          "rmse_raw": 2.041038475254726
+        },
+        "120": {
+          "rmse_tier_a": 1.832104177263653,
+          "rmse_raw": 1.8438590540293545
+        }
+      }
+    }
+  },
+  "compare_v1": {
+    "path": "/home/chandmanisha00/fourcastnet/runs/phase0/tier_a/v1/tier_a_v1_results.json",
+    "variant": "v1_reg_elev_cond_residual",
+    "gates": {
+      "val_pass": true,
+      "test_pass": false,
+      "val_120h_le_raw": true,
+      "val_120h_rule": "val +120h t2m RMSE <= raw (2.219971 K); hard gate for v1-reg; v0/v0.1 grandfathered",
+      "raw_val_120h_t2m_rmse": 2.219970831929039,
+      "val_120h_t2m_rmse": 2.017977089387068,
+      "val_120h_delta_vs_raw": -0.2019937425419709,
+      "tier_a_interim_pass": false,
+      "val_only_win_is_fail": true,
+      "plus120h_regress_is_fail": true,
+      "note": "v1-reg INTERIM PASS requires (1) val pooled < 1.948661 AND (2) test pooled < 1.850338 AND (3) val +120h t2m RMSE <= raw (2.219971 K). claim_level remains interim_era5; g1_claimable=false. Pooled-only win with +120h regress = FAIL."
+    },
+    "val": {
+      "rmse_tier_a": 1.7962539422371064,
+      "per_lead": {
+        "24": {
+          "rmse_tier_a": 1.4938825699321698,
+          "rmse_raw": 1.6905876448061352
+        },
+        "72": {
+          "rmse_tier_a": 1.8372991071049891,
+          "rmse_raw": 1.900914868225402
+        },
+        "120": {
+          "rmse_tier_a": 2.017977089387068,
+          "rmse_raw": 2.219970831929039
+        }
+      }
+    },
+    "test": {
+      "rmse_tier_a": 1.9503800910161917,
+      "per_lead": {
+        "24": {
+          "rmse_tier_a": 1.7064574203147493,
+          "rmse_raw": 1.7836103254200089
+        },
+        "72": {
+          "rmse_tier_a": 2.1333079033395186,
+          "rmse_raw": 2.041038475254726
+        },
+        "120": {
+          "rmse_tier_a": 1.987196004549844,
+          "rmse_raw": 1.8438590540293545
+        }
+      }
+    }
+  },
+  "compare_v1_2": {
+    "path": "/home/chandmanisha00/fourcastnet/runs/phase0/tier_a/v1_2/tier_a_v1_2_results.json",
+    "variant": "v1_2",
+    "gates": {
+      "val_pass": true,
+      "test_pass": true,
+      "val_120h_le_raw": false,
+      "val_120h_rule": "val +120h t2m RMSE <= expand-val raw (2.131516 K); hard gate for v1.x; thin 2.220 historical only",
+      "raw_val_120h_t2m_rmse": 2.131515989123864,
+      "val_120h_t2m_rmse": 2.1320139074490814,
+      "val_120h_delta_vs_raw": 0.0004979183252173947,
+      "tier_a_interim_pass": false,
+      "val_only_win_is_fail": true,
+      "plus120h_regress_is_fail": true,
+      "note": "v1.2 INTERIM PASS requires (1) val pooled < 1.987014 AND (2) test pooled < 1.897298 AND (3) val +120h t2m RMSE <= raw (2.131516 K). claim_level remains interim_era5; g1_claimable=false. Pooled-only win with +120h regress = FAIL. v1/ is frozen FAIL (do not overwrite). Expand bars: docs/research/HOLDOUT_EXPAND_CALL.md."
+    },
+    "val": {
+      "rmse_tier_a": 1.9049399598311194,
+      "per_lead": {
+        "24": {
+          "rmse_tier_a": 1.624180212500309,
+          "rmse_raw": 1.7689221386451555
+        },
+        "72": {
+          "rmse_tier_a": 1.9243035330867928,
+          "rmse_raw": 2.0780478826298405
+        },
+        "120": {
+          "rmse_tier_a": 2.1320139074490814,
+          "rmse_raw": 2.1315159369157355
+        }
+      }
+    },
+    "test": {
+      "rmse_tier_a": 1.8866585214697194,
+      "per_lead": {
+        "24": {
+          "rmse_tier_a": 1.794620778202241,
+          "rmse_raw": 1.9595501887249187
+        },
+        "72": {
+          "rmse_tier_a": 2.119311772285963,
+          "rmse_raw": 2.2561967454504224
+        },
+        "120": {
+          "rmse_tier_a": 1.722293530208436,
+          "rmse_raw": 1.732723646925465
+        }
+      }
+    }
+  },
+  "gates": {
+    "val_pass": true,
+    "test_pass": true,
+    "val_120h_le_raw": true,
+    "n_eligible_saves": 19,
+    "eligible_ckpt_required": true,
+    "eligible_ckpt_ok": true,
+    "reload_kind": "composite_eligible",
+    "val_120h_rule": "val +120h t2m RMSE <= FINAL raw A3 (2.2488412332039327); composite reject if greater",
+    "raw_val_120h_t2m_rmse": 2.2488412332039327,
+    "val_120h_t2m_rmse": 2.010413966886577,
+    "val_120h_delta_vs_raw": -0.2384272663173559,
+    "tier_a_interim_pass": true,
+    "val_only_win_is_fail": true,
+    "plus120h_regress_is_fail": true,
+    "unconstrained_fallback_is_auto_fail": true,
+    "note": "v1.2b INTERIM PASS requires (1) val pooled < 1.9822262881728796 AND (2) test pooled < 1.9878256451936507 AND (3) val +120h t2m RMSE <= raw (2.248841 K) AND (4) n_eligible_saves >= 1 with composite_eligible reload. Unconstrained +120h fallback => automatic FAIL (Leonard TIER_A_V1_2_CALL.md). claim_level remains interim_era5; g1_claimable=false. v1_2/ is frozen FAIL (do not overwrite). Expand bars: docs/research/HOLDOUT_EXPAND_CALL.md."
+  },
+  "wind_vector": {
+    "val": {
+      "definition": "sqrt(mean((u_err^2+v_err^2)/2)) grid-pooled \u2192 lead-mean over gate leads",
+      "gate_leads": [
+        24,
+        72,
+        120
+      ],
+      "per_lead": {
+        "24": {
+          "wind_vector_rmse": 0.6869342217012532,
+          "n": 49728
+        },
+        "72": {
+          "wind_vector_rmse": 0.840187218493466,
+          "n": 49728
+        },
+        "120": {
+          "wind_vector_rmse": 0.8739393252406172,
+          "n": 49728
+        }
+      },
+      "lead_mean": 0.8003535884784455
+    },
+    "test": {
+      "definition": "sqrt(mean((u_err^2+v_err^2)/2)) grid-pooled \u2192 lead-mean over gate leads",
+      "gate_leads": [
+        24,
+        72,
+        120
+      ],
+      "per_lead": {
+        "24": {
+          "wind_vector_rmse": 0.72516486239865,
+          "n": 49728
+        },
+        "72": {
+          "wind_vector_rmse": 0.8464855561984926,
+          "n": 49728
+        },
+        "120": {
+          "wind_vector_rmse": 0.9033608622530427,
+          "n": 49728
+        }
+      },
+      "lead_mean": 0.8250037602833951
+    }
+  },
+  "abc_gates": {
+    "schema": "final_residual_v0_abc_gates/v1",
+    "A_vs_raw": {
+      "A1_val_t2m": {
+        "value": 1.8198625586531565,
+        "bar_strict_lt": 2.099228718846139,
+        "pass": true
+      },
+      "A2_test_t2m": {
+        "value": 1.8563898906179215,
+        "bar_strict_lt": 2.182564808439163,
+        "pass": true
+      },
+      "A3_val_120h": {
+        "value": 2.010413966886577,
+        "bar_le": 2.2488412332039327,
+        "pass": true
+      },
+      "A4_val_wv": {
+        "value": 0.8003535884784455,
+        "bar_strict_lt": 0.8903072718010457,
+        "pass": true
+      },
+      "A5_test_wv": {
+        "value": 0.8250037602833951,
+        "bar_strict_lt": 0.9163507760768065,
+        "pass": true
+      },
+      "A6_eligible": {
+        "n_eligible_saves": 19,
+        "reload_kind": "composite_eligible",
+        "pass": true
+      },
+      "pass": true
+    },
+    "B_vs_tier0": {
+      "B1_val_t2m": {
+        "value": 1.8198625586531565,
+        "bar_strict_lt": 2.0394764673534427,
+        "pass": true
+      },
+      "B2_test_t2m": {
+        "value": 1.8563898906179215,
+        "bar_strict_lt": 2.104525111905597,
+        "pass": true
+      },
+      "pass": true
+    },
+    "C_vs_living_on_FINAL": {
+      "C1_val_t2m": {
+        "value": 1.8198625586531565,
+        "bar_strict_lt": 1.9822262881728796,
+        "pass": true
+      },
+      "C2_test_t2m": {
+        "value": 1.8563898906179215,
+        "bar_strict_lt": 1.9878256451936507,
+        "pass": true
+      },
+      "C3_val_wv": {
+        "value": 0.8003535884784455,
+        "bar_strict_lt": 0.8451857725124596,
+        "pass": true
+      },
+      "C4_test_wv": {
+        "value": 0.8250037602833951,
+        "bar_strict_lt": 0.8761290512975345,
+        "pass": true
+      },
+      "pass": true
+    },
+    "A_pass": true,
+    "B_pass": true,
+    "C_pass": true,
+    "final_g1_candidate_pass_looks_met": true,
+    "g1_claimable": true,
+    "note": "Mechanical A\u2227B\u2227C echo; Leonard PASS + Manisha unlock 2026-09-27. g1_claimable=true for living FINAL residual v0. Hard non-claims: no global SOTA / ops / CorrDiff / precip / stations; thick-2 bridge report-only; no HF; no ckpt overwrite."
+  },
+  "pass_fail_schema": {
+    "A_vs_raw": "FINAL_EVAL_BARS_CALL \u00a72 A",
+    "B_vs_tier0": "FINAL_EVAL_BARS_CALL \u00a72 B",
+    "C_vs_living_on_FINAL": "FINAL_EVAL_BARS_CALL \u00a72 C",
+    "final_g1_candidate_pass": "A \u2227 B \u2227 C",
+    "g1_claimable": true,
+    "leonard_owns_official_call": true
+  },
+  "thin_beat_this_bars": {
+    "val_t2m_pooled_rmse_lin_strict_lt": 1.948661,
+    "val_headline_lt": 1.949,
+    "test_t2m_pooled_rmse_lin_strict_lt": 1.850338,
+    "val_120h_t2m_rmse_raw_le": 2.219970831929039,
+    "val_120h_rule": "val +120h t2m RMSE <= raw (2.219971 K); hard gate historical thin; v0/v0.1 grandfathered; v1 FAIL frozen",
+    "source": "runs/phase0/tier0_holdout/tier0_holdout_metrics.json",
+    "call": "docs/research/TIER_A_V1_CALL.md",
+    "note": "thin historical only; living expand bars in HOLDOUT_EXPAND_CALL.md",
+    "frozen_exact": {
+      "val_rmse_after_lin": 1.9486610005712885,
+      "test_rmse_after_lin": 1.8503382009036373,
+      "val_120h_t2m_rmse_raw": 2.219970831929039
+    },
+    "g0_adapter": {
+      "baseline": "runs/phase0/g0/g0_verifying_results.json",
+      "rule": "\u2264~5% CRPS degrade midlat @ +15 d; PSD/SSR floors",
+      "tier_a_status": "not_applicable_fcn3_frozen"
+    }
+  },
+  "expand_tier0_bars": {
+    "path": "/home/chandmanisha00/fourcastnet/runs/phase0/final_eval/final_baselines.json",
+    "summary": {}
+  },
+  "elapsed_s": 398.898268699646,
+  "freeze_after": {
+    "living_v1_3_joint_best": {
+      "path": "/home/chandmanisha00/fourcastnet/runs/phase0/tier_a/v1_3_joint/best_residual.pt",
+      "md5": "c81a5a4c4f07ca0a52bb0bffee0045fa",
+      "mtime": 1789535331.1384394
+    },
+    "living_v1_3_joint_results": {
+      "path": "/home/chandmanisha00/fourcastnet/runs/phase0/tier_a/v1_3_joint/tier_a_v1_3_joint_results.json",
+      "md5": "819131b7a42dbb252219f4c7203b3e08",
+      "mtime": 1789535643.9540365
+    },
+    "final_baselines": {
+      "path": "/home/chandmanisha00/fourcastnet/runs/phase0/final_eval/final_baselines.json",
+      "md5": "344392077d61bdbb18ab880d019aed76",
+      "mtime": 1790097722.2666554
+    },
+    "final_protocol_ics": {
+      "path": "/home/chandmanisha00/fourcastnet/docs/research/final_eval_protocol_ics.json",
+      "md5": "7de70ec8a0b5b1e7f77ae21660751a51",
+      "mtime": 1790036087.5928102
+    },
+    "final_bars_call": {
+      "path": "/home/chandmanisha00/fourcastnet/docs/research/FINAL_EVAL_BARS_CALL.md",
+      "md5": "142501acdd3acd8d8f794ce2b2cdfb40",
+      "mtime": 1790097903.527102
+    },
+    "final_train_recipe": {
+      "path": "/home/chandmanisha00/fourcastnet/docs/research/FINAL_TRAIN_RECIPE.md",
+      "md5": "47cdeb97a97de50f87cef5b65bcd5dcb",
+      "mtime": 1790112344.0478432
+    },
+    "g0_verifying": {
+      "path": "/home/chandmanisha00/fourcastnet/runs/phase0/g0/g0_verifying_results.json",
+      "md5": "806263fd3683eb1b209d0cadf5f5b5a2",
+      "mtime": 1789178236.342168
+    }
+  },
+  "freeze_md5_unchanged": true,
+  "artifacts": {
+    "results_json": "/home/chandmanisha00/fourcastnet/runs/phase0/final_eval/final_residual_v0/final_residual_v0_results.json",
+    "best_ckpt": "/home/chandmanisha00/fourcastnet/runs/phase0/final_eval/final_residual_v0/best_residual.pt",
+    "metrics_csv": "/home/chandmanisha00/fourcastnet/runs/phase0/final_eval/final_residual_v0/final_residual_v0_metrics.csv"
+  },
+  "not_skill_claims": [
+    "not FCN3 weight FT",
+    "not v1-diff / not CorrDiff",
+    "provisional_years=false",
+    "claim_level=final_candidate",
+    "g1_claimable=true (Leonard unlock 2026-09-27) \u2014 regional FINAL G1 candidate only",
+    "not global SOTA / not ops / not CorrDiff / no precip / no stations",
+    "thick-2 bridge report-only (not a second G1 path)",
+    "no HF / no weight overwrite"
+  ]
+}

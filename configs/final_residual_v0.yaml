@@ -1,0 +1,157 @@
+# FINAL residual v0 — Leonard FINAL_TRAIN_RECIPE.md (2026-09-22)
+# Manisha unlock: FINAL residual train GO.
+# Architecture = living v1_3_joint ElevCondResidualUNet; parallel residual (not leftover).
+# Do NOT overwrite runs/phase0/tier_a/v1_3_joint/. g1_claimable=true (Leonard unlock 2026-09-27; G1_CLAIMABLE_UNLOCK_CALL).
+
+schema: final_residual_v0_results/v1
+method: RRCA-FD_Plan_A_frozen_fcn3_residual_FINAL
+tier: A
+variant: final_residual_v0
+cut: final-residual-v0
+diffusion: false
+artifact_stem: final_residual_v0
+bars_set: final_eval
+holdout_expand: false
+
+locks:
+  geo_box_frozen: true
+  years_frozen: true
+  provisional_years: false
+  year_split_frozen: true
+  precip_in_v1: false
+  target: ERA5_CDS_audited
+  claim_level: final_candidate
+  g1_claimable: true
+  fcn3_weights: FROZEN
+  freeze_living_residual_v1_3_joint: true
+  freeze_final_baselines: true
+  freeze_protocol_ics: true
+  no_diffusion: true
+  no_fcn3_weight_ft: true
+  overwrite_forbidden:
+    - runs/phase0/tier_a/v1_3_joint/
+    - runs/phase0/tier_a/v1_2b_thick2_train/
+    - runs/phase0/final_eval/final_baselines.json
+    - docs/research/final_eval_protocol_ics.json
+    - docs/research/FINAL_EVAL_PROTOCOL.md
+    - docs/research/FINAL_EVAL_BARS_CALL.md
+    - docs/research/FINAL_TRAIN_RECIPE.md
+
+beat_this:
+  bars_set: final_eval
+  call: docs/research/FINAL_EVAL_BARS_CALL.md
+  recipe: docs/research/FINAL_TRAIN_RECIPE.md
+  protocol: docs/research/FINAL_EVAL_PROTOCOL.md
+  source: runs/phase0/final_eval/final_baselines.json
+  # A vs raw FCN3
+  A:
+    val_t2m_pooled_strict_lt: 2.099228718846139
+    test_t2m_pooled_strict_lt: 2.182564808439163
+    val_120h_t2m_raw_le: 2.2488412332039327
+    val_wv_strict_lt: 0.8903072718010457
+    test_wv_strict_lt: 0.9163507760768065
+    n_eligible_saves_ge: 1
+    reload: composite_eligible
+  # B vs Tier-0
+  B:
+    val_t2m_pooled_strict_lt: 2.0394764673534427
+    test_t2m_pooled_strict_lt: 2.104525111905597
+  # C vs living on FINAL protocol
+  C:
+    val_t2m_pooled_strict_lt: 1.9822262881728796
+    test_t2m_pooled_strict_lt: 1.9878256451936507
+    val_wv_strict_lt: 0.8451857725124596
+    test_wv_strict_lt: 0.8761290512975345
+  # Convenience aliases used by train helpers (C dominates t2m promote)
+  val_t2m_pooled_rmse_lin_strict_lt: 1.9822262881728796
+  val_headline_lt: 1.9822262881728796
+  test_t2m_pooled_rmse_lin_strict_lt: 1.9878256451936507
+  val_120h_t2m_rmse_raw_le: 2.2488412332039327
+  val_120h_rule: "val +120h t2m RMSE <= FINAL raw A3 (2.2488412332039327); composite reject if greater"
+  note: "PASS = A ∧ B ∧ C per FINAL_EVAL_BARS_CALL.md; no ε_protect; Leonard owns official call"
+
+protocol_ics:
+  path: ~/fourcastnet/docs/research/final_eval_protocol_ics.json
+  expected_hashes_sha256:
+    train: e119c288bfca9d170a1692cbc566948e3d21797d727b4b060f8c418c6ce9d86d
+    val: 42bffc2e3cad252a0b8217e6a2f8919e4b681aa17554a2c8591bee04a4b4c403
+    test: bd50f2fb85f25316fe0a90d1b92867fcb98bc4d5bc46c497169890eef4204828
+
+year_split:
+  status: LOCKED_FINAL_EVAL_PROTOCOL
+  train: "1980-2019"
+  val: "2020-2021"
+  test: "2022-2025"
+  exclude: "2026"
+  # IDs loaded + hash-verified from protocol_ics.path at runtime (fail hard on mismatch)
+  train_ids: []
+  val_ids: []
+  test_ids: []
+
+region:
+  lat_lon_box: {lon_west: 80.0, lon_east: 89.0, lat_south: 26.0, lat_north: 31.0}
+
+data:
+  pairs_dir: ~/fourcastnet/runs/phase0/final_eval/pairs
+  ic_manifest: ~/fourcastnet/data/final_eval_ics/final_eval_ic_manifest.json
+  elevation_mask: ~/fourcastnet/data/masks/w_R_elevation.nc
+  final_baselines: ~/fourcastnet/runs/phase0/final_eval/final_baselines.json
+  g0_verifying: ~/fourcastnet/runs/phase0/g0/g0_verifying_results.json
+  holdout_metrics: ~/fourcastnet/runs/phase0/final_eval/final_baselines.json
+  living_residual_ckpt: ~/fourcastnet/runs/phase0/tier_a/v1_3_joint/best_residual.pt
+  living_residual_md5_expected: c81a5a4c4f07ca0a52bb0bffee0045fa
+
+variables_in: [t2m, u10m, v10m]
+variables_out: [t2m, u10m, v10m]
+leads_h: [24, 72, 120]
+report_leads_h: [24, 48, 72, 96, 120]
+
+model:
+  name: ElevCondResidualUNet
+  in_channels: 5
+  out_channels: 3
+  base_channels: 16
+  depth: 3
+  cond_dim: 2
+  dropout: 0.20
+  approx_params: "≈0.17M (same as v1_3_joint)"
+
+train:
+  epochs_smoke: 30
+  epochs_full: 400
+  batch_size: 8
+  lr: 5.0e-4
+  weight_decay: 1.0e-3
+  seed: 42
+  loss: mse_residual_elev_weighted_lead_weighted
+  lead_balance: true
+  w_120: 2.0
+  lead_weights:
+    24: 1.0
+    72: 1.0
+    120: 2.0
+  channel_weights: [1.5, 1.5, 1.5]
+  ckpt_select: composite
+  composite:
+    primary: lead_mean
+    constraint: val_120h_le_raw
+    reject_if_constraint_fails: true
+    also_track_pooled: true
+  raw_val_120h_t2m_rmse: 2.2488412332039327
+  early_stop_patience: 80
+  elev_weight_boost: 1.5
+  device_smoke: cpu
+  device_full: cuda
+
+output_dir: ~/fourcastnet/runs/phase0/final_eval/final_residual_v0
+
+notes:
+  parent_call: docs/research/FINAL_TRAIN_RECIPE.md
+  bars_call: docs/research/FINAL_EVAL_BARS_CALL.md
+  protocol: docs/research/FINAL_EVAL_PROTOCOL.md
+  living_frozen: runs/phase0/tier_a/v1_3_joint/
+  honesty: >
+    FINAL residual v0 = parallel ElevCondResidualUNet retrain on FINAL years/ICs
+    with channel_weights [1.5,1.5,1.5], w_120=2.0, composite reject vs raw A3.
+    NOT leftover-of-living; NOT diffusion; NOT FCN3 FT; g1_claimable=true per unlock 2026-09-27; was false until
+    Leonard PASS + Manisha promote. Thick-2 bridge is report-only.
