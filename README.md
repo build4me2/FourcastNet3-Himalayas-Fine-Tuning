@@ -2,107 +2,69 @@
 
 Regional fine-tuning and evaluation of **[NVIDIA FourCastNet 3 (FCN3)](https://huggingface.co/nvidia/fourcastnet3)** for improved probabilistic weather skill over **Nepal, the Hindu Kush–Himalaya (HKH), and neighboring South Asian terrain**.
 
-FCN3 is a global, probabilistic, spherical neural-operator model (72 atmospheric variables at 0.25°, 6-hour steps, spatial + spectral CRPS). This repository does **not** retrain FCN3 from scratch. It builds a **Spark-feasible** adaptation stack that preserves FCN3’s probabilistic behavior while targeting known regional weaknesses over complex orography.
+This repository does **not** retrain FCN3 from scratch. It documents a **Spark-feasible** adaptation stack (RRCA-FD) that keeps FCN3 frozen and trains an elevation-conditioned regional residual.
 
 | | |
 |---|---|
 | **Base model** | [`nvidia/fourcastnet3`](https://huggingface.co/nvidia/fourcastnet3) (Apache-2.0) |
-| **Paper** | [FourCastNet 3](https://arxiv.org/abs/2507.12144) |
-| **Inference stack** | [Earth2Studio](https://github.com/NVIDIA/earth2studio) / Makani |
+| **Paper (upstream)** | [FourCastNet 3](https://arxiv.org/abs/2507.12144) |
 | **Method** | **RRCA-FD** — Regionally Reweighted CRPS Adapter + Frozen Diagnostic |
 | **Hardware** | 2× NVIDIA DGX Spark (128 GB unified memory each) |
-| **Domain (v1)** | 26–31°N, 80–89°E · focus: **t2m & winds** (precip later) |
+| **Domain (locked)** | 26–31°N, 80–89°E · focus: **t2m & 10 m winds** |
+| **Living residual** | `runs/phase0/final_eval/final_residual_v0/` · `best_residual.pt` md5 **`586ab17b843757bb84e66e2e3af8dc01`** |
+| **HF weights** | https://huggingface.co/build4me2/fcn3-nepal-final-residual-v0 |
+| **Claim** | Regional **FINAL G1 candidate** — PASS **A∧B∧C**; **`g1_claimable=true`** (2026-09-27) |
+
+Exact headlines (FINAL protocol 320/64/64 · gate leads 24/72/120): val/test t2m **1.819863 / 1.856390**; val +120 h **2.010414**; val/test wind-vector lead-mean **0.800354 / 0.825004**.  
+(source: `FINAL_RESIDUAL_V0_CALL.md`, `final_residual_v0_results.json`)
 
 ---
 
-## Motivation
+## Documentation (six living docs)
 
-Global ML weather models often underperform over steep mountain terrain. Public FCN-family regional fine-tunes are sparse for FCN3 specifically; full multi-step ensemble weight fine-tuning is not practical on two Sparks. This project designs and validates a **parameter-efficient, quality-gated** path:
+| Doc | Contents |
+|-----|----------|
+| [`docs/01_PLAN.md`](docs/01_PLAN.md) | Goals, RRCA-FD tiers, gates, FINAL locks, scope boundary |
+| [`docs/02_DATA.md`](docs/02_DATA.md) | Box, ERA5 coverage, year splits, IC protocol |
+| [`docs/03_METHOD_AND_CODE.md`](docs/03_METHOD_AND_CODE.md) | ElevCond residual, training knobs, code/config map |
+| [`docs/04_RESULTS.md`](docs/04_RESULTS.md) | Measured FINAL results, bars, failures, claims / non-claims |
+| [`docs/05_IMPLEMENTATION_HISTORY.md`](docs/05_IMPLEMENTATION_HISTORY.md) | Chronology with **plan vs outcome**; failures preserved |
+| [`docs/archive/SOURCE_MAP.md`](docs/archive/SOURCE_MAP.md) | Archive map of superseded sources |
 
-1. **Frozen FCN3** global rollouts (integrity gate **G0**)
-2. **Tier-0** elevation-aware bias baselines
-3. **Tier-A** regional residual / diagnostic models (CorrDiff / StormCast–lite style)
-4. Optional later **Tier-B** PEFT on FCN3 weights (gated; not default)
-
-Honesty rule: Tier-A skill is **not** labeled “FCN3 weight fine-tune” unless Tier-B criteria pass.
+Superseded call cards, research design packs, and agent ops notes live under [`docs/archive/`](docs/archive/) (**never deleted**).
 
 ---
 
 ## Repository layout
 
 ```text
-code/           Phase 0 bring-up, Tier-0, Tier-A training & eval
-configs/        YAML for boxes, ICs, Tier-0 / Tier-A runs
-docs/           Research design + eng notes + call cards
-runs/phase0/    Small gate / metrics JSON (no weights or ERA5 dumps)
+code/           Phase 0, Tier-0/A, FINAL residual train & eval
+configs/        YAML for box, ICs, Tier-0 / Tier-A / FINAL
+docs/           Six living docs + archive/
+runs/phase0/    Metrics JSON / small gate artifacts (no .pt in git)
 ```
 
-| Path | Description |
-|------|-------------|
-| [`docs/00-pathway/`](docs/00-pathway/) | Project pathway & status tracking |
-| [`docs/01-method/`](docs/01-method/) | RRCA-FD method design |
-| [`docs/02-background/`](docs/02-background/) | FCN3 training data/method, regional gap, prior fine-tunes |
-| [`docs/03-compute/`](docs/03-compute/) | Feasibility on 2× DGX Spark |
-| [`docs/04-gates/`](docs/04-gates/) | G0 / Tier-0 evaluation recipes |
-| [`docs/eng/`](docs/eng/) | Live Spark tree vs this git tree |
-| [`docs/calls/`](docs/calls/) | Experiment call notes & freeze cards |
-| [`docs/reports/`](docs/reports/) | Human-readable gate reports |
-| [`code/README.md`](code/README.md) | How to run Phase 0 / Tier-A |
-
-**Not in git** (kept on compute hosts only): ERA5 crops, IC `.npy` files, model checkpoints, pair tensors, virtualenvs, API secrets (`.cdsapirc`, `.env`).
+**Not in git:** ERA5 crops, IC arrays, `*.pt` checkpoints, pair tensors, virtualenvs, CDS secrets.
 
 ---
 
-## Status (snapshot)
+## Hard non-claims
 
-| Component | State |
-|-----------|--------|
-| G0 (global integrity) | Verifying-ERA5 path **PASS**-claimable under published bars |
-| Tier-0 bias | Expand holdout **beat-this** bars frozen |
-| Tier-A | **v1.1** interim PASS on expand protocol; **v0** remains thin-set test reference |
-| Diffusion / CorrDiff-heavy | Held until thick-set plateau / explicit go |
-| Train/val/test years | Policy locked (~80/20 block-level); calendar years not hard-locked |
-
-For the latest eng recommendation, see [`docs/calls/FCN_STATUS_AND_NEXT.md`](docs/calls/FCN_STATUS_AND_NEXT.md).
+Not global WeatherBench-2 / FCN3 SOTA · not operational NWP replacement · not CorrDiff/diffusion parity · no precip claim · no station/IMDAA claim for living FINAL.  
+Thick-2 bridge scores are **report-only** continuity (not a second G1 path).  
+(source: `G1_CLAIMABLE_UNLOCK_CALL.md`, `FINAL_RESIDUAL_V0_CALL.md`)
 
 ---
 
 ## Getting started
 
-1. Read the pathway: [`docs/00-pathway/FINETUNE_PATHWAY.md`](docs/00-pathway/FINETUNE_PATHWAY.md)
-2. Skim the method: [`docs/01-method/FINETUNE_METHOD_DESIGN.md`](docs/01-method/FINETUNE_METHOD_DESIGN.md)
-3. Follow eng entrypoints: [`code/README.md`](code/README.md)
-
-Typical Phase 0 flow (on a configured Spark / FCN environment):
-
-```bash
-source ~/fcn3-venv/bin/activate   # or project venv
-cd /path/to/fourcastnet3-finetune
-
-python code/phase0/env_smoke.py
-python code/phase0/load_norms.py
-# Global ICs, G0, Tier-0, Tier-A — see code/README.md
-```
-
-Coordinate long GPU jobs with your cluster ops. Do not delete or interrupt active ERA5 downloads.
-
----
-
-## Design locks (v1)
-
-| Decision | Value |
-|----------|--------|
-| Geographic box | 26–31°N, 80–89°E |
-| Primary skill | 2 m temperature and winds first |
-| Data split | ~80% train / ~20% test, **block-level** random (no adjacent-frame leakage); test ≥15–20% |
-| Data intent | ERA5 through latest available tip (crop + FCN3 channels) |
-| Primary technique | RRCA-FD Plan A; Plan B gated |
+1. Read [`docs/01_PLAN.md`](docs/01_PLAN.md) then [`docs/04_RESULTS.md`](docs/04_RESULTS.md).
+2. Eng entrypoints: [`code/`](code/) + configs under `configs/`.
+3. Weights: Hugging Face link above (md5 must match `586ab17b843757bb84e66e2e3af8dc01`).
 
 ---
 
 ## Citation & upstream
-
-If you use FCN3, please cite the FourCastNet 3 paper and follow NVIDIA’s model card / Earth2Studio guidance:
 
 - Assran et al. / NVIDIA — [arXiv:2507.12144](https://arxiv.org/abs/2507.12144)
 - [Hugging Face — nvidia/fourcastnet3](https://huggingface.co/nvidia/fourcastnet3)
@@ -114,4 +76,4 @@ This repository is an independent regional-adaptation research project built **o
 
 ## License
 
-Code and project documentation in this repository: see license terms of included files and upstream FCN3 (Apache-2.0) for the base weights. Do not redistribute proprietary ERA5 extracts from private storage.
+Project docs/code: see included file terms. Upstream FCN3 weights: Apache-2.0. Do not redistribute proprietary ERA5 extracts from private storage.

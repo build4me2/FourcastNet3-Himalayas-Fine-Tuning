@@ -71,3 +71,7 @@ REFERENCE.md
 .cursor/
 .claude/
 AGENTS.md
+
+# Allow archived agent ops (consolidation 2026-09-27)
+!docs/archive/agent/
+!docs/archive/agent/**
