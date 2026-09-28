@@ -29,9 +29,8 @@ Exact headlines (FINAL protocol 320/64/64 · gate leads 24/72/120): val/test t2m
 | [`docs/03_METHOD_AND_CODE.md`](docs/03_METHOD_AND_CODE.md) | ElevCond residual, training knobs, code/config map |
 | [`docs/04_RESULTS.md`](docs/04_RESULTS.md) | Measured FINAL results, bars, failures, claims / non-claims |
 | [`docs/05_IMPLEMENTATION_HISTORY.md`](docs/05_IMPLEMENTATION_HISTORY.md) | Chronology with **plan vs outcome**; failures preserved |
-| [`docs/archive/SOURCE_MAP.md`](docs/archive/SOURCE_MAP.md) | Archive map of superseded sources |
 
-Superseded call cards, research design packs, and agent ops notes live under [`docs/archive/`](docs/archive/) (**never deleted**).
+These six files are the **only** markdown documents kept in this repository.
 
 ---
 
@@ -40,7 +39,7 @@ Superseded call cards, research design packs, and agent ops notes live under [`d
 ```text
 code/           Phase 0, Tier-0/A, FINAL residual train & eval
 configs/        YAML for box, ICs, Tier-0 / Tier-A / FINAL
-docs/           Six living docs + archive/
+docs/           Six living docs only (01–05)
 runs/phase0/    Metrics JSON / small gate artifacts (no .pt in git)
 ```
 

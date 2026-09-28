@@ -73,7 +73,7 @@ Membership rule: IC **calendar year** determines split. No Dec(Y−1) pulled int
 | Val | 64 | `42bffc2e3cad252a0b8217e6a2f8919e4b681aa17554a2c8591bee04a4b4c403` |
 | Test | 64 | `bd50f2fb85f25316fe0a90d1b92867fcb98bc4d5bc46c497169890eef4204828` |
 
-Full ID lists: archived `final_eval_protocol_ics.json` (also under `docs/archive/research/` / `calls/`).  
+Full ID lists: `final_eval_protocol_ics.json` (Spark / local protocol artifact; not in git).  
 Freeze echo MD5 of that JSON from FINAL residual results: **`7de70ec8a0b5b1e7f77ae21660751a51`**.  
 (source: `FINAL_EVAL_PROTOCOL.md`, `FINAL_RESIDUAL_V0_CALL.md`, `final_residual_v0_results.json`)
 

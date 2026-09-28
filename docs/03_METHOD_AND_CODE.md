@@ -95,7 +95,6 @@ Independent verify used `metrics.*.rmse_tier_a` / `wind_vector.*.lead_mean` agai
 Prior interim weights: `runs/phase0/tier_a/v1_3_joint/` · md5 **`c81a5a4c4f07ca0a52bb0bffee0045fa`** · **do not overwrite**.  
 (source: `LIVING_INDEX.md`, `HF_RELEASE_FINAL_RESIDUAL_V0.md`, `FINAL_RESIDUAL_V0_CALL.md`)
 
-## 6. Recipe references (archived)
+## 6. Recipe references
 
-Authoritative recipe/call cards now under `docs/archive/research/` (and identical `docs/archive/calls/` mirrors where present):  
-`FINAL_TRAIN_RECIPE.md`, `FINAL_EVAL_PROTOCOL.md`, `FINAL_EVAL_BARS_CALL.md`, `FINAL_RESIDUAL_V0_CALL.md`, `TIER_A_V1_3_JOINT_RECIPE.md`.
+Authoritative training/eval details for the living FINAL residual are summarized in this file and in `docs/04_RESULTS.md` / `docs/05_IMPLEMENTATION_HISTORY.md`. Historical call cards (`FINAL_TRAIN_RECIPE`, `FINAL_EVAL_PROTOCOL`, `FINAL_RESIDUAL_V0_CALL`, `TIER_A_V1_3_JOINT_RECIPE`, etc.) were removed from git after consolidation; keep local/Spark backups if needed for provenance.

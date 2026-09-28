@@ -95,14 +95,14 @@ At promote echo, status docs still carried **`g1_claimable=false`** until unlock
 
 | Plan | Outcome |
 | --- | --- |
-| Collapse sprawl into six living docs; archive never delete | See `docs/archive/SOURCE_MAP.md`; branch `docs/consolidate-six-clean-docs` |
+| Collapse sprawl into six living docs | PR #11 merged (`docs/consolidate-six-clean-docs`); follow-up commit keeps **only** the six living `.md` files in git (archive and other markdown removed from repo; offline backup retained outside git) |
 
 ## Failures that must remain visible
 
 1. **v1.2 FAIL** — +120 h miss.  
 2. **v1-diff NULL** — leftover-diff does not beat residual.  
 3. **Thick-2 bridge** — FINAL ckpt worse on interim thick-2 t2m vs `v1_3_joint` (continuity honesty, not FINAL FAIL).  
-4. **Stale doc pointers** — `PROJECT_SCOPE_AND_HISTORY.md` / parts of pathway dashboard / STATUS “no HF” line — archived with conflict notes rather than silently rewritten as if always current.
+4. **Stale doc pointers** — older `PROJECT_SCOPE_AND_HISTORY` / pathway dashboard / STATUS “no HF” lines were superseded by living docs rather than silently rewritten as if always current.
 
 ## Main tip SHAs (repo `FourcastNet3-Himalayas-Fine-Tuning` at consolidation start)
 
