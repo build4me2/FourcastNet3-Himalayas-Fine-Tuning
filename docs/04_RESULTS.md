@@ -11,7 +11,7 @@
 | Protocol | FINAL · ICs **320/64/64** · years **1980–2019 / 2020–2021 / 2022–2025** · leads **24/72/120** |
 | Architecture | Frozen FCN3 + ElevCondResidualUNet parallel residual |
 | Checkpoint MD5 | **`586ab17b843757bb84e66e2e3af8dc01`** |
-| HF | https://huggingface.co/build4me2/fcn3-nepal-final-residual-v0 |
+| HF | https://huggingface.co/build4me2/fcn3-himalayas-final-residual-v0 (Apache-2.0; `base_model: nvidia/fourcastnet3`, adapter) |
 | `final_g1_candidate_pass` | **YES** (A ∧ B ∧ C) |
 | `g1_claimable` | **`true`** (Leonard unlock 2026-09-27) |
 
@@ -58,7 +58,7 @@ OK (with protocol citation):
 
 1. **G1 candidate (regional FINAL):** On the locked FINAL eval protocol, `final_residual_v0` clears A∧B∧C vs raw FCN3, Tier-0 t2m, and prior living residual scored on the same FINAL ICs.
 2. Headline numbers above (FINAL protocol only).
-3. Method label: frozen FCN3 + ElevCondResidualUNet residual (joint t2m+u10m+v10m), Nepal box, CDS ERA5 truth.
+3. Method label: frozen FCN3 + ElevCondResidualUNet residual (joint t2m+u10m+v10m), Nepal box 26–31°N / 80–89°E (central Himalaya only), CDS ERA5 truth.
 
 (source: `G1_CLAIMABLE_UNLOCK_CALL.md`)
 

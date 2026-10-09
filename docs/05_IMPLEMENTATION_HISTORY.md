@@ -87,7 +87,7 @@ At promote echo, status docs still carried **`g1_claimable=false`** until unlock
 
 | Plan | Outcome |
 | --- | --- |
-| Manisha unlock claim flip; optional HF | **`g1_claimable=true`**; HF public model `build4me2/fcn3-nepal-final-residual-v0`; GitHub sync PR #10 merge + follow-up docs commits |
+| Manisha unlock claim flip; optional HF | **`g1_claimable=true`**; HF public model `build4me2/fcn3-nepal-final-residual-v0` (renamed 2026-10-09 to `build4me2/fcn3-himalayas-final-residual-v0`; HF redirects the old id); GitHub sync PR #10 merge + follow-up docs commits |
 
 (source: `G1_CLAIMABLE_UNLOCK_CALL.md`, `HF_RELEASE_FINAL_RESIDUAL_V0.md`, git `74d3971` / `9ee744f` / `3abc9da`)
 
@@ -96,6 +96,12 @@ At promote echo, status docs still carried **`g1_claimable=false`** until unlock
 | Plan | Outcome |
 | --- | --- |
 | Collapse sprawl into six living docs | PR #11 merged (`docs/consolidate-six-clean-docs`); follow-up commit keeps **only** the six living `.md` files in git (archive and other markdown removed from repo; offline backup retained outside git) |
+
+### 2026-10-09 — Himalayas naming + HF model card
+
+| Plan | Outcome |
+| --- | --- |
+| Rename public model, link to FCN3 model tree, relicense adapter | HF repo moved to `build4me2/fcn3-himalayas-final-residual-v0`; model card rewritten (Apache-2.0, `base_model: nvidia/fourcastnet3`, `base_model_relation: adapter`); `best_residual.pt` unchanged (md5 `586ab17b843757bb84e66e2e3af8dc01`). Region unchanged: 26–31°N / 80–89°E only. Code identifiers and file names (e.g. `configs/phase0_nepal_box.yaml`) unchanged. |
 
 ## Failures that must remain visible
 
