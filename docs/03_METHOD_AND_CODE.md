@@ -90,7 +90,7 @@ Independent verify used `metrics.*.rmse_tier_a` / `wind_vector.*.lead_mean` agai
 | Results JSON | `.../final_residual_v0_results.json` |
 | Metrics CSV | `.../final_residual_v0_metrics.csv` |
 | Thick-2 bridge JSON | `.../thick2_bridge_results.json` (report-only) |
-| Public HF | https://huggingface.co/build4me2/fcn3-nepal-final-residual-v0 |
+| Public HF | https://huggingface.co/build4me2/fcn3-himalayas-final-residual-v0 (Apache-2.0; `base_model: nvidia/fourcastnet3`, adapter) |
 
 Prior interim weights: `runs/phase0/tier_a/v1_3_joint/` · md5 **`c81a5a4c4f07ca0a52bb0bffee0045fa`** · **do not overwrite**.  
 (source: `LIVING_INDEX.md`, `HF_RELEASE_FINAL_RESIDUAL_V0.md`, `FINAL_RESIDUAL_V0_CALL.md`)

@@ -1,6 +1,8 @@
-# FourCastNet3 — Nepal / Himalaya Regional Adaptation
+# FourCastNet3 Himalayas Regional Adaptation
 
-Regional fine-tuning and evaluation of **[NVIDIA FourCastNet 3 (FCN3)](https://huggingface.co/nvidia/fourcastnet3)** for improved probabilistic weather skill over **Nepal, the Hindu Kush–Himalaya (HKH), and neighboring South Asian terrain**.
+Regional fine-tuning and evaluation of **[NVIDIA FourCastNet 3 (FCN3)](https://huggingface.co/nvidia/fourcastnet3)** over a Nepal-centered central Himalayan domain.
+
+**Region:** all training and evaluation use only the box **26–31°N, 80–89°E** (Nepal and immediately adjacent central Himalaya). "Himalayas" in the project name refers to this domain; no skill is claimed for the Himalayas as a whole, the Karakoram, Hindu Kush, eastern Himalaya, Tibetan Plateau, or South Asia more broadly.
 
 This repository does **not** retrain FCN3 from scratch. It documents a **Spark-feasible** adaptation stack (RRCA-FD) that keeps FCN3 frozen and trains an elevation-conditioned regional residual.
 
@@ -12,10 +14,10 @@ This repository does **not** retrain FCN3 from scratch. It documents a **Spark-f
 | **Hardware** | 2× NVIDIA DGX Spark (128 GB unified memory each) |
 | **Domain (locked)** | 26–31°N, 80–89°E · focus: **t2m & 10 m winds** |
 | **Living residual** | `runs/phase0/final_eval/final_residual_v0/` · `best_residual.pt` md5 **`586ab17b843757bb84e66e2e3af8dc01`** |
-| **HF weights** | https://huggingface.co/build4me2/fcn3-nepal-final-residual-v0 |
+| **HF weights** | [`build4me2/fcn3-himalayas-final-residual-v0`](https://huggingface.co/build4me2/fcn3-himalayas-final-residual-v0) — residual adapter, Apache-2.0, `base_model: nvidia/fourcastnet3` (listed as an adapter in the FCN3 model tree) |
 | **Claim** | Regional **FINAL G1 candidate** — PASS **A∧B∧C**; **`g1_claimable=true`** (2026-09-27) |
 
-Exact headlines (FINAL protocol 320/64/64 · gate leads 24/72/120): val/test t2m **1.819863 / 1.856390**; val +120 h **2.010414**; val/test wind-vector lead-mean **0.800354 / 0.825004**.  
+Exact headlines (FINAL protocol 320/64/64 · gate leads 24/72/120): val/test t2m RMSE **1.819863 / 1.856390 K**; val +120 h t2m **2.010414 K**; val/test wind-vector lead-mean RMSE **0.800354 / 0.825004 m/s**. Raw FCN3 on the same ICs: val/test t2m **2.099229 / 2.182565 K**; val +120 h **2.248841 K**; val/test wind-vector **0.890307 / 0.916351 m/s**.  
 (source: `FINAL_RESIDUAL_V0_CALL.md`, `final_residual_v0_results.json`)
 
 ---
@@ -49,7 +51,14 @@ runs/phase0/    Metrics JSON / small gate artifacts (no .pt in git)
 
 ## Hard non-claims
 
-Not global WeatherBench-2 / FCN3 SOTA · not operational NWP replacement · not CorrDiff/diffusion parity · no precip claim · no station/IMDAA claim for living FINAL.  
+- Not global WeatherBench-2 / FCN3 SOTA.
+- Not an operational NWP replacement.
+- Not CorrDiff / diffusion parity.
+- No precipitation claim.
+- No station / IMDAA validation for the living FINAL model.
+- No coverage or skill claim outside 26–31°N, 80–89°E.
+- Not a glacier-collapse or GLOF predictor.
+  
 Thick-2 bridge scores are **report-only** continuity (not a second G1 path).  
 (source: `G1_CLAIMABLE_UNLOCK_CALL.md`, `FINAL_RESIDUAL_V0_CALL.md`)
 
@@ -65,7 +74,7 @@ Thick-2 bridge scores are **report-only** continuity (not a second G1 path).
 
 ## Citation & upstream
 
-- Assran et al. / NVIDIA — [arXiv:2507.12144](https://arxiv.org/abs/2507.12144)
+- Bonev, Kurth, et al. (2025), *FourCastNet 3: A geometric approach to probabilistic machine-learning weather forecasting at scale* — [arXiv:2507.12144](https://arxiv.org/abs/2507.12144)
 - [Hugging Face — nvidia/fourcastnet3](https://huggingface.co/nvidia/fourcastnet3)
 - [Earth2Studio](https://github.com/NVIDIA/earth2studio)
 
@@ -75,4 +84,7 @@ This repository is an independent regional-adaptation research project built **o
 
 ## License
 
-Project docs/code: see included file terms. Upstream FCN3 weights: Apache-2.0. Do not redistribute proprietary ERA5 extracts from private storage.
+- **Residual adapter weights on Hugging Face** ([`build4me2/fcn3-himalayas-final-residual-v0`](https://huggingface.co/build4me2/fcn3-himalayas-final-residual-v0)): Apache-2.0.
+- **This GitHub repository:** no LICENSE file is currently included.
+- **Upstream FCN3 weights** ([`nvidia/fourcastnet3`](https://huggingface.co/nvidia/fourcastnet3)): Apache-2.0.
+- ERA5 data remain under Copernicus terms; do not redistribute ERA5 extracts from private storage.

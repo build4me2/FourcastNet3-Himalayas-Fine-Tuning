@@ -6,7 +6,7 @@
 
 ## 1. Goal (locked)
 
-Regional **probabilistic** skill over Nepal / HKH / adjacent South Asian orography — elevated t2m and near-surface winds first — while **preserving** FCN3 quality invariants (probabilistic 6 h spherical ensembles, 72-channel state, anisotropic + spectral operators, spatial + spectral CRPS discipline).  
+Regional **probabilistic** skill over the Nepal-centered central Himalayan box (26–31°N / 80–89°E) — elevated t2m and near-surface winds first — while **preserving** FCN3 quality invariants (probabilistic 6 h spherical ensembles, 72-channel state, anisotropic + spectral operators, spatial + spectral CRPS discipline).  
 (source: `FINETUNE_METHOD_DESIGN.md`, `REFERENCE.md`)
 
 ## 2. Non-goals
@@ -52,7 +52,7 @@ Invariants I1–I6 (probabilistic map, one-step HMM members, 72-ch + aux, anisot
 
 | Item | Value |
 | --- | --- |
-| Box | 26–31°N / 80–89°E |
+| Box | 26–31°N / 80–89°E (Nepal-centered central Himalaya; no claim beyond this box) |
 | Years | Train **1980–2019** / Val **2020–2021** / Test **2022–2025** |
 | ICs | **320 / 64 / 64** (`final_eval_protocol_ics.json`) |
 | Gate leads | +24 / +72 / +120 h |
@@ -68,7 +68,7 @@ Thick-2 / year-hard-lock: train **2018–2021** / val **2022** / test **2023–2
 
 ## 6. Scope boundary
 
-**In scope:** FCN3 Nepal residual fine-tune claim tree (this repo / Spark `~/fourcastnet`).  
+**In scope:** FCN3 Himalayas (Nepal box, 26–31°N / 80–89°E) residual fine-tune claim tree (this repo / Spark `~/fourcastnet`).  
 **Out of scope for FCN narrative:** Idea1 glacial-lake / GEE / pre-wipe Spark archaeology (2026-09-10).  
 (source: `PROJECT_SCOPE_AND_HISTORY.md`)  
 **[CONFLICT:]** that scope file still points living → `v1_3_joint/` and `g1_claimable=false` (stale vs 2026-09-27 living). Living plan uses FINAL residual v0 + unlock call.
@@ -80,7 +80,7 @@ Thick-2 / year-hard-lock: train **2018–2021** / val **2022** / test **2023–2
 | Bring up Phase 0 → Tier-0 → Tier-A on Spark | Done through FINAL residual v0 |
 | Freeze box + years | Box + FINAL years locked; interim years separately locked |
 | FINAL suite after ERA5 audit | Protocol + bars frozen; residual trained; A∧B∧C PASS |
-| Promote + claim carefully | Living promoted; `g1_claimable=true`; HF published for residual weights |
+| Promote + claim carefully | Living promoted; `g1_claimable=true`; HF published for residual weights ([`build4me2/fcn3-himalayas-final-residual-v0`](https://huggingface.co/build4me2/fcn3-himalayas-final-residual-v0), Apache-2.0, `base_model: nvidia/fourcastnet3`) |
 
 Stale rows inside `FINETUNE_PATHWAY.md` “tracking dashboard” still say training/eval not started — **ignore those rows** relative to the living header and call cards.  
 (source: `FINETUNE_PATHWAY.md` header vs dashboard; `LEDGER_CONFLICTS.md`)
