@@ -40,6 +40,8 @@ These six files are the **only** markdown documents kept in this repository.
 
 ```text
 code/           Phase 0, Tier-0/A, FINAL residual train & eval
+fcn3_himalayas/ Installable one-command runner (`fcn3-himalayas` CLI, pyproject.toml)
+examples/       Plot example for the runner
 configs/        YAML for box, ICs, Tier-0 / Tier-A / FINAL
 docs/           Six living docs only (01–05)
 runs/phase0/    Metrics JSON / small gate artifacts (no .pt in git)
@@ -61,6 +63,32 @@ runs/phase0/    Metrics JSON / small gate artifacts (no .pt in git)
   
 Thick-2 bridge scores are **report-only** continuity (not a second G1 path).  
 (source: `G1_CLAIMABLE_UNLOCK_CALL.md`, `FINAL_RESIDUAL_V0_CALL.md`)
+
+---
+
+## Quickstart — one-command forecast (v0.1.0)
+
+Runs frozen FCN3 from an ERA5 initial condition, crops to **26–31°N, 80–89°E**, applies the published adapter, and writes NetCDF.
+
+```bash
+python -m venv fcn3h && source fcn3h/bin/activate
+pip install torch                      # pick the CUDA build for your GPU from pytorch.org first
+pip install "fcn3-himalayas @ git+https://github.com/build4me2/FourcastNet3-Himalayas-Fine-Tuning@v0.1.0"
+fcn3-himalayas forecast --init 2024-07-01T00 --lead 120 --out out.nc
+```
+
+What it does (same code path as the FINAL eval; see `docs/03_METHOD_AND_CODE.md` §7):
+
+- **FCN3:** official [Earth2Studio](https://github.com/NVIDIA/earth2studio) loader `FCN3.load_model(FCN3.load_default_package())` → weights from [`hf://nvidia/fourcastnet3`](https://huggingface.co/nvidia/fourcastnet3) (~2.8 GB, cached under `~/.cache/earth2studio/fcn3`). Fixed FCN3 noise seed 333 (the eval seed), single member.
+- **Initial conditions:** ERA5 from the public **ARCO ERA5** Zarr on Google Cloud (`gs://gcp-public-data-arco-era5`, via `earth2studio.data.ARCO`) — **no account or API key**. ERA5 has a few days' latency, so use past dates only. This is the same source used to stage the FINAL-eval ICs.
+- **Adapter:** `best_residual.pt` from [`build4me2/fcn3-himalayas-final-residual-v0`](https://huggingface.co/build4me2/fcn3-himalayas-final-residual-v0) via `hf_hub_download` (md5 checked: `586ab17b843757bb84e66e2e3af8dc01`).
+- **Output** (`out.nc`, 21×37 at 0.25°, dims `lead_time` (h) × `lat` × `lon`): `t2m_raw`, `t2m_corrected` (K), `u10m_raw`, `u10m_corrected`, `v10m_raw`, `v10m_corrected` (m/s), `elevation` (m), coord `valid_time`. Default leads +24…+120 h every 24 h (`--lead` 24–120, `--every` multiple of 6). The adapter was trained/gated on +24/+72/+120 h only; other leads are reported but not part of the measured claim.
+- **Options:** `--device auto|cuda|cpu`, `--ic-npy` (own global 72×721×1440 IC), `--fcn3-package` / `--adapter` (local copies).
+- **Hardware (measured on DGX Spark / GB10):** peak CUDA allocation ≈49 GiB for a 120 h rollout, so FCN3 needs a large-memory GPU; it does **not** fit a 16 GB Colab T4 in this configuration. One 120 h forecast took ≈7 min end-to-end on Spark, and its output matched the FINAL eval pipeline (raw identical, corrected ≤3e-5 K; `docs/03_METHOD_AND_CODE.md` §7.1). CPU was not tested.
+- **Important:** build torch-harmonics with its CUDA extension (`FORCE_CUDA_EXTENSION=1 pip install --no-build-isolation torch-harmonics`). Without it, FCN3 is much slower; in a fresh venv on Spark the load stalled for more than 20 min.
+- **Example plot:** `pip install "fcn3-himalayas[plot] @ git+…@v0.1.0"` then `python examples/plot_forecast.py --init 2024-07-01T00` → `t2m_raw_vs_corrected.png`.
+
+Skill claims apply only to this box and the FINAL protocol numbers above; a single forecast is not a validation.
 
 ---
 
