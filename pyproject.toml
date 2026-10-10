@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fcn3-himalayas"
+version = "0.1.0"
+description = "One-command FourCastNet3 + Himalayas residual adapter forecast (26-31N, 80-89E)"
+license = { text = "Apache-2.0" }
+requires-python = ">=3.10"
+dependencies = [
+  "earth2studio[fcn3]>=0.10,<0.19",
+  "makani @ git+https://github.com/NVIDIA/makani.git@b38fcb2799d7dbc146fa60459f3f9823394a8bf1",
+  "torch>=2.4",
+  "huggingface_hub>=0.24",
+  "xarray>=2024.1",
+  "netCDF4>=1.6",
+  "gcsfs>=2024.1",
+  "zarr>=2.18",
+  "numpy",
+]
+
+[project.optional-dependencies]
+plot = ["matplotlib"]
+
+[project.scripts]
+fcn3-himalayas = "fcn3_himalayas.cli:main"
+
+[tool.setuptools]
+packages = ["fcn3_himalayas"]
+
+[tool.setuptools.package-data]
+fcn3_himalayas = ["data/*.npz"]
