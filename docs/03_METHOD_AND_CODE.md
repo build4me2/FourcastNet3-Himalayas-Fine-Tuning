@@ -135,9 +135,10 @@ The README Quickstart was followed in a new `~/fcn3h-clean-venv` (torch 2.14.1 f
 
 1. v0.1.0 was missing `fcn3_himalayas/data/box_elevation.npz` from git because `.gitignore` excludes `**/*.npz`, so the CLI failed with FileNotFoundError. **Fixed in v0.1.1.**
 2. `FORCE_CUDA_EXTENSION=1 pip install --no-build-isolation torch-harmonics` was a no-op because the package was already installed; `--force-reinstall --no-deps` is needed.
-3. PyPI torch-harmonics 0.8.0 with the CUDA extension ran fine (load 50 s, total 178 s) but did **not** reproduce the eval: raw t2m max abs diff 6.4 K at +24 h and 14.5 K at +96 h. The eval env uses torch-harmonics git `a632ca7` (0.8.1). v0.1.1 pins that commit.
+3. PyPI torch-harmonics 0.8.0 with the CUDA extension ran fine (load 50 s, total 178 s) but did **not** reproduce the eval: raw t2m max abs diff 6.4 K at +24 h and 14.5 K at +96 h. The eval env uses torch-harmonics git `a632ca7` (0.8.1). The v0.1.1 README rebuild step installs that commit, and the runner warns if a different version or no CUDA extension is detected. A git pin in `pyproject.toml` was tried and dropped because pip cannot build torch-harmonics in an isolated build environment (`NameError: CppExtension`).
 4. Rebuilding at `a632ca7` with the extension (4.6 min compile) reproduced the eval exactly: raw max abs diff 0 at all leads, corrected ≤ 3e-5 K. FCN3 load took 30 s, IC 25 s and the rollout 104 s (159 s total, 162 s wall); peak CUDA allocation 49.0 GiB; host RSS 9.9 GB.
 
 - **Caveat — ARCO in-process:** the IC is fetched *before* FCN3 is loaded; fetching after the load hung on Spark (gcsfs/aiohttp).
 
 No change to FINAL numbers, bars, protocol or weights.
+5. **Final check:** the v0.1.1 README Quickstart was run verbatim in another new venv (`~/fcn3h-clean2`). Install succeeded, the extension check printed True, and the run raised no warning. FCN3 load took 34 s, IC 27 s and the rollout 104 s (165 s total). Output was identical to the earlier passing run (max abs diff 0.0) and matched the eval pairs (raw 0, corrected ≤ 3e-5 K).
