@@ -1,6 +1,6 @@
 """Run one forecast (or reuse an existing NetCDF) and plot raw vs corrected t2m over the box.
 
-    pip install "fcn3-himalayas[plot] @ git+https://github.com/build4me2/FourcastNet3-Himalayas-Fine-Tuning@v0.1.0"
+    pip install "fcn3-himalayas[plot] @ git+https://github.com/build4me2/FourcastNet3-Himalayas-Fine-Tuning@v0.1.1"
     python examples/plot_forecast.py --init 2024-07-01T00 --lead 120
 """
 import argparse

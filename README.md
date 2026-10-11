@@ -66,14 +66,22 @@ Thick-2 bridge scores are **report-only** continuity (not a second G1 path).
 
 ---
 
-## Quickstart — one-command forecast (v0.1.0)
+## Quickstart — one-command forecast (v0.1.1)
 
 Runs frozen FCN3 from an ERA5 initial condition, crops to **26–31°N, 80–89°E**, applies the published adapter, and writes NetCDF.
 
 ```bash
 python -m venv fcn3h && source fcn3h/bin/activate
-pip install torch                      # pick the CUDA build for your GPU from pytorch.org first
-pip install "fcn3-himalayas @ git+https://github.com/build4me2/FourcastNet3-Himalayas-Fine-Tuning@v0.1.0"
+pip install -U pip
+pip install torch                      # must be a CUDA build for your GPU (check: python -c "import torch; print(torch.cuda.is_available())")
+pip install "fcn3-himalayas @ git+https://github.com/build4me2/FourcastNet3-Himalayas-Fine-Tuning@v0.1.1"
+# Rebuild torch-harmonics with its CUDA DISCO extension (needs nvcc matching torch's CUDA on PATH).
+# --force-reinstall is required: torch-harmonics is already installed as a dependency, so a plain
+# `pip install torch-harmonics` is a no-op. Use the same pinned commit as the eval (PyPI 0.8.0 changes results).
+export PATH=/usr/local/cuda/bin:$PATH
+FORCE_CUDA_EXTENSION=1 pip install --no-build-isolation --no-deps --force-reinstall --no-cache-dir \
+  "torch-harmonics @ git+https://github.com/NVIDIA/torch-harmonics.git@a632ca748a12bd9f74dbc1e00653317810991f74"
+python -c "from earth2studio.models.px import fcn3; print('disco CUDA ext:', fcn3._cuda_extension_available)"   # expect True
 fcn3-himalayas forecast --init 2024-07-01T00 --lead 120 --out out.nc
 ```
 
@@ -84,9 +92,9 @@ What it does (same code path as the FINAL eval; see `docs/03_METHOD_AND_CODE.md`
 - **Adapter:** `best_residual.pt` from [`build4me2/fcn3-himalayas-final-residual-v0`](https://huggingface.co/build4me2/fcn3-himalayas-final-residual-v0) via `hf_hub_download` (md5 checked: `586ab17b843757bb84e66e2e3af8dc01`).
 - **Output** (`out.nc`, 21×37 at 0.25°, dims `lead_time` (h) × `lat` × `lon`): `t2m_raw`, `t2m_corrected` (K), `u10m_raw`, `u10m_corrected`, `v10m_raw`, `v10m_corrected` (m/s), `elevation` (m), coord `valid_time`. Default leads +24…+120 h every 24 h (`--lead` 24–120, `--every` multiple of 6). The adapter was trained/gated on +24/+72/+120 h only; other leads are reported but not part of the measured claim.
 - **Options:** `--device auto|cuda|cpu`, `--ic-npy` (own global 72×721×1440 IC), `--fcn3-package` / `--adapter` (local copies).
-- **Hardware (measured on DGX Spark / GB10):** peak CUDA allocation ≈49 GiB for a 120 h rollout, so FCN3 needs a large-memory GPU; it does **not** fit a 16 GB Colab T4 in this configuration. One 120 h forecast took ≈7 min end-to-end on Spark, and its output matched the FINAL eval pipeline (raw identical, corrected ≤3e-5 K; `docs/03_METHOD_AND_CODE.md` §7.1). CPU was not tested.
-- **Important:** build torch-harmonics with its CUDA extension (`FORCE_CUDA_EXTENSION=1 pip install --no-build-isolation torch-harmonics`). Without it, FCN3 is much slower; in a fresh venv on Spark the load stalled for more than 20 min.
-- **Example plot:** `pip install "fcn3-himalayas[plot] @ git+…@v0.1.0"` then `python examples/plot_forecast.py --init 2024-07-01T00` → `t2m_raw_vs_corrected.png`.
+- **Hardware (measured on DGX Spark / GB10):** peak CUDA allocation ≈49 GiB for a 120 h rollout, so FCN3 needs a large-memory GPU; it does **not** fit a 16 GB Colab T4 in this configuration. A clean-venv install following these steps ran a 120 h forecast in ≈2.7 min end to end on Spark (≈7 min in the first, shared-GPU test), and its output matched the FINAL eval pipeline (raw identical, corrected ≤3e-5 K; `docs/03_METHOD_AND_CODE.md` §7.1). CPU was not tested.
+- **Important:** the torch-harmonics rebuild step above is required (≈4.5 min compile on Spark), at the pinned commit `a632ca7` (0.8.1). With PyPI torch-harmonics 0.8.0, the FCN3 output on the test IC differed from the eval by up to 14.5 K (t2m, +96 h). Without the CUDA extension, FCN3 is much slower; in a fresh venv on Spark the load stalled for more than 20 min.
+- **Example plot:** `pip install "fcn3-himalayas[plot] @ git+…@v0.1.1"` then `python examples/plot_forecast.py --init 2024-07-01T00` → `t2m_raw_vs_corrected.png`.
 
 Skill claims apply only to this box and the FINAL protocol numbers above; a single forecast is not a validation.
 

@@ -77,6 +77,16 @@ def load_fcn3(device, package: str | None = None):
             "Install with: pip install 'earth2studio[fcn3]' and makani "
             "(see README Quickstart)."
         )
+    try:
+        import torch_harmonics as th
+        from earth2studio.models.px import fcn3 as _f
+
+        if getattr(th, "__version__", "") != "0.8.1" or not _f._cuda_extension_available:
+            log(f"WARNING: torch-harmonics {getattr(th, '__version__', '?')} (CUDA ext="
+                f"{_f._cuda_extension_available}); outputs are verified only with git a632ca7 (0.8.1) "
+                "built with FORCE_CUDA_EXTENSION=1 - see README Quickstart.")
+    except Exception:
+        pass
     pkg = Package(package, cache=False) if package else FCN3.load_default_package()
     model = FCN3.load_model(pkg).to(device)
     model.eval()

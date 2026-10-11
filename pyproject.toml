@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "fcn3-himalayas"
-version = "0.1.0"
+version = "0.1.1"
 description = "One-command FourCastNet3 + Himalayas residual adapter forecast (26-31N, 80-89E)"
 license = { text = "Apache-2.0" }
 requires-python = ">=3.10"
@@ -12,6 +12,8 @@ dependencies = [
   "earth2studio[fcn3]>=0.10,<0.19",
   "makani @ git+https://github.com/NVIDIA/makani.git@b38fcb2799d7dbc146fa60459f3f9823394a8bf1",
   "torch>=2.4",
+  # torch-harmonics comes in via earth2studio[fcn3]; the README rebuilds it at git a632ca7 (0.8.1)
+  # with the CUDA extension. It cannot be a git dependency here: its build needs torch (no build isolation).
   "huggingface_hub>=0.24",
   "xarray>=2024.1",
   "netCDF4>=1.6",

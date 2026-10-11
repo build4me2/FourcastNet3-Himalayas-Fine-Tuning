@@ -99,7 +99,7 @@ Prior interim weights: `runs/phase0/tier_a/v1_3_joint/` · md5 **`c81a5a4c4f07ca
 
 Authoritative training/eval details for the living FINAL residual are summarized in this file and in `docs/04_RESULTS.md` / `docs/05_IMPLEMENTATION_HISTORY.md`. Historical call cards (`FINAL_TRAIN_RECIPE`, `FINAL_EVAL_PROTOCOL`, `FINAL_RESIDUAL_V0_CALL`, `TIER_A_V1_3_JOINT_RECIPE`, etc.) were removed from git after consolidation; keep local/Spark backups if needed for provenance.
 
-## 7. One-command runner (`fcn3_himalayas/`, release v0.1.0)
+## 7. One-command runner (`fcn3_himalayas/`, release v0.1.1)
 
 Installable package (`pyproject.toml`, console script `fcn3-himalayas`, also `python -m fcn3_himalayas`). Install + command: see README **Quickstart**.
 
@@ -127,7 +127,18 @@ fcn3-himalayas forecast --init 2024-07-01T00 --lead 120 --out out.nc
 - **Same IC vs ERA5 truth (single IC, illustrative only):** t2m RMSE raw→corrected 2.132→2.012 (+24 h), 2.241→1.777 (+72 h), 3.099→2.440 K (+120 h), identical to the eval pipeline.
 - **Cost (GB10, shared with another job):** total ≈ 6.7–7 min wall (FCN3 load ≈ 2 min, ARCO IC ≈ 1.3 min, 20 FCN3 steps ≈ 3.5 min); peak CUDA allocation 49.0 GiB; host RSS ≈ 9.9 GB.
 - **Colab T4 (16 GB):** does not fit at the measured 49 GiB peak; reduced-memory modes were not tested.
-- **Caveat — fresh venv:** `pip install` into a clean venv succeeded, but pip's `torch-harmonics` wheel has no CUDA DISCO extension (Earth2Studio warns "FCN3 run on GPU/CUDA will be slower"); on Spark that FCN3 load stalled for >20 min and was stopped. The verified run used the project env that has the extension. Build it with `FORCE_CUDA_EXTENSION=1 pip install --no-build-isolation torch-harmonics`.
+- **Caveat — fresh venv (v0.1.0):** pip's `torch-harmonics` wheel has no CUDA DISCO extension (Earth2Studio warns "FCN3 run on GPU/CUDA will be slower"), and on Spark the FCN3 load stalled for more than 20 min.
+
+### 7.2 Clean-venv verification (2026-10-11, v0.1.1)
+
+The README Quickstart was followed in a new `~/fcn3h-clean-venv` (torch 2.14.1 from PyPI, aarch64 CUDA 13). Findings:
+
+1. v0.1.0 was missing `fcn3_himalayas/data/box_elevation.npz` from git because `.gitignore` excludes `**/*.npz`, so the CLI failed with FileNotFoundError. **Fixed in v0.1.1.**
+2. `FORCE_CUDA_EXTENSION=1 pip install --no-build-isolation torch-harmonics` was a no-op because the package was already installed; `--force-reinstall --no-deps` is needed.
+3. PyPI torch-harmonics 0.8.0 with the CUDA extension ran fine (load 50 s, total 178 s) but did **not** reproduce the eval: raw t2m max abs diff 6.4 K at +24 h and 14.5 K at +96 h. The eval env uses torch-harmonics git `a632ca7` (0.8.1). The v0.1.1 README rebuild step installs that commit, and the runner warns if a different version or no CUDA extension is detected. A git pin in `pyproject.toml` was tried and dropped because pip cannot build torch-harmonics in an isolated build environment (`NameError: CppExtension`).
+4. Rebuilding at `a632ca7` with the extension (4.6 min compile) reproduced the eval exactly: raw max abs diff 0 at all leads, corrected ≤ 3e-5 K. FCN3 load took 30 s, IC 25 s and the rollout 104 s (159 s total, 162 s wall); peak CUDA allocation 49.0 GiB; host RSS 9.9 GB.
+
 - **Caveat — ARCO in-process:** the IC is fetched *before* FCN3 is loaded; fetching after the load hung on Spark (gcsfs/aiohttp).
 
 No change to FINAL numbers, bars, protocol or weights.
+5. **Final check:** the v0.1.1 README Quickstart was run verbatim in another new venv (`~/fcn3h-clean2`). Install succeeded, the extension check printed True, and the run raised no warning. FCN3 load took 34 s, IC 27 s and the rollout 104 s (165 s total). Output was identical to the earlier passing run (max abs diff 0.0) and matched the eval pairs (raw 0, corrected ≤ 3e-5 K).
