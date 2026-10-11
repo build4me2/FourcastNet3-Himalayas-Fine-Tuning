@@ -12,8 +12,8 @@ dependencies = [
   "earth2studio[fcn3]>=0.10,<0.19",
   "makani @ git+https://github.com/NVIDIA/makani.git@b38fcb2799d7dbc146fa60459f3f9823394a8bf1",
   "torch>=2.4",
-  # Pinned: PyPI torch-harmonics 0.8.0 gives a different FCN3 trajectory (up to ~14 K at +96 h on the test IC).
-  "torch-harmonics @ git+https://github.com/NVIDIA/torch-harmonics.git@a632ca748a12bd9f74dbc1e00653317810991f74",
+  # torch-harmonics comes in via earth2studio[fcn3]; the README rebuilds it at git a632ca7 (0.8.1)
+  # with the CUDA extension. It cannot be a git dependency here: its build needs torch (no build isolation).
   "huggingface_hub>=0.24",
   "xarray>=2024.1",
   "netCDF4>=1.6",
